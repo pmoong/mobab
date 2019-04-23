@@ -11,6 +11,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import kmp.view.sikdangList.BeerStorePage;
+
 public class SikdangPage extends JPanel {
 	private MainFrame mf;
 	private JPanel sikdangPage;
@@ -51,7 +53,6 @@ public class SikdangPage extends JPanel {
 		home.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				ChangePanel.changePanel(mf,sikdangPage, new MainPage(mf));
 			}
 		});
@@ -62,7 +63,6 @@ public class SikdangPage extends JPanel {
 		infor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				ChangePanel.changePanel(mf, sikdangPage, new MemberInfoPage(mf));
 			}
 			
@@ -96,6 +96,14 @@ public class SikdangPage extends JPanel {
 		JButton beerStore = new JButton();
 		beerStore.setSize(300, 125);
 		beerStore.setLocation(50, 5);
+		beerStore.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, sikdangPage, new BeerStorePage(mf));
+			}
+			
+		});
 		JLabel beerLabel = new JLabel(new ImageIcon(beerStoreImg));
 		beerLabel.setSize(125, 125);
 		beerLabel.setLocation(0, 0);
