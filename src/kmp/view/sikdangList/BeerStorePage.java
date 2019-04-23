@@ -70,6 +70,10 @@ public class BeerStorePage extends JPanel{
 				ChangePanel.changePanel(mf, beerStorePage, new MemberInfoPage(mf));
 			}
 			
+			
+			
+			
+			
 		});
 		
 		panel1.add(back);
