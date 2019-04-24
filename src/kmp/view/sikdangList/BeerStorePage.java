@@ -27,7 +27,7 @@ public class BeerStorePage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//ì‚¬ìš©í•  ì´ë¯¸ì§€ í• ë‹¹
+		//»ç¿ëÇÒ ÀÌ¹ÌÁö ÇÒ´ç
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -38,7 +38,7 @@ public class BeerStorePage extends JPanel{
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 		
 		
-		//ìƒë‹¨ íŒ¨ë„
+		//»ó´Ü ÆĞ³Î
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
