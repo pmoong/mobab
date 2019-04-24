@@ -25,7 +25,7 @@ public class SikdangPage extends JPanel {
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//»ç¿ëÇÒ ÀÌ¹ÌÁö ÇÒ´ç
+		//ì‚¬ìš©í•  ì´ë¯¸ì§€ í• ë‹¹
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant_c.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -39,7 +39,7 @@ public class SikdangPage extends JPanel {
 		Image sandwichImg = new ImageIcon("images/sandwichF.png").getImage().getScaledInstance(125, 125, 0);
 		Image noodlesImg = new ImageIcon("images/noodlesF.png").getImage().getScaledInstance(125, 125, 0);
 		
-		//»ó´Ü ÆĞ³Î
+		//ìƒë‹¨ íŒ¨ë„
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -87,7 +87,7 @@ public class SikdangPage extends JPanel {
 		panel1.add(hist);
 		panel1.add(charg);
 		
-		//ÇÏ´ÜÆĞ³Î
+		//í•˜ë‹¨íŒ¨ë„
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
@@ -107,7 +107,7 @@ public class SikdangPage extends JPanel {
 		JLabel beerLabel = new JLabel(new ImageIcon(beerStoreImg));
 		beerLabel.setSize(125, 125);
 		beerLabel.setLocation(0, 0);
-		JTextArea beerTextArea = new JTextArea("°í±âÀâ³» Áö·ÁÁÖ´Â ¸ÆÁÖÃ¢°í~\n³·¿¡´Â Áö³ª°¡°í\n¹ã¿¡ ¼ú¸¶½Ã·¯ ¿À¼¼¿ä.");
+		JTextArea beerTextArea = new JTextArea("ê³ ê¸°ì¡ë‚´ ì§€ë ¤ì£¼ëŠ” ë§¥ì£¼ì°½ê³ ~\në‚®ì—ëŠ” ì§€ë‚˜ê°€ê³ \në°¤ì— ìˆ ë§ˆì‹œëŸ¬ ì˜¤ì„¸ìš”.");
 		beerTextArea.setSize(175, 125);
 		beerTextArea.setLocation(125, 0);
 		beerStore.add(beerLabel);
@@ -119,7 +119,7 @@ public class SikdangPage extends JPanel {
 		JLabel gramLabel = new JLabel(new ImageIcon(gramImg));
 		gramLabel.setSize(125, 125);
 		gramLabel.setLocation(0, 0);
-		JTextArea gramTextArea = new JTextArea("¾Æ¸Ş¸®Ä«³ë~\n§c¾Æ~§c¾Æ~§c¾Æ~");
+		JTextArea gramTextArea = new JTextArea("ì•„ë©”ë¦¬ì¹´ë…¸~\nì¬¬ì•„~ì¬¬ì•„~ì¬¬ì•„~");
 		gramTextArea.setSize(175, 125);
 		gramTextArea.setLocation(125, 0);
 		gram.add(gramLabel);
@@ -131,7 +131,7 @@ public class SikdangPage extends JPanel {
 		JLabel sandwichLabel = new JLabel(new ImageIcon(sandwichImg));
 		sandwichLabel.setSize(125, 125);
 		sandwichLabel.setLocation(0, 0);
-		JTextArea sandwichTextArea = new JTextArea("»÷µåÀ§Ä¡\n»§À» Æ÷°³¼­ ¸¸µç\n»÷µåÀ§Ä¡");
+		JTextArea sandwichTextArea = new JTextArea("ìƒŒë“œìœ„ì¹˜\në¹µì„ í¬ê°œì„œ ë§Œë“ \nìƒŒë“œìœ„ì¹˜");
 		sandwichTextArea.setSize(175, 125);
 		sandwichTextArea.setLocation(125, 0);
 		sandwich.add(sandwichLabel);
@@ -143,7 +143,7 @@ public class SikdangPage extends JPanel {
 		JLabel noodlesLabel = new JLabel(new ImageIcon(noodlesImg));
 		noodlesLabel.setSize(125, 125);
 		noodlesLabel.setLocation(0, 0);
-		JTextArea noodlesTextArea = new JTextArea("Â¥Àå¸é\n±æ°í °ËÀº\nÀÚÀå¸é");
+		JTextArea noodlesTextArea = new JTextArea("ì§œì¥ë©´\nê¸¸ê³  ê²€ì€\nìì¥ë©´");
 		noodlesTextArea.setSize(175, 125);
 		noodlesTextArea.setLocation(125, 0);
 		noodles.add(noodlesLabel);
@@ -153,6 +153,7 @@ public class SikdangPage extends JPanel {
 		panel2.add(gram);
 		panel2.add(sandwich);
 		panel2.add(noodles);
+		
 		
 		this.add(panel1);
 		this.add(panel2);
