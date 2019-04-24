@@ -23,7 +23,7 @@ public class MemberInfoPage extends JPanel {
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ Ìï†Îãπ
+		//ªÁøÎ«“ ¿ÃπÃ¡ˆ «“¥Á
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -33,7 +33,7 @@ public class MemberInfoPage extends JPanel {
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		
 		
-		//ÏÉÅÎã® Ìå®ÎÑê
+		//ªÛ¥‹ ∆–≥Œ
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -105,15 +105,34 @@ public class MemberInfoPage extends JPanel {
 		panel1.add(hist);
 		panel1.add(charg);
 		
-		//ÌïòÎã®Ìå®ÎÑê
+		//«œ¥‹∆–≥Œ
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 		
+		JPanel panel3 = new JPanel();
+		panel3.setSize(340, 420);
+		panel3.setLocation(30, 80);
+		panel3.setBackground(color.WHITE);
+		
+		JButton infoText = new JButton("»∏ø¯ ¡§∫∏");
+		infoText.setSize(360, 50);
+		infoText.setLocation(20, 20);
+//		infoText.setContentAreaFilled(false);
+		infoText.setBackground(backgcolor);
 		
 		
+		JLabel id = new JLabel("ID");
+		id.setSize(60, 30);
+		id.setLocation(20, 20);
+		id.setBackground(color.GRAY);
 		
+		
+		panel3.add(id);
+		
+		panel2.add(infoText);
+		panel2.add(panel3);
 		this.add(panel1);
 		this.add(panel2);
 		mf.add(this);
