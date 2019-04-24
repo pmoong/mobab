@@ -24,7 +24,10 @@ public class LoginPage extends JPanel{
 		Color color = new Color(234,255,236);
 		
 			
-		//상단 메인이미지
+
+		//��� �����̹���
+
+
 		JPanel panel1= new JPanel();
 		panel1.setSize(400, 300);
 		panel1.setLocation(0, 0);
@@ -35,7 +38,9 @@ public class LoginPage extends JPanel{
 		mobob.setLocation(50, 0);
 		panel1.add(mobob);
 		
-		//중간 로그인창
+
+		//�߰� �α���â
+
 		JPanel panel2= new JPanel();
 		panel2.setSize(400, 400);
 		panel2.setLocation(0, 300);
@@ -62,10 +67,11 @@ public class LoginPage extends JPanel{
 		panel2.add(password);
 	
 		
-		//하단 버튼
-		JButton button1 = new JButton("로그인");
-		JButton button2 = new JButton("ID/PWD 찾기");
-		JButton button3 = new JButton("회원가입");
+
+		JButton button1 = new JButton("�α���");
+		JButton button2 = new JButton("ID/PWD ã��");
+		JButton button3 = new JButton("ȸ����");
+
 		button1.setSize(120,50);
 		button1.setLocation(60, 170);
 		button2.setSize(120,50);
@@ -81,6 +87,15 @@ public class LoginPage extends JPanel{
 				ChangePanel.changePanel(mf,loginPage, new MainPage(mf));
 				
 			}
+		});
+		button2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, loginPage, new FindIdPage(mf));
+				
+			}
+			
 		});
 		button3.addActionListener(new ActionListener() {
 			

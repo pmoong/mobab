@@ -30,7 +30,9 @@ public class BeerStorePage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//�궗�슜�븷 �씠誘몄� �븷�떦
+
+		//占쎄占쎌占쎈막 占쎌沃紐占 占쎈막占쎈
+
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -41,7 +43,9 @@ public class BeerStorePage extends JPanel{
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 		
 		
-		//�긽�떒 �뙣�꼸
+
+		//占쎄맒占쎈 占쎈ｏ옙瑗
+
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -120,12 +124,12 @@ public class BeerStorePage extends JPanel{
 		
 
 		Image beername = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 20, 0);
-		JLabel beerLabel = new JLabel("라벨");
+		JLabel beerLabel = new JLabel("쇰꺼");
 		beerLabel.setSize(350, 150);
 		beerLabel.setLocation(0, 0);
 		beerLabel.setBackground(Color.YELLOW);
 		JTextField beertext = new JTextField();
-		beertext.setText("맥주창고");
+		beertext.setText("留μ＜李쎄�");
 		beertext.setSize(50,50);
 		beertext.setLocation(10,10);
 		beerLabel.add(beertext);
