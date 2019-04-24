@@ -24,7 +24,7 @@ public class LoginPage extends JPanel{
 		Color color = new Color(234,255,236);
 		
 			
-		//»ó´Ü ¸ŞÀÎÀÌ¹ÌÁö
+		//ìƒë‹¨ ë©”ì¸ì´ë¯¸ì§€
 		JPanel panel1= new JPanel();
 		panel1.setSize(400, 300);
 		panel1.setLocation(0, 0);
@@ -35,7 +35,7 @@ public class LoginPage extends JPanel{
 		mobob.setLocation(50, 0);
 		panel1.add(mobob);
 		
-		//Áß°£ ·Î±×ÀÎÃ¢
+		//ì¤‘ê°„ ë¡œê·¸ì¸ì°½
 		JPanel panel2= new JPanel();
 		panel2.setSize(400, 400);
 		panel2.setLocation(0, 300);
@@ -62,10 +62,10 @@ public class LoginPage extends JPanel{
 		panel2.add(password);
 	
 		
-		//ÇÏ´Ü ¹öÆ°
-		JButton button1 = new JButton("·Î±×ÀÎ");
-		JButton button2 = new JButton("ID/PWD Ã£±â");
-		JButton button3 = new JButton("È¸¿ø°¡ÀÔ");
+		//í•˜ë‹¨ ë²„íŠ¼
+		JButton button1 = new JButton("ë¡œê·¸ì¸");
+		JButton button2 = new JButton("ID/PWD ì°¾ê¸°");
+		JButton button3 = new JButton("íšŒì›ê°€ì…");
 		button1.setSize(120,50);
 		button1.setLocation(60, 170);
 		button2.setSize(120,50);

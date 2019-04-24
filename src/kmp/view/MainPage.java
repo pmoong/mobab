@@ -31,7 +31,7 @@ public class MainPage extends JPanel {
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//ªÁøÎ«“ ¿ÃπÃ¡ˆ «“¥Á
+		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ Ìï†Îãπ
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -40,9 +40,10 @@ public class MainPage extends JPanel {
 		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
+		Image todayMenuImg = new ImageIcon("images/todayMenu.png").getImage().getScaledInstance(300, 180, 0);
 		
 		
-		//ªÛ¥‹ ∆–≥Œ
+		//ÏÉÅÎã® Ìå®ÎÑê
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -106,35 +107,49 @@ public class MainPage extends JPanel {
 		fav.setContentAreaFilled(false);
 		fav.setSize(100,100);
 		fav.setLocation(100,50);
+		
+		
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
 		hist.setLocation(200,50);
+
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
-		JButton charg = new JButton(new ImageIcon(chargeImg));
-		charg.setSize(100,100);
-		charg.setLocation(300,50);
-		charg.setBorderPainted(false);
-		charg.setContentAreaFilled(false);
+		JButton charge = new JButton(new ImageIcon(chargeImg));
+		charge.setSize(100,100);
+		charge.setLocation(300,50);
+		charge.setBorderPainted(false);
+		charge.setContentAreaFilled(false);
+    charge.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ChangePanel.changePanel(mf, mainPage, new ChargePage(mf));
+				
+			}
+		});
+
+		
 		panel1.add(sik);
 		panel1.add(fav);
 		panel1.add(hist);
-		panel1.add(charg);
+		panel1.add(charge);
 		
-		//«œ¥‹∆–≥Œ
+		//ÌïòÎã®Ìå®ÎÑê
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 		
-		JLabel todaymenu = new JLabel("< ø¿¥√¿« ∏ﬁ¥∫ >");
+		JLabel todaymenu = new JLabel("< Ïò§ÎäòÏùò Î©îÎâ¥ >");
 		todaymenu.setSize(200, 25);
 		todaymenu.setLocation(50, 25);
-		JLabel menuImg = new JLabel(new ImageIcon(bannerImg));
+		JLabel menuImg = new JLabel(new ImageIcon(todayMenuImg));
 		menuImg.setSize(300, 200);
 		menuImg.setLocation(50, 50);
 		
-		JLabel todaynews = new JLabel("< ø¿¥√¿« ¥∫Ω∫ >");
+		JLabel todaynews = new JLabel("< Ïò§ÎäòÏùò Îâ¥Ïä§ >");
 		todaynews.setSize(200, 25);
 		todaynews.setLocation(50, 300);
 		JLabel banner = new JLabel(new ImageIcon(bannerImg));

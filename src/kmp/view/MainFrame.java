@@ -5,7 +5,7 @@ import javax.swing.JFrame;
 
 public class MainFrame extends JFrame{
 	public MainFrame() {
-		this.setTitle("¸ð¹ä");
+		this.setTitle("ëª¨ë°¥");
 
 		this.setSize(400, 700);
 		this.setLayout(null);
