@@ -25,7 +25,8 @@ public class ChargePage extends JPanel {
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//�궗�슜�븷 �씠誘몄� �븷�떦
+
+		//사용할 이미지 할당
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -124,7 +125,8 @@ public class ChargePage extends JPanel {
 		panel1.add(charge);
 		
 		
-		//�븯�떒�뙣�꼸
+
+		//하단패널
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
@@ -133,7 +135,8 @@ public class ChargePage extends JPanel {
 		JLabel cash = new JLabel(new ImageIcon(cashImg));
 		cash.setSize(60, 60);
 		cash.setLocation(40, 20);
-		JTextField cashInt = new JTextField("�옍�븸");
+
+		JTextField cashInt = new JTextField("잔액");
 		cashInt.setEditable(false);	
 		cashInt.setSize(260, 60);
 		cashInt.setLocation(100, 20);
@@ -141,7 +144,8 @@ public class ChargePage extends JPanel {
 		JLabel chargeMoney = new JLabel(new ImageIcon(chargeMoneyImg));
 		chargeMoney.setSize(60, 60);
 		chargeMoney.setLocation(40, 120);
-		JTextField chargeMoneyInt = new JTextField("異⑹쟾湲덉븸");
+
+		JTextField chargeMoneyInt = new JTextField("충전금액");
 		chargeMoneyInt.setEditable(false);	
 		chargeMoneyInt.setSize(260, 60);
 		chargeMoneyInt.setLocation(100, 120);
@@ -149,7 +153,8 @@ public class ChargePage extends JPanel {
 		JLabel allMoney = new JLabel(new ImageIcon(allMoneyImg));
 		allMoney.setSize(60, 60);
 		allMoney.setLocation(40, 230);
-		JTextField allMoneyInt = new JTextField("珥앹븸");
+
+		JTextField allMoneyInt = new JTextField("총액");
 		allMoneyInt.setEditable(false);	
 		allMoneyInt.setSize(260, 60);
 		allMoneyInt.setLocation(100, 230);
@@ -167,7 +172,8 @@ public class ChargePage extends JPanel {
 		button4.setSize(75, 20);
 		button4.setLocation(285, 200);
 		
-		JButton chargeButton = new JButton("異⑹쟾�븯湲�");
+
+		JButton chargeButton = new JButton("충전하기");
 		chargeButton.setSize(120, 40);
 		chargeButton.setLocation(240,  320);
 		

@@ -1,3 +1,4 @@
+
 package kmp.view;
 
 import java.awt.Color;
@@ -24,7 +25,10 @@ public class LoginPage extends JPanel{
 		Color color = new Color(234,255,236);
 		
 			
-		//�긽�떒 硫붿씤�씠誘몄�
+
+		//��� �����̹���
+
+
 		JPanel panel1= new JPanel();
 		panel1.setSize(400, 300);
 		panel1.setLocation(0, 0);
@@ -35,7 +39,9 @@ public class LoginPage extends JPanel{
 		mobob.setLocation(50, 0);
 		panel1.add(mobob);
 		
-		//以묎컙 濡쒓렇�씤李�
+
+		//�߰� �α���â
+
 		JPanel panel2= new JPanel();
 		panel2.setSize(400, 400);
 		panel2.setLocation(0, 300);
@@ -46,8 +52,8 @@ public class LoginPage extends JPanel{
 		JLabel label1 = new JLabel(new ImageIcon(login_ID));
 		Image login_Pwd = new ImageIcon("images/login_Pwd.png").getImage().getScaledInstance(60, 40, 0);
 		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
-		JTextField tf = new JTextField();
-		JPasswordField password = new JPasswordField();
+		JTextField tf = new JTextField(20);
+		JPasswordField password = new JPasswordField(30);
 		label1.setSize(60,40);
 		label1.setLocation(60, 50);
 		panel2.add(label1);
@@ -62,10 +68,11 @@ public class LoginPage extends JPanel{
 		panel2.add(password);
 	
 		
-		//�븯�떒 踰꾪듉
-		JButton button1 = new JButton("濡쒓렇�씤");
-		JButton button2 = new JButton("ID/PWD 李얘린");
-		JButton button3 = new JButton("�쉶�썝媛��엯");
+
+		JButton button1 = new JButton("�α���");
+		JButton button2 = new JButton("ID/PWD ã��");
+		JButton button3 = new JButton("ȸ����");
+
 		button1.setSize(120,50);
 		button1.setLocation(60, 170);
 		button2.setSize(120,50);
@@ -81,6 +88,15 @@ public class LoginPage extends JPanel{
 				ChangePanel.changePanel(mf,loginPage, new MainPage(mf));
 				
 			}
+		});
+		button2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, loginPage, new FindIdPage(mf));
+				
+			}
+			
 		});
 		button3.addActionListener(new ActionListener() {
 			
