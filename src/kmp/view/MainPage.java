@@ -50,10 +50,14 @@ public class MainPage extends JPanel {
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
 		back.setLocation(0,0);
+		back.setBorderPainted(false);
+		back.setContentAreaFilled(false);
 
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
 		home.setLocation(80,0);
+		home.setBorderPainted(false);
+		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
 
 			@Override
@@ -67,6 +71,8 @@ public class MainPage extends JPanel {
 		JButton infor = new JButton(new ImageIcon(userinfoImg));
 		infor.setSize(80,50);
 		infor.setLocation(320,0);
+		infor.setBorderPainted(false);
+		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -82,6 +88,8 @@ public class MainPage extends JPanel {
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
+		sik.setBorderPainted(false);
+		sik.setContentAreaFilled(false);
 		
 		sik.addActionListener(new ActionListener() {
 
@@ -94,14 +102,20 @@ public class MainPage extends JPanel {
 		});
 		
 		JButton fav = new JButton(new ImageIcon(favoriteImg));
+		fav.setBorderPainted(false);
+		fav.setContentAreaFilled(false);
 		fav.setSize(100,100);
 		fav.setLocation(100,50);
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
 		hist.setLocation(200,50);
+		hist.setBorderPainted(false);
+		hist.setContentAreaFilled(false);
 		JButton charg = new JButton(new ImageIcon(chargeImg));
 		charg.setSize(100,100);
 		charg.setLocation(300,50);
+		charg.setBorderPainted(false);
+		charg.setContentAreaFilled(false);
 		panel1.add(sik);
 		panel1.add(fav);
 		panel1.add(hist);
