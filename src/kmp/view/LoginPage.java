@@ -24,7 +24,10 @@ public class LoginPage extends JPanel{
 		Color color = new Color(234,255,236);
 		
 			
-		//»ó´Ü ¸ÞÀÎÀÌ¹ÌÁö
+
+		//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ì¹ï¿½ï¿½ï¿½
+
+
 		JPanel panel1= new JPanel();
 		panel1.setSize(400, 300);
 		panel1.setLocation(0, 0);
@@ -35,7 +38,9 @@ public class LoginPage extends JPanel{
 		mobob.setLocation(50, 0);
 		panel1.add(mobob);
 		
-		//Áß°£ ·Î±×ÀÎÃ¢
+
+		//ï¿½ß°ï¿½ ï¿½Î±ï¿½ï¿½ï¿½Ã¢
+
 		JPanel panel2= new JPanel();
 		panel2.setSize(400, 400);
 		panel2.setLocation(0, 300);
@@ -62,10 +67,11 @@ public class LoginPage extends JPanel{
 		panel2.add(password);
 	
 		
-		//ÇÏ´Ü ¹öÆ°
-		JButton button1 = new JButton("·Î±×ÀÎ");
-		JButton button2 = new JButton("ID/PWD Ã£±â");
-		JButton button3 = new JButton("È¸¿ø°¡ÀÔ");
+
+		JButton button1 = new JButton("ï¿½Î±ï¿½ï¿½ï¿½");
+		JButton button2 = new JButton("ID/PWD Ã£ï¿½ï¿½");
+		JButton button3 = new JButton("È¸ï¿½ï¿½ï¿½ï¿½");
+
 		button1.setSize(120,50);
 		button1.setLocation(60, 170);
 		button2.setSize(120,50);
@@ -81,6 +87,15 @@ public class LoginPage extends JPanel{
 				ChangePanel.changePanel(mf,loginPage, new MainPage(mf));
 				
 			}
+		});
+		button2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, loginPage, new FindIdPage(mf));
+				
+			}
+			
 		});
 		button3.addActionListener(new ActionListener() {
 			
