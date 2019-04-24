@@ -32,7 +32,6 @@ public class BeerStorePage extends JPanel{
 		
 
 		//占쎄占쎌占쎈막 占쎌沃紐占 占쎈막占쎈
-
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -44,8 +43,7 @@ public class BeerStorePage extends JPanel{
 		
 		
 
-		//占쎄맒占쎈 占쎈ｏ옙瑗
-
+		//�긽�떒 �뙣�꼸
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -62,7 +60,7 @@ public class BeerStorePage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.changePanel(mf,beerStorePage, new MainPage(mf));
+				ChangePanel.ChangePanel(mf,beerStorePage, new MainPage(mf));
 			}
 			
 		});
@@ -74,7 +72,7 @@ public class BeerStorePage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.changePanel(mf, beerStorePage, new MemberInfoPage(mf));
+				ChangePanel.ChangePanel(mf, beerStorePage, new MemberInfoPage(mf));
 			}
 			
 			
@@ -95,7 +93,7 @@ public class BeerStorePage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.changePanel(mf,beerStorePage, new SikdangPage(mf));
+				ChangePanel.ChangePanel(mf,beerStorePage, new SikdangPage(mf));
 			}
 			
 		});
