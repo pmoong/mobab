@@ -82,6 +82,14 @@ public class LoginPage extends JPanel{
 				
 			}
 		});
+		button3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, loginPage, new JoinPage(mf));
+				
+			}
+		});
 
 		this.add(panel1);
 		this.add(panel2);
