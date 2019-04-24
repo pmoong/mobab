@@ -7,7 +7,10 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 import kmp.view.ChangePanel;
 import kmp.view.MainFrame;
@@ -27,7 +30,7 @@ public class BeerStorePage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//사용할 이미지 할당
+		//�궗�슜�븷 �씠誘몄� �븷�떦
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -38,7 +41,7 @@ public class BeerStorePage extends JPanel{
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 		
 		
-		//상단 패널
+		//�긽�떒 �뙣�꼸
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -109,5 +112,28 @@ public class BeerStorePage extends JPanel{
 		
 		this.add(panel1);
 		mf.add(this);
+		
+		JPanel panel2 = new JPanel();
+		panel2.setSize(350, 400);
+		panel2.setLocation(20, 200);
+		panel2.setBackground(color);
+		
+
+		Image beername = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 20, 0);
+		JLabel beerLabel = new JLabel("라벨");
+		beerLabel.setSize(350, 150);
+		beerLabel.setLocation(0, 0);
+		beerLabel.setBackground(Color.YELLOW);
+		JTextField beertext = new JTextField();
+		beertext.setText("맥주창고");
+		beertext.setSize(50,50);
+		beertext.setLocation(10,10);
+		beerLabel.add(beertext);
+		
+		panel2.add(beerLabel);
+		this.add(panel1);
+		this.add(panel2);
+		mf.add(this);
+		
 	}
 }
