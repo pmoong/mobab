@@ -31,7 +31,7 @@ public class MainPage extends JPanel {
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//사용할 이미지 할당
+		//�궗�슜�븷 �씠誘몄� �븷�떦
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -43,7 +43,7 @@ public class MainPage extends JPanel {
 		Image todayMenuImg = new ImageIcon("images/todayMenu.png").getImage().getScaledInstance(300, 180, 0);
 		
 		
-		//상단 패널
+		//�긽�떒 �뙣�꼸
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -108,6 +108,15 @@ public class MainPage extends JPanel {
 		fav.setSize(100,100);
 		fav.setLocation(100,50);
 		
+		fav.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ChangePanel.changePanel(mf, mainPage, new FavoritePage(mf));
+			}
+		});
+		
 		
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
@@ -136,20 +145,20 @@ public class MainPage extends JPanel {
 		panel1.add(hist);
 		panel1.add(charge);
 		
-		//하단패널
+		//�븯�떒�뙣�꼸
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 		
-		JLabel todaymenu = new JLabel("< 오늘의 메뉴 >");
+		JLabel todaymenu = new JLabel("< �삤�뒛�쓽 硫붾돱 >");
 		todaymenu.setSize(200, 25);
 		todaymenu.setLocation(50, 25);
 		JLabel menuImg = new JLabel(new ImageIcon(todayMenuImg));
 		menuImg.setSize(300, 200);
 		menuImg.setLocation(50, 50);
 		
-		JLabel todaynews = new JLabel("< 오늘의 뉴스 >");
+		JLabel todaynews = new JLabel("< �삤�뒛�쓽 �돱�뒪 >");
 		todaynews.setSize(200, 25);
 		todaynews.setLocation(50, 300);
 		JLabel banner = new JLabel(new ImageIcon(bannerImg));

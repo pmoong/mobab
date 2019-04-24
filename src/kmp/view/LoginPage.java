@@ -24,7 +24,7 @@ public class LoginPage extends JPanel{
 		Color color = new Color(234,255,236);
 		
 			
-		//상단 메인이미지
+		//�긽�떒 硫붿씤�씠誘몄�
 		JPanel panel1= new JPanel();
 		panel1.setSize(400, 300);
 		panel1.setLocation(0, 0);
@@ -35,7 +35,7 @@ public class LoginPage extends JPanel{
 		mobob.setLocation(50, 0);
 		panel1.add(mobob);
 		
-		//중간 로그인창
+		//以묎컙 濡쒓렇�씤李�
 		JPanel panel2= new JPanel();
 		panel2.setSize(400, 400);
 		panel2.setLocation(0, 300);
@@ -46,8 +46,8 @@ public class LoginPage extends JPanel{
 		JLabel label1 = new JLabel(new ImageIcon(login_ID));
 		Image login_Pwd = new ImageIcon("images/login_Pwd.png").getImage().getScaledInstance(60, 40, 0);
 		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
-		JTextField tf = new JTextField(20);
-		JPasswordField password = new JPasswordField(30);
+		JTextField tf = new JTextField();
+		JPasswordField password = new JPasswordField();
 		label1.setSize(60,40);
 		label1.setLocation(60, 50);
 		panel2.add(label1);
@@ -62,10 +62,10 @@ public class LoginPage extends JPanel{
 		panel2.add(password);
 	
 		
-		//하단 버튼
-		JButton button1 = new JButton("로그인");
-		JButton button2 = new JButton("ID/PWD 찾기");
-		JButton button3 = new JButton("회원가입");
+		//�븯�떒 踰꾪듉
+		JButton button1 = new JButton("濡쒓렇�씤");
+		JButton button2 = new JButton("ID/PWD 李얘린");
+		JButton button3 = new JButton("�쉶�썝媛��엯");
 		button1.setSize(120,50);
 		button1.setLocation(60, 170);
 		button2.setSize(120,50);

@@ -27,6 +27,7 @@ public class JoinPage extends JPanel{
 		Image joinImg = new ImageIcon("images/join.png").getImage().getScaledInstance(400, 100, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		
+		
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setBackground(color1);
