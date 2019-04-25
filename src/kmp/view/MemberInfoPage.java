@@ -9,7 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 public class MemberInfoPage extends JPanel {
 	private MainFrame mf;
@@ -31,6 +33,15 @@ public class MemberInfoPage extends JPanel {
 		Image chargeImg = new ImageIcon("images/mCharge.png").getImage().getScaledInstance(100, 100, 0);
 		Image userinfoImg = new ImageIcon("images/user_c.png").getImage().getScaledInstance(80, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
+		
+		Image academyImg = new ImageIcon("images/academy.png").getImage().getScaledInstance(60, 30, 0);
+		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(20, 30, 0);
+		Image emailImg = new ImageIcon("images/email.png").getImage().getScaledInstance(60, 30, 0);
+		Image genderImg = new ImageIcon("images/gender.png").getImage().getScaledInstance(60, 30, 0);
+		Image idImg = new ImageIcon("images/id.png").getImage().getScaledInstance(60, 30, 0);
+		Image nameImg = new ImageIcon("images/name.png").getImage().getScaledInstance(60, 30, 0);
+		Image phoneNumImg = new ImageIcon("images/phoneNum.png").getImage().getScaledInstance(60, 30, 0);
+		Image pwdImg = new ImageIcon("images/pwd.png").getImage().getScaledInstance(60, 30, 0);
 		
 		
 		//상단 패널
@@ -122,14 +133,92 @@ public class MemberInfoPage extends JPanel {
 //		infoText.setContentAreaFilled(false);
 		infoText.setBackground(backgcolor);
 		
+	
+		//id정보
+		JLabel idIcon = new JLabel(new ImageIcon(idImg));
+		JTextField idInfo = new JTextField(30);
+		idIcon.setSize(60,30);
+		idInfo.setSize(270,30);
+		idIcon.setLocation(5, 20);
+		idInfo.setLocation(65, 20);
 		
-		JLabel id = new JLabel("ID");
-		id.setSize(60, 30);
-		id.setLocation(20, 20);
-		id.setBackground(color.GRAY);
+		//pwd정보
+		JLabel pwdIcon = new JLabel(new ImageIcon(pwdImg));
+		JTextField pwdInfo = new JTextField(30);
+		pwdIcon.setSize(60,30);
+		pwdInfo.setSize(270,30);
+		pwdIcon.setLocation(5, 80);
+		pwdInfo.setLocation(65, 80);
+		
+		//이름정보
+		JLabel nameIcon = new JLabel(new ImageIcon(nameImg));
+		JTextField nameInfo = new JTextField(30);
+		nameIcon.setSize(60, 30);
+		nameInfo.setSize(270, 30);
+		nameIcon.setLocation(5, 140);
+		nameInfo.setLocation(65, 140);
+		
+		//이메일 정보
+		JLabel emailIcon = new JLabel(new ImageIcon(emailImg));
+		JTextField emailInfo = new JTextField(30);
+		emailIcon.setSize(60, 30);
+		emailInfo.setSize(270, 30);
+		emailIcon.setLocation(5, 200);
+		emailInfo.setLocation(65, 200);
+		
+		//전화번호 정보
+		JLabel phoneNumIcon = new JLabel(new ImageIcon(phoneNumImg));
+		JTextField phoneNumInfo = new JTextField(30);
+		phoneNumIcon.setSize(60, 30);
+		phoneNumInfo.setSize(270, 30);
+		phoneNumIcon.setLocation(5, 260);
+		phoneNumInfo.setLocation(65, 260);
+		
+		//학원정보
+		JLabel academyIcon = new JLabel(new ImageIcon(academyImg));
+		JTextField academyInfo = new JTextField(20);
+		academyIcon.setSize(60, 30);
+		academyInfo.setSize(120, 30);
+		academyIcon.setLocation(5, 320);
+		academyInfo.setLocation(65, 320);
+		
+		//반정보
+		JLabel classroomIcon = new JLabel(new ImageIcon(classroomImg));
+		JTextField classroomInfo = new JTextField(20);
+		classroomIcon.setSize(30, 30);
+		classroomInfo.setSize(120, 30);
+		classroomIcon.setLocation(190, 320);
+		classroomInfo.setLocation(215, 320);
+
+		//성별정보
+		JLabel genderIcon = new JLabel(new ImageIcon(genderImg));
+		JTextField genderInfo = new JTextField(20);
+		genderIcon.setSize(60, 30);
+		genderInfo.setSize(120, 30);
+		genderIcon.setLocation(5, 380);
+		genderInfo.setLocation(65, 380);
 		
 		
-		panel3.add(id);
+		
+		
+		panel3.add(idIcon);
+		panel3.add(idInfo);
+		panel3.add(pwdIcon);
+		panel3.add(pwdInfo);
+		panel3.add(nameIcon);
+		panel3.add(nameInfo);
+		panel3.add(emailIcon);
+		panel3.add(emailInfo);
+		panel3.add(phoneNumIcon);
+		panel3.add(phoneNumInfo);
+		panel3.add(academyIcon);
+		panel3.add(academyInfo);
+		panel3.add(classroomIcon);
+		panel3.add(classroomInfo);
+		panel3.add(genderIcon);
+		panel3.add(genderInfo);
+		
+		
 		
 		panel2.add(infoText);
 		panel2.add(panel3);
