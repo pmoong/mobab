@@ -1,4 +1,4 @@
-package kmp.view;
+﻿package kmp.view;
 
 import java.awt.Color;
 import java.awt.Image;
