@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -56,7 +57,6 @@ public class JoinPage extends JPanel{
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
@@ -95,23 +95,27 @@ public class JoinPage extends JPanel{
 		label1.setLocation(30, 40);
 		tf1.setLocation(90, 40);
 		button3.setLocation(268, 40);
+		
 		JLabel label2 = new JLabel(new ImageIcon(pwdImg));
 		password.setSize(270,30);
 		label2.setSize(60,30);
 		label2.setLocation(30, 80);
 		password.setLocation(90, 80);
+		
 		JLabel label3 = new JLabel(new ImageIcon(nameImg));
 		label3.setSize(60,30);
 		label3.setLocation(30, 120);
 		JTextField tf2 = new JTextField(20);
 		tf2.setSize(270,30);
 		tf2.setLocation(90, 120);
+		
 		JLabel label4 = new JLabel(new ImageIcon(emailImg));
 		label4.setSize(60,30);
 		label4.setLocation(30, 160);
 		JTextField tf3 = new JTextField(20);
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
+		
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField(20);
 		JButton button4 = new JButton("중복확인");
@@ -121,24 +125,53 @@ public class JoinPage extends JPanel{
 		label5.setLocation(30, 200);
 		tf4.setLocation(90, 200);
 		button4.setLocation(268, 200);
+		
 		JLabel label6 = new JLabel(new ImageIcon(academyImg));
 		JTextField tf5 = new JTextField(20);
 		label6.setSize(60,30);
 		tf5.setSize(120,30);
 		label6.setLocation(30, 240);
 		tf5.setLocation(90, 240);
+		
 		JLabel label7 = new JLabel(new ImageIcon(classroomImg));
-		JTextField tf6 = new JTextField(20);
+		JTextField tf6 = new JTextField();
 		label7.setSize(20,30);
 		tf6.setSize(120,30);
 		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
-		JLabel label8 = new JLabel(new ImageIcon(genderImg));
-		JTextField tf7 = new JTextField(20);
+		
+		JLabel label8 = new JLabel("나이");
+//		JTextField tf7 = new JTextField();
+		String ages[] = new String[30];
+		int age=20;
+		for(int i=0;i<ages.length;i++) {
+			ages[i]=age+"";
+			age++;
+		}
+		JComboBox ageBox = new JComboBox(ages);
+		ageBox.setSelectedItem(0);
 		label8.setSize(60,30);
-		tf7.setSize(120,30);
+		ageBox.setSize(120,30);
 		label8.setLocation(30, 280);
-		tf7.setLocation(90, 280);
+		ageBox.setLocation(90, 280);
+		
+		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
+		String[] genders = {" ","남","여"};
+		JComboBox gender = new JComboBox(genders);
+		gender.setSelectedIndex(0);
+		gender.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			
+			}
+			
+		});
+		gendlabel.setHorizontalAlignment(JLabel.CENTER);
+		gendlabel.setSize(60,30);
+		gender.setSize(80,30);
+		gendlabel.setLocation(220, 280);
+		gender.setLocation(280, 280);
+		
 		JButton button5 = new JButton("확인");
 		button5.setSize(300,80);
 		button5.setLocation(50, 360);
@@ -146,9 +179,11 @@ public class JoinPage extends JPanel{
 		panel2.setBackground(color);
 		
 		panel2.add(button5);
+		panel2.add(gendlabel);
+		panel2.add(gender);
 		
 		panel2.add(label8);
-		panel2.add(tf7);
+		panel2.add(ageBox);
 		
 		panel2.add(label7);
 		panel2.add(tf6);

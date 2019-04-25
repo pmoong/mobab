@@ -31,7 +31,7 @@ public class BeerStorePage extends JPanel{
 		Color backgcolor = new Color(234,255,236);
 		
 
-		//占쎄占쎌占쎈막 占쎌沃紐占 占쎈막占쎈
+		//�뜝�럡혰�뜝�럩혡혵�뜝�럥留� �뜝�럩혬亦꺜섓쭗혙�뜝 �뜝�럥留됧뜝�럥혯
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -43,7 +43,7 @@ public class BeerStorePage extends JPanel{
 		
 		
 
-		//�긽�떒 �뙣�꼸
+		//占쎄맒占쎈뼊 占쎈솭占쎄섯
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -60,7 +60,7 @@ public class BeerStorePage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.ChangePanel(mf,beerStorePage, new MainPage(mf));
+				ChangePanel.changePanel(mf,beerStorePage, new MainPage(mf));
 			}
 			
 		});
@@ -72,7 +72,7 @@ public class BeerStorePage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.ChangePanel(mf, beerStorePage, new MemberInfoPage(mf));
+				ChangePanel.changePanel(mf, beerStorePage, new MemberInfoPage(mf));
 			}
 			
 			
@@ -93,7 +93,7 @@ public class BeerStorePage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.ChangePanel(mf,beerStorePage, new SikdangPage(mf));
+				ChangePanel.changePanel(mf,beerStorePage, new SikdangPage(mf));
 			}
 			
 		});
@@ -122,12 +122,12 @@ public class BeerStorePage extends JPanel{
 		
 
 		Image beername = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 20, 0);
-		JLabel beerLabel = new JLabel("쇰꺼");
+		JLabel beerLabel = new JLabel("혶�눖爰�");
 		beerLabel.setSize(350, 150);
 		beerLabel.setLocation(0, 0);
 		beerLabel.setBackground(Color.YELLOW);
 		JTextField beertext = new JTextField();
-		beertext.setText("留μ＜李쎄�");
+		beertext.setText("筌띘쇽폒筌≪럡占�");
 		beertext.setSize(50,50);
 		beertext.setLocation(10,10);
 		beerLabel.add(beertext);

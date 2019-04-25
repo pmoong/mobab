@@ -33,10 +33,7 @@ public class LoginPage extends JPanel{
 		panel1.setLocation(0, 0);
 		panel1.setBackground(color);
 
-		Image mobobMain = new ImageIcon("images/mobobMain.png").getImage().getScaledInstance(300, 300, 0);
-		JLabel mobob = new JLabel(new ImageIcon(mobobMain));
-		mobob.setLocation(50, 0);
-		panel1.add(mobob);
+		
 		
 
 		//중간 로그인창
@@ -55,17 +52,16 @@ public class LoginPage extends JPanel{
 		JPasswordField password = new JPasswordField(30);
 		label1.setSize(60,40);
 		label1.setLocation(60, 50);
-		panel2.add(label1);
+
 		label2.setSize(60,40);
 		label2.setLocation(60, 100);
-		panel2.add(label2);
+
 		tf.setSize(220,40);
 		password.setSize(220,40);
-		panel2.add(tf);
+
 		tf.setLocation(120,50);
 		password.setLocation(120, 100);
-		panel2.add(password);
-	
+
 		
 		//하단 버튼
 		
@@ -79,9 +75,7 @@ public class LoginPage extends JPanel{
 		button2.setLocation(220, 170);
 		button3.setSize(280,50);
 		button3.setLocation(60,250);
-		panel2.add(button1);
-		panel2.add(button2);
-		panel2.add(button3);
+
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -105,15 +99,30 @@ public class LoginPage extends JPanel{
 				ChangePanel.changePanel(mf, loginPage, new JoinPage(mf));
 				
 			}
-		});
+		});		
+		Image mobobMain = new ImageIcon("images/mobobMain.png").getImage().getScaledInstance(300, 300, 0);
+		JLabel mobob = new JLabel(new ImageIcon(mobobMain));
+		mobob.setLocation(50, 0);
+		
+		panel1.add(mobob);
+		panel2.add(label1);
+		panel2.add(label2);
+		panel2.add(tf);
+		panel2.add(password);
+	
+		panel2.add(button1);
+		panel2.add(button2);
+		panel2.add(button3);
+		
 
 		this.add(panel1);
 		this.add(panel2);
 
 
 		
-
 		mf.add(this);
+		mf.setVisible(true);
+
 	}
 
 }
