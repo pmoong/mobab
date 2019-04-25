@@ -5,12 +5,10 @@ import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 public class ChargePage extends JPanel {
@@ -26,7 +24,7 @@ public class ChargePage extends JPanel {
 		Color backgcolor = new Color(234,255,236);
 		
 
-		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ Ìï†Îãπ
+		//ªÁøÎ«“ ¿ÃπÃ¡ˆ «“¥Á
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -51,16 +49,20 @@ public class ChargePage extends JPanel {
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
 		back.setLocation(0,0);
+		back.setBorderPainted(false);
+		back.setContentAreaFilled(false);
 
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
 		home.setLocation(80,0);
+		home.setBorderPainted(false);
+		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.ChangePanel(mf,chargePage, new MainPage(mf));
+				ChangePanel.changePanel(mf,chargePage, new MainPage(mf));
 			}
 			
 		});
@@ -68,11 +70,13 @@ public class ChargePage extends JPanel {
 		JButton infor = new JButton(new ImageIcon(userinfoImg));
 		infor.setSize(80,50);
 		infor.setLocation(320,0);
+		infor.setBorderPainted(false);
+		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.ChangePanel(mf, chargePage, new MemberInfoPage(mf));
+				ChangePanel.changePanel(mf, chargePage, new MemberInfoPage(mf));
 			}
 			
 		});
@@ -83,13 +87,15 @@ public class ChargePage extends JPanel {
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
-		
+		sik.setBorderPainted(false);
+		sik.setContentAreaFilled(false);
+
 		sik.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.ChangePanel(mf,chargePage, new SikdangPage(mf));
+				ChangePanel.changePanel(mf,chargePage, new SikdangPage(mf));
 			}
 			
 		});
@@ -97,23 +103,29 @@ public class ChargePage extends JPanel {
 		JButton fav = new JButton(new ImageIcon(favoriteImg));
 		fav.setSize(100,100);
 		fav.setLocation(100,50);
-		
+		fav.setBorderPainted(false);
+		fav.setContentAreaFilled(false);
+
 		
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
 		hist.setLocation(200,50);
-		
+		hist.setBorderPainted(false);
+		hist.setContentAreaFilled(false);
+
 		
 		JButton charge = new JButton(new ImageIcon(chargeImg));
 		charge.setSize(100,100);
 		charge.setLocation(300,50);
-		
+		charge.setBorderPainted(false);
+		charge.setContentAreaFilled(false);
+
 		charge.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				ChangePanel.ChangePanel(mf, chargePage, new ChargePage(mf));
+				ChangePanel.changePanel(mf, chargePage, new ChargePage(mf));
 				
 			}
 		});
@@ -126,7 +138,7 @@ public class ChargePage extends JPanel {
 		
 		
 
-		//ÌïòÎã®Ìå®ÎÑê
+		//«œ¥‹∆–≥Œ
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
@@ -136,7 +148,7 @@ public class ChargePage extends JPanel {
 		cash.setSize(60, 60);
 		cash.setLocation(40, 20);
 
-		JTextField cashInt = new JTextField("ÏûîÏï°");
+		JTextField cashInt = new JTextField("¿‹æ◊");
 		cashInt.setEditable(false);	
 		cashInt.setSize(260, 60);
 		cashInt.setLocation(100, 20);
@@ -145,7 +157,7 @@ public class ChargePage extends JPanel {
 		chargeMoney.setSize(60, 60);
 		chargeMoney.setLocation(40, 120);
 
-		JTextField chargeMoneyInt = new JTextField("Ï∂©Ï†ÑÍ∏àÏï°");
+		JTextField chargeMoneyInt = new JTextField("√Ê¿¸±›æ◊");
 		chargeMoneyInt.setEditable(false);	
 		chargeMoneyInt.setSize(260, 60);
 		chargeMoneyInt.setLocation(100, 120);
@@ -154,7 +166,7 @@ public class ChargePage extends JPanel {
 		allMoney.setSize(60, 60);
 		allMoney.setLocation(40, 230);
 
-		JTextField allMoneyInt = new JTextField("Ï¥ùÏï°");
+		JTextField allMoneyInt = new JTextField("√—æ◊");
 		allMoneyInt.setEditable(false);	
 		allMoneyInt.setSize(260, 60);
 		allMoneyInt.setLocation(100, 230);
@@ -173,20 +185,24 @@ public class ChargePage extends JPanel {
 		button4.setLocation(285, 200);
 		
 
-		JButton chargeButton = new JButton("Ï∂©Ï†ÑÌïòÍ∏∞");
+		JButton chargeButton = new JButton("√Ê¿¸«œ±‚");
 		chargeButton.setSize(120, 40);
 		chargeButton.setLocation(240,  320);
 		
 		panel2.add(cash);
 		panel2.add(cashInt);
+		
 		panel2.add(chargeMoney);
 		panel2.add(chargeMoneyInt);
+		
 		panel2.add(allMoney);
 		panel2.add(allMoneyInt);
+		
 		panel2.add(button1);
 		panel2.add(button2);
 		panel2.add(button3);
 		panel2.add(button4);
+		
 		panel2.add(chargeButton);
 		
 		

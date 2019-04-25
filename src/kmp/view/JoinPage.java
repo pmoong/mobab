@@ -21,11 +21,22 @@ public class JoinPage extends JPanel{
 		this.joinpage = this;
 		Color color = new Color(234,255,236);
 		Color color1 = new Color(37,212,177);
+
+		
 		
 		this.setSize(400,700);
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image joinImg = new ImageIcon("images/join.png").getImage().getScaledInstance(400, 100, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
+		
+		Image academyImg = new ImageIcon("images/academy.png").getImage().getScaledInstance(60, 30, 0);
+		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(20, 30, 0);
+		Image emailImg = new ImageIcon("images/email.png").getImage().getScaledInstance(60, 30, 0);
+		Image genderImg = new ImageIcon("images/gender.png").getImage().getScaledInstance(60, 30, 0);
+		Image idImg = new ImageIcon("images/id.png").getImage().getScaledInstance(60, 30, 0);
+		Image nameImg = new ImageIcon("images/name.png").getImage().getScaledInstance(60, 30, 0);
+		Image phoneNumImg = new ImageIcon("images/phoneNum.png").getImage().getScaledInstance(60, 30, 0);
+		Image pwdImg = new ImageIcon("images/pwd.png").getImage().getScaledInstance(60, 30, 0);
 		
 		
 		JPanel panel1 = new JPanel();
@@ -74,60 +85,59 @@ public class JoinPage extends JPanel{
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		
-		JLabel label1 = new JLabel("ID");
+		JLabel label1 = new JLabel(new ImageIcon(idImg));
 		JButton button3 = new JButton("중복확인");
 		JTextField tf1 = new JTextField(20);
 		JPasswordField password = new JPasswordField(30);
-		label1.setSize(40,30);
+		label1.setSize(60,30);
 		button3.setSize(90,30);
 		tf1.setSize(180,30);
-		label1.setLocation(60, 40);
+		label1.setLocation(30, 40);
 		tf1.setLocation(90, 40);
 		button3.setLocation(268, 40);
-		JLabel label2 = new JLabel("pwd");
+		JLabel label2 = new JLabel(new ImageIcon(pwdImg));
 		password.setSize(270,30);
-		label2.setSize(40,30);
-		label2.setLocation(40, 80);
+		label2.setSize(60,30);
+		label2.setLocation(30, 80);
 		password.setLocation(90, 80);
-		JLabel label3 = new JLabel("이름");
-		label3.setSize(40,30);
-		label3.setLocation(40, 120);
+		JLabel label3 = new JLabel(new ImageIcon(nameImg));
+		label3.setSize(60,30);
+		label3.setLocation(30, 120);
 		JTextField tf2 = new JTextField(20);
 		tf2.setSize(270,30);
 		tf2.setLocation(90, 120);
-		JLabel label4 = new JLabel("이메일");
-		label4.setSize(50,30);
-		label4.setLocation(40, 160);
+		JLabel label4 = new JLabel(new ImageIcon(emailImg));
+		label4.setSize(60,30);
+		label4.setLocation(30, 160);
 		JTextField tf3 = new JTextField(20);
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
-		JLabel label5 = new JLabel("전화번호");
+		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField(20);
 		JButton button4 = new JButton("중복확인");
-		
 		label5.setSize(60,30);
 		tf4.setSize(180,30);
 		button4.setSize(90,30);
 		label5.setLocation(30, 200);
 		tf4.setLocation(90, 200);
 		button4.setLocation(268, 200);
-		JLabel label6 = new JLabel("학원");
+		JLabel label6 = new JLabel(new ImageIcon(academyImg));
 		JTextField tf5 = new JTextField(20);
-		label6.setSize(40,30);
+		label6.setSize(60,30);
 		tf5.setSize(120,30);
-		label6.setLocation(50, 240);
+		label6.setLocation(30, 240);
 		tf5.setLocation(90, 240);
-		JLabel label7 = new JLabel("반");
+		JLabel label7 = new JLabel(new ImageIcon(classroomImg));
 		JTextField tf6 = new JTextField(20);
-		label7.setSize(40,30);
+		label7.setSize(20,30);
 		tf6.setSize(120,30);
-		label7.setLocation(210, 240);
+		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
-		JLabel label8 = new JLabel("성별");
+		JLabel label8 = new JLabel(new ImageIcon(genderImg));
 		JTextField tf7 = new JTextField(20);
-		label8.setSize(40,30);
+		label8.setSize(60,30);
 		tf7.setSize(120,30);
-		label8.setLocation(50, 280);
+		label8.setLocation(30, 280);
 		tf7.setLocation(90, 280);
 		JButton button5 = new JButton("확인");
 		button5.setSize(300,80);
@@ -162,9 +172,10 @@ public class JoinPage extends JPanel{
 		panel2.add(label1);
 		panel2.add(tf1);
 		panel2.add(button3);
-		
+
 		this.add(panel1);
 		this.add(panel2);
+		
 		mf.add(this);
 		
 		
