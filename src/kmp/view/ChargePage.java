@@ -189,6 +189,12 @@ public class ChargePage extends JPanel {
 		chargeButton.setSize(120, 40);
 		chargeButton.setLocation(240,  320);
 		
+		
+		
+		
+		
+		
+		
 		panel2.add(cash);
 		panel2.add(cashInt);
 		
