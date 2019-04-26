@@ -104,6 +104,7 @@ public class LoginPage extends JPanel{
 		JLabel mobob = new JLabel(new ImageIcon(mobobMain));
 		mobob.setLocation(50, 0);
 		
+		
 		panel1.add(mobob);
 		panel2.add(label1);
 		panel2.add(label2);
@@ -117,6 +118,7 @@ public class LoginPage extends JPanel{
 
 		this.add(panel1);
 		this.add(panel2);
+		
 
 
 		
