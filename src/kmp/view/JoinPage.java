@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import kmp.controller.Controller;
+
 public class JoinPage extends JPanel{
 	private MainFrame mf;
 	private JPanel joinpage;
@@ -88,6 +90,21 @@ public class JoinPage extends JPanel{
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
 		JButton button3 = new JButton("중복확인");
 		JTextField tf1 = new JTextField();
+
+		//중복확인 눌렀을때 텍스트필드에 입력한 값이 MemberList.txt에 저장되도록 한것인데 테스트한거임
+		button3.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				String id = new String(tf1.getText());
+				Controller test = new Controller();
+				test.check(id);
+				
+			}
+			
+		});
+		
+		
 		JPasswordField password = new JPasswordField();
 		label1.setSize(60,30);
 		button3.setSize(90,30);
@@ -173,6 +190,16 @@ public class JoinPage extends JPanel{
 		gender.setLocation(280, 280);
 		
 		JButton button5 = new JButton("확인");
+		button5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
 		button5.setSize(300,80);
 		button5.setLocation(50, 360);
 		
