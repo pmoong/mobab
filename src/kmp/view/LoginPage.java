@@ -27,7 +27,6 @@ public class LoginPage extends JPanel{
 			
 		//상단 메인 이미지
 
-
 		JPanel panel1= new JPanel();
 		panel1.setSize(400, 300);
 		panel1.setLocation(0, 0);

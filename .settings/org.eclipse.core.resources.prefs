@@ -1,5 +1,10 @@
 eclipse.preferences.version=1
+encoding//src/kmp/model/vo/Beer.java=ms949
+encoding//src/kmp/model/vo/Gram.java=ms949
 encoding//src/kmp/model/vo/Member.java=MS949
+encoding//src/kmp/model/vo/Noodle.java=ms949
+encoding//src/kmp/model/vo/Sandwich.java=ms949
+encoding//src/kmp/model/vo/Store.java=ms949
 encoding//src/kmp/view/ChangePanel.java=ms949
 encoding//src/kmp/view/ChargePage.java=ms949
 encoding//src/kmp/view/FavoritePage.java=MS949
