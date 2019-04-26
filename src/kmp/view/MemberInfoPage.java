@@ -101,16 +101,43 @@ public class MemberInfoPage extends JPanel {
 		fav.setLocation(100,50);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
+		fav.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, memberInfoPage, new FavoritePage(mf));
+
+			}
+		});
+		
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
 		hist.setLocation(200,50);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
+		fav.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, memberInfoPage, new FavoritePage(mf));
+
+			}
+		});
+		
 		JButton charg = new JButton(new ImageIcon(chargeImg));
 		charg.setSize(100,100);
 		charg.setLocation(300,50);
 		charg.setBorderPainted(false);
 		charg.setContentAreaFilled(false);
+		charg.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, memberInfoPage, new ChargePage(mf));
+
+			}
+		});
+		
 		panel1.add(sik);
 		panel1.add(fav);
 		panel1.add(hist);

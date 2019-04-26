@@ -1,10 +1,13 @@
 eclipse.preferences.version=1
+encoding//src/kmp/model/vo/Member.java=MS949
 encoding//src/kmp/view/ChangePanel.java=ms949
 encoding//src/kmp/view/ChargePage.java=ms949
+encoding//src/kmp/view/FavoritePage.java=MS949
+encoding//src/kmp/view/FindIdPage.java=MS949
 encoding//src/kmp/view/JoinPage.java=ms949
 encoding//src/kmp/view/LoginPage.java=ms949
 encoding//src/kmp/view/MainFrame.java=ms949
-encoding//src/kmp/view/MainPage.java=UTF-8
+encoding//src/kmp/view/MainPage.java=MS949
 encoding//src/kmp/view/MemberInfoPage.java=ms949
 encoding//src/kmp/view/SikdangPage.java=ms949
-encoding//src/kmp/view/sikdangList/BeerStorePage.java=UTF-8
+encoding//src/kmp/view/sikdangList/BeerStorePage.java=MS949

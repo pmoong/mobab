@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 public class ChargePage extends JPanel {
 	private MainFrame mf;
 	private JPanel chargePage;
-	private int test;
 	
 	public ChargePage(MainFrame mf) {
 		this.mf = mf;
@@ -106,6 +105,15 @@ public class ChargePage extends JPanel {
 		fav.setLocation(100,50);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
+		fav.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, chargePage, new FavoritePage(mf));
+
+			}
+		});
+
 
 		
 		JButton hist = new JButton(new ImageIcon(chartImg));
@@ -113,6 +121,14 @@ public class ChargePage extends JPanel {
 		hist.setLocation(200,50);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
+		hist.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, chargePage, new UsingHistoryPage(mf));
+
+			}
+		});
 
 		
 		JButton charge = new JButton(new ImageIcon(chargeImg));

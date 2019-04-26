@@ -87,8 +87,8 @@ public class JoinPage extends JPanel{
 		
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
 		JButton button3 = new JButton("중복확인");
-		JTextField tf1 = new JTextField(20);
-		JPasswordField password = new JPasswordField(30);
+		JTextField tf1 = new JTextField();
+		JPasswordField password = new JPasswordField();
 		label1.setSize(60,30);
 		button3.setSize(90,30);
 		tf1.setSize(180,30);
@@ -105,19 +105,19 @@ public class JoinPage extends JPanel{
 		JLabel label3 = new JLabel(new ImageIcon(nameImg));
 		label3.setSize(60,30);
 		label3.setLocation(30, 120);
-		JTextField tf2 = new JTextField(20);
+		JTextField tf2 = new JTextField();
 		tf2.setSize(270,30);
 		tf2.setLocation(90, 120);
 		
 		JLabel label4 = new JLabel(new ImageIcon(emailImg));
 		label4.setSize(60,30);
 		label4.setLocation(30, 160);
-		JTextField tf3 = new JTextField(20);
+		JTextField tf3 = new JTextField();
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
 		
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
-		JTextField tf4 = new JTextField(20);
+		JTextField tf4 = new JTextField();
 		JButton button4 = new JButton("중복확인");
 		label5.setSize(60,30);
 		tf4.setSize(180,30);
@@ -127,7 +127,7 @@ public class JoinPage extends JPanel{
 		button4.setLocation(268, 200);
 		
 		JLabel label6 = new JLabel(new ImageIcon(academyImg));
-		JTextField tf5 = new JTextField(20);
+		JTextField tf5 = new JTextField();
 		label6.setSize(60,30);
 		tf5.setSize(120,30);
 		label6.setLocation(30, 240);
