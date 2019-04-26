@@ -42,6 +42,7 @@ public class MemberInfoPage extends JPanel {
 		Image nameImg = new ImageIcon("images/name.png").getImage().getScaledInstance(60, 30, 0);
 		Image phoneNumImg = new ImageIcon("images/phoneNum.png").getImage().getScaledInstance(60, 30, 0);
 		Image pwdImg = new ImageIcon("images/pwd.png").getImage().getScaledInstance(60, 30, 0);
+		Image userInfo = new ImageIcon("images/userInfo.png").getImage().getScaledInstance(360, 50, 0);
 		
 		
 		//상단 패널
@@ -154,12 +155,16 @@ public class MemberInfoPage extends JPanel {
 		panel3.setLocation(30, 80);
 		panel3.setBackground(color.WHITE);
 		
-		JButton infoText = new JButton("회원 정보");
-		infoText.setSize(360, 50);
-		infoText.setLocation(20, 20);
-//		infoText.setContentAreaFilled(false);
-		infoText.setBackground(backgcolor);
+		//회원정보 아이콘 
+		JLabel userInfoIcon = new JLabel(new ImageIcon(userInfo));
+		userInfoIcon.setSize(360, 50);
+		userInfoIcon.setLocation(20, 20);
 		
+//		JButton userInfoinfoText = new JButton("회원 정보");
+//		infoText.setSize(360, 50);
+//		infoText.setLocation(20, 20);
+////		infoText.setContentAreaFilled(false);
+//		infoText.setBackground(backgcolor);
 	
 		//id정보
 		JLabel idIcon = new JLabel(new ImageIcon(idImg));
@@ -247,7 +252,7 @@ public class MemberInfoPage extends JPanel {
 		
 		
 		
-		panel2.add(infoText);
+		panel2.add(userInfoIcon);
 		panel2.add(panel3);
 		this.add(panel1);
 		this.add(panel2);
