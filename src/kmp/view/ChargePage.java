@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 public class ChargePage extends JPanel {
 	private MainFrame mf;
 	private JPanel chargePage;
+	private int test;
 	
 	public ChargePage(MainFrame mf) {
 		this.mf = mf;
