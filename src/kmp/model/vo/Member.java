@@ -13,11 +13,12 @@ public class Member implements Serializable{
 	private char classroom;
 	private char gender;
 	private int point;
+	private int charged;
 
 
 	public Member() {}
 
-	public Member(String id,String pwd,String name,String email,String phone,int age,String academy,char classroom,char gender,int point) {
+	public Member(String id,String pwd,String name,String email,String phone,int age,String academy,char classroom,char gender,int point,int charged) {
 		this.id = id;
 		this.pwd = pwd;
 		this.name = name;
@@ -28,6 +29,7 @@ public class Member implements Serializable{
 		this.classroom = classroom;
 		this.gender = gender;
 		this.point = point;
+		this.charged = charged;
 	}
 
 	public String getId() {
@@ -68,6 +70,9 @@ public class Member implements Serializable{
 	public int getPoint() {
 		return point;
 	}
+	public int getCharged() {
+		return charged;
+	}
 
 	public void setId(String id) {
 		this.id = id;
@@ -107,11 +112,14 @@ public class Member implements Serializable{
 	public void setPoint(int point) {
 		this.point = point;
 	}
+	public void setCharged(int charged) {
+		this.charged = charged;
+	}
 
 	@Override
 	public String toString() {
 		return "Member [id=" + id + ", pwd=" + pwd + ", name=" + name + ", email=" + email + ", phone=" + phone
-				+ ", age=" + age + ", academy=" + academy + ", classroom=" + classroom + ", gender=" + gender + "]";
+				+ ", age=" + age + ", academy=" + academy + ", classroom=" + classroom + ", gender=" + gender +", charged=" + charged+ "]";
 	}
 
 }

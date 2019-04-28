@@ -12,6 +12,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import kmp.view.sikdangList.BeerStorePage;
+import kmp.view.sikdangList.GramPage;
+import kmp.view.sikdangList.NoodlesPage;
+import kmp.view.sikdangList.SandwichPage;
 
 public class SikdangPage extends JPanel {
 	private MainFrame mf;
@@ -167,6 +170,14 @@ public class SikdangPage extends JPanel {
 		JButton gram = new JButton();
 		gram.setSize(300, 125);
 		gram.setLocation(50, 135);
+		gram.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, sikdangPage, new GramPage(mf));
+			}
+			
+		});
 		JLabel gramLabel = new JLabel(new ImageIcon(gramImg));
 		gramLabel.setSize(125, 125);
 		gramLabel.setLocation(0, 0);
@@ -179,6 +190,14 @@ public class SikdangPage extends JPanel {
 		JButton sandwich = new JButton();
 		sandwich.setSize(300, 125);
 		sandwich.setLocation(50, 265);
+		sandwich.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, sikdangPage, new SandwichPage(mf));
+			}
+			
+		});
 		JLabel sandwichLabel = new JLabel(new ImageIcon(sandwichImg));
 		sandwichLabel.setSize(125, 125);
 		sandwichLabel.setLocation(0, 0);
@@ -191,6 +210,14 @@ public class SikdangPage extends JPanel {
 		JButton noodles = new JButton();
 		noodles.setSize(300, 125);
 		noodles.setLocation(50, 395);
+		noodles.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, sikdangPage, new NoodlesPage(mf));
+			}
+			
+		});
 		JLabel noodlesLabel = new JLabel(new ImageIcon(noodlesImg));
 		noodlesLabel.setSize(125, 125);
 		noodlesLabel.setLocation(0, 0);
