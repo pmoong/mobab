@@ -1,0 +1,1 @@
+sample, sample1, È«±æµ¿, sample@naver.com, 010-1234-5678, 17, KHÁ¤º¸±³À°¿ø, C, ³², 345, 345000, false, false, false, false 

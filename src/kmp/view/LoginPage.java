@@ -13,6 +13,8 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import kmp.controller.Controller;
+
 public class LoginPage extends JPanel{
 	private MainFrame mf;
 	private JPanel loginPage;
@@ -47,6 +49,7 @@ public class LoginPage extends JPanel{
 		JLabel label1 = new JLabel(new ImageIcon(login_ID));
 		Image login_Pwd = new ImageIcon("images/login_Pwd.png").getImage().getScaledInstance(60, 40, 0);
 		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
+		
 		JTextField tf = new JTextField(20);
 		JPasswordField password = new JPasswordField(30);
 		label1.setSize(60,40);
@@ -74,14 +77,36 @@ public class LoginPage extends JPanel{
 		button2.setLocation(220, 170);
 		button3.setSize(280,50);
 		button3.setLocation(60,250);
-
+		
+		//아이디와 비밀번호를 받을 변수 선언
 		button1.addActionListener(new ActionListener() {
+			
+			String id, pwd;
+			//로그인 버튼 클릭 시 액션리스너
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf,loginPage, new MainPage(mf));
+				//JTextField에 입력한 id받아오기
+				id = new String(tf.getText());
+				//JPasswordField에 입력한 password받아오기
+				pwd = new String(password.getPassword());
+				Controller ct = new Controller();
 				
+				//id와 password를 loginCheck메소드로 확인하여 결과값에 따라 창 변경or팝업창 출력
+				if(ct.loginCheck(id, pwd)) {
+					ChangePanel.changePanel(mf,loginPage, new MainPage(mf));
+				}else {
+					
+					PopUp pu = new PopUp();
+					pu.loginCheck();
+					
+				}
+						
 			}
 		});
+		
+		
+		
+		
 		button2.addActionListener(new ActionListener() {
 
 			@Override
