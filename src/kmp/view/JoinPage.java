@@ -18,20 +18,20 @@ import kmp.controller.Controller;
 public class JoinPage extends JPanel{
 	private MainFrame mf;
 	private JPanel joinpage;
-	
+
 	public JoinPage(MainFrame mf) {
 		this.mf = mf;
 		this.joinpage = this;
 		Color color = new Color(234,255,236);
 		Color color1 = new Color(37,212,177);
 
-		
-		
+
+
 		this.setSize(400,700);
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image joinImg = new ImageIcon("images/join.png").getImage().getScaledInstance(400, 100, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
-		
+
 		Image academyImg = new ImageIcon("images/academy.png").getImage().getScaledInstance(60, 30, 0);
 		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(20, 30, 0);
 		Image emailImg = new ImageIcon("images/email.png").getImage().getScaledInstance(60, 30, 0);
@@ -40,8 +40,8 @@ public class JoinPage extends JPanel{
 		Image nameImg = new ImageIcon("images/name.png").getImage().getScaledInstance(60, 30, 0);
 		Image phoneNumImg = new ImageIcon("images/phoneNum.png").getImage().getScaledInstance(60, 30, 0);
 		Image pwdImg = new ImageIcon("images/pwd.png").getImage().getScaledInstance(60, 30, 0);
-		
-		
+
+
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setBackground(color1);
@@ -63,10 +63,10 @@ public class JoinPage extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
 			}
-			
+
 		});
-		
-		
+
+
 		panel1.add(back);
 		panel1.add(home);
 		JButton join = new JButton(new ImageIcon(joinImg));
@@ -74,37 +74,49 @@ public class JoinPage extends JPanel{
 		join.setLocation(0,50);
 		join.setBorderPainted(false);
 		join.setContentAreaFilled(false);
-		
+
 		join.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf,joinpage, new JoinPage(mf));
 			}
-			
+
 		});
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
-		
+
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
 		JButton button3 = new JButton("중복확인");
 		JTextField tf1 = new JTextField();
 
-		//중복확인 눌렀을때 텍스트필드에 입력한 값이 MemberList.txt에 저장되도록 한것인데 테스트한거임
 		button3.addActionListener(new ActionListener() {
-			
+
+			String id;
+			//로그인 버튼 클릭 시 액션리스너
 			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				String id = new String(tf1.getText());
-				Controller test = new Controller();
-				test.check(id);
+			public void actionPerformed(ActionEvent e) {
+				//JTextField에 입력한 id받아오기
+				id = new String(tf1.getText());
+		
+				Controller ct = new Controller();
+
 				
+				if(ct.isDuplicatedId(id)) {
+					PopUp2 pu2 = new PopUp2();
+					pu2.IdCheck();
+				}else {
+					PopUp3 pu3 = new PopUp3();
+					pu3.IdCheck();
+					
+
+				}
+
 			}
-			
 		});
-		
-		
+
+
 		JPasswordField password = new JPasswordField();
 		label1.setSize(60,30);
 		button3.setSize(90,30);
@@ -112,53 +124,77 @@ public class JoinPage extends JPanel{
 		label1.setLocation(30, 40);
 		tf1.setLocation(90, 40);
 		button3.setLocation(268, 40);
-		
+
 		JLabel label2 = new JLabel(new ImageIcon(pwdImg));
 		password.setSize(270,30);
 		label2.setSize(60,30);
 		label2.setLocation(30, 80);
 		password.setLocation(90, 80);
-		
+
 		JLabel label3 = new JLabel(new ImageIcon(nameImg));
 		label3.setSize(60,30);
 		label3.setLocation(30, 120);
 		JTextField tf2 = new JTextField();
 		tf2.setSize(270,30);
 		tf2.setLocation(90, 120);
-		
+
 		JLabel label4 = new JLabel(new ImageIcon(emailImg));
 		label4.setSize(60,30);
 		label4.setLocation(30, 160);
 		JTextField tf3 = new JTextField();
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
-		
+
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField();
 		JButton button4 = new JButton("중복확인");
+		button4.addActionListener(new ActionListener() {
+
+			String phone;
+			//로그인 버튼 클릭 시 액션리스너
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//JTextField에 입력한 id받아오기
+				phone = new String(tf4.getText());
+		
+				Controller ct = new Controller();
+
+				
+				if(ct.isDuplicatedPhone(phone)) {
+					PopUp4 pu4 = new PopUp4();
+					pu4.PhoneCheck();
+					
+				}else {
+					PopUp5 pu5 = new PopUp5();
+					pu5.PhoneCheck();
+
+				}
+
+			}
+		});
 		label5.setSize(60,30);
 		tf4.setSize(180,30);
 		button4.setSize(90,30);
 		label5.setLocation(30, 200);
 		tf4.setLocation(90, 200);
 		button4.setLocation(268, 200);
-		
+
 		JLabel label6 = new JLabel(new ImageIcon(academyImg));
 		JTextField tf5 = new JTextField();
 		label6.setSize(60,30);
 		tf5.setSize(120,30);
 		label6.setLocation(30, 240);
 		tf5.setLocation(90, 240);
-		
+
 		JLabel label7 = new JLabel(new ImageIcon(classroomImg));
 		JTextField tf6 = new JTextField();
 		label7.setSize(20,30);
 		tf6.setSize(120,30);
 		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
-		
+
 		JLabel label8 = new JLabel("나이");
-//		JTextField tf7 = new JTextField();
+		//		JTextField tf7 = new JTextField();
 		String ages[] = new String[30];
 		int age=20;
 		for(int i=0;i<ages.length;i++) {
@@ -171,7 +207,7 @@ public class JoinPage extends JPanel{
 		ageBox.setSize(120,30);
 		label8.setLocation(30, 280);
 		ageBox.setLocation(90, 280);
-		
+
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
 		String[] genders = {" ","남","여"};
 		JComboBox gender = new JComboBox(genders);
@@ -179,57 +215,57 @@ public class JoinPage extends JPanel{
 		gender.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
+
 			}
-			
+
 		});
 		gendlabel.setHorizontalAlignment(JLabel.CENTER);
 		gendlabel.setSize(60,30);
 		gender.setSize(80,30);
 		gendlabel.setLocation(220, 280);
 		gender.setLocation(280, 280);
-		
+
 		JButton button5 = new JButton("확인");
 		button5.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				// TODO Auto-generated method stub
-				
+
 			}
-			
+
 		});
-		
+
 		button5.setSize(300,80);
 		button5.setLocation(50, 360);
-		
+
 		panel2.setBackground(color);
-		
+
 		panel2.add(button5);
 		panel2.add(gendlabel);
 		panel2.add(gender);
-		
+
 		panel2.add(label8);
 		panel2.add(ageBox);
-		
+
 		panel2.add(label7);
 		panel2.add(tf6);
-		
+
 		panel2.add(label6);
 		panel2.add(tf5);
-		
+
 		panel2.add(label5);
 		panel2.add(tf4);
 		panel2.add(button4);
-		
+
 		panel2.add(label4);
 		panel2.add(tf3);
-		
+
 		panel2.add(label3);
 		panel2.add(tf2);
 		panel2.add(label2);
 		panel2.add(password);
-	
+
 		panel1.add(join);
 		panel2.add(label1);
 		panel2.add(tf1);
@@ -237,10 +273,10 @@ public class JoinPage extends JPanel{
 
 		this.add(panel1);
 		this.add(panel2);
-		
+
 		mf.add(this);
-		
-		
-		
+
+
+
 	}
 }
