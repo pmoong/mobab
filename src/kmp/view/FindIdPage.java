@@ -10,10 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import kmp.controller.Controller;
 
 public class FindIdPage extends JPanel{
 	private MainFrame mf;
 	private JPanel findIdPage;
+	Controller ctr = new Controller();
+
 	
 	public FindIdPage(MainFrame mf) {
 		this.mf = mf;
@@ -86,14 +89,14 @@ public class FindIdPage extends JPanel{
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 		
-		JTextField tname = new JTextField();
-		JTextField email = new JTextField();
-		tname.setSize(220,40);
-		email.setSize(220,40);
-		tname.setLocation(120, 50);
-		email.setLocation(120, 120);
-		panel2.add(tname);
-		panel2.add(email);
+		JTextField tName = new JTextField();
+		JTextField tEmail = new JTextField();
+		tName.setSize(220, 40);
+		tEmail.setSize(220, 40);
+		tName.setLocation(120, 50);
+		tEmail.setLocation(120, 120);
+		panel2.add(tName);
+		panel2.add(tEmail);
 		
 
 		JLabel label1 = new JLabel("¿Ã∏ß");
@@ -116,7 +119,15 @@ public class FindIdPage extends JPanel{
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf,findIdPage, new LoginPage(mf));
+				PopUp popup = new PopUp();
+				String inputName = tName.getText();
+				String inputEmail = tEmail.getText();
+				if(ctr.findId(inputName, inputEmail)) {
+					popup.findIdSucPopup();
+				}else {
+					popup.findIdFailPopup();
+				}
+//				ChangePanel.changePanel(mf, findIdPage, new FindIdPage(mf));
 				
 			}
 		});

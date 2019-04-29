@@ -10,10 +10,13 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import kmp.controller.Controller;
 
 public class FindPwdPage extends JPanel{
 	private MainFrame mf;
 	private JPanel findPwdPage;
+	Controller ctr = new Controller();
+
 	
 	public FindPwdPage(MainFrame mf) {
 		this.mf = mf;
@@ -86,36 +89,35 @@ public class FindPwdPage extends JPanel{
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 		
-		JTextField id = new JTextField();
-		JTextField tname = new JTextField();
-		JTextField email = new JTextField();
-		id.setSize(220,40);
-		tname.setSize(220,40);
-		email.setSize(220,40);
-		id.setLocation(120,50);
-		tname.setLocation(120,105);
-		email.setLocation(120,160);
-		panel2.add(id);
-		panel2.add(tname);
-		panel2.add(email);
-		
+		JTextField tId = new JTextField();
+		JTextField tName = new JTextField();
+		JTextField tEmail = new JTextField();
+		tId.setSize(220, 40);
+		tName.setSize(220, 40);
+		tEmail.setSize(220, 40);
+		tId.setLocation(120, 50);
+		tName.setLocation(120, 105);
+		tEmail.setLocation(120, 160);
+		panel2.add(tId);
+		panel2.add(tName);
+		panel2.add(tEmail);
 
-		JLabel label1 = new JLabel("ID");
-		JLabel label2 = new JLabel("이름");
-		JLabel label3 = new JLabel("E-MAIL");
-		label1.setSize(60,40);
-		label2.setSize(60,40);
-		label3.setSize(60,40);
-		label1.setLocation(60, 50);
-		label2.setLocation(60, 105);
-		label3.setLocation(60, 160);
-		JLabel label4 = new JLabel(new ImageIcon(mobobMain));
-		label4.setSize(260, 260);
-		label4.setLocation(70, 280);
-		panel2.add(label1);
-		panel2.add(label2);
-		panel2.add(label3);
-		panel2.add(label4);
+		JLabel id = new JLabel("ID");
+		JLabel name = new JLabel("이름");
+		JLabel email = new JLabel("E-MAIL");
+		id.setSize(60, 40);
+		name.setSize(60, 40);
+		email.setSize(60, 40);
+		id.setLocation(60, 50);
+		name.setLocation(60, 105);
+		email.setLocation(60, 160);
+		JLabel mobobMainIcon = new JLabel(new ImageIcon(mobobMain));
+		mobobMainIcon.setSize(260, 260);
+		mobobMainIcon.setLocation(70, 280);
+		panel2.add(id);
+		panel2.add(name);
+		panel2.add(email);
+		panel2.add(mobobMainIcon);
 		
 		JButton button1 = new JButton("확인");
 		button1.setSize(280,60);
@@ -124,7 +126,16 @@ public class FindPwdPage extends JPanel{
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf,findPwdPage, new LoginPage(mf));
+				PopUp popup = new PopUp();
+				String inputId = tId.getText();
+				String inputName = tName.getText();
+				String inputEmail = tEmail.getText();
+				if (ctr.findPwd(inputId, inputName, inputEmail)) {
+					popup.findPwdSucPopup();
+				} else {
+					popup.findPwdFailPopup();
+				}
+				// ChangePanel.changePanel(mf, findIdPage, new FindIdPage(mf));
 				
 			}
 		});

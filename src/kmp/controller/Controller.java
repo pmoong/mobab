@@ -34,27 +34,27 @@ public class Controller extends Member{
 
 
 	public boolean loginCheck(String id, String pwd) {
-		//1. ì•„ì´ë””ê²€ì‚¬
-		//ì•„ì´ë””ë¥¼ í†µí•´ íŒŒì¼ ì´ë¦„ ë°›ì•„ì˜¤ê¸°
+		//1. ¾ÆÀÌµğ°Ë»ç
+		//¾ÆÀÌµğ¸¦ ÅëÇØ ÆÄÀÏÀÌ¸§ ¹Ş¾Æ¿À±â
 		String fileName = id + ".txt";
 		File member = new File(fileName);
 
-		//í•´ë‹¹ ì´ë¦„ì˜ íŒŒì¼ì´ ì—†ì„ ê²½ìš° false ë¦¬í„´
+		//ÇØ´ç ÀÌ¸§ÀÇ ÆÄÀÏÀÌ ¾øÀ» °æ¿ì false ¸®ÅÏ
 		if(!member.isFile()) {
 			return false;
 		}
 
-		//2. íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬
+		//2. ÆĞ½º¿öµå °Ë»ç
 		BufferedReader br = null;
 		try{
-			//í•„ìš”í•œ íŒŒì¼ ì½ê¸°
+			//ÇÊ¿äÇÑ ÆÄÀÏ ÀĞ±â
 			br = new BufferedReader(new FileReader(id + ".txt"));
 			String temp = br.readLine();
 
-			//splitì„ ì´ìš©í•´ ", " ë¥¼ êµ¬ë¶„ìë¡œ í•˜ì—¬ íŒŒì¼ì— ì €ì¥ëœ ê°’ì„ ë‚˜ëˆ„ê¸°
+			//splitÀ» ÀÌ¿ëÇØ ", " ¸¦ ±¸ºĞÀÚ·Î ÇÏ¿© ÆÄÀÏ¿¡ ÀúÀåµÈ °ªÀ» ³ª´©±â
 			String[] info = temp.split(", ");
 
-			//ì…ë ¥í•œ pwdì™€ íŒŒì¼ì— ì €ì¥ë˜ì–´ìˆëŠ” pwdê°€ ê°™ì§€ ì•Šì„ ê²½ìš° false ì¶œë ¥
+			//ÀÔ·ÂÇÑ pwd¿Í ÆÄÀÏ¿¡ ÀúÀåµÇ¾îÀÖ´Â pwd°¡ °°Áö ¾ÊÀ» °æ¿ì false Ãâ·Â
 			if(!pwd.equals(info[1])) {
 				return false;
 			}		
@@ -62,7 +62,59 @@ public class Controller extends Member{
 			e.printStackTrace();
 		}
 
-		//ì•„ì´ë”” ê²€ì‚¬ì™€ íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬ì—ì„œ ì•„ë¬´ ì´ìƒì´ ì—†ë‹¤ë©´ true ë¦¬í„´
+		//¾ÆÀÌµğ °Ë»ç¿Í ÆĞ½º¿öµå °Ë»ç¿¡¼­ ¾Æ¹« ÀÌ»óÀÌ ¾ø´Ù¸é true ¸®ÅÏ
+		return true;
+	}
+	
+	@SuppressWarnings("resource")
+	public boolean findId(String name, String email) {
+		try {
+			File member = new File("MemberList.txt");
+			BufferedReader br = null;
+			br = new BufferedReader(new FileReader(member));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (name.equals(info[2])) {
+					if (email.equals(info[3])) {
+						return true;
+					}
+				} else {
+					return false;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+	@SuppressWarnings("resource")
+	public boolean findPwd(String id, String name, String email) {
+		try {
+			File member = new File("MemberList.txt");
+			BufferedReader br = null;
+			br = new BufferedReader(new FileReader(member));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (id.equals(info[0])) {
+					if (name.equals(info[2])) {
+						if (email.equals(info[3])) {
+							return true;
+						}
+					} 
+				}else {
+					return false;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return true;
 	}
 	public boolean isDuplicatedId(String id) {		
