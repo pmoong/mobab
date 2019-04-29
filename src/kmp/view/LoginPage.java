@@ -63,7 +63,7 @@ public class LoginPage extends JPanel{
 
 		tf.setLocation(120,50);
 		password.setLocation(120, 100);
-
+		
 		
 		//하단 버튼
 		

@@ -63,7 +63,6 @@ public class JoinPage extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
 			}
-			
 		});
 		
 		
@@ -83,6 +82,7 @@ public class JoinPage extends JPanel{
 			}
 			
 		});
+		
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
@@ -90,6 +90,7 @@ public class JoinPage extends JPanel{
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
 		JButton button3 = new JButton("중복확인");
 		JTextField tf1 = new JTextField();
+		
 
 		//중복확인 눌렀을때 텍스트필드에 입력한 값이 MemberList.txt에 저장되도록 한것인데 테스트한거임
 		button3.addActionListener(new ActionListener() {
@@ -160,10 +161,10 @@ public class JoinPage extends JPanel{
 		JLabel label8 = new JLabel("나이");
 //		JTextField tf7 = new JTextField();
 		String ages[] = new String[30];
-		int age=20;
+		int age1=20;
 		for(int i=0;i<ages.length;i++) {
-			ages[i]=age+"";
-			age++;
+			ages[i]=age1+"";
+			age1++;
 		}
 		JComboBox ageBox = new JComboBox(ages);
 		ageBox.setSelectedItem(0);
@@ -174,9 +175,9 @@ public class JoinPage extends JPanel{
 		
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
 		String[] genders = {" ","남","여"};
-		JComboBox gender = new JComboBox(genders);
-		gender.setSelectedIndex(0);
-		gender.addActionListener(new ActionListener() {
+		JComboBox gender1 = new JComboBox(genders);
+		gender1.setSelectedIndex(0);
+		gender1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
@@ -185,11 +186,35 @@ public class JoinPage extends JPanel{
 		});
 		gendlabel.setHorizontalAlignment(JLabel.CENTER);
 		gendlabel.setSize(60,30);
-		gender.setSize(80,30);
+		gender1.setSize(80,30);
 		gendlabel.setLocation(220, 280);
-		gender.setLocation(280, 280);
+		gender1.setLocation(280, 280);
 		
 		JButton button5 = new JButton("확인");
+	
+		button5.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				Controller ctr = new Controller();
+				String id = tf1.getText();
+				String pwd = new String(password.getPassword());
+				String name = tf2.getText();
+				String email = tf3.getText();
+				String phone = tf4.getText();
+				int age = Integer.parseInt((String) ageBox.getSelectedItem());
+				String academy = tf5.getText();
+				char classroom = tf6.getText().charAt(0);
+				String gen = (String)gender1.getSelectedItem();
+				char gender = gen.charAt(0);
+			
+				ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
+				
+				
+			}
+			
+		});
+		
+		/*JButton button5 = new JButton("확인");
 		button5.addActionListener(new ActionListener() {
 
 			@Override
@@ -198,7 +223,7 @@ public class JoinPage extends JPanel{
 				
 			}
 			
-		});
+		});*/
 		
 		button5.setSize(300,80);
 		button5.setLocation(50, 360);
@@ -207,7 +232,7 @@ public class JoinPage extends JPanel{
 		
 		panel2.add(button5);
 		panel2.add(gendlabel);
-		panel2.add(gender);
+		panel2.add(gender1);
 		
 		panel2.add(label8);
 		panel2.add(ageBox);

@@ -7,6 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Scanner;
 
 import kmp.model.vo.Member;
 
@@ -77,6 +78,29 @@ public class Controller extends Member{
 		return true;
 	}
 	
+	public void join(String id, String pwd, String name, String email, String phone,
+			int age, String academy, char classroom, char gender) {
+		Scanner sc = new Scanner(System.in);
+		try {
+			BufferedWriter bw = new BufferedWriter(new FileWriter("MemberList.txt", true));
+		
+			
+			bw.write(id + ", " + pwd + ", " + name + ", " + email + ", " + phone
+					 + ", " + academy + ", " + classroom + ", " + age + ", " + gender
+					 + ", " + 0 + ", " + 0 + ", " + false + ", " + false + ", " + false + ", " + false);
+			bw.newLine();
+			bw.flush();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+	}
 	
 
 }

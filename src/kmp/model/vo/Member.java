@@ -140,10 +140,6 @@ public class Member implements Serializable{
 	public int getPoint() {
 		return point;
 	}
-	public int getCharged() {
-		return charged;
-	}
-
 
 	public void setPoint(int point) {
 		this.point = point;
@@ -193,11 +189,7 @@ public class Member implements Serializable{
 	public boolean isFavoriteNoodle() {
 		return favoriteNoodle;
 	}
-	public void setCharged(int charged) {
-		this.charged = charged;
-	}
-
-
+	
 	public void setFavoriteNoodle(boolean favoriteNoodle) {
 		this.favoriteNoodle = favoriteNoodle;
 	}
