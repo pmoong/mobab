@@ -11,6 +11,13 @@ import javax.swing.JPanel;
 
 public class PopUp extends JFrame{
 	
+	public PopUp() {
+		this.setSize(300, 150);
+		this.setLayout(null);
+		
+		this.setVisible(true);
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
 
 	protected void closePage() {
 		this.setVisible(false);
@@ -23,13 +30,15 @@ public class PopUp extends JFrame{
 		
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
+		panel.setLayout(null);
 		
 		JLabel message = new JLabel("아이디 혹은 비밀번호를 틀리셨습니다.");
-		message.setSize(100, 30);
-		message.setLocation(100, 20);
+		message.setSize(300, 30);
+		message.setLocation(30, 20);
 		JButton okButton = new JButton("확인");
-		okButton.setSize(50, 30);
-		okButton.setLocation(125, 80);
+		okButton.setSize(100, 30);
+		okButton.setLocation(100, 80);
+		message.setLayout(null);
 		
 		okButton.addActionListener(new ActionListener() {
 			
@@ -45,8 +54,7 @@ public class PopUp extends JFrame{
 		
 		this.add(panel);
 		
-		this.setVisible(true);
-		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
 	}
 
 	
