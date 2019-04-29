@@ -1,1 +1,2 @@
-gdsgagd
+sample1, pwd1, 홍길동, sample@naver.com, 010-1234-5678, 17, KH정보교육원, C, 남, 345, 345000, false, false, false, false
+sample2, pwd2, 박문수, 123@naver.com, 010-9876-5678, 17, KH정보교육원, C, 남, 345, 345000, false, false, false, false
