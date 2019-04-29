@@ -140,10 +140,6 @@ public class Member implements Serializable{
 	public int getPoint() {
 		return point;
 	}
-	public int getCharged() {
-		return charged;
-	}
-
 
 	public void setPoint(int point) {
 		this.point = point;

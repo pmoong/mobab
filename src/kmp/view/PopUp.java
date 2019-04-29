@@ -56,6 +56,44 @@ public class PopUp extends JFrame{
 		
 
 	}
+	
 
+	
+	public boolean JoinCheck() {
+		this.setTitle("가입완료");
+		this.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setSize(300, 150);
+		panel.setLayout(null);
+		
+		JLabel message = new JLabel("회원가입이 완료되었습니다.");
+		message.setSize(300, 30);
+		message.setLocation(30, 20);
+		JButton okButton = new JButton("확인");
+		okButton.setSize(100, 30);
+		okButton.setLocation(100, 80);
+		message.setLayout(null);
+		
+		okButton.addActionListener(new ActionListener() {
+			
+			
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closePage();
+				
+			}
+			
+		});
+		
+		
+		panel.add(message);
+		panel.add(okButton);
+		
+		this.add(panel);
+
+		return false;
+	}
 	
 }

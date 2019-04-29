@@ -83,21 +83,23 @@ public class JoinPage extends JPanel{
 			}
 
 		});
+		
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
-		JButton button3 = new JButton("Áßº¹È®ÀÎ");
+		JButton button3 = new JButton("ì¤‘ë³µí™•ì¸");
 		JTextField tf1 = new JTextField();
+		
 
 		button3.addActionListener(new ActionListener() {
 
 			String id;
-			//·Î±×ÀÎ ¹öÆ° Å¬¸¯ ½Ã ¾×¼Ç¸®½º³Ê
+			//ë¡œê·¸ì¸ ë²„íŠ¼ í´ë¦­ ì‹œ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//JTextField¿¡ ÀÔ·ÂÇÑ id¹Ş¾Æ¿À±â
+				//JTextFieldì— ì…ë ¥í•œ idë°›ì•„ì˜¤ê¸°
 				id = new String(tf1.getText());
 		
 				Controller ct = new Controller();
@@ -147,14 +149,14 @@ public class JoinPage extends JPanel{
 
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField();
-		JButton button4 = new JButton("Áßº¹È®ÀÎ");
+		JButton button4 = new JButton("ì¤‘ë³µí™•ì¸");
 		button4.addActionListener(new ActionListener() {
 
 			String phone;
-			//·Î±×ÀÎ ¹öÆ° Å¬¸¯ ½Ã ¾×¼Ç¸®½º³Ê
+			//ë¡œê·¸ì¸ ë²„íŠ¼ í´ë¦­ ì‹œ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//JTextField¿¡ ÀÔ·ÂÇÑ id¹Ş¾Æ¿À±â
+				//JTextFieldì— ì…ë ¥í•œ idë°›ì•„ì˜¤ê¸°
 				phone = new String(tf4.getText());
 		
 				Controller ct = new Controller();
@@ -193,13 +195,13 @@ public class JoinPage extends JPanel{
 		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
 
-		JLabel label8 = new JLabel("³ªÀÌ");
+		JLabel label8 = new JLabel("ë‚˜ì´");
 		//		JTextField tf7 = new JTextField();
 		String ages[] = new String[30];
-		int age=20;
+		int age1=20;
 		for(int i=0;i<ages.length;i++) {
-			ages[i]=age+"";
-			age++;
+			ages[i]=age1+"";
+			age1++;
 		}
 		JComboBox ageBox = new JComboBox(ages);
 		ageBox.setSelectedItem(0);
@@ -209,10 +211,10 @@ public class JoinPage extends JPanel{
 		ageBox.setLocation(90, 280);
 
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
-		String[] genders = {" ","³²","¿©"};
-		JComboBox gender = new JComboBox(genders);
-		gender.setSelectedIndex(0);
-		gender.addActionListener(new ActionListener() {
+		String[] genders = {" ","ë‚¨","ì—¬"};
+		JComboBox gender1 = new JComboBox(genders);
+		gender1.setSelectedIndex(0);
+		gender1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
@@ -221,19 +223,32 @@ public class JoinPage extends JPanel{
 		});
 		gendlabel.setHorizontalAlignment(JLabel.CENTER);
 		gendlabel.setSize(60,30);
-		gender.setSize(80,30);
+		gender1.setSize(80,30);
 		gendlabel.setLocation(220, 280);
-		gender.setLocation(280, 280);
-
-		JButton button5 = new JButton("È®ÀÎ");
+		gender1.setLocation(280, 280);
+		
+		JButton button5 = new JButton("í™•ì¸");
+	
 		button5.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-
+				Controller ctr = new Controller();
+				String id = tf1.getText();
+				String pwd = new String(password.getPassword());
+				String name = tf2.getText();
+				String email = tf3.getText();
+				String phone = tf4.getText();
+				int age = Integer.parseInt((String) ageBox.getSelectedItem());
+				String academy = tf5.getText();
+				char classroom = tf6.getText().charAt(0);
+				String gen = (String)gender1.getSelectedItem();
+				char gender = gen.charAt(0);
+			
+				ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
+				
+				
 			}
-
+			
 		});
 
 		button5.setSize(300,80);
@@ -243,8 +258,8 @@ public class JoinPage extends JPanel{
 
 		panel2.add(button5);
 		panel2.add(gendlabel);
-		panel2.add(gender);
-
+		panel2.add(gender1);
+		
 		panel2.add(label8);
 		panel2.add(ageBox);
 
