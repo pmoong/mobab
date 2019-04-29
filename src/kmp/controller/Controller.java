@@ -4,78 +4,80 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
 import kmp.model.vo.Member;
+import kmp.view.PopUp;
 
 public class Controller extends Member{
 	public Controller() {}
 	FileInputStream fin = null;
-	
-	
-	
+
+
+
 	public void check(String id) {
 		try {
 			BufferedWriter bw = new BufferedWriter(
 					new FileWriter("MemberList.txt"));
 			bw.write(id);
 			bw.flush();
-			
+
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-//		try {
-//			BufferedReader br = new BufferedReader(
-//					new FileReader("MemberList.txt"));
-//			String temp;
-//			while((temp=br.readLine())!=null) {
-//				System.out.println(temp);
-//			}
-//			
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		
-//		System.out.println();
 	}
-	
-	
+
+
 	public boolean loginCheck(String id, String pwd) {
-		//1. ¾ÆÀÌµğ°Ë»ç
-		//¾ÆÀÌµğ¸¦ ÅëÇØ ÆÄÀÏ ÀÌ¸§ ¹Ş¾Æ¿À±â
+		//1. ì•„ì´ë””ê²€ì‚¬
+		//ì•„ì´ë””ë¥¼ í†µí•´ íŒŒì¼ ì´ë¦„ ë°›ì•„ì˜¤ê¸°
 		String fileName = id + ".txt";
 		File member = new File(fileName);
-		
-		//ÇØ´ç ÀÌ¸§ÀÇ ÆÄÀÏÀÌ ¾øÀ» °æ¿ì false ¸®ÅÏ
+
+		//í•´ë‹¹ ì´ë¦„ì˜ íŒŒì¼ì´ ì—†ì„ ê²½ìš° false ë¦¬í„´
 		if(!member.isFile()) {
 			return false;
 		}
-		
-		//2. ÆĞ½º¿öµå °Ë»ç
+
+		//2. íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬
 		BufferedReader br = null;
 		try{
-			//ÇÊ¿äÇÑ ÆÄÀÏ ÀĞ±â
+			//í•„ìš”í•œ íŒŒì¼ ì½ê¸°
 			br = new BufferedReader(new FileReader(id + ".txt"));
 			String temp = br.readLine();
-			
-			//splitÀ» ÀÌ¿ëÇØ ", " ¸¦ ±¸ºĞÀÚ·Î ÇÏ¿© ÆÄÀÏ¿¡ ÀúÀåµÈ °ªÀ» ³ª´©±â
+
+			//splitì„ ì´ìš©í•´ ", " ë¥¼ êµ¬ë¶„ìë¡œ í•˜ì—¬ íŒŒì¼ì— ì €ì¥ëœ ê°’ì„ ë‚˜ëˆ„ê¸°
 			String[] info = temp.split(", ");
-			
-			//ÀÔ·ÂÇÑ pwd¿Í ÆÄÀÏ¿¡ ÀúÀåµÇ¾îÀÖ´Â pwd°¡ °°Áö ¾ÊÀ» °æ¿ì false Ãâ·Â
+
+			//ì…ë ¥í•œ pwdì™€ íŒŒì¼ì— ì €ì¥ë˜ì–´ìˆëŠ” pwdê°€ ê°™ì§€ ì•Šì„ ê²½ìš° false ì¶œë ¥
 			if(!pwd.equals(info[1])) {
 				return false;
 			}		
 		}catch(IOException e) {
 			e.printStackTrace();
 		}
-		
-		//¾ÆÀÌµğ °Ë»ç¿Í ÆĞ½º¿öµå °Ë»ç¿¡¼­ ¾Æ¹« ÀÌ»óÀÌ ¾ø´Ù¸é true ¸®ÅÏ
+
+		//ì•„ì´ë”” ê²€ì‚¬ì™€ íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬ì—ì„œ ì•„ë¬´ ì´ìƒì´ ì—†ë‹¤ë©´ true ë¦¬í„´
 		return true;
+	}
+	public boolean isDuplicatedId(String id) {		
+
+		String fileName = id + ".txt";
+		File member = new File(fileName);
+
+		if(!member.isFile()) {
+			return false;
+		}else {
+			return  true;			
+		}
+	}
+	public void isDuplicatedEmail(String email) {
+
 	}
 	
 	public void join(String id, String pwd, String name, String email, String phone,
@@ -102,5 +104,29 @@ public class Controller extends Member{
 		
 	}
 	
+	public boolean isDuplicatedPhone(String phone) {
 
+		try {
+			File member = new File("MemberList.txt");
+			BufferedReader br = null;
+			br = new BufferedReader(new FileReader(member));
+			String line = "";
+			while((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if(phone.equals(info[4])) {
+					return true;
+				}else {	
+					return false;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return true;
+
+	}
+	
 }
+

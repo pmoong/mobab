@@ -146,11 +146,6 @@ public class Member implements Serializable{
 	}
 
 
-	public int getCharged() {
-		return charged;
-	}
-
-
 	public void setCharged(int charged) {
 		this.charged = charged;
 	}
@@ -189,7 +184,7 @@ public class Member implements Serializable{
 	public boolean isFavoriteNoodle() {
 		return favoriteNoodle;
 	}
-	
+
 	public void setFavoriteNoodle(boolean favoriteNoodle) {
 		this.favoriteNoodle = favoriteNoodle;
 	}
