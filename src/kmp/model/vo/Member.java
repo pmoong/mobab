@@ -20,6 +20,7 @@ public class Member implements Serializable{
 	private boolean favoriteNoodle;
 
 
+
 	public Member() {}
 
 
@@ -42,6 +43,7 @@ public class Member implements Serializable{
 		this.favoriteGram = favoriteGram;
 		this.favoriteSandwich = favoriteSandwich;
 		this.favoriteNoodle = favoriteNoodle;
+
 	}
 
 
@@ -138,6 +140,9 @@ public class Member implements Serializable{
 	public int getPoint() {
 		return point;
 	}
+	public int getCharged() {
+		return charged;
+	}
 
 
 	public void setPoint(int point) {
@@ -188,6 +193,9 @@ public class Member implements Serializable{
 	public boolean isFavoriteNoodle() {
 		return favoriteNoodle;
 	}
+	public void setCharged(int charged) {
+		this.charged = charged;
+	}
 
 
 	public void setFavoriteNoodle(boolean favoriteNoodle) {
@@ -201,6 +209,7 @@ public class Member implements Serializable{
 				+ ", age=" + age + ", academy=" + academy + ", classroom=" + classroom + ", gender=" + gender
 				+ ", point=" + point + ", charged=" + charged + ", favoriteBeer=" + favoriteBeer + ", favoriteGram="
 				+ favoriteGram + ", favoriteSandwich=" + favoriteSandwich + ", favoriteNoodle=" + favoriteNoodle + "]";
+
 	}
 
 	
