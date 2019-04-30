@@ -11,11 +11,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import kmp.model.vo.Member;
+import kmp.controller.Controller;
 
 public class MemberInfoPage extends JPanel {
 	private MainFrame mf;
 	private JPanel memberInfoPage;
+	LoginPage lp = new LoginPage();
+	Controller ctr = new Controller();
+	
+	
+	
+	
 	
 	public MemberInfoPage(MainFrame mf) {
 		this.mf = mf;
@@ -174,6 +180,7 @@ public class MemberInfoPage extends JPanel {
 		idInfo.setSize(270,30);
 		idIcon.setLocation(5, 20);
 		idInfo.setLocation(65, 20);
+		idInfo.setText(lp.getId());
 		
 		//pwd정보
 		JLabel pwdIcon = new JLabel(new ImageIcon(pwdImg));
@@ -182,6 +189,7 @@ public class MemberInfoPage extends JPanel {
 		pwdInfo.setSize(270,30);
 		pwdIcon.setLocation(5, 80);
 		pwdInfo.setLocation(65, 80);
+		pwdInfo.setText(ctr.outputPwdInfo(lp.getId()));
 		
 		//이름정보
 		JLabel nameIcon = new JLabel(new ImageIcon(nameImg));
@@ -190,6 +198,7 @@ public class MemberInfoPage extends JPanel {
 		nameInfo.setSize(270, 30);
 		nameIcon.setLocation(5, 140);
 		nameInfo.setLocation(65, 140);
+		nameInfo.setText(ctr.outputNameInfo(lp.getId()));
 		
 		//이메일 정보
 		JLabel emailIcon = new JLabel(new ImageIcon(emailImg));
@@ -198,6 +207,8 @@ public class MemberInfoPage extends JPanel {
 		emailInfo.setSize(270, 30);
 		emailIcon.setLocation(5, 200);
 		emailInfo.setLocation(65, 200);
+		emailInfo.setText(ctr.outputEmailInfo(lp.getId()));
+		
 		
 		//전화번호 정보
 		JLabel phoneNumIcon = new JLabel(new ImageIcon(phoneNumImg));
@@ -206,6 +217,7 @@ public class MemberInfoPage extends JPanel {
 		phoneNumInfo.setSize(270, 30);
 		phoneNumIcon.setLocation(5, 260);
 		phoneNumInfo.setLocation(65, 260);
+		phoneNumInfo.setText(ctr.outputPhoneNumInfo(lp.getId()));
 		
 		//학원정보
 		JLabel academyIcon = new JLabel(new ImageIcon(academyImg));
@@ -214,6 +226,7 @@ public class MemberInfoPage extends JPanel {
 		academyInfo.setSize(120, 30);
 		academyIcon.setLocation(5, 320);
 		academyInfo.setLocation(65, 320);
+		academyInfo.setText(ctr.outputAcademyInfo(lp.getId()));
 		
 		//반정보
 		JLabel classroomIcon = new JLabel(new ImageIcon(classroomImg));
@@ -222,6 +235,7 @@ public class MemberInfoPage extends JPanel {
 		classroomInfo.setSize(120, 30);
 		classroomIcon.setLocation(190, 320);
 		classroomInfo.setLocation(215, 320);
+		classroomInfo.setText(ctr.outputClassroomInfo(lp.getId()));
 
 		//성별정보
 		JLabel genderIcon = new JLabel(new ImageIcon(genderImg));
@@ -230,6 +244,7 @@ public class MemberInfoPage extends JPanel {
 		genderInfo.setSize(120, 30);
 		genderIcon.setLocation(5, 380);
 		genderInfo.setLocation(65, 380);
+		genderInfo.setText(ctr.outputGenderInfo(lp.getId()));
 		
 		
 		
