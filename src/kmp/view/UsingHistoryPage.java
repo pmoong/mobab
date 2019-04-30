@@ -8,6 +8,10 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class UsingHistoryPage extends JPanel{
 	private MainFrame mf;
@@ -138,11 +142,36 @@ public class UsingHistoryPage extends JPanel{
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
+		
+		String info [] = {"식당","결제금액"};
+		DefaultTableModel model = new DefaultTableModel(info, 0);
+		JTable table = new JTable(model);
+		JScrollPane scrollpane = new JScrollPane(table);
 
-
+		
+		scrollpane.setSize(350,300);
+		scrollpane.setLocation(20,50);
+		panel2.add(scrollpane);
+		
+		
+		JPanel infopanel = new JPanel();
+		JTextField tfstore = new JTextField();
+		JTextField tfpay = new JTextField();
+		
+		panel2.add(infopanel);
+		infopanel.setSize(350,300);
+		infopanel.setLocation(20,50);
+		
+//		infopanel.add()
+		
+		
 		this.add(panel1);
 		this.add(panel2);
 		mf.add(this);
+		
+		
+		
+		
 
 }
 }
