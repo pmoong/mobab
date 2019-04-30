@@ -189,7 +189,7 @@ public class Controller extends Member{
 
 			idList.write(id + ", " + pwd + ", " + name + ", " 
 					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
-
+ 
 			idList.flush();
 
 		} catch (IOException e) {

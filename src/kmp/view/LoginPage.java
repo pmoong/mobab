@@ -93,7 +93,7 @@ public class LoginPage extends JPanel{
 				//JPasswordField에 입력한 password받아오기
 				pwd = new String(password.getPassword());
 				Controller ct = new Controller();
-				
+				 
 				//id와 password를 loginCheck메소드로 확인하여 결과값에 따라 창 변경or팝업창 출력
 				if(ct.loginCheck(id, pwd)) {
 					setId(id);

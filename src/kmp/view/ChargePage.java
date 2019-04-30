@@ -255,7 +255,7 @@ public class ChargePage extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				setCharge(getCharge() + 10000);
 				chargeMoneyInt.setText(getCharge()+"");
-				
+				 
 			}
 		});
 		button4.addActionListener(new ActionListener() {
