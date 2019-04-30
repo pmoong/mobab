@@ -215,7 +215,7 @@ public class JoinPage extends JPanel{
 		ageBox.setLocation(90, 280);
 
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
-		String[] genders = {" ","남","여"};
+		String[] genders = {"남","여"};
 		JComboBox gender1 = new JComboBox(genders);
 		gender1.setSelectedIndex(0);
 		gender1.addActionListener(new ActionListener() {
@@ -233,6 +233,9 @@ public class JoinPage extends JPanel{
 		
 		JButton button5 = new JButton("회원가입");
 	
+		
+		
+		
 		button5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -244,21 +247,33 @@ public class JoinPage extends JPanel{
 				String phone = tf4.getText();
 				int age = Integer.parseInt((String) ageBox.getSelectedItem());
 				String academy = tf5.getText();
-				char classroom = tf6.getText().charAt(0);
+				String cla = tf6.getText();
 				String gen = (String)gender1.getSelectedItem();
 				char gender = gen.charAt(0);
-			
-				ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
+
 				
-				ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
-				PopUp pu = new PopUp();
-				pu.JoinCheck();
-				
-				
-				
+				if(id.isEmpty() || pwd.isEmpty() || name.isEmpty() || email.isEmpty() || phone.isEmpty() || age == 0 ||
+						academy.isEmpty() || tf6.getText().isEmpty() || gen.isEmpty()) {
+					
+					PopUp pu = new PopUp();
+					pu.joinFail();
+					
+				}else {
+					char classroom = cla.charAt(0);
+					ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
+					ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
+					PopUp pu = new PopUp();
+					pu.joinCheck();
+					
+				}
+
+
+
+
 			}
 			
 		});
+		
 
 		button5.setSize(300,80);
 		button5.setLocation(50, 360);

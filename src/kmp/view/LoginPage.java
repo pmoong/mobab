@@ -15,144 +15,12 @@ import javax.swing.JTextField;
 
 import kmp.controller.Controller;
 
-public class LoginPage extends JPanel{
+public class LoginPage extends JPanel {
 	private MainFrame mf;
 	private JPanel loginPage;
 	static String id;
 
-	public LoginPage() {}
-
-	public LoginPage(MainFrame mf) {
-		this.mf = mf;
-		this.loginPage = this;
-		this.setSize(400, 700);		
-		this.setLayout(null);
-		Color color = new Color(234,255,236);
-		
-			
-		//»ó´Ü ¸ŞÀÎ ÀÌ¹ÌÁö
-
-		JPanel panel1= new JPanel();
-		panel1.setSize(400, 300);
-		panel1.setLocation(0, 0);
-		panel1.setBackground(color);
-
-		
-		
-
-		//Áß°£ ·Î±×ÀÎÃ¢
-
-		JPanel panel2= new JPanel();
-		panel2.setSize(400, 400);
-		panel2.setLocation(0, 300);
-		panel2.setLayout(null);
-		
-		panel2.setBackground(color);
-		Image login_ID = new ImageIcon("images/login_ID.png").getImage().getScaledInstance(60, 40, 0);
-		JLabel label1 = new JLabel(new ImageIcon(login_ID));
-		Image login_Pwd = new ImageIcon("images/login_Pwd.png").getImage().getScaledInstance(60, 40, 0);
-		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
-		
-		JTextField tf = new JTextField(20);
-		JPasswordField password = new JPasswordField(30);
-		label1.setSize(60,40);
-		label1.setLocation(60, 50);
-
-		label2.setSize(60,40);
-		label2.setLocation(60, 100);
-
-		tf.setSize(220,40);
-		password.setSize(220,40);
-
-		tf.setLocation(120,50);
-		password.setLocation(120, 100);
-		
-		
-		//ÇÏ´Ü ¹öÆ°
-		
-		JButton button1 = new JButton("·Î±×ÀÎ");
-		JButton button2 = new JButton("ID/PWD Ã£±â");
-		JButton button3 = new JButton("È¸¿ø°¡ÀÔ");
-
-		button1.setSize(120,50);
-		button1.setLocation(60, 170);
-		button2.setSize(120,50);
-		button2.setLocation(220, 170);
-		button3.setSize(280,50);
-		button3.setLocation(60,250);
-		
-		//¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£¸¦ ¹ŞÀ» º¯¼ö ¼±¾ğ
-		button1.addActionListener(new ActionListener() {
-			String id, pwd;
-			
-			//·Î±×ÀÎ ¹öÆ° Å¬¸¯ ½Ã ¾×¼Ç¸®½º³Ê
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				//JTextField¿¡ ÀÔ·ÂÇÑ id¹Ş¾Æ¿À±â
-				id = new String(tf.getText());
-				//JPasswordField¿¡ ÀÔ·ÂÇÑ password¹Ş¾Æ¿À±â
-				pwd = new String(password.getPassword());
-				Controller ct = new Controller();
-				 
-				//id¿Í password¸¦ loginCheck¸Ş¼Òµå·Î È®ÀÎÇÏ¿© °á°ú°ª¿¡ µû¶ó Ã¢ º¯°æorÆË¾÷Ã¢ Ãâ·Â
-				if(ct.loginCheck(id, pwd)) {
-					setId(id);
-					ChangePanel.changePanel(mf,loginPage, new MainPage(mf));
-				}else {
-					
-					PopUp pu = new PopUp();
-					pu.loginCheck();
-					
-				}
-						
-			}
-		});
-		
-		
-		
-		
-		button2.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, loginPage, new FindIdPage(mf));
-				
-			}
-			
-		});
-		button3.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, loginPage, new JoinPage(mf));
-				
-			}
-		});		
-		Image mobobMain = new ImageIcon("images/mobobMain.png").getImage().getScaledInstance(300, 300, 0);
-		JLabel mobob = new JLabel(new ImageIcon(mobobMain));
-		mobob.setLocation(50, 0);
-		
-		
-		panel1.add(mobob);
-		panel2.add(label1);
-		panel2.add(label2);
-		panel2.add(tf);
-		panel2.add(password);
-	
-		panel2.add(button1);
-		panel2.add(button2);
-		panel2.add(button3);
-		
-
-		this.add(panel1);
-		this.add(panel2);
-		
-
-
-		
-		mf.add(this);
-		mf.setVisible(true);
-
+	public LoginPage() {
 	}
 
 	public String getId() {
@@ -163,6 +31,135 @@ public class LoginPage extends JPanel{
 		this.id = id;
 	}
 
-	
+	public String getPwd() {
+		return pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public LoginPage(MainFrame mf) {
+		this.mf = mf;
+		this.loginPage = this;
+		this.setSize(400, 700);
+		this.setLayout(null);
+		Color color = new Color(234, 255, 236);
+
+		// ìƒë‹¨ ë©”ì¸ ì´ë¯¸ì§€
+
+		JPanel panel1 = new JPanel();
+		panel1.setSize(400, 300);
+		panel1.setLocation(0, 0);
+		panel1.setBackground(color);
+
+		// ì¤‘ê°„ ë¡œê·¸ì¸ì°½
+
+		JPanel panel2 = new JPanel();
+		panel2.setSize(400, 400);
+		panel2.setLocation(0, 300);
+		panel2.setLayout(null);
+
+		panel2.setBackground(color);
+		Image login_ID = new ImageIcon("images/login_ID.png").getImage().getScaledInstance(60, 40, 0);
+		JLabel label1 = new JLabel(new ImageIcon(login_ID));
+		Image login_Pwd = new ImageIcon("images/login_Pwd.png").getImage().getScaledInstance(60, 40, 0);
+		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
+
+		// IDí…ìŠ¤íŠ¸í•„ë“œ
+		JTextField tf = new JTextField(20);
+
+		JPasswordField password = new JPasswordField(30);
+		label1.setSize(60, 40);
+		label1.setLocation(60, 50);
+
+		label2.setSize(60, 40);
+		label2.setLocation(60, 100);
+
+		tf.setSize(220, 40);
+		password.setSize(220, 40);
+
+		tf.setLocation(120, 50);
+		password.setLocation(120, 100);
+
+		// í•˜ë‹¨ ë²„íŠ¼
+
+		JButton button1 = new JButton("ë¡œê·¸ì¸");
+		JButton button2 = new JButton("ID/PWD ì°¾ê¸°");
+		JButton button3 = new JButton("íšŒì›ê°€ì…");
+
+		button1.setSize(120, 50);
+		button1.setLocation(60, 170);
+		button2.setSize(120, 50);
+		button2.setLocation(220, 170);
+		button3.setSize(280, 50);
+		button3.setLocation(60, 250);
+
+		// ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë°›ì„ ë³€ìˆ˜ ì„ ì–¸
+		button1.addActionListener(new ActionListener() {
+			String id, pwd;
+
+			// ë¡œê·¸ì¸ ë²„íŠ¼ í´ë¦­ ì‹œ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// JTextFieldì— ì…ë ¥í•œ idë°›ì•„ì˜¤ê¸°
+				id = new String(tf.getText());
+				// JPasswordFieldì— ì…ë ¥í•œ passwordë°›ì•„ì˜¤ê¸°
+				pwd = new String(password.getPassword());
+				Controller ct = new Controller();
+
+				// idì™€ passwordë¥¼ loginCheckë©”ì†Œë“œë¡œ í™•ì¸í•˜ì—¬ ê²°ê³¼ê°’ì— ë”°ë¼ ì°½ ë³€ê²½oríŒì—…ì°½ ì¶œë ¥
+				if (ct.loginCheck(id,pwd)) {
+					setId(id); // íŒ ì§€ê¸ˆ
+					ChangePanel.changePanel(mf, loginPage, new MainPage(mf));
+
+				} else {
+					PopUp pu = new PopUp();
+					pu.loginCheck();
+
+				}
+
+			}
+		});
+
+		button2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, loginPage, new FindIdPage(mf));
+
+			}
+
+		});
+		button3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ChangePanel.changePanel(mf, loginPage, new JoinPage(mf));
+
+			}
+		});
+		Image mobobMain = new ImageIcon("images/mobobMain.png").getImage().getScaledInstance(300, 300, 0);
+		JLabel mobob = new JLabel(new ImageIcon(mobobMain));
+		mobob.setLocation(50, 0);
+
+		panel1.add(mobob);
+		panel2.add(label1);
+		panel2.add(label2);
+		panel2.add(tf);
+		panel2.add(password);
+
+		panel2.add(button1);
+		panel2.add(button2);
+		panel2.add(button3);
+
+		this.add(panel1);
+		this.add(panel2);
+
+		mf.add(this);
+		mf.setVisible(true);
+
+	}
+
 
 }
