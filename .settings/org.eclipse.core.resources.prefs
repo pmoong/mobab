@@ -1,4 +1,5 @@
 eclipse.preferences.version=1
+encoding//src/kmp/controller/Controller.java=MS949
 encoding//src/kmp/model/vo/Beer.java=ms949
 encoding//src/kmp/model/vo/Gram.java=ms949
 encoding//src/kmp/model/vo/Member.java=MS949
