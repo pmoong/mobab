@@ -50,14 +50,14 @@ public class FindPwdPage extends JPanel{
 		home.setLocation(80,0);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
-/*		home.addActionListener(new ActionListener() {
+		home.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ChangePanel.changePanel(mf,findPwdPage, new LoginPage(mf));
 			}
 			
-		});*/
+		});
 		JButton fid = new JButton(new ImageIcon(fidImg));
 		fid.setBorderPainted(false);
 		fid.setContentAreaFilled(false);
