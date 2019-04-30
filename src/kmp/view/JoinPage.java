@@ -8,6 +8,8 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -90,17 +92,17 @@ public class JoinPage extends JPanel{
 		panel2.setLocation(0, 150);
 
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
-		JButton button3 = new JButton("중복확인");
+		JButton button3 = new JButton("�ߺ�Ȯ��");
 		JTextField tf1 = new JTextField();
 		
 
 		button3.addActionListener(new ActionListener() {
 
 			String id;
-			//로그인 버튼 클릭 시 액션리스너
+			//
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//JTextField에 입력한 id받아오기
+				//
 				id = new String(tf1.getText());
 				System.out.println(id);
 		
@@ -150,14 +152,14 @@ public class JoinPage extends JPanel{
 
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField();
-		JButton button4 = new JButton("중복확인");
+		JButton button4 = new JButton("�ߺ�Ȯ��");
 		button4.addActionListener(new ActionListener() {
 
 			String phone;
-			//로그인 버튼 클릭 시 액션리스너
+			//
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//JTextField에 입력한 id받아오기
+				//JTextField
 				phone = new String(tf4.getText());
 		
 				Controller ct = new Controller();
@@ -197,7 +199,7 @@ public class JoinPage extends JPanel{
 		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
 
-		JLabel label8 = new JLabel("나이");
+		JLabel label8 = new JLabel("����");
 		//		JTextField tf7 = new JTextField();
 		String ages[] = new String[30];
 		int age1=20;
@@ -213,7 +215,7 @@ public class JoinPage extends JPanel{
 		ageBox.setLocation(90, 280);
 
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
-		String[] genders = {" ","남","여"};
+		String[] genders = {" ","��","��"};
 		JComboBox gender1 = new JComboBox(genders);
 		gender1.setSelectedIndex(0);
 		gender1.addActionListener(new ActionListener() {
@@ -229,7 +231,7 @@ public class JoinPage extends JPanel{
 		gendlabel.setLocation(220, 280);
 		gender1.setLocation(280, 280);
 		
-		JButton button5 = new JButton("확인");
+		JButton button5 = new JButton("ȸ������");
 	
 		button5.addActionListener(new ActionListener() {
 			@Override
@@ -248,6 +250,9 @@ public class JoinPage extends JPanel{
 			
 				ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
 				
+				ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
+				PopUp pu = new PopUp();
+				pu.JoinCheck();
 				
 				
 				

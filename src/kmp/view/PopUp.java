@@ -1,6 +1,5 @@
 package kmp.view;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -14,6 +13,7 @@ public class PopUp extends JFrame{
 	public PopUp() {
 		this.setSize(300, 150);
 		this.setLayout(null);
+		this.setLocation(50, 50);
 		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
