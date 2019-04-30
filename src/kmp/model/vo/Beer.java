@@ -12,9 +12,9 @@ public class Beer extends Store{
 		super(menu, number, location, map, name);
 		this.setMenu(menu);
 		this.setNumber("010-0000-0000");
-		this.setLocation("Í∞ïÎÇ®Íµ¨ Ïó≠ÏÇºÎèô");
+		this.setLocation("∞≠≥≤±∏ ø™ªÔµø");
 		this.setMap(new ImageIcon("images/mapbeer.png").getImage().getScaledInstance(60, 60, 0));
-		this.setName("Îß•Ï£ºÏ∞ΩÍ≥†");
+		this.setName("∏∆¡÷√¢∞Ì");
 		
 	}
 
