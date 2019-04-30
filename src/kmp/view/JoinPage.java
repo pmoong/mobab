@@ -102,18 +102,21 @@ public class JoinPage extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				//JTextField에 입력한 id받아오기
 				id = new String(tf1.getText());
+				System.out.println(id);
 		
 				Controller ct = new Controller();
-
-				
-				if(ct.isDuplicatedId(id)) {
+				if(id.isEmpty()) {
+					PopUp pu = new PopUp();
+					pu.IdCheckNull();
+				}else if(ct.isDuplicatedId(id)) {
+					System.out.println(id+"ddkkd");
 					PopUp pu = new PopUp();
 					pu.IdCheckF();
 				}else {
+					System.out.println(id+"dgggggggd");
 					PopUp pu = new PopUp();
 					pu.IdCheckT();
 					
-
 				}
 
 			}
@@ -162,11 +165,12 @@ public class JoinPage extends JPanel{
 		
 				Controller ct = new Controller();
 
-				
-				if(ct.isDuplicatedPhone(phone)) {
+				if(phone.isEmpty()) {
+					PopUp pu = new PopUp();
+					pu.PhoneCheckNull();
+				}else if(ct.isDuplicatedPhone(phone)) {
 					PopUp pu = new PopUp();
 					pu.PhoneCheckF();
-					
 				}else {
 					PopUp pu = new PopUp();
 					pu.PhoneCheckT();

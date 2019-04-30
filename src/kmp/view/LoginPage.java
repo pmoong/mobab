@@ -18,6 +18,7 @@ import kmp.controller.Controller;
 public class LoginPage extends JPanel{
 	private MainFrame mf;
 	private JPanel loginPage;
+	private String id;
 
 	public LoginPage(MainFrame mf) {
 		this.mf = mf;

@@ -8,9 +8,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 import kmp.model.vo.Member;
+import kmp.view.JoinPage;
 import kmp.view.PopUp;
 
 public class Controller extends Member{
@@ -33,7 +33,7 @@ public class Controller extends Member{
 	}
 
 	public boolean loginCheck(String id, String pwd) {
-		
+
 		try {
 			File member = new File("MemberList.txt");
 			BufferedReader br = null;
@@ -55,40 +55,40 @@ public class Controller extends Member{
 			e.printStackTrace();
 		}
 		return true;
-		
-		
-//		//1. 아이디검사
-//		//아이디를 통해 파일이름 받아오기
-//		String fileName = id + ".txt";
-//		File member = new File(fileName);
-//
-//		//해당 이름의 파일이 없을 경우 false 리턴
-//		if(!member.isFile()) {
-//			return false;
-//		}
-//
-//		//2. 패스워드 검사
-//		BufferedReader br = null;
-//		try{
-//			//필요한 파일 읽기
-//			br = new BufferedReader(new FileReader(id + ".txt"));
-//			String temp = br.readLine();
-//
-//			//split을 이용해 ", " 를 구분자로 하여 파일에 저장된 값을 나누기
-//			String[] info = temp.split(", ");
-//
-//			//입력한 pwd와 파일에 저장되어있는 pwd가 같지 않을 경우 false 출력
-//			if(!pwd.equals(info[1])) {
-//				return false;
-//			}		
-//		}catch(IOException e) {
-//			e.printStackTrace();
-//		}
-//
-//		//아이디 검사와 패스워드 검사에서 아무 이상이 없다면 true 리턴
-//		return true;
+
+
+		//		//1. 아이디검사
+		//		//아이디를 통해 파일이름 받아오기
+		//		String fileName = id + ".txt";
+		//		File member = new File(fileName);
+		//
+		//		//해당 이름의 파일이 없을 경우 false 리턴
+		//		if(!member.isFile()) {
+		//			return false;
+		//		}
+		//
+		//		//2. 패스워드 검사
+		//		BufferedReader br = null;
+		//		try{
+		//			//필요한 파일 읽기
+		//			br = new BufferedReader(new FileReader(id + ".txt"));
+		//			String temp = br.readLine();
+		//
+		//			//split을 이용해 ", " 를 구분자로 하여 파일에 저장된 값을 나누기
+		//			String[] info = temp.split(", ");
+		//
+		//			//입력한 pwd와 파일에 저장되어있는 pwd가 같지 않을 경우 false 출력
+		//			if(!pwd.equals(info[1])) {
+		//				return false;
+		//			}		
+		//		}catch(IOException e) {
+		//			e.printStackTrace();
+		//		}
+		//
+		//		//아이디 검사와 패스워드 검사에서 아무 이상이 없다면 true 리턴
+		//		return true;
 	}
-	
+
 	@SuppressWarnings("resource")
 	public boolean findId(String name, String email) {
 		try {
@@ -140,39 +140,37 @@ public class Controller extends Member{
 		}
 		return true;
 	}
-	public boolean isDuplicatedId(String id) {		
+	public boolean isDuplicatedId(String id) {
+
 
 		String fileName = id + ".txt";
 		File member = new File(fileName);
 
-		if(!member.isFile()) {
-			return false;
-		}else {
+		if(member.isFile()) {
 			return  true;			
+		}else {
+			return false;
 		}
 	}
-	public void isDuplicatedEmail(String email) {
 
-	}
-	
 	public void join(String id, String pwd, String name, String email, String phone,
 			int age, String academy, char classroom, char gender) {
-		
+
 		int point = 0, charged = 0;
 		boolean favoriteBeer = false, favoriteGram = false, favoriteNoodles = false, favoriteSandwich = false;
-		
+
 		//type1 txt생성
 		BufferedWriter mList = null;
 		try {
-			
+
 			mList = new BufferedWriter(new FileWriter("MemberList.txt", true));
-			
+
 			mList.write(id + ", " + pwd + ", " + name + ", " + email + ", " + phone
-					 + ", " + academy + ", " + classroom + ", " + age + ", " + gender
-					 + ", " + point + ", " + charged);
+					+ ", " + academy + ", " + classroom + ", " + age + ", " + gender
+					+ ", " + point + ", " + charged);
 			mList.newLine();
 			mList.flush();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -182,17 +180,17 @@ public class Controller extends Member{
 				e.printStackTrace();
 			}
 		}
-		
+
 		//type2 txt생성
 		BufferedWriter idList = null; 
 		try {
 			idList = new BufferedWriter(new FileWriter(id + ".txt"));
-			
+
 			idList.write(id + ", " + pwd + ", " + name + ", " 
-			+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
-			
+					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+
 			idList.flush();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -202,13 +200,13 @@ public class Controller extends Member{
 				e.printStackTrace();
 			}	
 		}
-		
+
 		PopUp pu = new PopUp();
 		pu.JoinCheck();
-		
-		
+
+
 	}
-	
+
 	public boolean isDuplicatedPhone(String phone) {
 
 		try {
@@ -232,6 +230,6 @@ public class Controller extends Member{
 		return true;
 
 	}
-	
+
 }
 
