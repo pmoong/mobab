@@ -251,8 +251,6 @@ public class MemberInfoPage extends JPanel {
 		panel3.add(genderIcon);
 		panel3.add(genderInfo);
 		
-		
-		
 		panel2.add(userInfoIcon);
 		panel2.add(panel3);
 		this.add(panel1);

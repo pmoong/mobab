@@ -9,6 +9,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
 import kmp.view.JoinPage;
 import kmp.view.PopUp;
@@ -57,27 +58,27 @@ public class Controller extends Member{
 		return true;
 
 
-		//		//1. ¾ÆÀÌµğ°Ë»ç
-		//		//¾ÆÀÌµğ¸¦ ÅëÇØ ÆÄÀÏÀÌ¸§ ¹Ş¾Æ¿À±â
+		//		//1. ì•„ì´ë””ê²€ì‚¬
+		//		//ì•„ì´ë””ë¥¼ í†µí•´ íŒŒì¼ì´ë¦„ ë°›ì•„ì˜¤ê¸°
 		//		String fileName = id + ".txt";
 		//		File member = new File(fileName);
 		//
-		//		//ÇØ´ç ÀÌ¸§ÀÇ ÆÄÀÏÀÌ ¾øÀ» °æ¿ì false ¸®ÅÏ
+		//		//í•´ë‹¹ ì´ë¦„ì˜ íŒŒì¼ì´ ì—†ì„ ê²½ìš° false ë¦¬í„´
 		//		if(!member.isFile()) {
 		//			return false;
 		//		}
 		//
-		//		//2. ÆĞ½º¿öµå °Ë»ç
+		//		//2. íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬
 		//		BufferedReader br = null;
 		//		try{
-		//			//ÇÊ¿äÇÑ ÆÄÀÏ ÀĞ±â
+		//			//í•„ìš”í•œ íŒŒì¼ ì½ê¸°
 		//			br = new BufferedReader(new FileReader(id + ".txt"));
 		//			String temp = br.readLine();
 		//
-		//			//splitÀ» ÀÌ¿ëÇØ ", " ¸¦ ±¸ºĞÀÚ·Î ÇÏ¿© ÆÄÀÏ¿¡ ÀúÀåµÈ °ªÀ» ³ª´©±â
+		//			//splitì„ ì´ìš©í•´ ", " ë¥¼ êµ¬ë¶„ìë¡œ í•˜ì—¬ íŒŒì¼ì— ì €ì¥ëœ ê°’ì„ ë‚˜ëˆ„ê¸°
 		//			String[] info = temp.split(", ");
 		//
-		//			//ÀÔ·ÂÇÑ pwd¿Í ÆÄÀÏ¿¡ ÀúÀåµÇ¾îÀÖ´Â pwd°¡ °°Áö ¾ÊÀ» °æ¿ì false Ãâ·Â
+		//			//ì…ë ¥í•œ pwdì™€ íŒŒì¼ì— ì €ì¥ë˜ì–´ìˆëŠ” pwdê°€ ê°™ì§€ ì•Šì„ ê²½ìš° false ì¶œë ¥
 		//			if(!pwd.equals(info[1])) {
 		//				return false;
 		//			}		
@@ -85,7 +86,7 @@ public class Controller extends Member{
 		//			e.printStackTrace();
 		//		}
 		//
-		//		//¾ÆÀÌµğ °Ë»ç¿Í ÆĞ½º¿öµå °Ë»ç¿¡¼­ ¾Æ¹« ÀÌ»óÀÌ ¾ø´Ù¸é true ¸®ÅÏ
+		//		//ì•„ì´ë”” ê²€ì‚¬ì™€ íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬ì—ì„œ ì•„ë¬´ ì´ìƒì´ ì—†ë‹¤ë©´ true ë¦¬í„´
 		//		return true;
 	}
 
@@ -159,7 +160,7 @@ public class Controller extends Member{
 		int point = 0, charged = 0;
 		boolean favoriteBeer = false, favoriteGram = false, favoriteNoodles = false, favoriteSandwich = false;
 
-		//type1 txt»ı¼º
+		//type1 txtìƒì„±
 		BufferedWriter mList = null;
 		try {
 
@@ -181,7 +182,7 @@ public class Controller extends Member{
 			}
 		}
 
-		//type2 txt»ı¼º
+		//type2 txtìƒì„±
 		BufferedWriter idList = null; 
 		try {
 			idList = new BufferedWriter(new FileWriter(id + ".txt"));
@@ -230,6 +231,19 @@ public class Controller extends Member{
 		return true;
 
 	}
+	
+	public int totalPrice(int price, int ea) {
+	      
+	      Beer b = new Beer();   
+	      
+	      int sum = 0;
+	      
+	      sum = (ea * price);
+	      
+	      return sum;
+	      
+	   }
+	
 
 }
 

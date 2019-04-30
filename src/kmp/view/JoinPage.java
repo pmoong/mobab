@@ -90,17 +90,17 @@ public class JoinPage extends JPanel{
 		panel2.setLocation(0, 150);
 
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
-		JButton button3 = new JButton("Áßº¹È®ÀÎ");
+		JButton button3 = new JButton("ì¤‘ë³µí™•ì¸");
 		JTextField tf1 = new JTextField();
 		
 
 		button3.addActionListener(new ActionListener() {
 
 			String id;
-			//·Î±×ÀÎ ¹öÆ° Å¬¸¯ ½Ã ¾×¼Ç¸®½º³Ê
+			//ë¡œê·¸ì¸ ë²„íŠ¼ í´ë¦­ ì‹œ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//JTextField¿¡ ÀÔ·ÂÇÑ id¹Ş¾Æ¿À±â
+				//JTextFieldì— ì…ë ¥í•œ idë°›ì•„ì˜¤ê¸°
 				id = new String(tf1.getText());
 				System.out.println(id);
 		
@@ -109,14 +109,11 @@ public class JoinPage extends JPanel{
 					PopUp pu = new PopUp();
 					pu.IdCheckNull();
 				}else if(ct.isDuplicatedId(id)) {
-					System.out.println(id+"ddkkd");
 					PopUp pu = new PopUp();
 					pu.IdCheckF();
-				}else {
-					System.out.println(id+"dgggggggd");
+				}else{
 					PopUp pu = new PopUp();
-					pu.IdCheckT();
-					
+					pu.IdCheckT();		
 				}
 
 			}
@@ -153,14 +150,14 @@ public class JoinPage extends JPanel{
 
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField();
-		JButton button4 = new JButton("Áßº¹È®ÀÎ");
+		JButton button4 = new JButton("ì¤‘ë³µí™•ì¸");
 		button4.addActionListener(new ActionListener() {
 
 			String phone;
-			//·Î±×ÀÎ ¹öÆ° Å¬¸¯ ½Ã ¾×¼Ç¸®½º³Ê
+			//ë¡œê·¸ì¸ ë²„íŠ¼ í´ë¦­ ì‹œ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//JTextField¿¡ ÀÔ·ÂÇÑ id¹Ş¾Æ¿À±â
+				//JTextFieldì— ì…ë ¥í•œ idë°›ì•„ì˜¤ê¸°
 				phone = new String(tf4.getText());
 		
 				Controller ct = new Controller();
@@ -200,7 +197,7 @@ public class JoinPage extends JPanel{
 		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
 
-		JLabel label8 = new JLabel("³ªÀÌ");
+		JLabel label8 = new JLabel("ë‚˜ì´");
 		//		JTextField tf7 = new JTextField();
 		String ages[] = new String[30];
 		int age1=20;
@@ -216,7 +213,7 @@ public class JoinPage extends JPanel{
 		ageBox.setLocation(90, 280);
 
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
-		String[] genders = {" ","³²","¿©"};
+		String[] genders = {" ","ë‚¨","ì—¬"};
 		JComboBox gender1 = new JComboBox(genders);
 		gender1.setSelectedIndex(0);
 		gender1.addActionListener(new ActionListener() {
@@ -232,7 +229,7 @@ public class JoinPage extends JPanel{
 		gendlabel.setLocation(220, 280);
 		gender1.setLocation(280, 280);
 		
-		JButton button5 = new JButton("È®ÀÎ");
+		JButton button5 = new JButton("í™•ì¸");
 	
 		button5.addActionListener(new ActionListener() {
 			@Override
