@@ -14,7 +14,7 @@ public class PopUp extends JFrame{
 	public PopUp() {
 		this.setSize(300, 150);
 		this.setLayout(null);
-
+		
 		this.setVisible(true);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
@@ -39,26 +39,21 @@ public class PopUp extends JFrame{
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
-
+		
 		okButton.addActionListener(new ActionListener() {
-
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closePage();
 			}
 		});
-
-
+		
 		panel.add(message);
 		panel.add(okButton);
-
+		
 		this.add(panel);
-
-
 	}
-
-
-
+	
 	public boolean JoinCheck() {
 		this.setTitle("가입완료");
 		this.setLayout(null);
@@ -74,28 +69,26 @@ public class PopUp extends JFrame{
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
-
+		
+		
 		okButton.addActionListener(new ActionListener() {
-
-
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closePage();
-
 			}
-
+			
 		});
-
 
 		panel.add(message);
 		panel.add(okButton);
 
 		this.add(panel);
-
+		
 		return false;
 	}
-
+	
+	
 	public void findIdSucPopup() {
 		this.setTitle("아이디찾기 성공");
 		this.setLayout(null);
@@ -267,11 +260,14 @@ public class PopUp extends JFrame{
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
 		
+		
 		okButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closePage();
+				
+				
 			}
 		});
 		

@@ -32,38 +32,61 @@ public class Controller extends Member{
 		}
 	}
 
-
 	public boolean loginCheck(String id, String pwd) {
-		//1. 아이디검사
-		//아이디를 통해 파일이름 받아오기
-		String fileName = id + ".txt";
-		File member = new File(fileName);
-
-		//해당 이름의 파일이 없을 경우 false 리턴
-		if(!member.isFile()) {
-			return false;
-		}
-
-		//2. 패스워드 검사
-		BufferedReader br = null;
-		try{
-			//필요한 파일 읽기
-			br = new BufferedReader(new FileReader(id + ".txt"));
-			String temp = br.readLine();
-
-			//split을 이용해 ", " 를 구분자로 하여 파일에 저장된 값을 나누기
-			String[] info = temp.split(", ");
-
-			//입력한 pwd와 파일에 저장되어있는 pwd가 같지 않을 경우 false 출력
-			if(!pwd.equals(info[1])) {
-				return false;
-			}		
-		}catch(IOException e) {
+		
+		try {
+			File member = new File("MemberList.txt");
+			BufferedReader br = null;
+			br = new BufferedReader(new FileReader(member));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (id.equals(info[0])) {
+					if (pwd.equals(info[1])) {
+						return true;
+					}
+				} else {
+					return false;
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
 			e.printStackTrace();
 		}
-
-		//아이디 검사와 패스워드 검사에서 아무 이상이 없다면 true 리턴
 		return true;
+		
+		
+//		//1. 아이디검사
+//		//아이디를 통해 파일이름 받아오기
+//		String fileName = id + ".txt";
+//		File member = new File(fileName);
+//
+//		//해당 이름의 파일이 없을 경우 false 리턴
+//		if(!member.isFile()) {
+//			return false;
+//		}
+//
+//		//2. 패스워드 검사
+//		BufferedReader br = null;
+//		try{
+//			//필요한 파일 읽기
+//			br = new BufferedReader(new FileReader(id + ".txt"));
+//			String temp = br.readLine();
+//
+//			//split을 이용해 ", " 를 구분자로 하여 파일에 저장된 값을 나누기
+//			String[] info = temp.split(", ");
+//
+//			//입력한 pwd와 파일에 저장되어있는 pwd가 같지 않을 경우 false 출력
+//			if(!pwd.equals(info[1])) {
+//				return false;
+//			}		
+//		}catch(IOException e) {
+//			e.printStackTrace();
+//		}
+//
+//		//아이디 검사와 패스워드 검사에서 아무 이상이 없다면 true 리턴
+//		return true;
 	}
 	
 	@SuppressWarnings("resource")
@@ -134,24 +157,54 @@ public class Controller extends Member{
 	
 	public void join(String id, String pwd, String name, String email, String phone,
 			int age, String academy, char classroom, char gender) {
-		Scanner sc = new Scanner(System.in);
-		try {
-			BufferedWriter bw = new BufferedWriter(new FileWriter("MemberList.txt", true));
 		
+		int point = 0, charged = 0;
+		boolean favoriteBeer = false, favoriteGram = false, favoriteNoodles = false, favoriteSandwich = false;
+		
+		//type1 txt생성
+		BufferedWriter mList = null;
+		try {
 			
-			bw.write(id + ", " + pwd + ", " + name + ", " + email + ", " + phone
+			mList = new BufferedWriter(new FileWriter("MemberList.txt", true));
+			
+			mList.write(id + ", " + pwd + ", " + name + ", " + email + ", " + phone
 					 + ", " + academy + ", " + classroom + ", " + age + ", " + gender
-					 + ", " + 0 + ", " + 0 + ", " + false + ", " + false + ", " + false + ", " + false);
-			bw.newLine();
-			bw.flush();
+					 + ", " + point + ", " + charged);
+			mList.newLine();
+			mList.flush();
 			
 		} catch (IOException e) {
 			e.printStackTrace();
+		}finally {
+			try {
+				mList.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 		
+		//type2 txt생성
+		BufferedWriter idList = null; 
+		try {
+			idList = new BufferedWriter(new FileWriter(id + ".txt"));
+			
+			idList.write(id + ", " + pwd + ", " + name + ", " 
+			+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+			
+			idList.flush();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				idList.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}	
+		}
 		
-		
-		
+		PopUp pu = new PopUp();
+		pu.JoinCheck();
 		
 		
 	}
