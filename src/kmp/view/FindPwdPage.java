@@ -126,13 +126,15 @@ public class FindPwdPage extends JPanel{
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PopUp popup = new PopUp();
 				String inputId = tId.getText();
 				String inputName = tName.getText();
 				String inputEmail = tEmail.getText();
 				if (ctr.findPwd(inputId, inputName, inputEmail)) {
+					ChangePanel.changePanel(mf,findPwdPage, new LoginPage(mf));
+					PopUp popup = new PopUp();
 					popup.findPwdSucPopup();
 				} else {
+					PopUp popup = new PopUp();
 					popup.findPwdFailPopup();
 				}
 				

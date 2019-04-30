@@ -119,12 +119,14 @@ public class FindIdPage extends JPanel{
 		button1.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PopUp popup = new PopUp();
 				String inputName = tName.getText();
 				String inputEmail = tEmail.getText();
 				if(ctr.findId(inputName, inputEmail)) {
+					ChangePanel.changePanel(mf,findIdPage, new LoginPage(mf));
+					PopUp popup = new PopUp();
 					popup.findIdSucPopup();
 				}else {
+					PopUp popup = new PopUp();
 					popup.findIdFailPopup();
 				}
 //				ChangePanel.changePanel(mf, findIdPage, new FindIdPage(mf));

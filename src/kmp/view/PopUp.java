@@ -57,8 +57,8 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 	
-	public boolean JoinCheck() {
-		this.setTitle("가입완료");
+	public void joinCheck() {
+		this.setTitle("가입 완료");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
@@ -74,21 +74,50 @@ public class PopUp extends JFrame{
 		message.setLayout(null);
 		
 		
-		okButton.addActionListener(new ActionListener() {
 
+		panel.add(message);
+		panel.add(okButton);
+
+		this.add(panel);
+		okButton.addActionListener(new ActionListener() {
+			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closePage();
 			}
 			
 		});
+	}
+	
+	public void joinFail() {
+		this.setTitle("가입 실패");
+		this.setLayout(null);
+
+		JPanel panel = new JPanel();
+		panel.setSize(300, 150);
+		panel.setLayout(null);
+
+		JLabel message = new JLabel("회원 정보를 전부 입력해주세요.");
+		message.setSize(300, 30);
+		message.setLocation(30, 20);
+
+		JButton okButton = new JButton("확인");
+		okButton.setSize(100, 30);
+		okButton.setLocation(100, 80);
+		message.setLayout(null);
+
+		okButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closePage();
+			}
+		});
 
 		panel.add(message);
 		panel.add(okButton);
 
 		this.add(panel);
-		
-		return false;
 	}
 	
 	
@@ -162,8 +191,8 @@ public class PopUp extends JFrame{
 		panel.setLayout(null);
 
 		JLabel Smessage = new JLabel("등록된 이메일로 비밀번호 정보 발송했습니다.");
-		Smessage.setSize(300, 30);
-		Smessage.setLocation(30, 20);
+		Smessage.setSize(320, 30);
+		Smessage.setLocation(15, 20);
 
 		JButton okButton = new JButton("확인");
 		okButton.setSize(100, 30);
