@@ -149,7 +149,7 @@ public class JoinPage extends JPanel{
 		JTextField tf3 = new JTextField();
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
-
+ 
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField();
 		JButton button4 = new JButton("중복확인");

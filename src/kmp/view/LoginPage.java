@@ -19,7 +19,6 @@ public class LoginPage extends JPanel {
 	private MainFrame mf;
 	private JPanel loginPage;
 	static String id;
-	private String pwd;
 
 	public LoginPage() {
 	}
@@ -47,14 +46,14 @@ public class LoginPage extends JPanel {
 		this.setLayout(null);
 		Color color = new Color(234, 255, 236);
 
-		// »ó´Ü ¸ŞÀÎ ÀÌ¹ÌÁö
+		// ìƒë‹¨ ë©”ì¸ ì´ë¯¸ì§€
 
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 300);
 		panel1.setLocation(0, 0);
 		panel1.setBackground(color);
 
-		// Áß°£ ·Î±×ÀÎÃ¢
+		// ì¤‘ê°„ ë¡œê·¸ì¸ì°½
 
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 400);
@@ -67,9 +66,8 @@ public class LoginPage extends JPanel {
 		Image login_Pwd = new ImageIcon("images/login_Pwd.png").getImage().getScaledInstance(60, 40, 0);
 		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
 
-		// IDÅØ½ºÆ®ÇÊµå
+		// IDí…ìŠ¤íŠ¸í•„ë“œ
 		JTextField tf = new JTextField(20);
-		setId(tf.getText());
 
 		JPasswordField password = new JPasswordField(30);
 		label1.setSize(60, 40);
@@ -84,11 +82,11 @@ public class LoginPage extends JPanel {
 		tf.setLocation(120, 50);
 		password.setLocation(120, 100);
 
-		// ÇÏ´Ü ¹öÆ°
+		// í•˜ë‹¨ ë²„íŠ¼
 
-		JButton button1 = new JButton("·Î±×ÀÎ");
-		JButton button2 = new JButton("ID/PWD Ã£±â");
-		JButton button3 = new JButton("È¸¿ø°¡ÀÔ");
+		JButton button1 = new JButton("ë¡œê·¸ì¸");
+		JButton button2 = new JButton("ID/PWD ì°¾ê¸°");
+		JButton button3 = new JButton("íšŒì›ê°€ì…");
 
 		button1.setSize(120, 50);
 		button1.setLocation(60, 170);
@@ -97,27 +95,25 @@ public class LoginPage extends JPanel {
 		button3.setSize(280, 50);
 		button3.setLocation(60, 250);
 
-		// ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£¸¦ ¹ŞÀ» º¯¼ö ¼±¾ğ
+		// ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ë¥¼ ë°›ì„ ë³€ìˆ˜ ì„ ì–¸
 		button1.addActionListener(new ActionListener() {
 			String id, pwd;
 
-			// ·Î±×ÀÎ ¹öÆ° Å¬¸¯ ½Ã ¾×¼Ç¸®½º³Ê
+			// ë¡œê·¸ì¸ ë²„íŠ¼ í´ë¦­ ì‹œ ì•¡ì…˜ë¦¬ìŠ¤ë„ˆ
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// JTextField¿¡ ÀÔ·ÂÇÑ id¹Ş¾Æ¿À±â
+				// JTextFieldì— ì…ë ¥í•œ idë°›ì•„ì˜¤ê¸°
 				id = new String(tf.getText());
-				// JPasswordField¿¡ ÀÔ·ÂÇÑ password¹Ş¾Æ¿À±â
+				// JPasswordFieldì— ì…ë ¥í•œ passwordë°›ì•„ì˜¤ê¸°
 				pwd = new String(password.getPassword());
 				Controller ct = new Controller();
 
-				// id¿Í password¸¦ loginCheck¸Ş¼Òµå·Î È®ÀÎÇÏ¿© °á°ú°ª¿¡ µû¶ó Ã¢ º¯°æorÆË¾÷Ã¢ Ãâ·Â
-				if (ct.loginCheck(id, pwd)) {
-					setId(id); // ÆÁ Áö±İ
-					setPwd(pwd);
+				// idì™€ passwordë¥¼ loginCheckë©”ì†Œë“œë¡œ í™•ì¸í•˜ì—¬ ê²°ê³¼ê°’ì— ë”°ë¼ ì°½ ë³€ê²½oríŒì—…ì°½ ì¶œë ¥
+				if (ct.loginCheck(id,pwd)) {
+					setId(id); // íŒ ì§€ê¸ˆ
 					ChangePanel.changePanel(mf, loginPage, new MainPage(mf));
 
 				} else {
-
 					PopUp pu = new PopUp();
 					pu.loginCheck();
 
@@ -164,5 +160,6 @@ public class LoginPage extends JPanel {
 		mf.setVisible(true);
 
 	}
+
 
 }

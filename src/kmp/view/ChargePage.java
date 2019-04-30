@@ -4,6 +4,10 @@ import java.awt.Color;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -14,6 +18,8 @@ import javax.swing.JTextField;
 public class ChargePage extends JPanel {
 	private MainFrame mf;
 	private JPanel chargePage;
+	private int charge;
+	LoginPage lp = new LoginPage();
 	
 	public ChargePage(MainFrame mf) {
 		this.mf = mf;
@@ -45,6 +51,7 @@ public class ChargePage extends JPanel {
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
+		
 
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
@@ -141,7 +148,6 @@ public class ChargePage extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				ChangePanel.changePanel(mf, chargePage, new ChargePage(mf));
 				
 			}
@@ -156,16 +162,41 @@ public class ChargePage extends JPanel {
 		
 
 		//하단패널
+		
+//		BufferedWriter bw = new BufferedWriter(new FileWriter(userId() + ".txt"));
+
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
-		
+		BufferedReader br = null;
+		int money = 0, charged = 0, sum = money+charged;
+		try {
+			br = new BufferedReader(new FileReader("MemberList.txt"));
+			String line = "";
+			
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if(lp.getId().equals(info[0])) {
+					money = Integer.parseInt(info[10]);
+					break;
+				}
+			}	
+		} catch (FileNotFoundException e1) {
+			e1.printStackTrace();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}	
+			
+			
 		JLabel cash = new JLabel(new ImageIcon(cashImg));
 		cash.setSize(60, 60);
 		cash.setLocation(40, 20);
-
-		JTextField cashInt = new JTextField("잔액");
+		
+		
+		
+		JTextField cashInt = new JTextField();
+		cashInt.setText(money + "원");
 		cashInt.setEditable(false);	
 		cashInt.setSize(260, 60);
 		cashInt.setLocation(100, 20);
@@ -173,25 +204,26 @@ public class ChargePage extends JPanel {
 		JLabel chargeMoney = new JLabel(new ImageIcon(chargeMoneyImg));
 		chargeMoney.setSize(60, 60);
 		chargeMoney.setLocation(40, 120);
-
-		JTextField chargeMoneyInt = new JTextField("충전금액");
+		
+		JTextField chargeMoneyInt = new JTextField();
 		chargeMoneyInt.setEditable(false);	
 		chargeMoneyInt.setSize(260, 60);
 		chargeMoneyInt.setLocation(100, 120);
+		chargeMoneyInt.setText(getCharge()+"");
 		
 		JLabel allMoney = new JLabel(new ImageIcon(allMoneyImg));
 		allMoney.setSize(60, 60);
 		allMoney.setLocation(40, 230);
 
-		JTextField allMoneyInt = new JTextField("총액");
+		JTextField allMoneyInt = new JTextField(sum);
 		allMoneyInt.setEditable(false);	
 		allMoneyInt.setSize(260, 60);
 		allMoneyInt.setLocation(100, 230);
 		
-		JButton button1 = new JButton(new ImageIcon(money1Img));
-		JButton button2 = new JButton(new ImageIcon(money2Img));
-		JButton button3 = new JButton(new ImageIcon(money3Img));
-		JButton button4 = new JButton(new ImageIcon(money4Img));
+		JButton button1 = new JButton(new ImageIcon(money1Img));	//5만
+		JButton button2 = new JButton(new ImageIcon(money2Img));	//3만
+		JButton button3 = new JButton(new ImageIcon(money3Img));	//1만
+		JButton button4 = new JButton(new ImageIcon(money4Img));	//5천
 		button1.setSize(75, 20);
 		button1.setLocation(30, 200);
 		button2.setSize(75, 20);
@@ -201,7 +233,41 @@ public class ChargePage extends JPanel {
 		button4.setSize(75, 20);
 		button4.setLocation(285, 200);
 		
+		
+		button1.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setCharge(getCharge() + 50000);
+				chargeMoneyInt.setText(getCharge()+"");
+				
+			}
+		});
+		button2.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setCharge(getCharge() + 30000);
+				chargeMoneyInt.setText(getCharge()+"");
+				
+			}
+		});
+		button3.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setCharge(getCharge() + 10000);
+				chargeMoneyInt.setText(getCharge()+"");
+				 
+			}
+		});
+		button4.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setCharge(getCharge() + 5000);
+				chargeMoneyInt.setText(getCharge()+"");
+				
+			}
+		});
 
+		
 		JButton chargeButton = new JButton("충전하기");
 		chargeButton.setSize(120, 40);
 		chargeButton.setLocation(240,  320);
@@ -232,8 +298,20 @@ public class ChargePage extends JPanel {
 		this.add(panel1);
 		this.add(panel2);
 		mf.add(this);
-
 		
+		this.setVisible(true);
+
 	}
+	
+	
+	public int getCharge() {
+		return charge;
+	}
+
+	public void setCharge(int charge) {
+		this.charge = charge;
+	}
+	
+	
 }
 

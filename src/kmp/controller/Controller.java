@@ -53,27 +53,27 @@ public class Controller extends Member {
 		}
 		return false;
 
-		// //1. ¾ÆÀÌµğ°Ë»ç
-		// //¾ÆÀÌµğ¸¦ ÅëÇØ ÆÄÀÏÀÌ¸§ ¹Ş¾Æ¿À±â
+		// //1. ì•„ì´ë””ê²€ì‚¬
+		// //ì•„ì´ë””ë¥¼ í†µí•´ íŒŒì¼ì´ë¦„ ë°›ì•„ì˜¤ê¸°
 		// String fileName = id + ".txt";
 		// File member = new File(fileName);
 		//
-		// //ÇØ´ç ÀÌ¸§ÀÇ ÆÄÀÏÀÌ ¾øÀ» °æ¿ì false ¸®ÅÏ
+		// //í•´ë‹¹ ì´ë¦„ì˜ íŒŒì¼ì´ ì—†ì„ ê²½ìš° false ë¦¬í„´
 		// if(!member.isFile()) {
 		// return false;
 		// }
 		//
-		// //2. ÆĞ½º¿öµå °Ë»ç
+		// //2. íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬
 		// BufferedReader br = null;
 		// try{
-		// //ÇÊ¿äÇÑ ÆÄÀÏ ÀĞ±â
+		// //í•„ìš”í•œ íŒŒì¼ ì½ê¸°
 		// br = new BufferedReader(new FileReader(id + ".txt"));
 		// String temp = br.readLine();
 		//
-		// //splitÀ» ÀÌ¿ëÇØ ", " ¸¦ ±¸ºĞÀÚ·Î ÇÏ¿© ÆÄÀÏ¿¡ ÀúÀåµÈ °ªÀ» ³ª´©±â
+		// //splitì„ ì´ìš©í•´ ", " ë¥¼ êµ¬ë¶„ìë¡œ í•˜ì—¬ íŒŒì¼ì— ì €ì¥ëœ ê°’ì„ ë‚˜ëˆ„ê¸°
 		// String[] info = temp.split(", ");
 		//
-		// //ÀÔ·ÂÇÑ pwd¿Í ÆÄÀÏ¿¡ ÀúÀåµÇ¾îÀÖ´Â pwd°¡ °°Áö ¾ÊÀ» °æ¿ì false Ãâ·Â
+		// //ì…ë ¥í•œ pwdì™€ íŒŒì¼ì— ì €ì¥ë˜ì–´ìˆëŠ” pwdê°€ ê°™ì§€ ì•Šì„ ê²½ìš° false ì¶œë ¥
 		// if(!pwd.equals(info[1])) {
 		// return false;
 		// }
@@ -81,11 +81,11 @@ public class Controller extends Member {
 		// e.printStackTrace();
 		// }
 		//
-		// //¾ÆÀÌµğ °Ë»ç¿Í ÆĞ½º¿öµå °Ë»ç¿¡¼­ ¾Æ¹« ÀÌ»óÀÌ ¾ø´Ù¸é true ¸®ÅÏ
+		// //ì•„ì´ë”” ê²€ì‚¬ì™€ íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬ì—ì„œ ì•„ë¬´ ì´ìƒì´ ì—†ë‹¤ë©´ true ë¦¬í„´
 		// return true;
 	}
 
-	// [È£¼®] ¾ÆÀÌµğ Ã£±â ¸Ş¼Òµå
+	// [í˜¸ì„] ì•„ì´ë”” ì°¾ê¸° ë©”ì†Œë“œ
 	@SuppressWarnings("resource")
 	public boolean findId(String name, String email) {
 		try {
@@ -109,7 +109,7 @@ public class Controller extends Member {
 		return false;
 	}
 
-	// [È£¼®] ºñ¹Ğ¹øÈ£ Ã£±â ¸Ş¼Òµå
+	// [í˜¸ì„] ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ë©”ì†Œë“œ
 	@SuppressWarnings("resource")
 	public boolean findPwd(String id, String name, String email) {
 		try {
@@ -134,7 +134,7 @@ public class Controller extends Member {
 		return false;
 	}
 
-	// Çö¼ö ¾ÆÀÌµğ Áßº¹È®ÀÎ
+	// í˜„ìˆ˜ ì•„ì´ë”” ì¤‘ë³µí™•ì¸
 	public boolean isDuplicatedId(String id) {
 		String fileName = id + ".txt";
 		File member = new File(fileName);
@@ -152,7 +152,7 @@ public class Controller extends Member {
 		int point = 0, charged = 0;
 		boolean favoriteBeer = false, favoriteGram = false, favoriteNoodles = false, favoriteSandwich = false;
 
-		// type1 txt»ı¼º
+		// type1 txtìƒì„±
 		BufferedWriter mList = null;
 		try {
 
@@ -173,13 +173,14 @@ public class Controller extends Member {
 			}
 		}
 
-		// type2 txt»ı¼º
+		// type2 txtìƒì„±
 		BufferedWriter idList = null;
 		try {
 			idList = new BufferedWriter(new FileWriter(id + ".txt"));
 
-			idList.write(id + ", " + pwd + ", " + name + ", " + favoriteBeer + ", " + favoriteGram + ", "
-					+ favoriteNoodles + ", " + favoriteSandwich);
+			idList.write(id + ", " + pwd + ", " + name + ", " 
+					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+ 
 
 			idList.flush();
 
@@ -232,7 +233,7 @@ public class Controller extends Member {
 
 	}
 
-	// [È£¼®] ¸É¹öÀÎÆ÷ ÆäÀÌÁö¿¡ ·Î±×ÀÎÇÑ ¸â¹öÀÇ ºñ¹Ğ¹øÈ£ Á¤º¸ Ãâ·ÂÇÏ±â ¸Ş¼Òµå 
+	// [í˜¸ì„] ë§´ë²„ì¸í¬ í˜ì´ì§€ì— ë¡œê·¸ì¸í•œ ë©¤ë²„ì˜ ë¹„ë°€ë²ˆí˜¸ ì •ë³´ ì¶œë ¥í•˜ê¸° ë©”ì†Œë“œ 
 	public String outputPwdInfo(String id) {
 		try {
 			File memberList = new File("MemberList.txt");
@@ -249,10 +250,10 @@ public class Controller extends Member {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Ã£´Â Á¤º¸°¡ ¾ø½À´Ï´Ù";
+		return "ì°¾ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤";
 	}
 	
-	// [È£¼®] ¸É¹öÀÎÆ÷ ÆäÀÌÁö¿¡ ·Î±×ÀÎÇÑ ¸â¹öÀÇ ÀÌ¸§ Á¤º¸ Ãâ·ÂÇÏ±â ¸Ş¼Òµå 
+	// [í˜¸ì„] ë§´ë²„ì¸í¬ í˜ì´ì§€ì— ë¡œê·¸ì¸í•œ ë©¤ë²„ì˜ ì´ë¦„ ì •ë³´ ì¶œë ¥í•˜ê¸° ë©”ì†Œë“œ 
 	public String outputNameInfo(String id) {
 		try {
 			File memberList = new File("MemberList.txt");
@@ -269,10 +270,10 @@ public class Controller extends Member {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Ã£´Â Á¤º¸°¡ ¾ø½À´Ï´Ù";
+		return "ì°¾ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤";
 	}
 
-	// [È£¼®] ¸É¹öÀÎÆ÷ ÆäÀÌÁö¿¡ ·Î±×ÀÎÇÑ ¸â¹öÀÇ ÀÌ¸ŞÀÏ Á¤º¸ Ãâ·ÂÇÏ±â ¸Ş¼Òµå
+	// [í˜¸ì„] ë§´ë²„ì¸í¬ í˜ì´ì§€ì— ë¡œê·¸ì¸í•œ ë©¤ë²„ì˜ ì´ë©”ì¼ ì •ë³´ ì¶œë ¥í•˜ê¸° ë©”ì†Œë“œ
 	public String outputEmailInfo(String id) {
 		try {
 			File memberList = new File("MemberList.txt");
@@ -289,10 +290,10 @@ public class Controller extends Member {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Ã£´Â Á¤º¸°¡ ¾ø½À´Ï´Ù";
+		return "ì°¾ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤";
 	}
 	
-	// [È£¼®] ¸É¹öÀÎÆ÷ ÆäÀÌÁö¿¡ ·Î±×ÀÎÇÑ ¸â¹öÀÇ ÀüÈ­¹øÈ£ Á¤º¸ Ãâ·ÂÇÏ±â ¸Ş¼Òµå
+	// [í˜¸ì„] ë§´ë²„ì¸í¬ í˜ì´ì§€ì— ë¡œê·¸ì¸í•œ ë©¤ë²„ì˜ ì „í™”ë²ˆí˜¸ ì •ë³´ ì¶œë ¥í•˜ê¸° ë©”ì†Œë“œ
 	public String outputPhoneNumInfo(String id) {
 		try {
 			File memberList = new File("MemberList.txt");
@@ -309,10 +310,10 @@ public class Controller extends Member {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Ã£´Â Á¤º¸°¡ ¾ø½À´Ï´Ù";
+		return "ì°¾ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤";
 	}
 	
-	// [È£¼®] ¸É¹öÀÎÆ÷ ÆäÀÌÁö¿¡ ·Î±×ÀÎÇÑ ¸â¹öÀÇ ÇĞ¿ø Á¤º¸ Ãâ·ÂÇÏ±â ¸Ş¼Òµå
+	// [í˜¸ì„] ë§´ë²„ì¸í¬ í˜ì´ì§€ì— ë¡œê·¸ì¸í•œ ë©¤ë²„ì˜ í•™ì› ì •ë³´ ì¶œë ¥í•˜ê¸° ë©”ì†Œë“œ
 		public String outputAcademyInfo(String id) {
 			try {
 				File memberList = new File("MemberList.txt");
@@ -329,10 +330,10 @@ public class Controller extends Member {
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
-			return "Ã£´Â Á¤º¸°¡ ¾ø½À´Ï´Ù";
+			return "ì°¾ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤";
 		}
 		
-	// [È£¼®] ¸É¹öÀÎÆ÷ ÆäÀÌÁö¿¡ ·Î±×ÀÎÇÑ ¸â¹öÀÇ ¹İ Á¤º¸ Ãâ·ÂÇÏ±â ¸Ş¼Òµå
+	// [í˜¸ì„] ë§´ë²„ì¸í¬ í˜ì´ì§€ì— ë¡œê·¸ì¸í•œ ë©¤ë²„ì˜ ë°˜ ì •ë³´ ì¶œë ¥í•˜ê¸° ë©”ì†Œë“œ
 	public String outputClassroomInfo(String id) {
 		try {
 			File memberList = new File("MemberList.txt");
@@ -349,10 +350,10 @@ public class Controller extends Member {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Ã£´Â Á¤º¸°¡ ¾ø½À´Ï´Ù";
+		return "ì°¾ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤";
 	}
 	
-	// [È£¼®] ¸É¹öÀÎÆ÷ ÆäÀÌÁö¿¡ ·Î±×ÀÎÇÑ ¸â¹öÀÇ ¼ºº° Á¤º¸ Ãâ·ÂÇÏ±â ¸Ş¼Òµå
+	// [í˜¸ì„] ë§´ë²„ì¸í¬ í˜ì´ì§€ì— ë¡œê·¸ì¸í•œ ë©¤ë²„ì˜ ì„±ë³„ ì •ë³´ ì¶œë ¥í•˜ê¸° ë©”ì†Œë“œ
 	public String outputGenderInfo(String id) {
 		try {
 			File memberList = new File("MemberList.txt");
@@ -369,7 +370,7 @@ public class Controller extends Member {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return "Ã£´Â Á¤º¸°¡ ¾ø½À´Ï´Ù";
+		return "ì°¾ëŠ” ì •ë³´ê°€ ì—†ìŠµë‹ˆë‹¤";
 	}
 
 }
