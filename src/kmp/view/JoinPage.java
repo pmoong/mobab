@@ -248,6 +248,8 @@ public class JoinPage extends JPanel{
 				ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
 				
 				
+				
+				
 			}
 			
 		});
