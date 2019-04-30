@@ -18,7 +18,9 @@ import kmp.controller.Controller;
 public class LoginPage extends JPanel{
 	private MainFrame mf;
 	private JPanel loginPage;
-	private String id;
+	static String id;
+
+	public LoginPage() {}
 
 	public LoginPage(MainFrame mf) {
 		this.mf = mf;
@@ -52,7 +54,6 @@ public class LoginPage extends JPanel{
 		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
 		
 		JTextField tf = new JTextField(20);
-		setId(tf.getText());
 		JPasswordField password = new JPasswordField(30);
 		label1.setSize(60,40);
 		label1.setLocation(60, 50);
@@ -95,6 +96,7 @@ public class LoginPage extends JPanel{
 				
 				//id와 password를 loginCheck메소드로 확인하여 결과값에 따라 창 변경or팝업창 출력
 				if(ct.loginCheck(id, pwd)) {
+					setId(id);
 					ChangePanel.changePanel(mf,loginPage, new MainPage(mf));
 				}else {
 					
@@ -153,7 +155,6 @@ public class LoginPage extends JPanel{
 
 	}
 
-	
 	public String getId() {
 		return id;
 	}
@@ -161,5 +162,7 @@ public class LoginPage extends JPanel{
 	public void setId(String id) {
 		this.id = id;
 	}
+
+	
 
 }
