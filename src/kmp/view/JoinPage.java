@@ -109,11 +109,11 @@ public class JoinPage extends JPanel{
 				if(ct.isDuplicatedId(id)) {
 					PopUp pu = new PopUp();
 					pu.IdCheckF();
-				}else {
+				}
+				else {
 					PopUp pu = new PopUp();
 					pu.IdCheckT();
 					
-
 				}
 
 			}

@@ -10,6 +10,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
+import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
 import kmp.view.PopUp;
 
@@ -232,6 +233,18 @@ public class Controller extends Member{
 		return true;
 
 	}
+	
+	public int totalPrice(int price, int ea) {
+	      
+	      Beer b = new Beer();   
+	      
+	      int sum = 0;
+	      
+	      sum = (ea * price);
+	      
+	      return sum;
+	      
+	   }
 	
 }
 
