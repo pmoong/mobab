@@ -9,9 +9,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPasswordField;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
+
+import kmp.model.vo.Member;
 
 public class MemberInfoPage extends JPanel {
 	private MainFrame mf;
@@ -167,8 +167,9 @@ public class MemberInfoPage extends JPanel {
 //		infoText.setBackground(backgcolor);
 	
 		//id정보
+
 		JLabel idIcon = new JLabel(new ImageIcon(idImg));
-		JTextField idInfo = new JTextField(30);
+		JTextField idInfo = new JTextField();
 		idIcon.setSize(60,30);
 		idInfo.setSize(270,30);
 		idIcon.setLocation(5, 20);
@@ -176,7 +177,7 @@ public class MemberInfoPage extends JPanel {
 		
 		//pwd정보
 		JLabel pwdIcon = new JLabel(new ImageIcon(pwdImg));
-		JTextField pwdInfo = new JTextField(30);
+		JTextField pwdInfo = new JTextField();
 		pwdIcon.setSize(60,30);
 		pwdInfo.setSize(270,30);
 		pwdIcon.setLocation(5, 80);

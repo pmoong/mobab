@@ -8,10 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.Scanner;
 
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
+import kmp.view.JoinPage;
 import kmp.view.PopUp;
 
 public class Controller extends Member{
@@ -34,7 +34,7 @@ public class Controller extends Member{
 	}
 
 	public boolean loginCheck(String id, String pwd) {
-		
+
 		try {
 			File member = new File("MemberList.txt");
 			BufferedReader br = null;
@@ -56,40 +56,40 @@ public class Controller extends Member{
 			e.printStackTrace();
 		}
 		return true;
-		
-		
-//		//1. ¾ÆÀÌµğ°Ë»ç
-//		//¾ÆÀÌµğ¸¦ ÅëÇØ ÆÄÀÏÀÌ¸§ ¹Ş¾Æ¿À±â
-//		String fileName = id + ".txt";
-//		File member = new File(fileName);
-//
-//		//ÇØ´ç ÀÌ¸§ÀÇ ÆÄÀÏÀÌ ¾øÀ» °æ¿ì false ¸®ÅÏ
-//		if(!member.isFile()) {
-//			return false;
-//		}
-//
-//		//2. ÆĞ½º¿öµå °Ë»ç
-//		BufferedReader br = null;
-//		try{
-//			//ÇÊ¿äÇÑ ÆÄÀÏ ÀĞ±â
-//			br = new BufferedReader(new FileReader(id + ".txt"));
-//			String temp = br.readLine();
-//
-//			//splitÀ» ÀÌ¿ëÇØ ", " ¸¦ ±¸ºĞÀÚ·Î ÇÏ¿© ÆÄÀÏ¿¡ ÀúÀåµÈ °ªÀ» ³ª´©±â
-//			String[] info = temp.split(", ");
-//
-//			//ÀÔ·ÂÇÑ pwd¿Í ÆÄÀÏ¿¡ ÀúÀåµÇ¾îÀÖ´Â pwd°¡ °°Áö ¾ÊÀ» °æ¿ì false Ãâ·Â
-//			if(!pwd.equals(info[1])) {
-//				return false;
-//			}		
-//		}catch(IOException e) {
-//			e.printStackTrace();
-//		}
-//
-//		//¾ÆÀÌµğ °Ë»ç¿Í ÆĞ½º¿öµå °Ë»ç¿¡¼­ ¾Æ¹« ÀÌ»óÀÌ ¾ø´Ù¸é true ¸®ÅÏ
-//		return true;
+
+
+		//		//1. ì•„ì´ë””ê²€ì‚¬
+		//		//ì•„ì´ë””ë¥¼ í†µí•´ íŒŒì¼ì´ë¦„ ë°›ì•„ì˜¤ê¸°
+		//		String fileName = id + ".txt";
+		//		File member = new File(fileName);
+		//
+		//		//í•´ë‹¹ ì´ë¦„ì˜ íŒŒì¼ì´ ì—†ì„ ê²½ìš° false ë¦¬í„´
+		//		if(!member.isFile()) {
+		//			return false;
+		//		}
+		//
+		//		//2. íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬
+		//		BufferedReader br = null;
+		//		try{
+		//			//í•„ìš”í•œ íŒŒì¼ ì½ê¸°
+		//			br = new BufferedReader(new FileReader(id + ".txt"));
+		//			String temp = br.readLine();
+		//
+		//			//splitì„ ì´ìš©í•´ ", " ë¥¼ êµ¬ë¶„ìë¡œ í•˜ì—¬ íŒŒì¼ì— ì €ì¥ëœ ê°’ì„ ë‚˜ëˆ„ê¸°
+		//			String[] info = temp.split(", ");
+		//
+		//			//ì…ë ¥í•œ pwdì™€ íŒŒì¼ì— ì €ì¥ë˜ì–´ìˆëŠ” pwdê°€ ê°™ì§€ ì•Šì„ ê²½ìš° false ì¶œë ¥
+		//			if(!pwd.equals(info[1])) {
+		//				return false;
+		//			}		
+		//		}catch(IOException e) {
+		//			e.printStackTrace();
+		//		}
+		//
+		//		//ì•„ì´ë”” ê²€ì‚¬ì™€ íŒ¨ìŠ¤ì›Œë“œ ê²€ì‚¬ì—ì„œ ì•„ë¬´ ì´ìƒì´ ì—†ë‹¤ë©´ true ë¦¬í„´
+		//		return true;
 	}
-	
+
 	@SuppressWarnings("resource")
 	public boolean findId(String name, String email) {
 		try {
@@ -141,39 +141,37 @@ public class Controller extends Member{
 		}
 		return true;
 	}
-	public boolean isDuplicatedId(String id) {		
+	public boolean isDuplicatedId(String id) {
+
 
 		String fileName = id + ".txt";
 		File member = new File(fileName);
 
-		if(!member.isFile()) {
-			return false;
-		}else {
+		if(member.isFile()) {
 			return  true;			
+		}else {
+			return false;
 		}
 	}
-	public void isDuplicatedEmail(String email) {
 
-	}
-	
 	public void join(String id, String pwd, String name, String email, String phone,
 			int age, String academy, char classroom, char gender) {
-		
+
 		int point = 0, charged = 0;
 		boolean favoriteBeer = false, favoriteGram = false, favoriteNoodles = false, favoriteSandwich = false;
-		
-		//type1 txt»ı¼º
+
+		//type1 txtìƒì„±
 		BufferedWriter mList = null;
 		try {
-			
+
 			mList = new BufferedWriter(new FileWriter("MemberList.txt", true));
-			
+
 			mList.write(id + ", " + pwd + ", " + name + ", " + email + ", " + phone
-					 + ", " + academy + ", " + classroom + ", " + age + ", " + gender
-					 + ", " + point + ", " + charged);
+					+ ", " + academy + ", " + classroom + ", " + age + ", " + gender
+					+ ", " + point + ", " + charged);
 			mList.newLine();
 			mList.flush();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -183,17 +181,17 @@ public class Controller extends Member{
 				e.printStackTrace();
 			}
 		}
-		
-		//type2 txt»ı¼º
+
+		//type2 txtìƒì„±
 		BufferedWriter idList = null; 
 		try {
 			idList = new BufferedWriter(new FileWriter(id + ".txt"));
-			
+
 			idList.write(id + ", " + pwd + ", " + name + ", " 
-			+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
-			
+					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+
 			idList.flush();
-			
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}finally {
@@ -203,13 +201,13 @@ public class Controller extends Member{
 				e.printStackTrace();
 			}	
 		}
-		
+
 		PopUp pu = new PopUp();
 		pu.JoinCheck();
-		
-		
+
+
 	}
-	
+
 	public boolean isDuplicatedPhone(String phone) {
 
 		try {
@@ -246,5 +244,6 @@ public class Controller extends Member{
 	      
 	   }
 	
+
 }
 

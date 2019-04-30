@@ -279,6 +279,40 @@ public class PopUp extends JFrame{
 		
 
 	}
+	public void IdCheckNull() {
+		this.setTitle("중복확인");
+		this.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setSize(300, 150);
+		panel.setLayout(null);
+		
+		JLabel message = new JLabel("ID를 입력하세요.");
+		message.setSize(300, 30);
+		message.setLocation(30, 20);
+		JButton okButton = new JButton("확인");
+		okButton.setSize(100, 30);
+		okButton.setLocation(100, 80);
+		message.setLayout(null);
+		
+		
+		okButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closePage();
+				
+				
+			}
+		});
+		
+		
+		panel.add(message);
+		panel.add(okButton);
+		
+		this.add(panel);
+		
+	}
 	
 	public void PhoneCheckF() {
 		this.setTitle("중복확인");
@@ -340,6 +374,35 @@ public class PopUp extends JFrame{
 		
 		this.add(panel);
 		
+	}
+	public void PhoneCheckNull() {
+		this.setTitle("중복확인");
+		this.setLayout(null);
+		
+		JPanel panel = new JPanel();
+		panel.setSize(300, 150);
+		panel.setLayout(null);
+		
+		JLabel message = new JLabel("번호를 입력하세요.");
+		message.setSize(300, 30);
+		message.setLocation(30, 20);
+		JButton okButton = new JButton("확인");
+		okButton.setSize(100, 30);
+		okButton.setLocation(100, 80);
+		message.setLayout(null);
+		
+		okButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closePage();
+			}
+		});
+				
+		panel.add(message);
+		panel.add(okButton);
+		
+		this.add(panel);
 	}
 
 

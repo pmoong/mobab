@@ -135,7 +135,6 @@ public class FindPwdPage extends JPanel{
 				} else {
 					popup.findPwdFailPopup();
 				}
-				// ChangePanel.changePanel(mf, findIdPage, new FindIdPage(mf));
 				
 			}
 		});
