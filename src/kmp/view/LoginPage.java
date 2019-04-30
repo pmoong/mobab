@@ -52,6 +52,7 @@ public class LoginPage extends JPanel{
 		JLabel label2 = new JLabel(new ImageIcon(login_Pwd));
 		
 		JTextField tf = new JTextField(20);
+		setId(tf.getText());
 		JPasswordField password = new JPasswordField(30);
 		label1.setSize(60,40);
 		label1.setLocation(60, 50);
@@ -81,8 +82,8 @@ public class LoginPage extends JPanel{
 		
 		//아이디와 비밀번호를 받을 변수 선언
 		button1.addActionListener(new ActionListener() {
-			
 			String id, pwd;
+			
 			//로그인 버튼 클릭 시 액션리스너
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -150,6 +151,15 @@ public class LoginPage extends JPanel{
 		mf.add(this);
 		mf.setVisible(true);
 
+	}
+
+	
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
 	}
 
 }
