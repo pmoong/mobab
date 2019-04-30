@@ -202,8 +202,6 @@ public class Controller extends Member{
 			}	
 		}
 
-		PopUp pu = new PopUp();
-		pu.JoinCheck();
 
 
 	}

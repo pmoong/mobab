@@ -22,12 +22,17 @@ import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
 import kmp.view.MemberInfoPage;
+import kmp.view.PopUp;
 import kmp.view.SikdangPage;
+import kmp.view.UsingHistoryPage;
 public class BeerStorePage extends JPanel{
       private MainFrame mf;
       private JPanel beerStorePage;
+      private int price;
       
-      public BeerStorePage(MainFrame mf) {
+    public BeerStorePage() {}
+
+	public BeerStorePage(MainFrame mf) {
          this.mf = mf;
          this.beerStorePage = this;
          this.setSize(400, 700);
@@ -216,8 +221,11 @@ public class BeerStorePage extends JPanel{
          public void itemStateChanged(ItemEvent arg0) {
             // TODO Auto-generated method stub
             int ea = listmenu1.getSelectedIndex()+1;
-            ctr.totalPrice(b.getPrice(), ea);
+//            ctr.totalPrice(b.getPrice(), ea);
             price.setText(ctr.totalPrice(b.getPrice(), ea)+"");
+            
+            System.out.println(Integer.parseInt(price.getText()));
+            System.out.println(getPrice());
          }
             
          });
@@ -256,11 +264,16 @@ public class BeerStorePage extends JPanel{
          pay.setSize(100 ,30 );
          pay.setLocation(215,50);
          panel5.add(pay);
+         
          pay.addActionListener(new ActionListener() {
             
             @Override
             public void actionPerformed(ActionEvent e) {
-               ChangePanel.changePanel(mf, beerStorePage, new MapPage(mf));
+
+                setPrice(Integer.parseInt(price.getText()));
+            	ChangePanel.changePanel(mf, beerStorePage, new UsingHistoryPage(mf));
+               PopUp pu = new PopUp();
+				pu.CheckPay();
                
             }
          });
@@ -279,5 +292,13 @@ public class BeerStorePage extends JPanel{
          
          mf.add(this);
          
+         }
+	
+	public int getPrice() {
+		return price;
+	}
+	
+	public void setPrice(int price) {
+		this.price = price;
       }
    }
