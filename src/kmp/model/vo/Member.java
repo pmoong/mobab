@@ -52,18 +52,8 @@ public class Member implements Serializable{
 	}
 
 
-	public void setId(String id) {
-		this.id = id;
-	}
-
-
 	public String getPwd() {
 		return pwd;
-	}
-
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
 	}
 
 
@@ -72,18 +62,8 @@ public class Member implements Serializable{
 	}
 
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-
 	public String getEmail() {
 		return email;
-	}
-
-
-	public void setEmail(String email) {
-		this.email = email;
 	}
 
 
@@ -92,18 +72,8 @@ public class Member implements Serializable{
 	}
 
 
-	public void setPhone(String phone) {
-		this.phone = phone;
-	}
-
-
 	public int getAge() {
 		return age;
-	}
-
-
-	public void setAge(int age) {
-		this.age = age;
 	}
 
 
@@ -112,18 +82,8 @@ public class Member implements Serializable{
 	}
 
 
-	public void setAcademy(String academy) {
-		this.academy = academy;
-	}
-
-
 	public char getClassroom() {
 		return classroom;
-	}
-
-
-	public void setClassroom(char classroom) {
-		this.classroom = classroom;
 	}
 
 
@@ -132,14 +92,78 @@ public class Member implements Serializable{
 	}
 
 
+	public int getPoint() {
+		return point;
+	}
+
+
+	public int getCharged() {
+		return charged;
+	}
+
+
+	public boolean isFavoriteBeer() {
+		return favoriteBeer;
+	}
+	public boolean isFavoriteGram() {
+		return favoriteGram;
+	}
+
+
+	public boolean isFavoriteSandwich() {
+		return favoriteSandwich;
+	}
+
+
+	public boolean isFavoriteNoodle() {
+		return favoriteNoodle;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+
+	public void setAge(int age) {
+		this.age = age;
+	}
+
+
+	public void setAcademy(String academy) {
+		this.academy = academy;
+	}
+
+
+	public void setClassroom(char classroom) {
+		this.classroom = classroom;
+	}
+
+
 	public void setGender(char gender) {
 		this.gender = gender;
 	}
 
-
-	public int getPoint() {
-		return point;
-	}
 
 	public void setPoint(int point) {
 		this.point = point;
@@ -151,18 +175,8 @@ public class Member implements Serializable{
 	}
 
 
-	public boolean isFavoriteBeer() {
-		return favoriteBeer;
-	}
-
-
 	public void setFavoriteBeer(boolean favoriteBeer) {
 		this.favoriteBeer = favoriteBeer;
-	}
-
-
-	public boolean isFavoriteGram() {
-		return favoriteGram;
 	}
 
 
@@ -171,19 +185,10 @@ public class Member implements Serializable{
 	}
 
 
-	public boolean isFavoriteSandwich() {
-		return favoriteSandwich;
-	}
-
-
 	public void setFavoriteSandwich(boolean favoriteSandwich) {
 		this.favoriteSandwich = favoriteSandwich;
 	}
 
-
-	public boolean isFavoriteNoodle() {
-		return favoriteNoodle;
-	}
 
 	public void setFavoriteNoodle(boolean favoriteNoodle) {
 		this.favoriteNoodle = favoriteNoodle;
@@ -196,8 +201,7 @@ public class Member implements Serializable{
 				+ ", age=" + age + ", academy=" + academy + ", classroom=" + classroom + ", gender=" + gender
 				+ ", point=" + point + ", charged=" + charged + ", favoriteBeer=" + favoriteBeer + ", favoriteGram="
 				+ favoriteGram + ", favoriteSandwich=" + favoriteSandwich + ", favoriteNoodle=" + favoriteNoodle + "]";
-
 	}
-
 	
+
 }

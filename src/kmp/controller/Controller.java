@@ -181,7 +181,7 @@ public class Controller extends Member{
 				e.printStackTrace();
 			}
 		}
-
+ 
 		//type2 txt»ý¼º
 		BufferedWriter idList = null; 
 		try {
@@ -202,8 +202,6 @@ public class Controller extends Member{
 			}	
 		}
 
-		PopUp pu = new PopUp();
-		pu.JoinCheck();
 
 
 	}
@@ -243,6 +241,10 @@ public class Controller extends Member{
 	      return sum;
 	      
 	   }
+	public void StarCheck(String id, String name) {
+		
+		
+	}
 	
 
 }
