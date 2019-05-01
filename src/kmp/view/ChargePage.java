@@ -15,11 +15,19 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import kmp.controller.Controller;
+
 public class ChargePage extends JPanel {
 	private MainFrame mf;
 	private JPanel chargePage;
+	private int money;
 	private int charge;
+	private int sum;
 	LoginPage lp = new LoginPage();
+	BufferedReader br = null;
+	Controller ctr = new Controller();
+	
+	public ChargePage() {}
 	
 	public ChargePage(MainFrame mf) {
 		this.mf = mf;
@@ -28,7 +36,6 @@ public class ChargePage extends JPanel {
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
-		
 
 		//사용할 이미지 할당
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
@@ -171,8 +178,7 @@ public class ChargePage extends JPanel {
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
-		BufferedReader br = null;
-		int money = 0, charged = 0, sum = money+charged;
+		
 		try {
 			br = new BufferedReader(new FileReader("MemberList.txt"));
 			String line = "";
@@ -180,7 +186,7 @@ public class ChargePage extends JPanel {
 			while ((line = br.readLine()) != null) {
 				String[] info = line.split(", ");
 				if(lp.getId().equals(info[0])) {
-					money = Integer.parseInt(info[10]);
+					setMoney(Integer.parseInt(info[10]));
 					break;
 				}
 			}	
@@ -189,7 +195,14 @@ public class ChargePage extends JPanel {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}	
-			
+		
+		//String[] userInfo;
+		
+		
+		
+		
+		
+		setSum(getMoney() + getCharge());
 			
 		JLabel cash = new JLabel(new ImageIcon(cashImg));
 		cash.setSize(60, 60);
@@ -198,7 +211,7 @@ public class ChargePage extends JPanel {
 		
 		
 		JTextField cashInt = new JTextField();
-		cashInt.setText(money + "원");
+		cashInt.setText(getMoney() + "원");
 		cashInt.setEditable(false);	
 		cashInt.setSize(260, 60);
 		cashInt.setLocation(100, 20);
@@ -211,13 +224,14 @@ public class ChargePage extends JPanel {
 		chargeMoneyInt.setEditable(false);	
 		chargeMoneyInt.setSize(260, 60);
 		chargeMoneyInt.setLocation(100, 120);
-		chargeMoneyInt.setText(getCharge()+"");
+		chargeMoneyInt.setText(getCharge()+"원");
 		
 		JLabel allMoney = new JLabel(new ImageIcon(allMoneyImg));
 		allMoney.setSize(60, 60);
 		allMoney.setLocation(40, 230);
 
-		JTextField allMoneyInt = new JTextField(sum);
+		JTextField allMoneyInt = new JTextField();
+		allMoneyInt.setText(getSum() + "원");
 		allMoneyInt.setEditable(false);	
 		allMoneyInt.setSize(260, 60);
 		allMoneyInt.setLocation(100, 230);
@@ -240,15 +254,18 @@ public class ChargePage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setCharge(getCharge() + 50000);
-				chargeMoneyInt.setText(getCharge()+"");
-				
+				setSum(getMoney()+getCharge());
+				chargeMoneyInt.setText(getCharge()+"원");
+				allMoneyInt.setText(getSum() + "원");
 			}
 		});
 		button2.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setCharge(getCharge() + 30000);
-				chargeMoneyInt.setText(getCharge()+"");
+				setSum(getMoney()+getCharge());
+				chargeMoneyInt.setText(getCharge()+"원");
+				allMoneyInt.setText(getSum() + "원");
 				
 			}
 		});
@@ -256,15 +273,19 @@ public class ChargePage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setCharge(getCharge() + 10000);
-				chargeMoneyInt.setText(getCharge()+"");
-				 
+				setSum(getMoney()+getCharge());
+				chargeMoneyInt.setText(getCharge()+"원");
+				allMoneyInt.setText(getSum() + "원");
+				
 			}
 		});
 		button4.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				setCharge(getCharge() + 5000);
-				chargeMoneyInt.setText(getCharge()+"");
+				setSum(getMoney()+getCharge());
+				chargeMoneyInt.setText(getCharge()+"원");
+				allMoneyInt.setText(getSum() + "원");
 				
 			}
 		});
@@ -275,6 +296,18 @@ public class ChargePage extends JPanel {
 		chargeButton.setLocation(240,  320);
 		
 		
+		
+		chargeButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setMoney(getSum());
+				setCharge(0);
+				cashInt.setText(getMoney() + "원");
+				chargeMoneyInt.setText(getCharge()+"원");
+				allMoneyInt.setText(getSum() + "원");
+				ctr.charged(getMoney());
+			}});
 		
 		
 		
@@ -313,6 +346,27 @@ public class ChargePage extends JPanel {
 	public void setCharge(int charge) {
 		this.charge = charge;
 	}
+
+
+	public int getSum() {
+		return sum;
+	}
+
+
+	public void setSum(int sum) {
+		this.sum = sum;
+	}
+
+
+	public int getMoney() {
+		return money;
+	}
+
+
+	public void setMoney(int money) {
+		this.money = money;
+	}
+	
 	
 	
 }

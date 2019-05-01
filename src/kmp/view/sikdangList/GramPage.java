@@ -42,6 +42,7 @@ public class GramPage extends JPanel{
 		Color backgcolor = new Color(234,255,236);
 
 
+
 	      //사용할 이미지 선언
 	      Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 	      Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
@@ -53,6 +54,7 @@ public class GramPage extends JPanel{
 	      Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 	      
 	      
+
 
 	      //상단패널
 	      JPanel panel1 = new JPanel();
@@ -188,6 +190,7 @@ public class GramPage extends JPanel{
 		JTextArea num = new JTextArea("000-000-0000");
 		num.setSize(100, 20);
 		num.setLocation(15, 35);
+
 		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
