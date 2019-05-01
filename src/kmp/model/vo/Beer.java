@@ -6,11 +6,11 @@ import java.util.Arrays;
 import javax.swing.ImageIcon;
 
 public class Beer {
-   private String[] menu = new String[] {"∫ﬂ∆‰","qnldp"};
+   private String[] menu = new String[] {"Î∑îÌéò","qnldp"};
    private String number = "010-000-0000";
-   private String location = "∞≠≥≤±∏ µø";
+   private String location = "Í∞ïÎÇ®Íµ¨ Îèô";
    private Image map = new ImageIcon("images/mapbeer.png").getImage().getScaledInstance(60, 60, 0);
-   private String name = "∏∆¡÷√¢∞Ì";
+   private String name = "Îß•Ï£ºÏ∞ΩÍ≥†";
    private int price = 5000;
    private int sum = 0;
    

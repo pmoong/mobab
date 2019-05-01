@@ -7,6 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -18,6 +21,7 @@ import javax.swing.JTextField;
 import kmp.controller.Controller;
 import kmp.model.vo.Beer;
 import kmp.view.ChangePanel;
+import kmp.view.LoginPage;
 import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
@@ -54,6 +58,7 @@ public class BeerStorePage extends JPanel{
          
 
          //상단패널
+         
          JPanel panel1 = new JPanel();
          panel1.setSize(400, 150);
          panel1.setLocation(0, 0);
@@ -162,9 +167,18 @@ public class BeerStorePage extends JPanel{
          beerLabel.setSize(100, 20);
          beerLabel.setLocation(120, 0);
          beerLabel.setBackground(color);
-         JTextArea num = new JTextArea(b.getNumber());
-         num.setSize(100, 20);
+         JButton num = new JButton(b.getNumber());
+         num.setSize(130, 20);
          num.setLocation(15, 35);
+         num.addActionListener(new ActionListener() {
+         
+         @Override
+         public void actionPerformed(ActionEvent e) {
+            PopUp pu = new PopUp();
+            pu.callPopUp();
+            
+         }
+      });
          JTextArea address = new JTextArea(b.getLocation());
          address.setSize(120, 20);
          address.setLocation(215, 35);
@@ -200,7 +214,7 @@ public class BeerStorePage extends JPanel{
          listmenu1.add("4");
          listmenu1.add("5");
          listmenu1.setLocation(270,25);
-         listmenu1.setSize(30,18);
+         listmenu1.setSize(40,18);
             listmenu1.setVisible(true);
          
          
@@ -214,6 +228,7 @@ public class BeerStorePage extends JPanel{
          JTextField price = new JTextField();
          price.setSize(130, 20);
          price.setLocation(160,200);
+//         price.setEditable(false);
          Controller ctr = new Controller();
          listmenu1.addItemListener(new ItemListener() {
 
@@ -224,8 +239,7 @@ public class BeerStorePage extends JPanel{
 //            ctr.totalPrice(b.getPrice(), ea);
             price.setText(ctr.totalPrice(b.getPrice(), ea)+"");
             
-            System.out.println(Integer.parseInt(price.getText()));
-            System.out.println(getPrice());
+        
          }
             
          });
@@ -269,11 +283,29 @@ public class BeerStorePage extends JPanel{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                setPrice(Integer.parseInt(price.getText()));
+            	String name = "맥주창고";
+//                setPrice(Integer.parseInt(price.getText()));
             	ChangePanel.changePanel(mf, beerStorePage, new UsingHistoryPage(mf));
                PopUp pu = new PopUp();
-				pu.CheckPay();
+				pu.CheckPay(Integer.parseInt(price.getText()));
+               LoginPage lp = new LoginPage();
+               lp.getId();
+               String filename=lp.getId()+".txt";
+               BufferedWriter mList = null;
+               
+               try {
+				mList = new BufferedWriter(new FileWriter(lp.getId()+".txt", true));
+				
+				mList.write(name + "," + Integer.parseInt(price.getText()));
+				mList.newLine();
+				mList.flush();
+
+				
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+               
                
             }
          });

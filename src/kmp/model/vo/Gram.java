@@ -11,7 +11,7 @@ public class Gram extends Store{
 //		super(menu, number, location, map, name);
 		this.setMenu(menu);
 		this.setNumber("010-0000-0000");
-		this.setLocation("°­³²±¸ ¿ª»ïµ¿");
+		this.setLocation("ê°•ë‚¨êµ¬ ì—­ì‚¼ë™");
 		this.setMap(new ImageIcon("images/mapGram.png").getImage().getScaledInstance(60, 60, 0));
 		this.setName("7 Gram");
 		

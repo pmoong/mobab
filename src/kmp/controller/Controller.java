@@ -12,6 +12,7 @@ import java.util.StringTokenizer;
 
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
+import kmp.view.LoginPage;
 import kmp.view.PopUp;
 
 public class Controller extends Member {
@@ -372,5 +373,25 @@ public class Controller extends Member {
 		}
 		return "찾는 정보가 없습니다";
 	}
+	
+	
+	public boolean outputstore(String id) {
+		try {
+			LoginPage lp = new LoginPage();
+			lp.getId();
+			File memberList = new File( lp + ".txt");
+			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
 
 }

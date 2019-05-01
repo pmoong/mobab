@@ -12,6 +12,7 @@ import kmp.view.sikdangList.BeerStorePage;
 
 public class PopUp extends JFrame{
 	BeerStorePage bd = new BeerStorePage();
+	
 
 	public PopUp() {
 		this.setSize(300, 150);
@@ -440,7 +441,7 @@ public class PopUp extends JFrame{
 	
 	
 	
-	public void CheckPay() {
+	public void CheckPay(int price) {
 		this.setTitle("결제확인");
 		this.setLayout(null);
 		
@@ -449,16 +450,18 @@ public class PopUp extends JFrame{
 		panel.setLayout(null);
 		
 		
-		
-		System.out.println(bd.getPrice());
-		
-		JLabel message = new JLabel(bd.getPrice()+" 원 결제를 진행하시겠습니까?");
+		JLabel message = new JLabel(price+" 원 결제를 진행하시겠습니까?");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
+		
 		JButton okButton = new JButton("확인");
-		okButton.setSize(100, 30);
-		okButton.setLocation(100, 80);
+		okButton.setSize(90, 30);
+		okButton.setLocation(30, 80);
 		message.setLayout(null);
+		
+		JButton noButton = new JButton("취소");
+		noButton.setSize(90, 30);
+		noButton.setLocation(150, 80);
 		
 		okButton.addActionListener(new ActionListener() {
 			
@@ -467,13 +470,67 @@ public class PopUp extends JFrame{
 				closePage();
 			}
 		});
+		
+		
+	
+		
+		
+		
+		noButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closePage();
+			}
+		});
+
+
 				
 		panel.add(message);
 		panel.add(okButton);
+		panel.add(noButton);
 		
 		this.add(panel);
 	}
 
+	public void callPopUp() {
+		   this.setTitle("전화연결");
+		      this.setLayout(null);
+		      
+		      JPanel panel = new JPanel();
+		      panel.setSize(300, 150);
+		      panel.setLayout(null);
+		      
+		      System.out.println(bd.getPrice());
+		      
+		      JLabel message = new JLabel("전화 연결하시겠습니까?");
+		      message.setSize(300, 30);
+		      message.setLocation(70, 20);
+		      JButton okButton = new JButton("확인");
+		      okButton.setSize(60, 30);
+		      okButton.setLocation(70, 80);
+		      message.setLayout(null);
+		      
+		      okButton.addActionListener(new ActionListener() {
+		         
+		         @Override
+		         public void actionPerformed(ActionEvent e) {
+		            closePage();
+		         }
+		      });
+		      
+		      JButton noButton = new JButton("취소");
+		      noButton.setSize(60, 30);
+		      noButton.setLocation(150, 80);
+		      message.setLayout(null);
+		            
+		      panel.add(message);
+		      panel.add(okButton);
+		      panel.add(noButton);
+		      
+		      this.add(panel);
+		   }
+	
 
 
 }
