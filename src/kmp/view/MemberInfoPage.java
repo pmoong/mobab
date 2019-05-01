@@ -39,15 +39,17 @@ public class MemberInfoPage extends JPanel {
 		Image chargeImg = new ImageIcon("images/mCharge.png").getImage().getScaledInstance(100, 100, 0);
 		Image userinfoImg = new ImageIcon("images/user_c.png").getImage().getScaledInstance(80, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
+		Image logoutImg = new ImageIcon("images/logout.png").getImage().getScaledInstance(50, 50, 0);
 		
 		Image academyImg = new ImageIcon("images/academy.png").getImage().getScaledInstance(60, 30, 0);
-		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(20, 30, 0);
+		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(60, 30, 0);
 		Image emailImg = new ImageIcon("images/email.png").getImage().getScaledInstance(60, 30, 0);
 		Image genderImg = new ImageIcon("images/gender.png").getImage().getScaledInstance(60, 30, 0);
 		Image idImg = new ImageIcon("images/id.png").getImage().getScaledInstance(60, 30, 0);
 		Image nameImg = new ImageIcon("images/name.png").getImage().getScaledInstance(60, 30, 0);
 		Image phoneNumImg = new ImageIcon("images/phoneNum.png").getImage().getScaledInstance(60, 30, 0);
 		Image pwdImg = new ImageIcon("images/pwd.png").getImage().getScaledInstance(60, 30, 0);
+		Image chargedImg = new ImageIcon("images/charged.png").getImage().getScaledInstance(60, 30, 0);
 		Image userInfo = new ImageIcon("images/userInfo.png").getImage().getScaledInstance(360, 50, 0);
 		
 		
@@ -61,6 +63,22 @@ public class MemberInfoPage extends JPanel {
 		back.setLocation(0,0);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
+		
+		JButton logout = new JButton(new ImageIcon(logoutImg));
+		logout.setSize(50,50);
+		logout.setLocation(10,0);
+		logout.setBorderPainted(false);
+		logout.setContentAreaFilled(false);
+		logout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LoginPage lp = new LoginPage();
+				lp.setId(null);
+				ChangePanel.changePanel(mf,memberInfoPage, new LoginPage(mf));
+				
+			}
+		});
+		
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
 		home.setLocation(80,0);
@@ -88,9 +106,12 @@ public class MemberInfoPage extends JPanel {
 			
 		});
 		
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
+		panel1.setBackground(color);
+		panel1.add(logout);
+		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
@@ -231,20 +252,29 @@ public class MemberInfoPage extends JPanel {
 		//반정보
 		JLabel classroomIcon = new JLabel(new ImageIcon(classroomImg));
 		JTextField classroomInfo = new JTextField(20);
-		classroomIcon.setSize(30, 30);
-		classroomInfo.setSize(120, 30);
+		classroomIcon.setSize(40, 30);
+		classroomInfo.setSize(80, 30);
 		classroomIcon.setLocation(190, 320);
-		classroomInfo.setLocation(215, 320);
+		classroomInfo.setLocation(235, 320);
 		classroomInfo.setText(ctr.outputClassroomInfo(lp.getId()));
 
+		//보유금액정보
+		JLabel chargedIcon = new JLabel(new ImageIcon(chargedImg));
+		JTextField chargedInfo = new JTextField(20);
+		chargedIcon.setSize(60, 30);
+		chargedInfo.setSize(120, 30);
+		chargedIcon.setLocation(5, 380);
+		chargedInfo.setLocation(65, 380);
+		chargedInfo.setText(ctr.outputGenderInfo(lp.getId()));
+		
 		//성별정보
 		JLabel genderIcon = new JLabel(new ImageIcon(genderImg));
 		JTextField genderInfo = new JTextField(20);
-		genderIcon.setSize(60, 30);
-		genderInfo.setSize(120, 30);
-		genderIcon.setLocation(5, 380);
-		genderInfo.setLocation(65, 380);
-		genderInfo.setText(ctr.outputGenderInfo(lp.getId()));
+		genderIcon.setSize(40, 30);
+		genderInfo.setSize(80, 30);
+		genderIcon.setLocation(190, 380);
+		genderInfo.setLocation(235, 380);
+		genderInfo.setText(ctr.outputChargedInfo(lp.getId()));
 		
 		
 		
@@ -263,6 +293,8 @@ public class MemberInfoPage extends JPanel {
 		panel3.add(academyInfo);
 		panel3.add(classroomIcon);
 		panel3.add(classroomInfo);
+		panel3.add(chargedIcon);
+		panel3.add(chargedInfo);
 		panel3.add(genderIcon);
 		panel3.add(genderInfo);
 		

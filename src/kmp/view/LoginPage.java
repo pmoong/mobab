@@ -61,7 +61,8 @@ public class LoginPage extends JPanel {
 
 		// ID텍스트필드
 		JTextField tf = new JTextField(20);
-
+		
+		// 패스워드 텍스트 필드
 		JPasswordField password = new JPasswordField(30);
 		label1.setSize(60, 40);
 		label1.setLocation(60, 50);
@@ -74,6 +75,30 @@ public class LoginPage extends JPanel {
 
 		tf.setLocation(120, 50);
 		password.setLocation(120, 100);
+		password.addActionListener(new ActionListener() {          
+            @Override
+            public void actionPerformed(ActionEvent e) {
+            	// JTextField에 입력한 id받아오기
+            	String id, pwd;
+				id = new String(tf.getText());
+				// JPasswordField에 입력한 password받아오기
+				pwd = new String(password.getPassword());
+				
+				Controller ct = new Controller();
+
+				// id와 password를 loginCheck메소드로 확인하여 결과값에 따라 창 변경or팝업창 출력
+				if (ct.loginCheck(id,pwd)) {
+					setId(id); // 팁 지금
+					ChangePanel.changePanel(mf, loginPage, new MainPage(mf));
+					
+				} else {
+					PopUp pu = new PopUp();
+					pu.loginCheck();
+
+				}       
+            }
+        });
+
 
 		// 하단 버튼
 
@@ -95,17 +120,18 @@ public class LoginPage extends JPanel {
 			// 로그인 버튼 클릭 시 액션리스너
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// JTextField에 입력한 id받아오기
-				id = new String(tf.getText());
-				// JPasswordField에 입력한 password받아오기
-				pwd = new String(password.getPassword());
+//				// JTextField에 입력한 id받아오기
+//				id = new String(tf.getText());
+//				// JPasswordField에 입력한 password받아오기
+//				pwd = new String(password.getPassword());
+								
 				Controller ct = new Controller();
 
 				// id와 password를 loginCheck메소드로 확인하여 결과값에 따라 창 변경or팝업창 출력
 				if (ct.loginCheck(id,pwd)) {
 					setId(id); // 팁 지금
 					ChangePanel.changePanel(mf, loginPage, new MainPage(mf));
-
+					
 				} else {
 					PopUp pu = new PopUp();
 					pu.loginCheck();

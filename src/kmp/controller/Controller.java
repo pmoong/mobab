@@ -8,11 +8,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.StringTokenizer;
 
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
-import kmp.view.PopUp;
+import kmp.view.LoginPage;
 
 public class Controller extends Member {
 	public Controller() {
@@ -322,7 +321,7 @@ public class Controller extends Member {
 				while ((line = br.readLine()) != null) {
 					String[] info = line.split(", ");
 					if (id.equals(info[0])) {
-						return info[6];
+						return info[5];
 					}
 				}
 			} catch (FileNotFoundException e) {
@@ -342,7 +341,27 @@ public class Controller extends Member {
 			while ((line = br.readLine()) != null) {
 				String[] info = line.split(", ");
 				if (id.equals(info[0])) {
-					return info[7];
+					return info[6];
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "찾는 정보가 없습니다";
+	}
+	
+	// [호석] 맴버인포 페이지에 로그인한 멤버의 보유금액 정보 출력하기 메소드
+	public String outputChargedInfo(String id) {
+		try {
+			File memberList = new File("MemberList.txt");
+			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (id.equals(info[0])) {
+					return info[8];
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -362,7 +381,7 @@ public class Controller extends Member {
 			while ((line = br.readLine()) != null) {
 				String[] info = line.split(", ");
 				if (id.equals(info[0])) {
-					return info[8];
+					return info[10];
 				}
 			}
 		} catch (FileNotFoundException e) {
