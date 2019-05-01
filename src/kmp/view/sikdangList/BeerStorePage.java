@@ -35,7 +35,7 @@ public class BeerStorePage extends JPanel{
       private int price;
 //      private int test;
     public BeerStorePage() {}
-
+ 
 	public BeerStorePage(MainFrame mf) {
          this.mf = mf;
          this.beerStorePage = this;
@@ -104,9 +104,11 @@ public class BeerStorePage extends JPanel{
             
          });
          
-         panel1.add(back);
+//         panel1.add(back);
          panel1.add(home);
          panel1.add(infor);
+ 		 panel1.setBackground(color);
+ 		
          JButton sik = new JButton(new ImageIcon(sikImg));
          sik.setSize(100,100);
          sik.setLocation(0,50);
@@ -171,6 +173,7 @@ public class BeerStorePage extends JPanel{
          num.setSize(130, 20);
          num.setLocation(15, 35);
          num.addActionListener(new ActionListener() {
+
          
          @Override
          public void actionPerformed(ActionEvent e) {
@@ -179,6 +182,7 @@ public class BeerStorePage extends JPanel{
             
          }
       });
+
          JTextArea address = new JTextArea(b.getLocation());
          address.setSize(120, 20);
          address.setLocation(215, 35);
@@ -268,7 +272,9 @@ public class BeerStorePage extends JPanel{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-               ChangePanel.changePanel(mf, beerStorePage, new MapPage(mf));
+               ChangePanel.changePanel(mf, beerStorePage, new MapPage(mf, 1));
+               Controller ctr = new Controller();
+               ctr.map(1);
                
             }
          });

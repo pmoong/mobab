@@ -70,8 +70,10 @@ public class JoinPage extends JPanel{
 		});
 
 
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
+		panel1.setBackground(color);
+		
 		JButton join = new JButton(new ImageIcon(joinImg));
 		join.setSize(400,100);
 		join.setLocation(0,50);
