@@ -11,13 +11,20 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import java.net.StandardSocketOptions;
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
+import kmp.view.ChargePage;
+import kmp.view.LoginPage;
+
 
 public class Controller extends Member {
+	private LoginPage lp = new LoginPage();
+
 	public Controller() {
 	}
 
@@ -30,7 +37,6 @@ public class Controller extends Member {
 			bw.flush();
 
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -183,7 +189,7 @@ public class Controller extends Member {
 
 			idList.write(id + ", " + pwd + ", " + name + ", " 
 					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
- 
+
 
 			idList.flush();
 
@@ -255,7 +261,7 @@ public class Controller extends Member {
 		}
 		return "찾는 정보가 없습니다";
 	}
-	
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 이름 정보 출력하기 메소드 
 	public String outputNameInfo(String id) {
 		try {
@@ -295,7 +301,7 @@ public class Controller extends Member {
 		}
 		return "찾는 정보가 없습니다";
 	}
-	
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 전화번호 정보 출력하기 메소드
 	public String outputPhoneNumInfo(String id) {
 		try {
@@ -315,7 +321,7 @@ public class Controller extends Member {
 		}
 		return "찾는 정보가 없습니다";
 	}
-	
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 학원 정보 출력하기 메소드
 		public String outputAcademyInfo(String id) {
 			try {
@@ -325,17 +331,18 @@ public class Controller extends Member {
 				while ((line = br.readLine()) != null) {
 					String[] info = line.split(", ");
 					if (id.equals(info[0])) {
-						return info[6];
+						return info[5];
 					}
 				}
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			} catch (IOException e) {
-				e.printStackTrace();
 			}
-			return "찾는 정보가 없습니다";
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
-		
+		return "찾는 정보가 없습니다";
+	}
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 반 정보 출력하기 메소드
 	public String outputClassroomInfo(String id) {
 		try {
@@ -345,7 +352,7 @@ public class Controller extends Member {
 			while ((line = br.readLine()) != null) {
 				String[] info = line.split(", ");
 				if (id.equals(info[0])) {
-					return info[7];
+					return info[6];
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -356,6 +363,26 @@ public class Controller extends Member {
 		return "찾는 정보가 없습니다";
 	}
 	
+	// [호석] 맴버인포 페이지에 로그인한 멤버의 보유금액 정보 출력하기 메소드
+	public String outputChargedInfo(String id) {
+		try {
+			File memberList = new File("MemberList.txt");
+			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (id.equals(info[0])) {
+					return info[8];
+				}
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return "찾는 정보가 없습니다";
+	}
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 성별 정보 출력하기 메소드
 	public String outputGenderInfo(String id) {
 		try {
@@ -365,7 +392,7 @@ public class Controller extends Member {
 			while ((line = br.readLine()) != null) {
 				String[] info = line.split(", ");
 				if (id.equals(info[0])) {
-					return info[8];
+					return info[10];
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -410,5 +437,53 @@ public class Controller extends Member {
         
         return mapImg;
 	}
+
+	//charge 충전버튼
+	public void charged(int charged) {
+		ChargePage cp = new ChargePage();
+		Member[] m = new Member[1];
+		
+		try {
+			BufferedReader br = new BufferedReader(new FileReader("MemberList.txt"));
+			String save = "";
+			String line="";
+			
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				
+				if(lp.getId().equals(info[0])) {
+					for(int i = 0; i < 10;i++) {
+						save += info[i] + ", ";
+					}
+					save += charged;
+
+				}else {
+					for(int i = 0; i < info.length;i++) {
+						if(i != info.length-1) {
+							save += info[i] + ", ";
+						}else {
+							save += info[i];
+						}
+					}
+				}
+				save += "\n";
+			}
+			BufferedWriter bw = null;
+			
+			bw = new BufferedWriter(new FileWriter("MemberList.txt"));
+			bw.write(save);
+			bw.close();
+			br.close();
+			
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+
+
+	
+	
+	
 
 }

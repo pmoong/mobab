@@ -1,3 +1,4 @@
+
 package kmp.view.sikdangList;
 
 
@@ -30,6 +31,7 @@ import kmp.view.MemberInfoPage;
 import kmp.view.SikdangPage;
 import kmp.view.UsingHistoryPage;
 
+
 public class GramPage extends JPanel{
 	private MainFrame mf;
 	private JPanel gramPage;
@@ -43,7 +45,8 @@ public class GramPage extends JPanel{
 		Color backgcolor = new Color(234,255,236);
 
 
-	      //����� �̹��� ����
+
+	      //사용할 이미지 선언
 	      Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 	      Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 	      Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -55,7 +58,8 @@ public class GramPage extends JPanel{
 	      
 	      
 
-	      //����г�
+
+	      //상단패널
 	      JPanel panel1 = new JPanel();
 	      panel1.setSize(400, 150);
 	      panel1.setLocation(0, 0);
@@ -99,9 +103,11 @@ public class GramPage extends JPanel{
 	         
 	      });
 	      
-	      panel1.add(back);
+//	      panel1.add(back);
 	      panel1.add(home);
 	      panel1.add(infor);
+	      panel1.setBackground(color);
+			
 	      JButton sik = new JButton(new ImageIcon(sikImg));
 	      sik.setSize(100,100);
 	      sik.setLocation(0,50);
@@ -187,7 +193,8 @@ public class GramPage extends JPanel{
 		JTextArea num = new JTextArea("000-000-0000");
 		num.setSize(100, 20);
 		num.setLocation(15, 35);
-		JTextArea address = new JTextArea("������ ���ﵿ");
+
+		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
 
@@ -335,9 +342,6 @@ public class GramPage extends JPanel{
 
 
 
-
-
-
 		panel2.add(panel3);
 		panel2.add(panel4);
 		panel2.add(panel5);
@@ -350,5 +354,3 @@ public class GramPage extends JPanel{
 
 	}
 }
-
-
