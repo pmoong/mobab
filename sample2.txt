@@ -1,1 +1,5 @@
-sample2, ±è¹®¹Ú, false, false, false, false, ÀÌ¿ë³»¿ª...
+sample2, ê¹€ë¬¸ë°•, false, false, false, false
+Beer, 15000
+Gram, 27000
+Noodle, 20000
+Sandwich, 20000
