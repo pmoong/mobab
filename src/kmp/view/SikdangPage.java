@@ -76,9 +76,11 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
+		panel1.setBackground(color);
+		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);

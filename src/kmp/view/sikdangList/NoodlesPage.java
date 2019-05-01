@@ -93,9 +93,11 @@ public class NoodlesPage extends JPanel {
 
 		});
 
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
+		panel1.setBackground(color);
+		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
@@ -181,6 +183,7 @@ public class NoodlesPage extends JPanel {
 		JTextArea num = new JTextArea("000-000-0000");
 		num.setSize(100, 20);
 		num.setLocation(15, 35);
+
 		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
@@ -198,10 +201,12 @@ public class NoodlesPage extends JPanel {
 		panel4.setLocation(20, 85);
 		panel4.setBackground(Color.WHITE);
 
+
 		JTextField menu1 = new JTextField("메뉴1");
 		menu1.setSize(100, 20);
 		menu1.setLocation(25, 25);
 		menu1.setEditable(false);
+
 
 		JTextField menu1p = new JTextField("가격");
 		menu1p.setSize(70, 20);
@@ -218,10 +223,12 @@ public class NoodlesPage extends JPanel {
 
 
 
+
 		JTextField menu2 = new JTextField("메뉴2");
 		menu2.setSize(100, 20);
 		menu2.setLocation(25, 70);
 		menu2.setEditable(false);
+
 
 		JTextField menu2p = new JTextField("가격");
 		menu2p.setSize(70, 20);
@@ -243,6 +250,7 @@ public class NoodlesPage extends JPanel {
 		menu3.setLocation(25, 110);
 		menu3.setEditable(false);
 
+
 		JTextField menu3p = new JTextField("가격");
 		menu3p.setSize(70, 20);
 		menu3p.setLocation(160, 110);
@@ -261,6 +269,7 @@ public class NoodlesPage extends JPanel {
 		menu4.setLocation(25, 150);
 		menu4.setEditable(false);
 
+
 		JTextField menu4p = new JTextField("가격");
 		menu4p.setSize(70, 20);
 		menu4p.setLocation(160, 150);
@@ -273,6 +282,7 @@ public class NoodlesPage extends JPanel {
 		listmenu4.setLocation(270,150);
 		listmenu4.setSize(30,18);
 		listmenu1.setVisible(true);
+
 
 		JTextField total = new JTextField("합계");
 		total.setSize(100, 20);
@@ -312,6 +322,7 @@ public class NoodlesPage extends JPanel {
 		panel5.setSize(350, 120);
 		panel5.setLocation(20, 335);
 		panel5.setBackground(Color.GRAY);
+
 
 		JButton map = new JButton("위치보기");
 		map.setSize(100 ,30 );
