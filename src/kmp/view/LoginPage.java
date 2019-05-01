@@ -31,13 +31,6 @@ public class LoginPage extends JPanel {
 		this.id = id;
 	}
 
-	public String getPwd() {
-		return pwd;
-	}
-
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
-	}
 
 	public LoginPage(MainFrame mf) {
 		this.mf = mf;

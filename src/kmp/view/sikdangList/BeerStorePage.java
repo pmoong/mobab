@@ -29,7 +29,7 @@ public class BeerStorePage extends JPanel{
       private MainFrame mf;
       private JPanel beerStorePage;
       private int price;
-      
+//      private int test;
     public BeerStorePage() {}
 
 	public BeerStorePage(MainFrame mf) {
@@ -41,7 +41,7 @@ public class BeerStorePage extends JPanel{
          Color backgcolor = new Color(234,255,236);
          
 
-         //»ç¿ëÇÒ ÀÌ¹ÌÁö ¼±¾ð
+         //ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
          Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
          Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
          Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -53,7 +53,7 @@ public class BeerStorePage extends JPanel{
          
          
 
-         //»ó´ÜÆÐ³Î
+         //ï¿½ï¿½ï¿½ï¿½Ð³ï¿½
          JPanel panel1 = new JPanel();
          panel1.setSize(400, 150);
          panel1.setLocation(0, 0);
@@ -206,7 +206,7 @@ public class BeerStorePage extends JPanel{
          
 
             
-         JTextField total = new JTextField("ÇÕ°è");
+         JTextField total = new JTextField("ï¿½Õ°ï¿½");
          total.setSize(110, 20);
          total.setLocation(25,200);
          
@@ -246,7 +246,7 @@ public class BeerStorePage extends JPanel{
          panel5.setLocation(20, 335);
          panel5.setBackground(Color.GRAY);
          
-         JButton map = new JButton("À§Ä¡º¸±â");
+         JButton map = new JButton("ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½");
          map.setSize(100 ,30 );
          map.setLocation(35,50);
          panel5.add(map);
@@ -260,7 +260,7 @@ public class BeerStorePage extends JPanel{
          });
          
          
-         JButton pay = new JButton("°áÁ¦");
+         JButton pay = new JButton("ï¿½ï¿½ï¿½ï¿½");
          pay.setSize(100 ,30 );
          pay.setLocation(215,50);
          panel5.add(pay);
