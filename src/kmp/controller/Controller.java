@@ -18,8 +18,12 @@ import javax.swing.JLabel;
 import java.net.StandardSocketOptions;
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
-import kmp.view.ChargePage;
+
 import kmp.view.LoginPage;
+import kmp.view.PopUp;
+
+import kmp.view.ChargePage;
+
 
 
 public class Controller extends Member {
@@ -403,6 +407,27 @@ public class Controller extends Member {
 		return "찾는 정보가 없습니다";
 	}
 	
+
+	
+	public boolean outputstore(String id) {
+		try {
+			LoginPage lp = new LoginPage();
+			lp.getId();
+			File memberList = new File( lp + ".txt");
+			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				System.out.println(line);
+			}
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return true;
+	}
+
+
 	public Component map(int i) {
 		
 		Image mapBeerImg = new ImageIcon("images/mapbeer.png").getImage().getScaledInstance(310, 280, 0);
@@ -411,7 +436,7 @@ public class Controller extends Member {
 		Image mapSandwichImg = new ImageIcon("images/mapSandwich.png").getImage().getScaledInstance(310, 280, 0);
 		
 		
-		JLabel mapImg = new JLabel("씨발 왜 안나와");
+		JLabel mapImg = new JLabel("왜 안나와");
 		
         if(i == 1) {
             mapImg = new JLabel(new ImageIcon(mapBeerImg));
@@ -479,11 +504,5 @@ public class Controller extends Member {
 			e1.printStackTrace();
 		}
 	}
-
-
-
-	
-	
-	
 
 }
