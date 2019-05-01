@@ -18,6 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
+import kmp.controller.Controller;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -336,8 +337,9 @@ public class SandwichPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, sandwichPage, new MapPage(mf));
-
+				ChangePanel.changePanel(mf, sandwichPage, new MapPage(mf, 4));
+	               Controller ctr = new Controller();
+	               ctr.map(4);
 			}
 		});
 
@@ -358,9 +360,4 @@ public class SandwichPage extends JPanel {
 
 	}
 }
-
-
-
-
-
 

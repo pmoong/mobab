@@ -1,3 +1,4 @@
+
 package kmp.view.sikdangList;
 
 
@@ -19,6 +20,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
+import kmp.controller.Controller;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -28,6 +30,7 @@ import kmp.view.MapPage;
 import kmp.view.MemberInfoPage;
 import kmp.view.SikdangPage;
 import kmp.view.UsingHistoryPage;
+
 
 public class GramPage extends JPanel{
 	private MainFrame mf;
@@ -331,13 +334,11 @@ public class GramPage extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, gramPage, new MapPage(mf));
-
+				ChangePanel.changePanel(mf, gramPage, new MapPage(mf, 2));
+	               Controller ctr = new Controller();
+	               ctr.map(2);
 			}
 		});
-
-
-
 
 
 
@@ -353,5 +354,3 @@ public class GramPage extends JPanel{
 
 	}
 }
-
-

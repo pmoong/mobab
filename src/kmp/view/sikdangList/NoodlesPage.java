@@ -18,6 +18,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
 
+import kmp.controller.Controller;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -332,7 +333,9 @@ public class NoodlesPage extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, noodlesPage, new MapPage(mf));
+				ChangePanel.changePanel(mf, noodlesPage, new MapPage(mf, 3));
+	               Controller ctr = new Controller();
+	               ctr.map(3);
 
 			}
 		});
@@ -354,7 +357,5 @@ public class NoodlesPage extends JPanel {
 
 	}
 }
-
-
 
 

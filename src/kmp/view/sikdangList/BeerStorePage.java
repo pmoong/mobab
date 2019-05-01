@@ -164,9 +164,20 @@ public class BeerStorePage extends JPanel{
          beerLabel.setSize(100, 20);
          beerLabel.setLocation(120, 0);
          beerLabel.setBackground(color);
-         JTextArea num = new JTextArea(b.getNumber());
-         num.setSize(100, 20);
+         JButton num = new JButton(b.getNumber());
+         num.setSize(130, 20);
          num.setLocation(15, 35);
+         num.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				PopUp pu = new PopUp();
+				pu.callPopUp();
+				
+			}
+		});
+         
+         
          JTextArea address = new JTextArea(b.getLocation());
          address.setSize(120, 20);
          address.setLocation(215, 35);
@@ -256,7 +267,9 @@ public class BeerStorePage extends JPanel{
             
             @Override
             public void actionPerformed(ActionEvent e) {
-               ChangePanel.changePanel(mf, beerStorePage, new MapPage(mf));
+               ChangePanel.changePanel(mf, beerStorePage, new MapPage(mf, 1));
+               Controller ctr = new Controller();
+               ctr.map(1);
                
             }
          });

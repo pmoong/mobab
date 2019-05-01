@@ -1,5 +1,7 @@
 package kmp.controller;
 
+import java.awt.Component;
+import java.awt.Image;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,11 +10,17 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+
+
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 import java.net.StandardSocketOptions;
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
 import kmp.view.ChargePage;
 import kmp.view.LoginPage;
+
 
 public class Controller extends Member {
 	private LoginPage lp = new LoginPage();
@@ -393,6 +401,41 @@ public class Controller extends Member {
 			e.printStackTrace();
 		}
 		return "찾는 정보가 없습니다";
+	}
+	
+	public Component map(int i) {
+		
+		Image mapBeerImg = new ImageIcon("images/mapbeer.png").getImage().getScaledInstance(310, 280, 0);
+		Image mapGramImg = new ImageIcon("images/mapGram.png").getImage().getScaledInstance(310, 280, 0);
+		Image mapNoodlesImg = new ImageIcon("images/mapNoodles.png").getImage().getScaledInstance(310, 280, 0);
+		Image mapSandwichImg = new ImageIcon("images/mapSandwich.png").getImage().getScaledInstance(310, 280, 0);
+		
+		
+		JLabel mapImg = new JLabel("씨발 왜 안나와");
+		
+        if(i == 1) {
+            mapImg = new JLabel(new ImageIcon(mapBeerImg));
+            mapImg.setSize(310, 280);
+            mapImg.setLocation(20, 10);
+        
+        }else if(i == 2) {
+        	mapImg = new JLabel(new ImageIcon(mapGramImg));
+        mapImg.setSize(310, 280);
+        mapImg.setLocation(20, 10);
+        
+        }else if(i == 3) {
+        	mapImg = new JLabel(new ImageIcon(mapNoodlesImg));
+            mapImg.setSize(310, 280);
+            mapImg.setLocation(20, 10);
+            
+        }else if(i == 4) {
+        	mapImg = new JLabel(new ImageIcon(mapSandwichImg));
+            mapImg.setSize(310, 280);
+            mapImg.setLocation(20, 10);
+            
+        }
+        
+        return mapImg;
 	}
 
 	//charge 충전버튼
