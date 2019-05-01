@@ -31,7 +31,7 @@ public class BeerStorePage extends JPanel{
       private int price;
 //      private int test;
     public BeerStorePage() {}
-
+ 
 	public BeerStorePage(MainFrame mf) {
          this.mf = mf;
          this.beerStorePage = this;
