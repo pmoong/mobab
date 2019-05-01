@@ -1,1 +1,5 @@
-sample1, null, false, true, true, true
+sample1, 홍길동, false, false, false, false
+Beer, 15000
+Gram, 20000
+Noodle, 20000
+Sandwich, 20000

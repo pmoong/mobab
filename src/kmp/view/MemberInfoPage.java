@@ -11,11 +11,17 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import kmp.model.vo.Member;
+import kmp.controller.Controller;
 
 public class MemberInfoPage extends JPanel {
 	private MainFrame mf;
 	private JPanel memberInfoPage;
+	LoginPage lp = new LoginPage();
+	Controller ctr = new Controller();
+	
+	
+	
+	
 	
 	public MemberInfoPage(MainFrame mf) {
 		this.mf = mf;
@@ -25,7 +31,7 @@ public class MemberInfoPage extends JPanel {
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//ªÁøÎ«“ ¿ÃπÃ¡ˆ «“¥Á
+		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ Ìï†Îãπ
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -33,19 +39,21 @@ public class MemberInfoPage extends JPanel {
 		Image chargeImg = new ImageIcon("images/mCharge.png").getImage().getScaledInstance(100, 100, 0);
 		Image userinfoImg = new ImageIcon("images/user_c.png").getImage().getScaledInstance(80, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
+		Image logoutImg = new ImageIcon("images/logout.png").getImage().getScaledInstance(50, 50, 0);
 		
 		Image academyImg = new ImageIcon("images/academy.png").getImage().getScaledInstance(60, 30, 0);
-		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(20, 30, 0);
+		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(60, 30, 0);
 		Image emailImg = new ImageIcon("images/email.png").getImage().getScaledInstance(60, 30, 0);
 		Image genderImg = new ImageIcon("images/gender.png").getImage().getScaledInstance(60, 30, 0);
 		Image idImg = new ImageIcon("images/id.png").getImage().getScaledInstance(60, 30, 0);
 		Image nameImg = new ImageIcon("images/name.png").getImage().getScaledInstance(60, 30, 0);
 		Image phoneNumImg = new ImageIcon("images/phoneNum.png").getImage().getScaledInstance(60, 30, 0);
 		Image pwdImg = new ImageIcon("images/pwd.png").getImage().getScaledInstance(60, 30, 0);
+		Image chargedImg = new ImageIcon("images/charged.png").getImage().getScaledInstance(60, 30, 0);
 		Image userInfo = new ImageIcon("images/userInfo.png").getImage().getScaledInstance(360, 50, 0);
 		
 		
-		//ªÛ¥‹ ∆–≥Œ
+		//ÏÉÅÎã® Ìå®ÎÑê
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -55,6 +63,22 @@ public class MemberInfoPage extends JPanel {
 		back.setLocation(0,0);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
+		
+		JButton logout = new JButton(new ImageIcon(logoutImg));
+		logout.setSize(50,50);
+		logout.setLocation(10,0);
+		logout.setBorderPainted(false);
+		logout.setContentAreaFilled(false);
+		logout.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LoginPage lp = new LoginPage();
+				lp.setId(null);
+				ChangePanel.changePanel(mf,memberInfoPage, new LoginPage(mf));
+				
+			}
+		});
+		
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
 		home.setLocation(80,0);
@@ -82,9 +106,12 @@ public class MemberInfoPage extends JPanel {
 			
 		});
 		
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
+		panel1.setBackground(color);
+		panel1.add(logout);
+		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
@@ -144,7 +171,7 @@ public class MemberInfoPage extends JPanel {
 		panel1.add(hist);
 		panel1.add(charg);
 		
-		//«œ¥‹∆–≥Œ
+		//ÌïòÎã®Ìå®ÎÑê
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
@@ -155,18 +182,18 @@ public class MemberInfoPage extends JPanel {
 		panel3.setLocation(30, 80);
 		panel3.setBackground(color.WHITE);
 		
-		//»∏ø¯¡§∫∏ æ∆¿Ãƒ‹ 
+		//ÌöåÏõêÏ†ïÎ≥¥ ÏïÑÏù¥ÏΩò 
 		JLabel userInfoIcon = new JLabel(new ImageIcon(userInfo));
 		userInfoIcon.setSize(360, 50);
 		userInfoIcon.setLocation(20, 20);
 		
-//		JButton userInfoinfoText = new JButton("»∏ø¯ ¡§∫∏");
+//		JButton userInfoinfoText = new JButton("ÌöåÏõê Ï†ïÎ≥¥");
 //		infoText.setSize(360, 50);
 //		infoText.setLocation(20, 20);
 ////		infoText.setContentAreaFilled(false);
 //		infoText.setBackground(backgcolor);
 	
-		//id¡§∫∏
+		//idÏ†ïÎ≥¥
 
 		JLabel idIcon = new JLabel(new ImageIcon(idImg));
 		JTextField idInfo = new JTextField();
@@ -174,62 +201,80 @@ public class MemberInfoPage extends JPanel {
 		idInfo.setSize(270,30);
 		idIcon.setLocation(5, 20);
 		idInfo.setLocation(65, 20);
+		idInfo.setText(lp.getId());
 		
-		//pwd¡§∫∏
+		//pwdÏ†ïÎ≥¥
 		JLabel pwdIcon = new JLabel(new ImageIcon(pwdImg));
 		JTextField pwdInfo = new JTextField();
 		pwdIcon.setSize(60,30);
 		pwdInfo.setSize(270,30);
 		pwdIcon.setLocation(5, 80);
 		pwdInfo.setLocation(65, 80);
+		pwdInfo.setText(ctr.outputPwdInfo(lp.getId()));
 		
-		//¿Ã∏ß¡§∫∏
+		//Ïù¥Î¶ÑÏ†ïÎ≥¥
 		JLabel nameIcon = new JLabel(new ImageIcon(nameImg));
 		JTextField nameInfo = new JTextField(30);
 		nameIcon.setSize(60, 30);
 		nameInfo.setSize(270, 30);
 		nameIcon.setLocation(5, 140);
 		nameInfo.setLocation(65, 140);
+		nameInfo.setText(ctr.outputNameInfo(lp.getId()));
 		
-		//¿Ã∏ﬁ¿œ ¡§∫∏
+		//Ïù¥Î©îÏùº Ï†ïÎ≥¥
 		JLabel emailIcon = new JLabel(new ImageIcon(emailImg));
 		JTextField emailInfo = new JTextField(30);
 		emailIcon.setSize(60, 30);
 		emailInfo.setSize(270, 30);
 		emailIcon.setLocation(5, 200);
 		emailInfo.setLocation(65, 200);
+		emailInfo.setText(ctr.outputEmailInfo(lp.getId()));
 		
-		//¿¸»≠π¯»£ ¡§∫∏
+		
+		//Ï†ÑÌôîÎ≤àÌò∏ Ï†ïÎ≥¥
 		JLabel phoneNumIcon = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField phoneNumInfo = new JTextField(30);
 		phoneNumIcon.setSize(60, 30);
 		phoneNumInfo.setSize(270, 30);
 		phoneNumIcon.setLocation(5, 260);
 		phoneNumInfo.setLocation(65, 260);
+		phoneNumInfo.setText(ctr.outputPhoneNumInfo(lp.getId()));
 		
-		//«–ø¯¡§∫∏
+		//ÌïôÏõêÏ†ïÎ≥¥
 		JLabel academyIcon = new JLabel(new ImageIcon(academyImg));
 		JTextField academyInfo = new JTextField(20);
 		academyIcon.setSize(60, 30);
 		academyInfo.setSize(120, 30);
 		academyIcon.setLocation(5, 320);
 		academyInfo.setLocation(65, 320);
+		academyInfo.setText(ctr.outputAcademyInfo(lp.getId()));
 		
-		//π›¡§∫∏
+		//Î∞òÏ†ïÎ≥¥
 		JLabel classroomIcon = new JLabel(new ImageIcon(classroomImg));
 		JTextField classroomInfo = new JTextField(20);
-		classroomIcon.setSize(30, 30);
-		classroomInfo.setSize(120, 30);
+		classroomIcon.setSize(40, 30);
+		classroomInfo.setSize(80, 30);
 		classroomIcon.setLocation(190, 320);
-		classroomInfo.setLocation(215, 320);
+		classroomInfo.setLocation(235, 320);
+		classroomInfo.setText(ctr.outputClassroomInfo(lp.getId()));
 
-		//º∫∫∞¡§∫∏
+		//Î≥¥Ïú†Í∏àÏï°Ï†ïÎ≥¥
+		JLabel chargedIcon = new JLabel(new ImageIcon(chargedImg));
+		JTextField chargedInfo = new JTextField(20);
+		chargedIcon.setSize(60, 30);
+		chargedInfo.setSize(120, 30);
+		chargedIcon.setLocation(5, 380);
+		chargedInfo.setLocation(65, 380);
+		chargedInfo.setText(ctr.outputGenderInfo(lp.getId()));
+		
+		//ÏÑ±Î≥ÑÏ†ïÎ≥¥
 		JLabel genderIcon = new JLabel(new ImageIcon(genderImg));
 		JTextField genderInfo = new JTextField(20);
-		genderIcon.setSize(60, 30);
-		genderInfo.setSize(120, 30);
-		genderIcon.setLocation(5, 380);
-		genderInfo.setLocation(65, 380);
+		genderIcon.setSize(40, 30);
+		genderInfo.setSize(80, 30);
+		genderIcon.setLocation(190, 380);
+		genderInfo.setLocation(235, 380);
+		genderInfo.setText(ctr.outputChargedInfo(lp.getId()));
 		
 		
 		
@@ -248,6 +293,8 @@ public class MemberInfoPage extends JPanel {
 		panel3.add(academyInfo);
 		panel3.add(classroomIcon);
 		panel3.add(classroomInfo);
+		panel3.add(chargedIcon);
+		panel3.add(chargedInfo);
 		panel3.add(genderIcon);
 		panel3.add(genderInfo);
 		

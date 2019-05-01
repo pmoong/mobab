@@ -21,7 +21,7 @@ public class FavoritePage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//»ç¿ëÇÒ ÀÌ¹ÌÁö ¼±¾ğ
+		//ì‚¬ìš©í•  ì´ë¯¸ì§€ ì„ ì–¸
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites_c.png").getImage().getScaledInstance(100, 100, 0);
@@ -33,7 +33,7 @@ public class FavoritePage extends JPanel{
 		Image todayMenuImg = new ImageIcon("images/todayMenu.png").getImage().getScaledInstance(300, 180, 0);
 		
 		
-		//»ó´ÜÆĞ³Î
+		//ìƒë‹¨íŒ¨ë„
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -73,9 +73,11 @@ public class FavoritePage extends JPanel{
 			
 		});
 		
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
+		panel1.setBackground(color);
+		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
@@ -132,7 +134,7 @@ public class FavoritePage extends JPanel{
 		panel1.add(hist);
 		panel1.add(charge);
 		
-		//ÇÏ´ÜÆĞ³Î
+		//í•˜ë‹¨íŒ¨ë„
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);

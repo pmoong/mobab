@@ -71,8 +71,10 @@ public class JoinPage extends JPanel{
 		});
 
 
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
+		panel1.setBackground(color);
+		
 		JButton join = new JButton(new ImageIcon(joinImg));
 		join.setSize(400,100);
 		join.setLocation(0,50);
@@ -93,7 +95,7 @@ public class JoinPage extends JPanel{
 		panel2.setLocation(0, 150);
 
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
-		JButton button3 = new JButton("¡ﬂ∫π»Æ¿Œ");
+		JButton button3 = new JButton("Ï§ëÎ≥µÌôïÏù∏");
 		JTextField tf1 = new JTextField();
 		
 
@@ -150,10 +152,10 @@ public class JoinPage extends JPanel{
 		JTextField tf3 = new JTextField();
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
-
+ 
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField();
-		JButton button4 = new JButton("¡ﬂ∫π»Æ¿Œ");
+		JButton button4 = new JButton("Ï§ëÎ≥µÌôïÏù∏");
 		button4.addActionListener(new ActionListener() {
 
 			String phone;
@@ -200,7 +202,7 @@ public class JoinPage extends JPanel{
 		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
 
-		JLabel label8 = new JLabel("≥™¿Ã");
+		JLabel label8 = new JLabel("ÎÇòÏù¥");
 		//		JTextField tf7 = new JTextField();
 		String ages[] = new String[30];
 		int age1=20;
@@ -216,7 +218,7 @@ public class JoinPage extends JPanel{
 		ageBox.setLocation(90, 280);
 
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
-		String[] genders = {" ","≥≤","ø©"};
+		String[] genders = {"ÎÇ®","Ïó¨"};
 		JComboBox gender1 = new JComboBox(genders);
 		gender1.setSelectedIndex(0);
 		gender1.addActionListener(new ActionListener() {
@@ -232,8 +234,11 @@ public class JoinPage extends JPanel{
 		gendlabel.setLocation(220, 280);
 		gender1.setLocation(280, 280);
 		
-		JButton button5 = new JButton("»∏ø¯∞°¿‘");
+		JButton button5 = new JButton("ÌöåÏõêÍ∞ÄÏûÖ");
 	
+		
+		
+		
 		button5.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
@@ -245,21 +250,33 @@ public class JoinPage extends JPanel{
 				String phone = tf4.getText();
 				int age = Integer.parseInt((String) ageBox.getSelectedItem());
 				String academy = tf5.getText();
-				char classroom = tf6.getText().charAt(0);
+				String cla = tf6.getText();
 				String gen = (String)gender1.getSelectedItem();
 				char gender = gen.charAt(0);
-			
-				ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
+
 				
-				ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
-				PopUp pu = new PopUp();
-				pu.JoinCheck();
-				
-				
-				
+				if(id.isEmpty() || pwd.isEmpty() || name.isEmpty() || email.isEmpty() || phone.isEmpty() || age == 0 ||
+						academy.isEmpty() || tf6.getText().isEmpty() || gen.isEmpty()) {
+					
+					PopUp pu = new PopUp();
+					pu.joinFail();
+					
+				}else {
+					char classroom = cla.charAt(0);
+					ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
+					ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
+					PopUp pu = new PopUp();
+					pu.joinCheck();
+					
+				}
+
+
+
+
 			}
 			
 		});
+		
 
 		button5.setSize(300,80);
 		button5.setLocation(50, 360);

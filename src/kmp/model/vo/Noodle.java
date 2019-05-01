@@ -12,9 +12,9 @@ public class Noodle extends Store{
 //		super(menu, number, location, map, name);
 		this.setMenu(menu);
 		this.setNumber("010-0000-0000");
-		this.setLocation("°­³²±¸ ¿ª»ïµ¿");
+		this.setLocation("ê°•ë‚¨êµ¬ ì—­ì‚¼ë™");
 		this.setMap(new ImageIcon("images/mapNoodle.png").getImage().getScaledInstance(60, 60, 0));
-		this.setName("Áß¸®");
+		this.setName("ì¤‘ë¦¬");
 		
 	}
 }

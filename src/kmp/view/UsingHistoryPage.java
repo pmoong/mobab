@@ -1,6 +1,8 @@
 package kmp.view;
 
 import java.awt.Color;
+import java.awt.Container;
+import java.awt.Frame;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -8,6 +10,10 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
 
 public class UsingHistoryPage extends JPanel{
 	private MainFrame mf;
@@ -21,7 +27,7 @@ public class UsingHistoryPage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 
-		//ªÁøÎ«“ ¿ÃπÃ¡ˆ «“¥Á
+		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ Ìï†Îãπ
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -33,7 +39,7 @@ public class UsingHistoryPage extends JPanel{
 		Image todayMenuImg = new ImageIcon("images/todayMenu.png").getImage().getScaledInstance(300, 180, 0);
 
 
-		//ªÛ¥‹∆–≥Œ
+		//ÏÉÅÎã®Ìå®ÎÑê
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -73,9 +79,11 @@ public class UsingHistoryPage extends JPanel{
 
 		});
 
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
+		panel1.setBackground(color);
+		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
@@ -133,16 +141,60 @@ public class UsingHistoryPage extends JPanel{
 		panel1.add(hist);
 		panel1.add(charge);
 
-		//«œ¥‹∆–≥Œ
+		//ÌïòÎã®Ìå®ÎÑê
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
-
-
-		this.add(panel1);
-		this.add(panel2);
-		mf.add(this);
+	
+//		
+//		String info [] = {"ÏãùÎãπ","Í≤∞Ï†úÍ∏àÏï°"};
+//		DefaultTableModel model = new DefaultTableModel(info, 0);
+//		JTable table = new JTable(model);
+//		JScrollPane scrollpane = new JScrollPane(table);
+//
+//		JPanel panel = new JPanel();
+//		JTextField store = new JTextField();
+//		JTextField pay = new JTextField();
+//		scrollpane.add(store);
+//		scrollpane.add(pay);
+//		
+//		
+//		
+//		
+//		scrollpane.setSize(350,300);
+//		scrollpane.setLocation(20,50);
+//		panel2.add(scrollpane);
+//		scrollpane.add(panel);
+//		
+//		
+//		JPanel infopanel = new JPanel();
+//		JTextField tfstore = new JTextField();
+//		JTextField tfpay = new JTextField();
+//		
+//		panel2.add(infopanel);
+//		infopanel.setSize(350,300);
+//		infopanel.setLocation(20,50);
+//		
+////		infopanel.add()
+//		
+//		
+//		this.add(panel1);
+//		this.add(panel2);
+//		mf.add(this);
+		
+		
+		String [] columnName = {"ÏãùÎãπ", "Í∏àÏï°"};
+		Object[][] data = {};
+		final JTable table = new JTable(data,columnName);
+		
+		JScrollPane scrollPane = new JScrollPane(table);
+		table.setFillsViewportHeight(true);
+		
+		
+		
+		
+		
 
 }
 }

@@ -32,7 +32,7 @@ public class MainPage extends JPanel {
 		Color backgcolor = new Color(234,255,236);
 		
 
-		//ªÁøÎ«“ ¿ÃπÃ¡ˆ º±æ
+		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ ÏÑ†Ïñ∏
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -45,7 +45,7 @@ public class MainPage extends JPanel {
 		
 		
 
-		//ªÛ¥‹∆–≥Œ
+		//ÏÉÅÎã®Ìå®ÎÑê
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -85,9 +85,11 @@ public class MainPage extends JPanel {
 			
 		});
 		
-		panel1.add(back);
+//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
+		panel1.setBackground(color);
+		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
@@ -156,14 +158,14 @@ public class MainPage extends JPanel {
 		panel1.add(charge);
 		
 
-		//«œ¥‹∆–≥Œ
+		//ÌïòÎã®Ìå®ÎÑê
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 		
 
-		JLabel todaymenu = new JLabel("< ø¿¥√¿« ∏ﬁ¥∫ >");
+		JLabel todaymenu = new JLabel("< Ïò§ÎäòÏùò Î©îÎâ¥ >");
 		todaymenu.setSize(200, 25);
 		todaymenu.setLocation(50, 25);
 		JLabel menuImg = new JLabel(new ImageIcon(todayMenuImg));
@@ -171,7 +173,7 @@ public class MainPage extends JPanel {
 		menuImg.setLocation(50, 50);
 		
 
-		JLabel todaynews = new JLabel("< ø¿¥√¿« º“Ωƒ >");
+		JLabel todaynews = new JLabel("< Ïò§ÎäòÏùò ÏÜåÏãù >");
 		todaynews.setSize(200, 25);
 		todaynews.setLocation(50, 300);
 		JLabel banner = new JLabel(new ImageIcon(bannerImg));

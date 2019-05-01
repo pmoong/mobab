@@ -7,12 +7,6 @@ import java.awt.Image;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
 
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
@@ -24,12 +18,18 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.ListSelectionModel;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+
+import java.io.FileWriter;
+import java.io.IOException;
 
 import kmp.controller.Controller;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
-import kmp.view.LoginPage;
 import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
@@ -37,10 +37,10 @@ import kmp.view.MemberInfoPage;
 import kmp.view.SikdangPage;
 import kmp.view.UsingHistoryPage;
 
+
 public class GramPage extends JPanel{
 	private MainFrame mf;
 	private JPanel gramPage;
-	LoginPage lp = new LoginPage();
 
 	public GramPage(MainFrame mf) {
 		this.mf = mf;
@@ -51,7 +51,8 @@ public class GramPage extends JPanel{
 		Color backgcolor = new Color(234,255,236);
 
 
-	      //ªÁøÎ«“ ¿ÃπÃ¡ˆ º±æ
+
+	      //ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ ÏÑ†Ïñ∏
 	      Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 	      Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 	      Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -60,11 +61,14 @@ public class GramPage extends JPanel{
 	      Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
 	      Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 	      Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
-	      Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
-	      Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
+    Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
+	    Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
+
+	      
 	      
 
-	      //ªÛ¥‹∆–≥Œ
+
+	      //ÏÉÅÎã®Ìå®ÎÑê
 	      JPanel panel1 = new JPanel();
 	      panel1.setSize(400, 150);
 	      panel1.setLocation(0, 0);
@@ -108,9 +112,11 @@ public class GramPage extends JPanel{
 	         
 	      });
 	      
-	      panel1.add(back);
+//	      panel1.add(back);
 	      panel1.add(home);
 	      panel1.add(infor);
+	      panel1.setBackground(color);
+			
 	      JButton sik = new JButton(new ImageIcon(sikImg));
 	      sik.setSize(100,100);
 	      sik.setLocation(0,50);
@@ -196,10 +202,12 @@ public class GramPage extends JPanel{
 		JTextArea num = new JTextArea("000-000-0000");
 		num.setSize(100, 20);
 		num.setLocation(15, 35);
-		JTextArea address = new JTextArea("∞≠≥≤±∏ ø™ªÔµø");
+
+		JTextArea address = new JTextArea("Í∞ïÎÇ®Íµ¨ Ïó≠ÏÇºÎèô");
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
-		JButton star = new JButton(new ImageIcon(starImg));
+    
+    JButton star = new JButton(new ImageIcon(starImg));
 		star.setSize(35, 35);
 		star.setLocation(146, 27);
 		star.setBorderPainted(false);
@@ -283,12 +291,12 @@ public class GramPage extends JPanel{
 		panel4.setLocation(20, 85);
 		panel4.setBackground(Color.WHITE);
 
-		JTextField menu1 = new JTextField("∏ﬁ¥∫1");
+		JTextField menu1 = new JTextField("ÔøΩﬁ¥ÔøΩ1");
 		menu1.setSize(100, 20);
 		menu1.setLocation(25, 25);
 		menu1.setEditable(false);
 
-		JTextField menu1p = new JTextField("∞°∞›");
+		JTextField menu1p = new JTextField("ÔøΩÔøΩÔøΩÔøΩ");
 		menu1p.setSize(70, 20);
 		menu1p.setLocation(160, 25);
 		menu1p.setEditable(false);
@@ -303,12 +311,12 @@ public class GramPage extends JPanel{
 
 
 
-		JTextField menu2 = new JTextField("∏ﬁ¥∫2");
+		JTextField menu2 = new JTextField("ÔøΩﬁ¥ÔøΩ2");
 		menu2.setSize(100, 20);
 		menu2.setLocation(25, 70);
 		menu2.setEditable(false);
 
-		JTextField menu2p = new JTextField("∞°∞›");
+		JTextField menu2p = new JTextField("ÔøΩÔøΩÔøΩÔøΩ");
 		menu2p.setSize(70, 20);
 		menu2p.setLocation(160, 70);
 		menu2p.setEditable(false);
@@ -323,12 +331,12 @@ public class GramPage extends JPanel{
 
 
 
-		JTextField menu3 = new JTextField("∏ﬁ¥∫3");
+		JTextField menu3 = new JTextField("ÔøΩﬁ¥ÔøΩ3");
 		menu3.setSize(100, 20);
 		menu3.setLocation(25, 110);
 		menu3.setEditable(false);
 
-		JTextField menu3p = new JTextField("∞°∞›");
+		JTextField menu3p = new JTextField("ÔøΩÔøΩÔøΩÔøΩ");
 		menu3p.setSize(70, 20);
 		menu3p.setLocation(160, 110);
 		menu3p.setEditable(false);
@@ -341,12 +349,12 @@ public class GramPage extends JPanel{
 		listmenu3.setSize(30,18);
 		listmenu1.setVisible(true);
 
-		JTextField menu4 = new JTextField("∏ﬁ¥∫4");
+		JTextField menu4 = new JTextField("ÔøΩﬁ¥ÔøΩ4");
 		menu4.setSize(100, 20);
 		menu4.setLocation(25, 150);
 		menu4.setEditable(false);
 
-		JTextField menu4p = new JTextField("∞°∞›");
+		JTextField menu4p = new JTextField("ÔøΩÔøΩÔøΩÔøΩ");
 		menu4p.setSize(70, 20);
 		menu4p.setLocation(160, 150);
 		menu4p.setEditable(false);
@@ -359,7 +367,7 @@ public class GramPage extends JPanel{
 		listmenu4.setSize(30,18);
 		listmenu1.setVisible(true);
 
-		JTextField total = new JTextField("«’∞Ë");
+		JTextField total = new JTextField("ÔøΩ’∞ÔøΩ");
 		total.setSize(100, 20);
 		total.setLocation(110,210);
 
@@ -398,7 +406,7 @@ public class GramPage extends JPanel{
 		panel5.setLocation(20, 335);
 		panel5.setBackground(Color.GRAY);
 
-		JButton map = new JButton("¿ßƒ°∫∏±‚");
+		JButton map = new JButton("ÔøΩÔøΩƒ°ÔøΩÔøΩÔøΩÔøΩ");
 		map.setSize(100 ,30 );
 		map.setLocation(35,50);
 		panel5.add(map);
@@ -406,13 +414,11 @@ public class GramPage extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				ChangePanel.changePanel(mf, gramPage, new MapPage(mf));
-
+				ChangePanel.changePanel(mf, gramPage, new MapPage(mf, 2));
+	               Controller ctr = new Controller();
+	               ctr.map(2);
 			}
 		});
-
-
-
 
 
 
@@ -428,5 +434,3 @@ public class GramPage extends JPanel{
 
 	}
 }
-
-
