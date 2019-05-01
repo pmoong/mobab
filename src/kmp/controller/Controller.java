@@ -207,7 +207,6 @@ public class Controller extends Member {
 			}
 		}
 
-
 	}
 
 	public boolean isDuplicatedPhone(String phone) {

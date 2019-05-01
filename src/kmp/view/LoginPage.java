@@ -20,6 +20,7 @@ public class LoginPage extends JPanel {
 	private JPanel loginPage;
 	static String id;
 
+
 	public LoginPage() {
 	}
 
@@ -126,6 +127,7 @@ public class LoginPage extends JPanel {
 //				pwd = new String(password.getPassword());
 								
 				Controller ct = new Controller();
+
 
 				// id와 password를 loginCheck메소드로 확인하여 결과값에 따라 창 변경or팝업창 출력
 				if (ct.loginCheck(id,pwd)) {

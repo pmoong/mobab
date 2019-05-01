@@ -21,6 +21,7 @@ import kmp.controller.Controller;
 public class JoinPage extends JPanel{
 	private MainFrame mf;
 	private JPanel joinpage;
+	
 
 	public JoinPage(MainFrame mf) {
 		this.mf = mf;

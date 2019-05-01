@@ -51,6 +51,8 @@ public class NoodlesPage extends JPanel {
 		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
+    Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
+	    Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
 
 
 
@@ -188,10 +190,83 @@ public class NoodlesPage extends JPanel {
 		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
+    
+    JButton star = new JButton(new ImageIcon(starImg));
+		star.setSize(35, 35);
+		star.setLocation(146, 27);
+		star.setBorderPainted(false);
+		star.setContentAreaFilled(false);
+
+		star.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				Controller ctr = new Controller();
+				
+
+				BufferedReader br = null;
+				String fileName = (lp.getId()+".txt");
+				File member = new File(fileName);
+				boolean Bs = false;
+				boolean Gr = false;
+				boolean Js = false;
+				
+				try {
+					br = new BufferedReader(new FileReader(member));
+					String line = br.readLine();
+					String[] info = line.split(", ");
+					if(info[2].equals("false")) {
+						Bs=false;
+					}else {
+						Bs=true;
+					}
+					if(info[3].equals("false")) {
+						Gr=false;
+					}else {
+						Gr=true;
+					}
+					if(info[5].equals("false")) {
+						Js=false;
+					}else {
+						Js=true;
+					}
+					if(info[4].equals("false")) {
+						BufferedWriter wr = null;
+						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteNoodles = true, favoriteSandwich = Js;
+						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
+
+						wr.write(lp.getId() +  ", " + null + ", " 
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+						wr.flush();
+						
+						star.setIcon(new ImageIcon(star1Img));
+						
+					}else {
+						BufferedWriter wr = null;
+						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteNoodles = false, favoriteSandwich = Js;
+						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
+
+						wr.write(lp.getId() +  ", " + null + ", " 
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+						wr.flush();
+						
+						star.setIcon(new ImageIcon(starImg));
+						
+					}
+					
+				} catch (IOException e1) {
+					
+					e1.printStackTrace();
+				}
+			}
+		});
+
 
 		panel3.add(noodlesLabel);
 		panel3.add(num);
 		panel3.add(address);
+		panel3.add(star);
 
 		//--------------------------------------------------------------
 
@@ -357,5 +432,4 @@ public class NoodlesPage extends JPanel {
 
 	}
 }
-
 

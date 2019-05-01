@@ -48,7 +48,6 @@ public class Member implements Serializable{
 
 
 
-
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -174,12 +173,9 @@ public class Member implements Serializable{
 
 
 
-
 	public void setPoint(int point) {
 		this.point = point;
 	}
-
-
 
 
 	public int getCharged() {
@@ -196,5 +192,4 @@ public class Member implements Serializable{
 
 	
 
-	
 }
