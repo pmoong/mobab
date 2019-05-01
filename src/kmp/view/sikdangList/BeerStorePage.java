@@ -41,7 +41,7 @@ public class BeerStorePage extends JPanel{
          Color backgcolor = new Color(234,255,236);
          
 
-         //����� �̹��� ����
+         //사용할 이미지 선언
          Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
          Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
          Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -53,7 +53,7 @@ public class BeerStorePage extends JPanel{
          
          
 
-         //����г�
+         //상단패널
          JPanel panel1 = new JPanel();
          panel1.setSize(400, 150);
          panel1.setLocation(0, 0);
@@ -206,7 +206,7 @@ public class BeerStorePage extends JPanel{
          
 
             
-         JTextField total = new JTextField("�հ�");
+         JTextField total = new JTextField("합계");
          total.setSize(110, 20);
          total.setLocation(25,200);
          
@@ -246,7 +246,7 @@ public class BeerStorePage extends JPanel{
          panel5.setLocation(20, 335);
          panel5.setBackground(Color.GRAY);
          
-         JButton map = new JButton("��ġ����");
+         JButton map = new JButton("위치보기");
          map.setSize(100 ,30 );
          map.setLocation(35,50);
          panel5.add(map);
@@ -260,7 +260,7 @@ public class BeerStorePage extends JPanel{
          });
          
          
-         JButton pay = new JButton("����");
+         JButton pay = new JButton("결제");
          pay.setSize(100 ,30 );
          pay.setLocation(215,50);
          panel5.add(pay);

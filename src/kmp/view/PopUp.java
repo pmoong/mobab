@@ -28,17 +28,17 @@ public class PopUp extends JFrame{
 
 
 	public void loginCheck() {
-		this.setTitle("·Î±×ÀÎ ¿À·ù");
+		this.setTitle("ë¡œê·¸ì¸ ì˜¤ë¥˜");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel message = new JLabel("¾ÆÀÌµğ È¤Àº ºñ¹Ğ¹øÈ£¸¦ Æ²¸®¼Ì½À´Ï´Ù.");
+		JLabel message = new JLabel("ì•„ì´ë”” í˜¹ì€ ë¹„ë°€ë²ˆí˜¸ë¥¼ í‹€ë¦¬ì…¨ìŠµë‹ˆë‹¤.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -58,17 +58,17 @@ public class PopUp extends JFrame{
 	}
 	
 	public void joinCheck() {
-		this.setTitle("°¡ÀÔ ¿Ï·á");
+		this.setTitle("ê°€ì… ì™„ë£Œ");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel message = new JLabel("È¸¿ø°¡ÀÔÀÌ ¿Ï·áµÇ¾ú½À´Ï´Ù.");
+		JLabel message = new JLabel("íšŒì›ê°€ì…ì´ ì™„ë£Œë˜ì—ˆìŠµë‹ˆë‹¤.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -90,18 +90,18 @@ public class PopUp extends JFrame{
 	}
 	
 	public void joinFail() {
-		this.setTitle("°¡ÀÔ ½ÇÆĞ");
+		this.setTitle("ê°€ì… ì‹¤íŒ¨");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel message = new JLabel("È¸¿ø Á¤º¸¸¦ ÀüºÎ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+		JLabel message = new JLabel("íšŒì› ì •ë³´ë¥¼ ì „ë¶€ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
 
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -122,18 +122,18 @@ public class PopUp extends JFrame{
 	
 	
 	public void findIdSucPopup() {
-		this.setTitle("¾ÆÀÌµğÃ£±â ¼º°ø");
+		this.setTitle("ì•„ì´ë””ì°¾ê¸° ì„±ê³µ");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel Smessage = new JLabel("µî·ÏµÈ ÀÌ¸ŞÀÏ·Î IDÁ¤º¸¸¦ ¹ß¼ÛÇß½À´Ï´Ù.");
+		JLabel Smessage = new JLabel("ë“±ë¡ëœ ì´ë©”ì¼ë¡œ IDì •ë³´ë¥¼ ë°œì†¡í–ˆìŠµë‹ˆë‹¤.");
 		Smessage.setSize(300, 30);
 		Smessage.setLocation(30, 20);
 
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		Smessage.setLayout(null);
@@ -152,18 +152,18 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 	public void findIdFailPopup() {
-		this.setTitle("¾ÆÀÌµğÃ£±â ¿À·ù");
+		this.setTitle("ì•„ì´ë””ì°¾ê¸° ì˜¤ë¥˜");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel Fmessage = new JLabel("ÇØ´ç Á¤º¸¿Í ÀÏÄ¡ÇÏ´Â ¾ÆÀÌµğ°¡ ¾ø½À´Ï´Ù.");
+		JLabel Fmessage = new JLabel("í•´ë‹¹ ì •ë³´ì™€ ì¼ì¹˜í•˜ëŠ” ì•„ì´ë””ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		Fmessage.setSize(300, 30);
 		Fmessage.setLocation(30, 20);
 
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		Fmessage.setLayout(null);
@@ -183,18 +183,18 @@ public class PopUp extends JFrame{
 	}
 
 	public void findPwdSucPopup() {
-		this.setTitle("ºñ¹Ğ¹øÈ£ Ã£±â ¼º°ø");
+		this.setTitle("ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì„±ê³µ");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel Smessage = new JLabel("µî·ÏµÈ ÀÌ¸ŞÀÏ·Î ºñ¹Ğ¹øÈ£ Á¤º¸ ¹ß¼ÛÇß½À´Ï´Ù.");
+		JLabel Smessage = new JLabel("ë“±ë¡ëœ ì´ë©”ì¼ë¡œ ë¹„ë°€ë²ˆí˜¸ ì •ë³´ ë°œì†¡í–ˆìŠµë‹ˆë‹¤.");
 		Smessage.setSize(320, 30);
 		Smessage.setLocation(15, 20);
 
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		Smessage.setLayout(null);
@@ -213,18 +213,18 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 	public void findPwdFailPopup() {
-		this.setTitle("ºñ¹Ğ¹øÈ£ Ã£±â ¿À·ù");
+		this.setTitle("ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸° ì˜¤ë¥˜");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel Fmessage = new JLabel("ÇØ´ç Á¤º¸¿Í ÀÏÄ¡ÇÏ´Â ºñ¹Ğ¹øÈ£°¡ ¾ø½À´Ï´Ù.");
+		JLabel Fmessage = new JLabel("í•´ë‹¹ ì •ë³´ì™€ ì¼ì¹˜í•˜ëŠ” ë¹„ë°€ë²ˆí˜¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
 		Fmessage.setSize(300, 30);
 		Fmessage.setLocation(30, 20);
 
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		Fmessage.setLayout(null);
@@ -244,17 +244,17 @@ public class PopUp extends JFrame{
 	}
 	
 	public void IdCheckF() {
-		this.setTitle("Áßº¹È®ÀÎ");
+		this.setTitle("ì¤‘ë³µí™•ì¸");
 		this.setLayout(null);
 
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 
-		JLabel message = new JLabel("ÀÌ¹Ì Á¸ÀçÇÏ´Â IDÀÔ´Ï´Ù.");
+		JLabel message = new JLabel("ì´ë¯¸ ì¡´ì¬í•˜ëŠ” IDì…ë‹ˆë‹¤.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -277,17 +277,17 @@ public class PopUp extends JFrame{
 	}
 	
 	public void IdCheckT() {
-		this.setTitle("Áßº¹È®ÀÎ");
+		this.setTitle("ì¤‘ë³µí™•ì¸");
 		this.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 		
-		JLabel message = new JLabel("»ç¿ë °¡´ÉÇÑ IDÀÔ´Ï´Ù.");
+		JLabel message = new JLabel("ì‚¬ìš© ê°€ëŠ¥í•œ IDì…ë‹ˆë‹¤.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -312,17 +312,17 @@ public class PopUp extends JFrame{
 
 	}
 	public void IdCheckNull() {
-		this.setTitle("Áßº¹È®ÀÎ");
+		this.setTitle("ì¤‘ë³µí™•ì¸");
 		this.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 		
-		JLabel message = new JLabel("ID¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		JLabel message = new JLabel("IDë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -347,17 +347,17 @@ public class PopUp extends JFrame{
 	}
 	
 	public void PhoneCheckF() {
-		this.setTitle("Áßº¹È®ÀÎ");
+		this.setTitle("ì¤‘ë³µí™•ì¸");
 		this.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 		
-		JLabel message = new JLabel("ÀÌ¹Ì µî·ÏµÈ ¹øÈ£ÀÔ´Ï´Ù.");
+		JLabel message = new JLabel("ì´ë¯¸ ë“±ë¡ëœ ë²ˆí˜¸ì…ë‹ˆë‹¤.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -378,17 +378,17 @@ public class PopUp extends JFrame{
 	}
 	
 	public void PhoneCheckT() {
-		this.setTitle("Áßº¹È®ÀÎ");
+		this.setTitle("ì¤‘ë³µí™•ì¸");
 		this.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 		
-		JLabel message = new JLabel("µî·Ï °¡´ÉÇÑ ¹øÈ£ÀÔ´Ï´Ù.");
+		JLabel message = new JLabel("ë“±ë¡ ê°€ëŠ¥í•œ ë²ˆí˜¸ì…ë‹ˆë‹¤.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -408,17 +408,17 @@ public class PopUp extends JFrame{
 		
 	}
 	public void PhoneCheckNull() {
-		this.setTitle("Áßº¹È®ÀÎ");
+		this.setTitle("ì¤‘ë³µí™•ì¸");
 		this.setLayout(null);
 		
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
 		
-		JLabel message = new JLabel("¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä.");
+		JLabel message = new JLabel("ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”.");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);
@@ -441,7 +441,7 @@ public class PopUp extends JFrame{
 	
 	
 	public void CheckPay() {
-		this.setTitle("°áÁ¦È®ÀÎ");
+		this.setTitle("ê²°ì œí™•ì¸");
 		this.setLayout(null);
 		
 		JPanel panel = new JPanel();
@@ -452,10 +452,10 @@ public class PopUp extends JFrame{
 		
 		System.out.println(bd.getPrice());
 		
-		JLabel message = new JLabel(bd.getPrice()+" ¿ø °áÁ¦¸¦ ÁøÇàÇÏ½Ã°Ú½À´Ï±î?");
+		JLabel message = new JLabel(bd.getPrice()+" ì› ê²°ì œë¥¼ ì§„í–‰í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 		message.setSize(300, 30);
 		message.setLocation(30, 20);
-		JButton okButton = new JButton("È®ÀÎ");
+		JButton okButton = new JButton("í™•ì¸");
 		okButton.setSize(100, 30);
 		okButton.setLocation(100, 80);
 		message.setLayout(null);

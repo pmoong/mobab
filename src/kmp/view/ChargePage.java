@@ -30,7 +30,7 @@ public class ChargePage extends JPanel {
 		Color backgcolor = new Color(234,255,236);
 		
 
-		//ªÁøÎ«“ ¿ÃπÃ¡ˆ «“¥Á
+		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ Ìï†Îãπ
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -161,7 +161,7 @@ public class ChargePage extends JPanel {
 		
 		
 
-		//«œ¥‹∆–≥Œ
+		//ÌïòÎã®Ìå®ÎÑê
 		
 //		BufferedWriter bw = new BufferedWriter(new FileWriter(userId() + ".txt"));
 
@@ -196,7 +196,7 @@ public class ChargePage extends JPanel {
 		
 		
 		JTextField cashInt = new JTextField();
-		cashInt.setText(money + "ø¯");
+		cashInt.setText(money + "Ïõê");
 		cashInt.setEditable(false);	
 		cashInt.setSize(260, 60);
 		cashInt.setLocation(100, 20);
@@ -220,10 +220,10 @@ public class ChargePage extends JPanel {
 		allMoneyInt.setSize(260, 60);
 		allMoneyInt.setLocation(100, 230);
 		
-		JButton button1 = new JButton(new ImageIcon(money1Img));	//5∏∏
-		JButton button2 = new JButton(new ImageIcon(money2Img));	//3∏∏
-		JButton button3 = new JButton(new ImageIcon(money3Img));	//1∏∏
-		JButton button4 = new JButton(new ImageIcon(money4Img));	//5√µ
+		JButton button1 = new JButton(new ImageIcon(money1Img));	//5Îßå
+		JButton button2 = new JButton(new ImageIcon(money2Img));	//3Îßå
+		JButton button3 = new JButton(new ImageIcon(money3Img));	//1Îßå
+		JButton button4 = new JButton(new ImageIcon(money4Img));	//5Ï≤ú
 		button1.setSize(75, 20);
 		button1.setLocation(30, 200);
 		button2.setSize(75, 20);
@@ -268,7 +268,7 @@ public class ChargePage extends JPanel {
 		});
 
 		
-		JButton chargeButton = new JButton("√Ê¿¸«œ±‚");
+		JButton chargeButton = new JButton("Ï∂©Ï†ÑÌïòÍ∏∞");
 		chargeButton.setSize(120, 40);
 		chargeButton.setLocation(240,  320);
 		

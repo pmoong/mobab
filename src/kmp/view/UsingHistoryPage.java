@@ -25,7 +25,7 @@ public class UsingHistoryPage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 
-		//»ç¿ëÇÒ ÀÌ¹ÌÁö ÇÒ´ç
+		//ì‚¬ìš©í•  ì´ë¯¸ì§€ í• ë‹¹
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
 		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
@@ -37,7 +37,7 @@ public class UsingHistoryPage extends JPanel{
 		Image todayMenuImg = new ImageIcon("images/todayMenu.png").getImage().getScaledInstance(300, 180, 0);
 
 
-		//»ó´ÜÆĞ³Î
+		//ìƒë‹¨íŒ¨ë„
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -137,13 +137,13 @@ public class UsingHistoryPage extends JPanel{
 		panel1.add(hist);
 		panel1.add(charge);
 
-		//ÇÏ´ÜÆĞ³Î
+		//í•˜ë‹¨íŒ¨ë„
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 		
-		String info [] = {"½Ä´ç","°áÁ¦±İ¾×"};
+		String info [] = {"ì‹ë‹¹","ê²°ì œê¸ˆì•¡"};
 		DefaultTableModel model = new DefaultTableModel(info, 0);
 		JTable table = new JTable(model);
 		JScrollPane scrollpane = new JScrollPane(table);

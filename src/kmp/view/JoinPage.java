@@ -92,7 +92,7 @@ public class JoinPage extends JPanel{
 		panel2.setLocation(0, 150);
 
 		JLabel label1 = new JLabel(new ImageIcon(idImg));
-		JButton button3 = new JButton("Áßº¹È®ÀÎ");
+		JButton button3 = new JButton("ì¤‘ë³µí™•ì¸");
 		JTextField tf1 = new JTextField();
 		
 
@@ -152,7 +152,7 @@ public class JoinPage extends JPanel{
  
 		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField tf4 = new JTextField();
-		JButton button4 = new JButton("Áßº¹È®ÀÎ");
+		JButton button4 = new JButton("ì¤‘ë³µí™•ì¸");
 		button4.addActionListener(new ActionListener() {
 
 			String phone;
@@ -199,7 +199,7 @@ public class JoinPage extends JPanel{
 		label7.setLocation(220, 240);
 		tf6.setLocation(240, 240);
 
-		JLabel label8 = new JLabel("³ªÀÌ");
+		JLabel label8 = new JLabel("ë‚˜ì´");
 		//		JTextField tf7 = new JTextField();
 		String ages[] = new String[30];
 		int age1=20;
@@ -215,7 +215,7 @@ public class JoinPage extends JPanel{
 		ageBox.setLocation(90, 280);
 
 		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
-		String[] genders = {"³²","¿©"};
+		String[] genders = {"ë‚¨","ì—¬"};
 		JComboBox gender1 = new JComboBox(genders);
 		gender1.setSelectedIndex(0);
 		gender1.addActionListener(new ActionListener() {
@@ -231,7 +231,7 @@ public class JoinPage extends JPanel{
 		gendlabel.setLocation(220, 280);
 		gender1.setLocation(280, 280);
 		
-		JButton button5 = new JButton("È¸¿ø°¡ÀÔ");
+		JButton button5 = new JButton("íšŒì›ê°€ì…");
 	
 		
 		

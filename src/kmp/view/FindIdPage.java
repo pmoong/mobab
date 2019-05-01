@@ -26,14 +26,14 @@ public class FindIdPage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//ªÁøÎ«“ ¿ÃπÃ¡ˆ «“¥Á
+		//ÏÇ¨Ïö©Ìï† Ïù¥ÎØ∏ÏßÄ Ìï†Îãπ
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		Image mobobMain = new ImageIcon("images/mobobMain.png").getImage().getScaledInstance(260, 260, 0);
 		Image fidImg = new ImageIcon("images/fID_c.png").getImage().getScaledInstance(200, 100, 0);
 		Image fpwImg = new ImageIcon("images/fPwd.png").getImage().getScaledInstance(200, 100, 0);
 		
-		//ªÛ¥‹ ∆–≥Œ
+		//ÏÉÅÎã® Ìå®ÎÑê
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -83,7 +83,7 @@ public class FindIdPage extends JPanel{
 		panel1.add(home);
 		
 		
-		//«œ¥‹ ∆–≥Œ
+		//ÌïòÎã® Ìå®ÎÑê
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
@@ -99,7 +99,7 @@ public class FindIdPage extends JPanel{
 		panel2.add(tEmail);
 		
 
-		JLabel label1 = new JLabel("¿Ã∏ß");
+		JLabel label1 = new JLabel("Ïù¥Î¶Ñ");
 		JLabel label2 = new JLabel("E-MAIL");
 		label1.setSize(60,40);
 		label1.setLocation(60, 50);
@@ -112,7 +112,7 @@ public class FindIdPage extends JPanel{
 		label3.setLocation(70, 250);
 		panel2.add(label3);
 		
-		JButton button1 = new JButton("»Æ¿Œ");
+		JButton button1 = new JButton("ÌôïÏù∏");
 		button1.setSize(280,60);
 		button1.setLocation(60, 213);
 		panel2.add(button1);
