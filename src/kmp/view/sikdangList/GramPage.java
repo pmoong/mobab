@@ -30,6 +30,7 @@ import kmp.controller.Controller;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
+import kmp.view.LoginPage;
 import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
@@ -41,6 +42,7 @@ import kmp.view.UsingHistoryPage;
 public class GramPage extends JPanel{
 	private MainFrame mf;
 	private JPanel gramPage;
+	LoginPage lp = new LoginPage();
 
 	public GramPage(MainFrame mf) {
 		this.mf = mf;
@@ -61,8 +63,8 @@ public class GramPage extends JPanel{
 	      Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
 	      Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 	      Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
-    Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
-	    Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
+	      Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
+	      Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
 
 	      
 	      

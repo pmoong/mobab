@@ -1,8 +1,6 @@
 package kmp.view;
 
 import java.awt.Color;
-import java.awt.Container;
-import java.awt.Frame;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -146,51 +144,32 @@ public class UsingHistoryPage extends JPanel{
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
-	
-//		
-//		String info [] = {"식당","결제금액"};
-//		DefaultTableModel model = new DefaultTableModel(info, 0);
-//		JTable table = new JTable(model);
-//		JScrollPane scrollpane = new JScrollPane(table);
-//
-//		JPanel panel = new JPanel();
-//		JTextField store = new JTextField();
-//		JTextField pay = new JTextField();
-//		scrollpane.add(store);
-//		scrollpane.add(pay);
-//		
-//		
-//		
-//		
-//		scrollpane.setSize(350,300);
-//		scrollpane.setLocation(20,50);
-//		panel2.add(scrollpane);
-//		scrollpane.add(panel);
-//		
-//		
-//		JPanel infopanel = new JPanel();
-//		JTextField tfstore = new JTextField();
-//		JTextField tfpay = new JTextField();
-//		
-//		panel2.add(infopanel);
-//		infopanel.setSize(350,300);
-//		infopanel.setLocation(20,50);
-//		
-////		infopanel.add()
-//		
-//		
-//		this.add(panel1);
-//		this.add(panel2);
-//		mf.add(this);
+		
+		String info [] = {"식당","결제금액"};
+		DefaultTableModel model = new DefaultTableModel(info, 0);
+		JTable table = new JTable(model);
+		JScrollPane scrollpane = new JScrollPane(table);
+
+		
+		scrollpane.setSize(350,300);
+		scrollpane.setLocation(20,50);
+		panel2.add(scrollpane);
 		
 		
-		String [] columnName = {"식당", "금액"};
-		Object[][] data = {};
-		final JTable table = new JTable(data,columnName);
+		JPanel infopanel = new JPanel();
+		JTextField tfstore = new JTextField();
+		JTextField tfpay = new JTextField();
 		
-		JScrollPane scrollPane = new JScrollPane(table);
-		table.setFillsViewportHeight(true);
+		panel2.add(infopanel);
+		infopanel.setSize(350,300);
+		infopanel.setLocation(20,50);
 		
+//		infopanel.add()
+		
+		
+		this.add(panel1);
+		this.add(panel2);
+		mf.add(this);
 		
 		
 		

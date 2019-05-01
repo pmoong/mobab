@@ -38,6 +38,7 @@ public class BeerStorePage extends JPanel{
       private MainFrame mf;
       private JPanel beerStorePage;
       private int price;
+      LoginPage lp = new LoginPage();
 //      private int test;
     public BeerStorePage() {}
  
@@ -60,7 +61,7 @@ public class BeerStorePage extends JPanel{
          Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
          Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
          Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
-		     Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
+		 Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
          
          
 
@@ -267,7 +268,7 @@ public class BeerStorePage extends JPanel{
          panel3.add(beerLabel);
          panel3.add(num);
          panel3.add(address);
-        panel3.add(star)
+        panel3.add(star);
          
          //--------------------------------------------------------------
          

@@ -326,16 +326,15 @@ public class Controller extends Member {
 	}
 
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 학원 정보 출력하기 메소드
-		public String outputAcademyInfo(String id) {
-			try {
-				File memberList = new File("MemberList.txt");
-				BufferedReader br = new BufferedReader(new FileReader(memberList));
-				String line = "";
-				while ((line = br.readLine()) != null) {
-					String[] info = line.split(", ");
-					if (id.equals(info[0])) {
-						return info[5];
-					}
+	public String outputAcademyInfo(String id) {
+		try {
+			File memberList = new File("MemberList.txt");
+			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			String line = "";
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (id.equals(info[0])) {
+					return info[5];
 				}
 			}
 		} catch (FileNotFoundException e) {
@@ -365,7 +364,7 @@ public class Controller extends Member {
 		}
 		return "찾는 정보가 없습니다";
 	}
-	
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 보유금액 정보 출력하기 메소드
 	public String outputChargedInfo(String id) {
 		try {
@@ -405,9 +404,9 @@ public class Controller extends Member {
 		}
 		return "찾는 정보가 없습니다";
 	}
-	
 
-	
+
+
 	public boolean outputstore(String id) {
 		try {
 			LoginPage lp = new LoginPage();
@@ -428,53 +427,53 @@ public class Controller extends Member {
 
 
 	public Component map(int i) {
-		
+
 		Image mapBeerImg = new ImageIcon("images/mapbeer.png").getImage().getScaledInstance(310, 280, 0);
 		Image mapGramImg = new ImageIcon("images/mapGram.png").getImage().getScaledInstance(310, 280, 0);
 		Image mapNoodlesImg = new ImageIcon("images/mapNoodles.png").getImage().getScaledInstance(310, 280, 0);
 		Image mapSandwichImg = new ImageIcon("images/mapSandwich.png").getImage().getScaledInstance(310, 280, 0);
-		
-		
+
+
 		JLabel mapImg = new JLabel("왜 안나와");
-		
-        if(i == 1) {
-            mapImg = new JLabel(new ImageIcon(mapBeerImg));
-            mapImg.setSize(310, 280);
-            mapImg.setLocation(20, 10);
-        
-        }else if(i == 2) {
-        	mapImg = new JLabel(new ImageIcon(mapGramImg));
-        mapImg.setSize(310, 280);
-        mapImg.setLocation(20, 10);
-        
-        }else if(i == 3) {
-        	mapImg = new JLabel(new ImageIcon(mapNoodlesImg));
-            mapImg.setSize(310, 280);
-            mapImg.setLocation(20, 10);
-            
-        }else if(i == 4) {
-        	mapImg = new JLabel(new ImageIcon(mapSandwichImg));
-            mapImg.setSize(310, 280);
-            mapImg.setLocation(20, 10);
-            
-        }
-        
-        return mapImg;
+
+		if(i == 1) {
+			mapImg = new JLabel(new ImageIcon(mapBeerImg));
+			mapImg.setSize(310, 280);
+			mapImg.setLocation(20, 10);
+
+		}else if(i == 2) {
+			mapImg = new JLabel(new ImageIcon(mapGramImg));
+			mapImg.setSize(310, 280);
+			mapImg.setLocation(20, 10);
+
+		}else if(i == 3) {
+			mapImg = new JLabel(new ImageIcon(mapNoodlesImg));
+			mapImg.setSize(310, 280);
+			mapImg.setLocation(20, 10);
+
+		}else if(i == 4) {
+			mapImg = new JLabel(new ImageIcon(mapSandwichImg));
+			mapImg.setSize(310, 280);
+			mapImg.setLocation(20, 10);
+
+		}
+
+		return mapImg;
 	}
 
 	//charge 충전버튼
 	public void charged(int charged) {
 		ChargePage cp = new ChargePage();
 		Member[] m = new Member[1];
-		
+
 		try {
 			BufferedReader br = new BufferedReader(new FileReader("MemberList.txt"));
 			String save = "";
 			String line="";
-			
+
 			while ((line = br.readLine()) != null) {
 				String[] info = line.split(", ");
-				
+
 				if(lp.getId().equals(info[0])) {
 					for(int i = 0; i < 10;i++) {
 						save += info[i] + ", ";
@@ -493,12 +492,12 @@ public class Controller extends Member {
 				save += "\n";
 			}
 			BufferedWriter bw = null;
-			
+
 			bw = new BufferedWriter(new FileWriter("MemberList.txt"));
 			bw.write(save);
 			bw.close();
 			br.close();
-			
+
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}

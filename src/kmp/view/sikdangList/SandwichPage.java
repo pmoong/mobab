@@ -1,27 +1,29 @@
 package kmp.view.sikdangList;
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 
 import kmp.controller.Controller;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
+import kmp.view.LoginPage;
 import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
@@ -32,6 +34,7 @@ import kmp.view.UsingHistoryPage;
 public class SandwichPage extends JPanel {
 	private MainFrame mf;
 	private JPanel sandwichPage;
+	LoginPage lp = new LoginPage();
 
 	public SandwichPage(MainFrame mf) {
 		this.mf = mf;
@@ -53,7 +56,7 @@ public class SandwichPage extends JPanel {
 		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
-    Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
+		Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
 	    Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
 
 
@@ -194,7 +197,7 @@ public class SandwichPage extends JPanel {
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
     
-    JButton star = new JButton(new ImageIcon(starImg));
+		JButton star = new JButton(new ImageIcon(starImg));
 		star.setSize(35, 35);
 		star.setLocation(146, 27);
 		star.setBorderPainted(false);
