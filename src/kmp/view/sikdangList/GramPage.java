@@ -188,7 +188,7 @@ public class GramPage extends JPanel{
 		JTextArea num = new JTextArea("000-000-0000");
 		num.setSize(100, 20);
 		num.setLocation(15, 35);
-		JTextArea address = new JTextArea("������ ���ﵿ");
+		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
 
