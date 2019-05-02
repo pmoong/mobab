@@ -10,6 +10,7 @@ import java.awt.event.ItemListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -39,7 +40,7 @@ public class BeerStorePage extends JPanel{
 	private JPanel beerStorePage;
 	private int price;
 	LoginPage lp = new LoginPage();
-  
+
 	public BeerStorePage() {}
 
 	public BeerStorePage(MainFrame mf) {
@@ -311,6 +312,7 @@ public class BeerStorePage extends JPanel{
 		JTextField price = new JTextField();
 		price.setSize(130, 20);
 		price.setLocation(160,200);
+		price.setText("0");
 		Controller ctr = new Controller();
 		listmenu1.addItemListener(new ItemListener() {
 
@@ -328,7 +330,7 @@ public class BeerStorePage extends JPanel{
 		panel4.add(listmenu1);
 		panel4.add(total);      
 		panel4.add(price);
-		//---------------------------------------
+		//--------------------------------------- 
 
 
 
@@ -362,30 +364,43 @@ public class BeerStorePage extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				//setPrice(Integer.parseInt(price.getText()));
-				PopUp pu = new PopUp();
-				pu.CheckPay(Integer.parseInt(price.getText()));
-				ChangePanel.changePanel(mf, beerStorePage, new UsingHistoryPage(mf));
+				LoginPage lp = new LoginPage();
+				try {
+					File memberList = new File("MemberList.txt");
+					BufferedReader br = new BufferedReader(new FileReader(memberList));
+					String line = "";
+					PopUp pu = new PopUp();
+					while ((line = br.readLine()) != null) {
+						String[] info = line.split(", ");
+						if (lp.getId().equals(info[0])) {
+							if (Integer.parseInt(info[10]) - ctr.totalPrice(b.getPrice(),
+								listmenu1.getSelectedIndex()) >= 0) {
+								
+								pu.CheckPay(price.getText(),mf,beerStorePage);
+							} else {
+								
+								pu.lackOfMoney(mf,beerStorePage);
+							}
+						}
+					}
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
 
-				Controller ctr = new Controller();
-				ctr.payHistory("beerStore", price.getText());
 			}
+
 		});
-
-
-
-
 
 		panel2.add(panel3);
 		panel2.add(panel4);
 		panel2.add(panel5);
 
-
 		this.add(panel1);
 		this.add(panel2);
 
 		mf.add(this);
-
 	}
 
 	public int getPrice() {
@@ -396,3 +411,7 @@ public class BeerStorePage extends JPanel{
 		this.price = price;
 	}
 }
+
+
+//
+
