@@ -17,12 +17,9 @@ import javax.swing.JPanel;
 
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
-import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.LoginPage;
 import kmp.view.MainFrame;
-import kmp.view.MapPage;
-import kmp.view.sikdangList.BeerStorePage;
 
 
 
@@ -443,7 +440,6 @@ public class Controller extends Member {
 		}
 		return totalMoney;
 	}
-
 	
 	public void payHistory(String sikdang, String price) {
 		lp.getId();
@@ -453,38 +449,57 @@ public class Controller extends Member {
 
 		try {
 			br = new BufferedReader(new FileReader(lp.getId() + ".txt"));
-			
 			String line = "";
 			String save = "";
 			while((line = br.readLine()) != null) {
 				String info[] = line.split(", ");
 				if(info[0].equals(sikdang)) {
 					save += info[0] + ", " 
-				+ (Integer.parseInt(info[1]) + Integer.parseInt(price)) +"\n";
+							+ (Integer.parseInt(info[1]) + Integer.parseInt(price)) +"\n";
 				}else {
 					save += line +"\n";
 				}
 			}
-			
-//			mList.write(name + "," + Integer.parseInt(price.getText()));
+
 			mList = new BufferedWriter(new FileWriter(lp.getId()+".txt"));
 			mList.write(save);
 			mList.flush();
-			
-			
+
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-		
-		
-		
 	}
-	
-	
-	
-	
+
+	public void minusPay(String price) {
+		BufferedWriter mList = null;
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new FileReader("MemberList.txt"));
+			String line = "";
+			String save = "";
+			while((line = br.readLine()) != null) {
+				String info[] = line.split(", ");
+				if(info[0].equals(lp.getId())) {
+					for(int i= 0; i < info.length-1; i++) {
+					save += info[i] + ", ";
+					}		
+					save+= (Integer.parseInt(info[10]) - Integer.parseInt(price)) +"\n";
+				}else {
+					save += line +"\n";
+				}
+			}
+
+			mList = new BufferedWriter(new FileWriter("MemberList.txt"));
+			mList.write(save);
+			mList.flush();
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+
+
 	
 	
 	
