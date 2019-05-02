@@ -17,12 +17,9 @@ import javax.swing.JPanel;
 
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
-import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.LoginPage;
 import kmp.view.MainFrame;
-import kmp.view.MapPage;
-import kmp.view.sikdangList.BeerStorePage;
 
 
 
@@ -272,6 +269,54 @@ public class Controller extends Member {
 		return "찾는 정보가 없습니다";
 	}
 
+	public void changePwd(String id, String pwd) {
+		String save = "";
+		String line = "";
+
+		try {
+			File memberList = new File("MemberList.txt");
+			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (id.equals(info[0])) {
+					for(int i = 0; i < 11; i++) {
+						if(info[i] == info[1]) {
+							save += pwd+", ";
+						}else if(i == 10) {
+							save += info[i];
+						}else {
+							save += info[i] + ", ";
+						}
+					}
+
+				}else {
+					for(int i = 0; i < info.length; i++) {
+						if(i != info.length-1) {
+							save += info[i] + ", ";
+						}else {
+							save += info[i];
+						}
+					}
+				}
+				save += "\n";
+			}
+			BufferedWriter bw = null;
+
+			bw = new BufferedWriter(new FileWriter("MemberList.txt"));
+			bw.write(save);
+			bw.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 이름 정보 출력하기 메소드 
 	public String outputNameInfo(String id) {
 		try {
@@ -483,11 +528,6 @@ public class Controller extends Member {
 	}
 	
 	
-	
-	
-	
-	
-	
 
 	public Component map(int i) {
 
@@ -566,7 +606,7 @@ public class Controller extends Member {
 			e1.printStackTrace();
 		}
 	}
-	
+
 	
 	
 	
