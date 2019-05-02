@@ -1,5 +1,6 @@
 package kmp.view.sikdangList;
 
+import java.awt.Button;
 import java.awt.Color;
 import java.awt.Image;
 import java.awt.List;
@@ -11,11 +12,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -61,6 +60,7 @@ public class BeerStorePage extends JPanel{
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 		Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
 		Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
+		Image imv;
 
 
 
@@ -174,7 +174,26 @@ public class BeerStorePage extends JPanel{
 		JTextArea address = new JTextArea(b.getLocation());
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
-		JButton star = new JButton(new ImageIcon(starImg));
+		//------------------------------------------------
+		BufferedReader br = null;
+		String fileName = (lp.getId()+".txt");
+		File member = new File(fileName);
+		imv=starImg;
+		try {
+			br = new BufferedReader(new FileReader(member));
+			String line = br.readLine();
+			String[] info = line.split(", ");
+			if(info[2].equals("false")) {
+				imv=starImg;
+			}else {
+				imv=star1Img;
+			}
+			}catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		
+		//------------------------------------------------------------
+		JButton star = new JButton(new ImageIcon(imv));
 		star.setSize(35, 35);
 		star.setLocation(146, 27);
 		star.setBorderPainted(false);
@@ -182,63 +201,169 @@ public class BeerStorePage extends JPanel{
 		star.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				Controller ctr = new Controller();
-
+				BufferedWriter wr = null;
 				BufferedReader br = null;
 				String fileName = (lp.getId()+".txt");
 				File member = new File(fileName);
 				boolean Gr = false;
-				boolean Nd = false;
 				boolean Js = false;
+				boolean Nd = false;
 
 				try {
 					br = new BufferedReader(new FileReader(member));
-					String line = br.readLine();
-					String[] info = line.split(", ");
-					if(info[3].equals("false")) {
-						Gr=false;
-					}else {
-						Gr=true;
-					}
-					if(info[4].equals("false")) {
-						Js=false;
-					}else {
-						Js=true;
-					}
-					if(info[5].equals("false")) {
-						Nd=false;
-					}else {
-						Nd=true;
-					}
-					if(info[2].equals("false")) {
-						BufferedWriter wr = null;
-						boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
+					String save ="";
+					String line ="";
+					while((line = br.readLine()) !=null){
+						System.out.println("line : " + line);
+						String[] info = line.split(", ");
+						if(info[0].equals(lp.getId())) {
+							if(info[3].equals("false")) {
+								Gr=false;
+							}else {
+								Gr=true;
+							}
+							if(info[4].equals("false")) {
+								Js=false;
+							}else {
+								Js=true;
+							}
+							if(info[5].equals("false")) {
+								Nd=false;
+							}else {
+								Nd=true;
+							}
+							String fBeer, fNoodles, fGram, fSandwich;
+							if(info[2].equals("false")) {
+								boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
+								if(favoriteBeer) {
+									fBeer = "true";
+								}else {
+									fBeer = "false";
+								}
+								if(favoriteNoodles) {
+									fNoodles = "true";
+								}else {
+									fNoodles = "false";
+								}
+								if(favoriteGram) {
+									 fGram = "true";
+								}else {
+									fGram = "false";
+								}
+								if(favoriteSandwich) {
+									fSandwich = "true";
+								}else {
+									fSandwich = "false";
+								}	
+									
+									
+									
+								save += lp.getId() +  ", " + info[1] + ", " 
+										+ fBeer + ", " + fGram + ", " + fSandwich + ", " + fNoodles + "\n";
+								star.setIcon(new ImageIcon(star1Img));
+							}else {
+								boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
+								if(favoriteBeer) {
+									fBeer = "true";
+								}else {
+									fBeer = "false";
+								}
+								if(favoriteNoodles) {
+									fNoodles = "true";
+								}else {
+									fNoodles = "false";
+								}
+								if(favoriteGram) {
+									 fGram = "true";
+								}else {
+									fGram = "false";
+								}
+								if(favoriteSandwich) {
+									fSandwich = "true";
+								}else {
+									fSandwich = "false";
+								}	
+								save += lp.getId() +  ", " + info[1] + ", " 
+										+ fBeer + ", " + fGram + ", " + fSandwich + ", " + fNoodles + "\n";
+								star.setIcon(new ImageIcon(starImg));
+
+							}
+						}else {
+							System.out.println("else info[0] : " + info[0]);
+							System.out.println(info[1]);
+							if(!info[0].equals("sandwich")) {
+							save += info[0] + ", " + info[1] +"\n";
+							}else {
+								save += info[0] + ", " + info[1];	
+							}
+						}
+						
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-
-						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
+						wr.write(save);
 						wr.flush();
-						star.setIcon(new ImageIcon(star1Img));
-					}else {
-						BufferedWriter wr = null;
-						boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
-						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-
-						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
-						wr.flush();
-						star.setIcon(new ImageIcon(starImg));
-
-
 					}
-
-				} catch (IOException e1) {
-
+				} catch (Exception e1) {
+					
 					e1.printStackTrace();
 				}
 			}
 		});
+							
+						
+//							wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
+//							
+//							wr.write(lp.getId() +  ", " + null + ", " 
+//									+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles
+//									+ "\nbeerStore, 0"
+//									+ "\n7gram, 0"
+//									+ "\nnoodles, 0"
+//									+ "\nsandwich, 0");
+//							wr.flush();
+//					if(info[3].equals("false")) {
+//						Gr=false;
+//					}else {
+//						Gr=true;
+//					}
+//					if(info[4].equals("false")) {
+//						Js=false;
+//					}else {
+//						Js=true;
+//					}
+//					if(info[5].equals("false")) {
+//						Nd=false;
+//					}else {
+//						Nd=true;
+//					}
+//					if(info[2].equals("false")) {
+//						BufferedWriter wr = null;
+//						boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
+//						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
+//
+//						wr.write(lp.getId() +  ", " + null + ", " 
+//								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles
+//								+ "\nbeerStore, 0"
+//								+ "\n7gram, 0"
+//								+ "\nnoodles, 0"
+//								+ "\nsandwich, 0");
+//						wr.flush();
+//						star.setIcon(new ImageIcon(star1Img));
+//					}else {
+//						BufferedWriter wr = null;
+//						boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
+//						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
+//
+//						wr.write(lp.getId() +  ", " + null + ", " 
+//								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles
+//								+ "\nbeerStore, 0"
+//								+ "\n7gram, 0"
+//								+ "\nnoodles, 0"
+//								+ "\nsandwich, 0");
+//						wr.flush();
+//						star.setIcon(new ImageIcon(starImg));
+//
+//
+//					}
+
 
 		panel3.add(beerLabel);
 		panel3.add(num);

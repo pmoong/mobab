@@ -1,5 +1,1 @@
-sample3, 유관순, false, false, false, false
-Beer, 15000
-Gram, 16000
-Noodle, 20000
-Sandwich, 20000
+sample3, null, false, true, false, true
