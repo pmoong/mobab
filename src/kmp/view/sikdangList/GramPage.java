@@ -65,6 +65,7 @@ public class GramPage extends JPanel{
 	      Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 	      Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
 	      Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
+	      Image imv;
 
 	      
 	      
@@ -208,8 +209,26 @@ public class GramPage extends JPanel{
 		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
+		
+		BufferedReader br = null;
+		String fileName = (lp.getId()+".txt");
+		File member = new File(fileName);
+		
+		imv=starImg;
+		try {
+			br = new BufferedReader(new FileReader(member));
+			String line = br.readLine();
+			String[] info = line.split(", ");
+			if(info[3].equals("false")) {
+				imv=starImg;
+			}else {
+				imv=star1Img;
+			}
+			}catch (IOException e1) {
+				e1.printStackTrace();
+			}
     
-    JButton star = new JButton(new ImageIcon(starImg));
+		JButton star = new JButton(new ImageIcon(imv));
 		star.setSize(35, 35);
 		star.setLocation(146, 27);
 		star.setBorderPainted(false);
