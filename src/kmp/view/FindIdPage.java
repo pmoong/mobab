@@ -8,13 +8,15 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
 import kmp.controller.Controller;
 
 public class FindIdPage extends JPanel{
 	private MainFrame mf;
-	private JPanel findIdPage;
+	public JPanel findIdPage;
 	Controller ctr = new Controller();
 
 	
@@ -117,20 +119,23 @@ public class FindIdPage extends JPanel{
 		button1.setLocation(60, 213);
 		panel2.add(button1);
 		button1.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String inputName = tName.getText();
 				String inputEmail = tEmail.getText();
 				if(ctr.findId(inputName, inputEmail)) {
-					ChangePanel.changePanel(mf,findIdPage, new LoginPage(mf));
-					PopUp popup = new PopUp();
-					popup.findIdSucPopup();
+					String[] buttons= {"확인"};
+					JOptionPane a = new JOptionPane();
+					int result=a.showOptionDialog(null,"등록된 이메일로 ID정보를 발송했습니다.", "ID찾기 성공",a.OK_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+					if(result==a.OK_OPTION) {
+						ChangePanel.changePanel(mf,findIdPage, new LoginPage(mf));
+					}
 				}else {
 					PopUp popup = new PopUp();
 					popup.findIdFailPopup();
 				}
-//				ChangePanel.changePanel(mf, findIdPage, new FindIdPage(mf));
-				
 			}
 		});
 		

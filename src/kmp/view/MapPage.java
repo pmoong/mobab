@@ -11,6 +11,10 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import kmp.controller.Controller;
+import kmp.view.sikdangList.BeerStorePage;
+import kmp.view.sikdangList.GramPage;
+import kmp.view.sikdangList.NoodlesPage;
+import kmp.view.sikdangList.SandwichPage;
 
 public class MapPage extends JPanel {
 
@@ -22,6 +26,7 @@ public class MapPage extends JPanel {
 		this.mapPage = this;
 		this.setSize(400, 700);
 		this.setLayout(null);
+		Controller ctr = new Controller();
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 
@@ -51,6 +56,26 @@ public class MapPage extends JPanel {
 		back.setLocation(0,0);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
+		back.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(i == 1) {
+					ChangePanel.changePanel(mf, mapPage, new BeerStorePage(mf)); 
+				}
+				else if(i == 2) {
+					ChangePanel.changePanel(mf, mapPage, new GramPage(mf)); 
+
+				}else if(i == 3) {
+					ChangePanel.changePanel(mf, mapPage, new NoodlesPage(mf)); 
+
+				}else if(i == 4) {
+					ChangePanel.changePanel(mf, mapPage, new SandwichPage(mf)); 
+
+				}
+			}
+		});
+		
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
 		home.setLocation(80,0);
@@ -163,7 +188,7 @@ public class MapPage extends JPanel {
         panel4.setLocation(20, 85);
         panel4.setBackground(Color.WHITE);
        
-        Controller ctr = new Controller();
+ 
         panel4.add(ctr.map(i));
     
         

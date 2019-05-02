@@ -12,7 +12,17 @@ import kmp.view.sikdangList.BeerStorePage;
 
 public class PopUp extends JFrame{
 	BeerStorePage bd = new BeerStorePage();
-	
+	private MainFrame mf;
+	static int check;
+//	private JPanel findIdPage;
+
+	public static int getCheck() {
+		return check;
+	}
+
+	public static void setCheck(int check) {
+		PopUp.check = check;
+	}
 
 	public PopUp() {
 		this.setSize(300, 150);
@@ -122,36 +132,39 @@ public class PopUp extends JFrame{
 	}
 	
 	
-	public void findIdSucPopup() {
-		this.setTitle("아이디찾기 성공");
-		this.setLayout(null);
-
-		JPanel panel = new JPanel();
-		panel.setSize(300, 150);
-		panel.setLayout(null);
-
-		JLabel Smessage = new JLabel("등록된 이메일로 ID정보를 발송했습니다.");
-		Smessage.setSize(300, 30);
-		Smessage.setLocation(30, 20);
-
-		JButton okButton = new JButton("확인");
-		okButton.setSize(100, 30);
-		okButton.setLocation(100, 80);
-		Smessage.setLayout(null);
-
-		okButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				closePage();
-			}
-		});
-
-		panel.add(Smessage);
-		panel.add(okButton);
-
-		this.add(panel);
-	}
+//	public void findIdSucPopup() {
+//		this.setTitle("아이디찾기 성공");
+//		this.setLayout(null);
+//
+//		
+//		JPanel panel = new JPanel();
+//		panel.setSize(300, 150);
+//		panel.setLayout(null);
+//
+//		JLabel Smessage = new JLabel("등록된 이메일로 ID정보를 발송했습니다.");
+//		Smessage.setSize(300, 30);
+//		Smessage.setLocation(30, 20);
+//
+//		JButton okButton = new JButton("확인");
+//		okButton.setSize(100, 30);
+//		okButton.setLocation(100, 80);
+//		Smessage.setLayout(null);
+//
+//		okButton.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				closePage();
+//				
+////				ChangePanel.changePanel(mf,a, new LoginPage(mf));
+//			}
+//		});
+//
+//		panel.add(Smessage);
+//		panel.add(okButton);
+//
+//		this.add(panel);
+//	}
 	public void findIdFailPopup() {
 		this.setTitle("아이디찾기 오류");
 		this.setLayout(null);
@@ -183,36 +196,36 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 
-	public void findPwdSucPopup() {
-		this.setTitle("비밀번호 찾기 성공");
-		this.setLayout(null);
-
-		JPanel panel = new JPanel();
-		panel.setSize(300, 150);
-		panel.setLayout(null);
-
-		JLabel Smessage = new JLabel("등록된 이메일로 비밀번호 정보 발송했습니다.");
-		Smessage.setSize(320, 30);
-		Smessage.setLocation(15, 20);
-
-		JButton okButton = new JButton("확인");
-		okButton.setSize(100, 30);
-		okButton.setLocation(100, 80);
-		Smessage.setLayout(null);
-
-		okButton.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				closePage();
-			}
-		});
-
-		panel.add(Smessage);
-		panel.add(okButton);
-
-		this.add(panel);
-	}
+//	public void findPwdSucPopup() {
+//		this.setTitle("비밀번호 찾기 성공");
+//		this.setLayout(null);
+//
+//		JPanel panel = new JPanel();
+//		panel.setSize(300, 150);
+//		panel.setLayout(null);
+//
+//		JLabel Smessage = new JLabel("등록된 이메일로 비밀번호 정보 발송했습니다.");
+//		Smessage.setSize(320, 30);
+//		Smessage.setLocation(15, 20);
+//
+//		JButton okButton = new JButton("확인");
+//		okButton.setSize(100, 30);
+//		okButton.setLocation(100, 80);
+//		Smessage.setLayout(null);
+//
+//		okButton.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				closePage();
+//			}
+//		});
+//
+//		panel.add(Smessage);
+//		panel.add(okButton);
+//
+//		this.add(panel);
+//	}
 	public void findPwdFailPopup() {
 		this.setTitle("비밀번호 찾기 오류");
 		this.setLayout(null);
@@ -500,8 +513,7 @@ public class PopUp extends JFrame{
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
-		
-		System.out.println(bd.getPrice());
+
 		
 		JLabel message = new JLabel("전화 연결하시겠습니까?");
 		message.setSize(300, 30);
@@ -509,20 +521,33 @@ public class PopUp extends JFrame{
 		JButton okButton = new JButton("확인");
 		okButton.setSize(60, 30);
 		okButton.setLocation(70, 80);
-		message.setLayout(null);
 		
 		okButton.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
 				closePage();
 			}
 		});
 		
+		
+		
+		
+		
+		
+		
 		JButton noButton = new JButton("취소");
 		noButton.setSize(60, 30);
 		noButton.setLocation(150, 80);
-		message.setLayout(null);
+		noButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closePage();
+				
+			}
+		});
 				
 		panel.add(message);
 		panel.add(okButton);

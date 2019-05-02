@@ -39,6 +39,7 @@ public class BeerStorePage extends JPanel{
 	private JPanel beerStorePage;
 	private int price;
 	LoginPage lp = new LoginPage();
+  
 	public BeerStorePage() {}
 
 	public BeerStorePage(MainFrame mf) {
@@ -48,7 +49,6 @@ public class BeerStorePage extends JPanel{
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
-		
 
 		//사용할 이미지 선언
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
@@ -61,6 +61,7 @@ public class BeerStorePage extends JPanel{
 		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 		Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
 		Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
+
 
 
 		//상단패널
@@ -181,6 +182,7 @@ public class BeerStorePage extends JPanel{
 		star.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
 				Controller ctr = new Controller();
 
 				BufferedReader br = null;
@@ -200,32 +202,31 @@ public class BeerStorePage extends JPanel{
 						Gr=true;
 					}
 					if(info[4].equals("false")) {
-						Nd=false;
-					}else {
-						Nd=true;
-					}
-					if(info[5].equals("false")) {
 						Js=false;
 					}else {
 						Js=true;
 					}
+					if(info[5].equals("false")) {
+						Nd=false;
+					}else {
+						Nd=true;
+					}
 					if(info[2].equals("false")) {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = true, favoriteGram = Gr, favoriteNoodles = Nd, favoriteSandwich = Js;
+						boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						star.setIcon(new ImageIcon(star1Img));
-						
 					}else {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = false, favoriteGram = Gr, favoriteNoodles = Nd, favoriteSandwich = Js;
+						boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						star.setIcon(new ImageIcon(starImg));
 
@@ -261,6 +262,7 @@ public class BeerStorePage extends JPanel{
 		menu1p.setEditable(false);
 
 		List listmenu1 = new List(3, false);
+
 		listmenu1.add("0");
 		listmenu1.add("1");
 		listmenu1.add("2");
@@ -274,6 +276,7 @@ public class BeerStorePage extends JPanel{
 		listmenu1.add("10");
 		listmenu1.setLocation(270,25);
 		listmenu1.setSize(50,35);
+
 		listmenu1.setVisible(true);
 
 
@@ -287,7 +290,6 @@ public class BeerStorePage extends JPanel{
 		JTextField price = new JTextField();
 		price.setSize(130, 20);
 		price.setLocation(160,200);
-		//	         price.setEditable(false);
 		Controller ctr = new Controller();
 		listmenu1.addItemListener(new ItemListener() {
 
@@ -299,6 +301,7 @@ public class BeerStorePage extends JPanel{
 				price.setText(ctr.totalPrice(b.getPrice(), ea)+"");
 			}
 		});
+
 		panel4.add(menu1);
 		panel4.add(menu1p);
 		panel4.add(listmenu1);
@@ -345,11 +348,6 @@ public class BeerStorePage extends JPanel{
 
 				Controller ctr = new Controller();
 				ctr.payHistory("beerStore", price.getText());
-
-
-
-
-
 			}
 		});
 
