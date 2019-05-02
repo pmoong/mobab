@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import kmp.controller.Controller;
@@ -130,14 +131,18 @@ public class FindPwdPage extends JPanel{
 				String inputName = tName.getText();
 				String inputEmail = tEmail.getText();
 				if (ctr.findPwd(inputId, inputName, inputEmail)) {
-					ChangePanel.changePanel(mf,findPwdPage, new LoginPage(mf));
-					PopUp popup = new PopUp();
-					popup.findPwdSucPopup();
+					String[] buttons= {"확인"};
+					JOptionPane a = new JOptionPane();
+					int result=a.showOptionDialog(null,"등록된 이메일로 비밀번호 정보 발송했습니다.", "Pwd찾기 성공",a.OK_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+					if(result==a.OK_OPTION) {
+						ChangePanel.changePanel(mf,findPwdPage, new LoginPage(mf));
+					}
 				} else {
 					PopUp popup = new PopUp();
 					popup.findPwdFailPopup();
 				}
-				
+
 			}
 		});
 		

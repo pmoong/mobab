@@ -11,23 +11,25 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
-
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 
-import java.net.StandardSocketOptions;
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
-
-import kmp.view.LoginPage;
-import kmp.view.PopUp;
-
+import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
+import kmp.view.LoginPage;
+import kmp.view.MainFrame;
+import kmp.view.MapPage;
+import kmp.view.sikdangList.BeerStorePage;
 
 
 
 public class Controller extends Member {
 	private LoginPage lp = new LoginPage();
+	private MainFrame mf;
+	private JPanel mapPage;
 
 	public Controller() {
 	}
@@ -434,7 +436,7 @@ public class Controller extends Member {
 		Image mapSandwichImg = new ImageIcon("images/mapSandwich.png").getImage().getScaledInstance(310, 280, 0);
 
 
-		JLabel mapImg = new JLabel("왜 안나와");
+		JLabel mapImg = new JLabel("");
 
 		if(i == 1) {
 			mapImg = new JLabel(new ImageIcon(mapBeerImg));
@@ -460,6 +462,7 @@ public class Controller extends Member {
 
 		return mapImg;
 	}
+	
 
 	//charge 충전버튼
 	public void charged(int charged) {

@@ -1,5 +1,7 @@
 package kmp.view;
 
+import java.awt.event.ActionListener;
+
 import javax.swing.JPanel;
 
 public class ChangePanel {
