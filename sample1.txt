@@ -1,8 +1,1 @@
-sample1, null, true, false, false, true맥주창고,10000
-맥주창고,5000
-맥주창고,5000
-맥주창고,10000
-맥주창고,10000
-맥주창고,10000
-맥주창고,10000
-맥주창고,10000
+sample1, null, true, true, false, true

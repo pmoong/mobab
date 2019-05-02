@@ -1,5 +1,1 @@
-sample2, 김문박, false, false, false, false
-Beer, 15000
-Gram, 27000
-Noodle, 20000
-Sandwich, 20000
+sample2, null, true, true, false, false

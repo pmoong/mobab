@@ -205,8 +205,6 @@ public class BeerStorePage extends JPanel{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				Controller ctr = new Controller();
-
 				BufferedReader br = null;
 				String fileName = (lp.getId()+".txt");
 				File member = new File(fileName);
@@ -224,22 +222,22 @@ public class BeerStorePage extends JPanel{
 						Gr=true;
 					}
 					if(info[4].equals("false")) {
-						Nd=false;
-					}else {
-						Nd=true;
-					}
-					if(info[5].equals("false")) {
 						Js=false;
 					}else {
 						Js=true;
 					}
+					if(info[5].equals("false")) {
+						Nd=false;
+					}else {
+						Nd=true;
+					}
 					if(info[2].equals("false")) {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = true, favoriteGram = Gr, favoriteNoodles = Nd, favoriteSandwich = Js;
+						boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						star.setIcon(new ImageIcon(star1Img));
 						
@@ -247,11 +245,11 @@ public class BeerStorePage extends JPanel{
 						
 					}else {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = false, favoriteGram = Gr, favoriteNoodles = Nd, favoriteSandwich = Js;
+						boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						star.setIcon(new ImageIcon(starImg));
 						
