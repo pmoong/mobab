@@ -1,0 +1,5 @@
+p, p, p, false, false, false, false
+beerStore, 50000
+7gram, 0
+noodles, 0
+sandwich, 0

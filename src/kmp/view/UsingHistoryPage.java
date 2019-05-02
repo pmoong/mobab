@@ -13,6 +13,8 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
 
+import kmp.controller.Controller;
+
 public class UsingHistoryPage extends JPanel{
 	private MainFrame mf;
 	private JPanel usinghistorypage;
@@ -77,11 +79,11 @@ public class UsingHistoryPage extends JPanel{
 
 		});
 
-//		panel1.add(back);
+		//		panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
 		panel1.setBackground(color);
-		
+
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
 		sik.setLocation(0,50);
@@ -123,7 +125,7 @@ public class UsingHistoryPage extends JPanel{
 		charge.setLocation(300,50);
 		charge.setBorderPainted(false);
 		charge.setContentAreaFilled(false);
-    charge.addActionListener(new ActionListener() {
+		charge.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -144,36 +146,63 @@ public class UsingHistoryPage extends JPanel{
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
-		
+
+		Controller c = new Controller();
+
 		String info [] = {"식당","결제금액"};
-		DefaultTableModel model = new DefaultTableModel(info, 0);
+		String data[][];
+
+		data = new String[4][2];
+		data[0][0]="맥주창고";
+		data[0][1]=c.outputstore("beerStore");
+
+		data[1][0]="7gram";
+		data[1][1]=c.outputstore("7gram");
+
+		data[2][0]="중리";
+		data[2][1]=c.outputstore("noodles");
+
+		data[3][0]="Joe's sandwich";
+		data[3][1]=c.outputstore("sandwich");
+
+
+		DefaultTableModel model = new DefaultTableModel(data, info);
+
+
 		JTable table = new JTable(model);
 		JScrollPane scrollpane = new JScrollPane(table);
 
-		
+		JPanel panel = new JPanel();
+		JTextField store = new JTextField();
+		JTextField pay = new JTextField();
+		scrollpane.add(store);
+		scrollpane.add(pay);
+
+
+
 		scrollpane.setSize(350,300);
 		scrollpane.setLocation(20,50);
 		panel2.add(scrollpane);
-		
-		
+
+
 		JPanel infopanel = new JPanel();
 		JTextField tfstore = new JTextField();
 		JTextField tfpay = new JTextField();
-		
+
 		panel2.add(infopanel);
 		infopanel.setSize(350,300);
 		infopanel.setLocation(20,50);
-		
-//		infopanel.add()
-		
-		
+
+		//		infopanel.add()
+
+
 		this.add(panel1);
 		this.add(panel2);
 		mf.add(this);
-		
-		
-		
-		
 
-}
+
+
+
+
+	}
 }

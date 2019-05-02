@@ -194,7 +194,12 @@ public class Controller extends Member {
 			idList = new BufferedWriter(new FileWriter(id + ".txt"));
 
 			idList.write(id + ", " + pwd + ", " + name + ", " 
-					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
+
+					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich
+					+ "\nbeerStore, 0"
+					+ "\n7gram, 0"
+					+ "\nnoodles, 0"
+					+ "\nsandwich, 0");
 
 
 			idList.flush();
@@ -409,24 +414,80 @@ public class Controller extends Member {
 
 
 
-	public boolean outputstore(String id) {
+	public String outputstore(String sikdang) {
+		String totalMoney = "";
+		BufferedReader br = null;
+		
 		try {
 			LoginPage lp = new LoginPage();
 			lp.getId();
-			File memberList = new File( lp + ".txt");
-			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			File memberList = new File( lp.getId() + ".txt");
+			br = new BufferedReader(new FileReader(memberList));
 			String line = "";
+			System.out.println(sikdang);
 			while ((line = br.readLine()) != null) {
-				System.out.println(line);
+				System.out.println("1");
+				String[] info = line.split(", ");
+				if(sikdang.equals(info[0])) {
+					totalMoney = info[1];
+					System.out.println(totalMoney);
+				}
 			}
+			System.out.println(totalMoney +"가나다");
+			
+			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		return true;
+		return totalMoney;
 	}
 
+	
+	public void payHistory(String sikdang, String price) {
+		lp.getId();
+		String filename=lp.getId()+".txt";
+		BufferedWriter mList = null;
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new FileReader(lp.getId() + ".txt"));
+			
+			String line = "";
+			String save = "";
+			while((line = br.readLine()) != null) {
+				String info[] = line.split(", ");
+				if(info[0].equals(sikdang)) {
+					save += info[0] + ", " 
+				+ (Integer.parseInt(info[1]) + Integer.parseInt(price)) +"\n";
+				}else {
+					save += line +"\n";
+				}
+			}
+			
+//			mList.write(name + "," + Integer.parseInt(price.getText()));
+			mList = new BufferedWriter(new FileWriter(lp.getId()+".txt"));
+			mList.write(save);
+			mList.flush();
+			
+			
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+
+		
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
 
 	public Component map(int i) {
 
@@ -505,5 +566,9 @@ public class Controller extends Member {
 			e1.printStackTrace();
 		}
 	}
+	
+	
+	
+	
 
 }

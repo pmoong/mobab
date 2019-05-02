@@ -39,7 +39,7 @@ public class BeerStorePage extends JPanel{
 	private JPanel beerStorePage;
 	private int price;
 	LoginPage lp = new LoginPage();
-	//      private int test;
+  
 	public BeerStorePage() {}
 
 	public BeerStorePage(MainFrame mf) {
@@ -49,7 +49,6 @@ public class BeerStorePage extends JPanel{
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
-
 
 		//사용할 이미지 선언
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
@@ -66,7 +65,6 @@ public class BeerStorePage extends JPanel{
 
 
 		//상단패널
-
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
@@ -84,13 +82,11 @@ public class BeerStorePage extends JPanel{
 		home.setContentAreaFilled(false);
 
 		home.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				ChangePanel.changePanel(mf,beerStorePage, new MainPage(mf));
 			}
-
 		});
 
 		JButton infor = new JButton(new ImageIcon(userinfoImg));
@@ -98,18 +94,12 @@ public class BeerStorePage extends JPanel{
 		infor.setLocation(320,0);
 		infor.setBorderPainted(false);
 		infor.setContentAreaFilled(false);
-
 		infor.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				ChangePanel.changePanel(mf, beerStorePage, new MemberInfoPage(mf));
 			}
-
-
-
-
-
 		});
 
 		//         panel1.add(back);
@@ -122,15 +112,12 @@ public class BeerStorePage extends JPanel{
 		sik.setLocation(0,50);
 		sik.setBorderPainted(false);
 		sik.setContentAreaFilled(false);
-
 		sik.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				ChangePanel.changePanel(mf,beerStorePage, new SikdangPage(mf));
 			}
-
 		});
 
 		JButton fav = new JButton(new ImageIcon(favoriteImg));
@@ -163,11 +150,7 @@ public class BeerStorePage extends JPanel{
 		panel2.setLocation(0, 150);
 		panel2.setBackground(backgcolor);
 
-
-		//----------------------
 		Beer b = new Beer();
-
-
 		Image beername = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
@@ -181,13 +164,10 @@ public class BeerStorePage extends JPanel{
 		num.setSize(130, 20);
 		num.setLocation(15, 35);
 		num.addActionListener(new ActionListener() {
-
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				PopUp pu = new PopUp();
 				pu.callPopUp();
-
 			}
 		});
 
@@ -199,11 +179,11 @@ public class BeerStorePage extends JPanel{
 		star.setLocation(146, 27);
 		star.setBorderPainted(false);
 		star.setContentAreaFilled(false);
-
 		star.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
+
+				Controller ctr = new Controller();
 
 				BufferedReader br = null;
 				String fileName = (lp.getId()+".txt");
@@ -240,9 +220,6 @@ public class BeerStorePage extends JPanel{
 								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						star.setIcon(new ImageIcon(star1Img));
-
-
-
 					}else {
 						BufferedWriter wr = null;
 						boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
@@ -269,10 +246,6 @@ public class BeerStorePage extends JPanel{
 		panel3.add(star);
 
 		//--------------------------------------------------------------
-
-		String [] count = {"1","2","3","4","5"};
-
-
 		JPanel panel4 = new JPanel();
 		panel4.setSize(350, 270);
 		panel4.setLocation(20, 85);
@@ -289,13 +262,21 @@ public class BeerStorePage extends JPanel{
 		menu1p.setEditable(false);
 
 		List listmenu1 = new List(3, false);
+
+		listmenu1.add("0");
 		listmenu1.add("1");
 		listmenu1.add("2");
 		listmenu1.add("3");
 		listmenu1.add("4");
 		listmenu1.add("5");
+		listmenu1.add("6");
+		listmenu1.add("7");
+		listmenu1.add("8");
+		listmenu1.add("9");
+		listmenu1.add("10");
 		listmenu1.setLocation(270,25);
-		listmenu1.setSize(40,18);
+		listmenu1.setSize(50,35);
+
 		listmenu1.setVisible(true);
 
 
@@ -309,23 +290,17 @@ public class BeerStorePage extends JPanel{
 		JTextField price = new JTextField();
 		price.setSize(130, 20);
 		price.setLocation(160,200);
-		//         price.setEditable(false);
 		Controller ctr = new Controller();
 		listmenu1.addItemListener(new ItemListener() {
 
 			@Override
 			public void itemStateChanged(ItemEvent arg0) {
 				// TODO Auto-generated method stub
-				int ea = listmenu1.getSelectedIndex()+1;
-				//            ctr.totalPrice(b.getPrice(), ea);
+				int ea = listmenu1.getSelectedIndex();
+				//	            ctr.totalPrice(b.getPrice(), ea);
 				price.setText(ctr.totalPrice(b.getPrice(), ea)+"");
-
-
 			}
-
 		});
-
-
 
 		panel4.add(menu1);
 		panel4.add(menu1p);
@@ -366,30 +341,13 @@ public class BeerStorePage extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String name = "맥주창고";
-				//                setPrice(Integer.parseInt(price.getText()));
-				ChangePanel.changePanel(mf, beerStorePage, new UsingHistoryPage(mf));
+				//setPrice(Integer.parseInt(price.getText()));
 				PopUp pu = new PopUp();
 				pu.CheckPay(Integer.parseInt(price.getText()));
-				LoginPage lp = new LoginPage();
-				lp.getId();
-				String filename=lp.getId()+".txt";
-				BufferedWriter mList = null;
+				ChangePanel.changePanel(mf, beerStorePage, new UsingHistoryPage(mf));
 
-				try {
-					mList = new BufferedWriter(new FileWriter(lp.getId()+".txt", true));
-
-					mList.write(name + "," + Integer.parseInt(price.getText()));
-					mList.newLine();
-					mList.flush();
-
-
-				} catch (IOException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-
-
+				Controller ctr = new Controller();
+				ctr.payHistory("beerStore", price.getText());
 			}
 		});
 
