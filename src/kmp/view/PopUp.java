@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import kmp.controller.Controller;
 import kmp.view.sikdangList.BeerStorePage;
@@ -69,37 +70,37 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 	
-	public void joinCheck() {
-		this.setTitle("가입 완료");
-		this.setLayout(null);
-
-		JPanel panel = new JPanel();
-		panel.setSize(300, 150);
-		panel.setLayout(null);
-
-		JLabel message = new JLabel("회원가입이 완료되었습니다.");
-		message.setSize(300, 30);
-		message.setLocation(30, 20);
-		JButton okButton = new JButton("확인");
-		okButton.setSize(100, 30);
-		okButton.setLocation(100, 80);
-		message.setLayout(null);
-		
-		
-
-		panel.add(message);
-		panel.add(okButton);
-
-		this.add(panel);
-		okButton.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				closePage();
-			}
-			
-		});
-	}
+//	public void joinCheck() {
+//		this.setTitle("가입 완료");
+//		this.setLayout(null);
+//
+//		JPanel panel = new JPanel();
+//		panel.setSize(300, 150);
+//		panel.setLayout(null);
+//
+//		JLabel message = new JLabel("회원가입이 완료되었습니다.");
+//		message.setSize(300, 30);
+//		message.setLocation(30, 20);
+//		JButton okButton = new JButton("확인");
+//		okButton.setSize(100, 30);
+//		okButton.setLocation(100, 80);
+//		message.setLayout(null);
+//		
+//		
+//
+//		panel.add(message);
+//		panel.add(okButton);
+//
+//		this.add(panel);
+//		okButton.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				closePage();
+//			}
+//			
+//		});
+//	}
 	
 	public void joinFail() {
 		this.setTitle("가입 실패");
@@ -487,6 +488,7 @@ public class PopUp extends JFrame{
 
 			}
 		});
+
 		noButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -524,7 +526,7 @@ public class PopUp extends JFrame{
 				closePage();
 			}
 		});
-		
+
 		JButton noButton = new JButton("취소");
 		noButton.setSize(60, 30);
 		noButton.setLocation(150, 80);
@@ -585,4 +587,5 @@ public class PopUp extends JFrame{
 			
 			this.add(panel);
 		}
+
 }
