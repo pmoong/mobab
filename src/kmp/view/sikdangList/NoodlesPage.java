@@ -229,29 +229,29 @@ public class NoodlesPage extends JPanel {
 					}else {
 						Gr=true;
 					}
-					if(info[5].equals("false")) {
+					if(info[4].equals("false")) {
 						Js=false;
 					}else {
 						Js=true;
 					}
-					if(info[4].equals("false")) {
+					if(info[5].equals("false")) {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteNoodles = true, favoriteSandwich = Js;
+						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = true;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						
 						star.setIcon(new ImageIcon(star1Img));
 						
 					}else {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteNoodles = false, favoriteSandwich = Js;
+						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = false;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						
 						star.setIcon(new ImageIcon(starImg));

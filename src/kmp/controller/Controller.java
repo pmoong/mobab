@@ -192,7 +192,7 @@ public class Controller extends Member {
 			idList = new BufferedWriter(new FileWriter(id + ".txt"));
 
 			idList.write(id + ", " + pwd + ", " + name + ", " 
-					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 
 
 			idList.flush();

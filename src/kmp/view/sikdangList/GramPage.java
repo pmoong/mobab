@@ -240,33 +240,33 @@ public class GramPage extends JPanel{
 						Bs=true;
 					}
 					if(info[4].equals("false")) {
-						Nd=false;
-					}else {
-						Nd=true;
-					}
-					if(info[5].equals("false")) {
 						Js=false;
 					}else {
 						Js=true;
 					}
+					if(info[5].equals("false")) {
+						Nd=false;
+					}else {
+						Nd=true;
+					}
 					if(info[3].equals("false")) {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = true, favoriteNoodles = Nd, favoriteSandwich = Js;
+						boolean favoriteBeer = Bs, favoriteGram = true, favoriteSandwich = Js, favoriteNoodles = Nd;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						
 						star.setIcon(new ImageIcon(star1Img));
 						
 					}else {
 						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = false, favoriteNoodles = Nd, favoriteSandwich = Js;
+						boolean favoriteBeer = Bs, favoriteGram = false, favoriteSandwich = Js, favoriteNoodles = Nd;
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 
 						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich);
+								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
 						wr.flush();
 						
 						star.setIcon(new ImageIcon(starImg));
