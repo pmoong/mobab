@@ -11,11 +11,9 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -26,6 +24,8 @@ import javax.swing.JTextField;
 import kmp.controller.Controller;
 import kmp.model.vo.Beer;
 import kmp.view.ChangePanel;
+import kmp.view.ChargePage;
+import kmp.view.FavoritePage;
 import kmp.view.LoginPage;
 import kmp.view.MainFrame;
 import kmp.view.MainPage;
@@ -125,18 +125,39 @@ public class BeerStorePage extends JPanel{
 		fav.setLocation(100,50);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
+		fav.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ChangePanel.changePanel(mf,beerStorePage, new FavoritePage(mf));
+			}
+		});
 
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
 		hist.setLocation(200,50);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
+		hist.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ChangePanel.changePanel(mf,beerStorePage, new UsingHistoryPage(mf));
+			}
+		});
 
 		JButton charg = new JButton(new ImageIcon(chargeImg));
 		charg.setSize(100,100);
 		charg.setLocation(300,50);
 		charg.setBorderPainted(false);
-		charg.setContentAreaFilled(false);      
+		charg.setContentAreaFilled(false); 
+		charg.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				ChangePanel.changePanel(mf,beerStorePage, new ChargePage(mf));
+			}
+		});
 		panel1.add(sik);
 		panel1.add(fav);
 		panel1.add(hist);

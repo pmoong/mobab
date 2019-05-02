@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -73,7 +74,7 @@ public class JoinPage extends JPanel{
 
 //		panel1.add(back);
 		panel1.add(home);
-		panel1.setBackground(color);
+		panel1.setBackground(new Color(37,212,177));
 		
 		JButton join = new JButton(new ImageIcon(joinImg));
 		join.setSize(400,100);
@@ -264,9 +265,14 @@ public class JoinPage extends JPanel{
 				}else {
 					char classroom = cla.charAt(0);
 					ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
-					ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
-					PopUp pu = new PopUp();
-					pu.joinCheck();
+					String[] buttons= {"확인"};
+					JOptionPane a = new JOptionPane();
+					int result=a.showOptionDialog(null,"회원가입이 완료되었습니다.", "회원가입 성공",a.OK_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+					if(result==a.OK_OPTION) {
+						ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
+					}
+					
 					
 				}
 

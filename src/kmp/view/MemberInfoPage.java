@@ -10,6 +10,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.text.JTextComponent;
 
 import kmp.controller.Controller;
 
@@ -187,6 +188,7 @@ public class MemberInfoPage extends JPanel {
 		userInfoIcon.setSize(360, 50);
 		userInfoIcon.setLocation(20, 20);
 		
+		
 //		JButton userInfoinfoText = new JButton("회원 정보");
 //		infoText.setSize(360, 50);
 //		infoText.setLocation(20, 20);
@@ -194,11 +196,10 @@ public class MemberInfoPage extends JPanel {
 //		infoText.setBackground(backgcolor);
 	
 		//id정보
-
 		JLabel idIcon = new JLabel(new ImageIcon(idImg));
 		JTextField idInfo = new JTextField();
 		idIcon.setSize(60,30);
-		idInfo.setSize(270,30);
+		idInfo.setSize(260,30);
 		idIcon.setLocation(5, 20);
 		idInfo.setLocation(65, 20);
 		idInfo.setText(lp.getId());
@@ -207,16 +208,16 @@ public class MemberInfoPage extends JPanel {
 		JLabel pwdIcon = new JLabel(new ImageIcon(pwdImg));
 		JTextField pwdInfo = new JTextField();
 		pwdIcon.setSize(60,30);
-		pwdInfo.setSize(270,30);
+		pwdInfo.setSize(200,30);
 		pwdIcon.setLocation(5, 80);
 		pwdInfo.setLocation(65, 80);
 		pwdInfo.setText(ctr.outputPwdInfo(lp.getId()));
-		
+
 		//이름정보
 		JLabel nameIcon = new JLabel(new ImageIcon(nameImg));
 		JTextField nameInfo = new JTextField(30);
 		nameIcon.setSize(60, 30);
-		nameInfo.setSize(270, 30);
+		nameInfo.setSize(260, 30);
 		nameIcon.setLocation(5, 140);
 		nameInfo.setLocation(65, 140);
 		nameInfo.setText(ctr.outputNameInfo(lp.getId()));
@@ -225,7 +226,7 @@ public class MemberInfoPage extends JPanel {
 		JLabel emailIcon = new JLabel(new ImageIcon(emailImg));
 		JTextField emailInfo = new JTextField(30);
 		emailIcon.setSize(60, 30);
-		emailInfo.setSize(270, 30);
+		emailInfo.setSize(200, 30);
 		emailIcon.setLocation(5, 200);
 		emailInfo.setLocation(65, 200);
 		emailInfo.setText(ctr.outputEmailInfo(lp.getId()));
@@ -235,7 +236,7 @@ public class MemberInfoPage extends JPanel {
 		JLabel phoneNumIcon = new JLabel(new ImageIcon(phoneNumImg));
 		JTextField phoneNumInfo = new JTextField(30);
 		phoneNumIcon.setSize(60, 30);
-		phoneNumInfo.setSize(270, 30);
+		phoneNumInfo.setSize(200, 30);
 		phoneNumIcon.setLocation(5, 260);
 		phoneNumInfo.setLocation(65, 260);
 		phoneNumInfo.setText(ctr.outputPhoneNumInfo(lp.getId()));
@@ -277,18 +278,51 @@ public class MemberInfoPage extends JPanel {
 		genderInfo.setText(ctr.outputChargedInfo(lp.getId()));
 		
 		
+		//회원정보 수정
+		
+		JButton changePwd = new JButton("수정");
+		changePwd.setSize(60,30);
+		changePwd.setLocation(265, 80);
+		changePwd.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String id = idInfo.getText();
+				String pwd = pwdInfo.getText();
+//				ctr.changePwd(lp.getId());
+				ctr.changePwd(id, pwd);
+				
+			}
+		});
+		
+		JButton changeEmail = new JButton("수정");
+		changeEmail.setSize(60,30);
+		changeEmail.setLocation(265,200);
+		
+		JButton changePhoneNum = new JButton("수정");
+		changePhoneNum.setSize(60,30);
+		changePhoneNum.setLocation(265,260);
+		
+		
+		
+		
+		
+		
 		
 		
 		panel3.add(idIcon);
 		panel3.add(idInfo);
 		panel3.add(pwdIcon);
 		panel3.add(pwdInfo);
+		panel3.add(changePwd);
 		panel3.add(nameIcon);
 		panel3.add(nameInfo);
 		panel3.add(emailIcon);
 		panel3.add(emailInfo);
+		panel3.add(changeEmail);
 		panel3.add(phoneNumIcon);
 		panel3.add(phoneNumInfo);
+		panel3.add(changePhoneNum);
 		panel3.add(academyIcon);
 		panel3.add(academyInfo);
 		panel3.add(classroomIcon);
