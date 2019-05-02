@@ -17,12 +17,9 @@ import javax.swing.JPanel;
 
 import kmp.model.vo.Beer;
 import kmp.model.vo.Member;
-import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.LoginPage;
 import kmp.view.MainFrame;
-import kmp.view.MapPage;
-import kmp.view.sikdangList.BeerStorePage;
 
 
 
@@ -272,6 +269,54 @@ public class Controller extends Member {
 		return "찾는 정보가 없습니다";
 	}
 
+	public void changePwd(String id, String pwd) {
+		String save = "";
+		String line = "";
+
+		try {
+			File memberList = new File("MemberList.txt");
+			BufferedReader br = new BufferedReader(new FileReader(memberList));
+			while ((line = br.readLine()) != null) {
+				String[] info = line.split(", ");
+				if (id.equals(info[0])) {
+					for(int i = 0; i < 11; i++) {
+						if(info[i] == info[1]) {
+							save += pwd+", ";
+						}else if(i == 10) {
+							save += info[i];
+						}else {
+							save += info[i] + ", ";
+						}
+					}
+
+				}else {
+					for(int i = 0; i < info.length; i++) {
+						if(i != info.length-1) {
+							save += info[i] + ", ";
+						}else {
+							save += info[i];
+						}
+					}
+				}
+				save += "\n";
+			}
+			BufferedWriter bw = null;
+
+			bw = new BufferedWriter(new FileWriter("MemberList.txt"));
+			bw.write(save);
+			bw.close();
+
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+	}
+
+	
+	
+
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 이름 정보 출력하기 메소드 
 	public String outputNameInfo(String id) {
 		try {
@@ -443,7 +488,6 @@ public class Controller extends Member {
 		}
 		return totalMoney;
 	}
-
 	
 	public void payHistory(String sikdang, String price) {
 		lp.getId();
@@ -453,39 +497,55 @@ public class Controller extends Member {
 
 		try {
 			br = new BufferedReader(new FileReader(lp.getId() + ".txt"));
-			
 			String line = "";
 			String save = "";
 			while((line = br.readLine()) != null) {
 				String info[] = line.split(", ");
 				if(info[0].equals(sikdang)) {
 					save += info[0] + ", " 
-				+ (Integer.parseInt(info[1]) + Integer.parseInt(price)) +"\n";
+							+ (Integer.parseInt(info[1]) + Integer.parseInt(price)) +"\n";
 				}else {
 					save += line +"\n";
 				}
 			}
-			
-//			mList.write(name + "," + Integer.parseInt(price.getText()));
+
 			mList = new BufferedWriter(new FileWriter(lp.getId()+".txt"));
 			mList.write(save);
 			mList.flush();
-			
-			
+
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-
-		
-		
-		
 	}
-	
-	
-	
-	
-	
+
+	public void minusPay(String price) {
+		BufferedWriter mList = null;
+		BufferedReader br = null;
+
+		try {
+			br = new BufferedReader(new FileReader("MemberList.txt"));
+			String line = "";
+			String save = "";
+			while((line = br.readLine()) != null) {
+				String info[] = line.split(", ");
+				if(info[0].equals(lp.getId())) {
+					for(int i= 0; i < info.length-1; i++) {
+					save += info[i] + ", ";
+					}		
+					save+= (Integer.parseInt(info[10]) - Integer.parseInt(price)) +"\n";
+				}else {
+					save += line +"\n";
+				}
+			}
+
+			mList = new BufferedWriter(new FileWriter("MemberList.txt"));
+			mList.write(save);
+			mList.flush();
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
 	
 	
 
@@ -566,7 +626,7 @@ public class Controller extends Member {
 			e1.printStackTrace();
 		}
 	}
-	
+
 	
 	
 	

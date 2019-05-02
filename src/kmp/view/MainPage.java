@@ -175,10 +175,10 @@ public class MainPage extends JPanel {
 
 		JLabel todaynews = new JLabel("< 오늘의 소식 >");
 		todaynews.setSize(200, 25);
-		todaynews.setLocation(50, 300);
+		todaynews.setLocation(50, 270);
 		JLabel banner = new JLabel(new ImageIcon(bannerImg));
 		banner.setSize(300, 200);
-		banner.setLocation(50, 325);
+		banner.setLocation(50, 300);
 		panel2.add(todaymenu);
 		panel2.add(menuImg);
 		panel2.add(todaynews);

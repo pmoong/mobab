@@ -7,7 +7,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
+import kmp.controller.Controller;
 import kmp.view.sikdangList.BeerStorePage;
 
 public class PopUp extends JFrame{
@@ -68,37 +70,37 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 	
-	public void joinCheck() {
-		this.setTitle("가입 완료");
-		this.setLayout(null);
-
-		JPanel panel = new JPanel();
-		panel.setSize(300, 150);
-		panel.setLayout(null);
-
-		JLabel message = new JLabel("회원가입이 완료되었습니다.");
-		message.setSize(300, 30);
-		message.setLocation(30, 20);
-		JButton okButton = new JButton("확인");
-		okButton.setSize(100, 30);
-		okButton.setLocation(100, 80);
-		message.setLayout(null);
-		
-		
-
-		panel.add(message);
-		panel.add(okButton);
-
-		this.add(panel);
-		okButton.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				closePage();
-			}
-			
-		});
-	}
+//	public void joinCheck() {
+//		this.setTitle("가입 완료");
+//		this.setLayout(null);
+//
+//		JPanel panel = new JPanel();
+//		panel.setSize(300, 150);
+//		panel.setLayout(null);
+//
+//		JLabel message = new JLabel("회원가입이 완료되었습니다.");
+//		message.setSize(300, 30);
+//		message.setLocation(30, 20);
+//		JButton okButton = new JButton("확인");
+//		okButton.setSize(100, 30);
+//		okButton.setLocation(100, 80);
+//		message.setLayout(null);
+//		
+//		
+//
+//		panel.add(message);
+//		panel.add(okButton);
+//
+//		this.add(panel);
+//		okButton.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				closePage();
+//			}
+//			
+//		});
+//	}
 	
 	public void joinFail() {
 		this.setTitle("가입 실패");
@@ -451,10 +453,7 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 
-	
-	
-	
-	public void CheckPay(int price) {
+	public void CheckPay(String price,MainFrame mf, JPanel beerStorePage) {
 		this.setTitle("결제확인");
 		this.setLayout(null);
 		
@@ -481,14 +480,15 @@ public class PopUp extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closePage();
+
+				Controller ctr = new Controller();
+				ctr.payHistory("beerStore", price);
+				ctr.minusPay(price);
+				ChangePanel.changePanel(mf, beerStorePage, new UsingHistoryPage(mf));
+
 			}
 		});
-		
-		
-	
-		
-		
-		
+
 		noButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -497,8 +497,6 @@ public class PopUp extends JFrame{
 			}
 		});
 
-
-				
 		panel.add(message);
 		panel.add(okButton);
 		panel.add(noButton);
@@ -513,7 +511,6 @@ public class PopUp extends JFrame{
 		JPanel panel = new JPanel();
 		panel.setSize(300, 150);
 		panel.setLayout(null);
-
 		
 		JLabel message = new JLabel("전화 연결하시겠습니까?");
 		message.setSize(300, 30);
@@ -523,20 +520,13 @@ public class PopUp extends JFrame{
 		okButton.setLocation(70, 80);
 		
 		okButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
 				closePage();
 			}
 		});
-		
-		
-		
-		
-		
-		
-		
+
 		JButton noButton = new JButton("취소");
 		noButton.setSize(60, 30);
 		noButton.setLocation(150, 80);
@@ -545,7 +535,6 @@ public class PopUp extends JFrame{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closePage();
-				
 			}
 		});
 				
@@ -556,6 +545,47 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 	
-
+	//[호석] 결제 진행 시 보유 금액 부족 시 충전 페이지로 이동
+		public void lackOfMoney(MainFrame mf, JPanel panel1) {
+			this.setTitle("잔액부족");
+			this.setLayout(null);
+			
+			JPanel panel = new JPanel();
+			panel.setSize(300, 150);
+			panel.setLayout(null);
+			
+			JLabel message = new JLabel("잔액이 부족합니다. 충전하시겠습니까?");
+			message.setSize(300, 30);
+			message.setLocation(30, 20);
+			
+			JButton okButton = new JButton("확인");
+			okButton.setSize(90, 30);
+			okButton.setLocation(30, 80);
+			message.setLayout(null);
+			okButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					closePage();
+					ChangePanel.changePanel(mf,panel1, new ChargePage(mf));
+				}
+			});
+			
+			JButton noButton = new JButton("취소");
+			noButton.setSize(90, 30);
+			noButton.setLocation(150, 80);
+			
+			noButton.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					closePage();
+				}
+			});
+					
+			panel.add(message);
+			panel.add(okButton);
+			panel.add(noButton);
+			
+			this.add(panel);
+		}
 
 }
