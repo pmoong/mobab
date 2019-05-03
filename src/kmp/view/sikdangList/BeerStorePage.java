@@ -460,7 +460,7 @@ public class BeerStorePage extends JPanel{
 							if (Integer.parseInt(info[10]) - ctr.totalPrice(b.getPrice(),
 								listmenu1.getSelectedIndex()) >= 0) {
 								
-								pu.CheckPay(price.getText(),mf,beerStorePage);
+								pu.CheckPay(price.getText(),mf,beerStorePage,"beerStore");
 							} else {
 								
 								pu.lackOfMoney(mf,beerStorePage);
