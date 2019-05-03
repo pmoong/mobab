@@ -15,6 +15,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -28,6 +29,7 @@ import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
 import kmp.view.MemberInfoPage;
+import kmp.view.PopUp;
 import kmp.view.SikdangPage;
 import kmp.view.UsingHistoryPage;
 
@@ -190,9 +192,25 @@ public class SandwichPage extends JPanel {
 		sandwichLabel.setSize(100, 20);
 		sandwichLabel.setLocation(120, 0);
 		sandwichLabel.setBackground(color);
-		JTextArea num = new JTextArea("000-000-0000");
-		num.setSize(100, 20);
-		num.setLocation(15, 35);
+		JButton num = new JButton(s.getNumber());
+		num.setSize(120, 20);
+		num.setLocation(30, 40);
+		num.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String[] buttons= {"확인"};
+				JOptionPane a = new JOptionPane();
+				int result=a.showOptionDialog(null,"전화 연결하시겠습니까?", "전화연결",a.YES_NO_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+				if(result==a.YES_OPTION) {
+					PopUp pu = new PopUp();
+					pu.callPopUp();
+
+				}
+
+			}
+
+		});
 
 		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);

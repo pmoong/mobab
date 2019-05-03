@@ -1,8 +1,10 @@
 package kmp.view;
 
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -537,46 +539,84 @@ public class PopUp extends JFrame{
 	}
 
 	public void callPopUp() {
-		this.setTitle("전화연결");
+//		this.setTitle("전화연결");
+//		this.setLayout(null);
+//		
+//		JPanel panel = new JPanel();
+//		panel.setSize(300, 150);
+//		panel.setLayout(null);
+//		
+//		JLabel message = new JLabel("전화 연결하시겠습니까?");
+//		message.setSize(300, 30);
+//		message.setLocation(70, 20);
+//		JButton okButton = new JButton("확인");
+//		okButton.setSize(60, 30);
+//		okButton.setLocation(70, 80);
+//		
+//		okButton.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				closePage();
+//			}
+//		});
+//
+//		JButton noButton = new JButton("취소");
+//		noButton.setSize(60, 30);
+//		noButton.setLocation(150, 80);
+//		noButton.addActionListener(new ActionListener() {
+//			
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				closePage();
+//			}
+//		});
+//				
+//		panel.add(message);
+//		panel.add(okButton);
+//		panel.add(noButton);
+//		
+		//		this.add(panel);
+		//	}
+
+		this.setSize(300, 550);
+		Image callImg = new ImageIcon("images/calling.png").getImage().getScaledInstance(300, 513, 0);
+		this.setTitle("전화연결중");
 		this.setLayout(null);
-		
+
 		JPanel panel = new JPanel();
-		panel.setSize(300, 150);
+		panel.setSize(300, 550);
+		panel.setLocation(0, 0);
 		panel.setLayout(null);
-		
-		JLabel message = new JLabel("전화 연결하시겠습니까?");
-		message.setSize(300, 30);
-		message.setLocation(70, 20);
-		JButton okButton = new JButton("확인");
-		okButton.setSize(60, 30);
-		okButton.setLocation(70, 80);
-		
-		okButton.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				closePage();
-			}
-		});
+		
+		JLabel message = new JLabel(new ImageIcon(callImg));
+		message.setSize(300, 513);
+		message.setLocation(0, 0);
+		JButton noButton = new JButton();
+		noButton.setSize(300, 100);
+		noButton.setLocation(0, 413);
+		noButton.setBorderPainted(false);
+		noButton.setContentAreaFilled(false);
+		noButton.setFocusPainted(false);
+        noButton.isOpaque();
+		
 
-		JButton noButton = new JButton("취소");
-		noButton.setSize(60, 30);
-		noButton.setLocation(150, 80);
+		
 		noButton.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				closePage();
 			}
 		});
-				
+
 		panel.add(message);
-		panel.add(okButton);
 		panel.add(noButton);
-		
+
 		this.add(panel);
 	}
-	
+
 	//[호석] 결제 진행 시 보유 금액 부족 시 충전 페이지로 이동
 		public void lackOfMoney(MainFrame mf, JPanel panel1) {
 			this.setTitle("잔액부족");

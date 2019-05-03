@@ -2,31 +2,27 @@ package kmp.view.sikdangList;
 
 
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JLabel;
-import javax.swing.JList;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.ListSelectionModel;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
-
 import java.io.FileWriter;
 import java.io.IOException;
 
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 import kmp.controller.Controller;
+import kmp.model.vo.Gram;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -35,6 +31,7 @@ import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
 import kmp.view.MemberInfoPage;
+import kmp.view.PopUp;
 import kmp.view.SikdangPage;
 import kmp.view.UsingHistoryPage;
 
@@ -203,9 +200,25 @@ public class GramPage extends JPanel{
 		gramLabel.setSize(100, 20);
 		gramLabel.setLocation(120, 0);
 		gramLabel.setBackground(color);
-		JTextArea num = new JTextArea("000-000-0000");
-		num.setSize(100, 20);
-		num.setLocation(15, 35);
+		JButton num = new JButton(g.getNumber());
+		num.setSize(120, 20);
+		num.setLocation(30, 40);
+		num.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String[] buttons= {"확인"};
+				JOptionPane a = new JOptionPane();
+				int result=a.showOptionDialog(null,"전화 연결하시겠습니까?", "전화연결",a.YES_NO_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+				if(result==a.YES_OPTION) {
+					PopUp pu = new PopUp();
+					pu.callPopUp();
+
+				}
+
+			}
+
+		});
 
 		JTextArea address = new JTextArea("강남구 역삼동");
 		address.setSize(120, 20);
