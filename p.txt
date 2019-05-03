@@ -1,4 +1,4 @@
-p, p, false, true, true, true
+p, p, true, false, false, false
 beerStore, 92000
 7gram, 0
 noodles, 0

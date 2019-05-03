@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.text.JTextComponent;
@@ -53,18 +54,18 @@ public class MemberInfoPage extends JPanel {
 		
 		//상단 패널
 		JPanel panel1 = new JPanel();
-		panel1.setSize(400, 150);
+		panel1.setSize(400, 140);
 		panel1.setLocation(0, 0);
 
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
-		back.setLocation(0,10);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 		
 		JButton logout = new JButton(new ImageIcon(logoutImg));
 		logout.setSize(50,50);
-		logout.setLocation(10,10);
+		logout.setLocation(10,5);
 		logout.setBorderPainted(false);
 		logout.setContentAreaFilled(false);
 		logout.addActionListener(new ActionListener() {
@@ -79,7 +80,7 @@ public class MemberInfoPage extends JPanel {
 		
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
-		home.setLocation(80,10);
+		home.setLocation(80,5);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -92,7 +93,7 @@ public class MemberInfoPage extends JPanel {
 		
 		JButton infor = new JButton(new ImageIcon(userinfoImg));
 		infor.setSize(80,50);
-		infor.setLocation(320,10);
+		infor.setLocation(320,5);
 		infor.setBorderPainted(false);
 		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
@@ -112,7 +113,7 @@ public class MemberInfoPage extends JPanel {
 		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
-		sik.setLocation(0,65);
+		sik.setLocation(0,55);
 		sik.setBorderPainted(false);
 		sik.setContentAreaFilled(false);
 		sik.addActionListener(new ActionListener() {
@@ -124,7 +125,7 @@ public class MemberInfoPage extends JPanel {
 		});
 		JButton fav = new JButton(new ImageIcon(favoriteImg));
 		fav.setSize(100,100);
-		fav.setLocation(100,65);
+		fav.setLocation(100,55);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
 		fav.addActionListener(new ActionListener() {
@@ -138,7 +139,7 @@ public class MemberInfoPage extends JPanel {
 		
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
-		hist.setLocation(200,65);
+		hist.setLocation(200,55);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
 		fav.addActionListener(new ActionListener() {
@@ -152,7 +153,7 @@ public class MemberInfoPage extends JPanel {
 		
 		JButton charg = new JButton(new ImageIcon(chargeImg));
 		charg.setSize(100,100);
-		charg.setLocation(300,65);
+		charg.setLocation(300,55);
 		charg.setBorderPainted(false);
 		charg.setContentAreaFilled(false);
 		charg.addActionListener(new ActionListener() {
@@ -171,8 +172,8 @@ public class MemberInfoPage extends JPanel {
 		
 		//하단패널
 		JPanel panel2 = new JPanel();
-		panel2.setSize(400, 550);
-		panel2.setLocation(0, 150);
+		panel2.setSize(400, 560);
+		panel2.setLocation(0, 140);
 		panel2.setBackground(backgcolor);
 		
 		JPanel panel3 = new JPanel();
@@ -276,7 +277,6 @@ public class MemberInfoPage extends JPanel {
 		
 		
 		//회원정보 수정
-		
 		JButton changePwd = new JButton("수정");
 		changePwd.setSize(60,30);
 		changePwd.setLocation(265, 80);
@@ -288,22 +288,50 @@ public class MemberInfoPage extends JPanel {
 				String pwd = pwdInfo.getText();
 				ctr.changePwd(id, pwd);
 				
+				PopUp pu = new PopUp();
+				pu.changeInfo();
+				
+				
 			}
 		});
 		
 		JButton changeEmail = new JButton("수정");
 		changeEmail.setSize(60,30);
 		changeEmail.setLocation(265,200);
+		changeEmail.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String id = idInfo.getText();
+				String email = emailInfo.getText();
+				ctr.changeEmail(id, email);
+				
+				PopUp pu = new PopUp();
+				pu.changeInfo();
+				
+			}
+		});
+		
+
 		
 		JButton changePhoneNum = new JButton("수정");
 		changePhoneNum.setSize(60,30);
 		changePhoneNum.setLocation(265,260);
-		
-		
-		
-		
-		
-		
+		changePhoneNum.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String id = idInfo.getText();
+				String mp = phoneNumInfo.getText();
+				ctr.changePhoneNum(id, mp);
+				
+				PopUp pu = new PopUp();
+				pu.changeInfo();
+				
+				
+			}
+		});
+
 		
 		
 		panel3.add(idIcon);
