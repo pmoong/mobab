@@ -14,6 +14,11 @@ public class Noodle implements Serializable{
    private int[] price = new int[4];
    private int sum = 0;
    
+   
+   
+   
+   
+   
    public Noodle() {
 	   for(int i=0;i<this.menu.length;i++) {
 	    	  for(int j=0;j<this.menu[i].length;j++) {

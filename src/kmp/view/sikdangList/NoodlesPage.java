@@ -567,7 +567,7 @@ public class NoodlesPage extends JPanel {
 						if (lp.getId().equals(info[0])) {
 							if (Integer.parseInt(info[10]) - sum >= 0) {
 								
-								pu.CheckPay(price.getText(),mf,noodlesPage);
+								pu.CheckPay(price.getText(),mf,noodlesPage,"noodles");
 							} else {
 								
 								pu.lackOfMoney(mf,noodlesPage);

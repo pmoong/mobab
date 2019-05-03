@@ -421,16 +421,16 @@ public class Controller extends Member {
 			File memberList = new File( lp.getId() + ".txt");
 			br = new BufferedReader(new FileReader(memberList));
 			String line = "";
-			System.out.println(sikdang);
+//			System.out.println(sikdang);
 			while ((line = br.readLine()) != null) {
-				System.out.println("1");
+//				System.out.println("1");
 				String[] info = line.split(", ");
 				if(sikdang.equals(info[0])) {
 					totalMoney = info[1];
-					System.out.println(totalMoney);
+//					System.out.println(totalMoney);
 				}
 			}
-			System.out.println(totalMoney +"가나다");
+//			System.out.println(totalMoney +"가나다");
 
 			br.close();
 		} catch (FileNotFoundException e) {
