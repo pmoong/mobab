@@ -256,67 +256,24 @@ public class BeerStorePage extends JPanel{
 							}else {
 								Nd=true;
 							}
-							String fBeer, fNoodles, fGram, fSandwich;
+					
 							if(info[2].equals("false")) {
 								boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
-								if(favoriteBeer) {
-									fBeer = "true";
-								}else {
-									fBeer = "false";
-								}
-								if(favoriteNoodles) {
-									fNoodles = "true";
-								}else {
-									fNoodles = "false";
-								}
-								if(favoriteGram) {
-									 fGram = "true";
-								}else {
-									fGram = "false";
-								}
-								if(favoriteSandwich) {
-									fSandwich = "true";
-								}else {
-									fSandwich = "false";
-								}	
-									
-									
-									
+										
 								save += lp.getId() +  ", " + info[1] + ", " 
-										+ fBeer + ", " + fGram + ", " + fSandwich + ", " + fNoodles + "\n";
+										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
 								star.setIcon(new ImageIcon(star1Img));
 							}else {
 								boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
-								if(favoriteBeer) {
-									fBeer = "true";
-								}else {
-									fBeer = "false";
-								}
-								if(favoriteNoodles) {
-									fNoodles = "true";
-								}else {
-									fNoodles = "false";
-								}
-								if(favoriteGram) {
-									 fGram = "true";
-								}else {
-									fGram = "false";
-								}
-								if(favoriteSandwich) {
-									fSandwich = "true";
-								}else {
-									fSandwich = "false";
-								}	
+								
 								save += lp.getId() +  ", " + info[1] + ", " 
-										+ fBeer + ", " + fGram + ", " + fSandwich + ", " + fNoodles + "\n";
+										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
 								star.setIcon(new ImageIcon(starImg));
 
 							}
 						}else {
-							System.out.println("else info[0] : " + info[0]);
-							System.out.println(info[1]);
 							if(!info[0].equals("sandwich")) {
-							save += info[0] + ", " + info[1] +"\n";
+							save += info[0] + ", " + info[1] +"\n"; 
 							}else {
 								save += info[0] + ", " + info[1];	
 							}
