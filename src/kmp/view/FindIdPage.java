@@ -13,12 +13,13 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import kmp.controller.Controller;
+import kmp.model.vo.Images;
 
 public class FindIdPage extends JPanel{
 	private MainFrame mf;
 	public JPanel findIdPage;
 	Controller ctr = new Controller();
-
+	Images img = new Images();
 	
 	public FindIdPage(MainFrame mf) {
 		this.mf = mf;
@@ -28,12 +29,6 @@ public class FindIdPage extends JPanel{
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 		
-		//사용할 이미지 할당
-		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
-		Image mobobMain = new ImageIcon("images/mobobMain.png").getImage().getScaledInstance(260, 260, 0);
-		Image fidImg = new ImageIcon("images/fID_c.png").getImage().getScaledInstance(200, 90, 0);
-		Image fpwImg = new ImageIcon("images/fPwd.png").getImage().getScaledInstance(200, 90, 0);
 		
 		//상단 패널
 		JPanel panel1 = new JPanel();
@@ -41,13 +36,13 @@ public class FindIdPage extends JPanel{
 		panel1.setLocation(0, 0);
 		panel1.setBackground(new Color(35,212,177));
 
-		JButton back = new JButton(new ImageIcon(backImg));
+		JButton back = new JButton(new ImageIcon(img.getBackImg()));
 		back.setSize(80,50);
 		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
-		JButton home = new JButton(new ImageIcon(homeImg));
+		JButton home = new JButton(new ImageIcon(img.getHomeImg()));
 		home.setSize(240,50);
 		home.setLocation(80,5);
 		home.setBorderPainted(false);
@@ -60,13 +55,13 @@ public class FindIdPage extends JPanel{
 			}
 			
 		});
-		JButton fid = new JButton(new ImageIcon(fidImg));
+		JButton fid = new JButton(new ImageIcon(img.getFid_cImg()));
 		fid.setBorderPainted(false);
 		fid.setContentAreaFilled(false);
 		fid.setSize(200,100);
 		fid.setLocation(0,55);
 		
-		JButton fpw = new JButton(new ImageIcon(fpwImg));
+		JButton fpw = new JButton(new ImageIcon(img.getFpwImg()));
 		fpw.setBorderPainted(false);
 		fpw.setContentAreaFilled(false);
 		fpw.setSize(200,100);
@@ -109,7 +104,7 @@ public class FindIdPage extends JPanel{
 		label2.setSize(60,40);
 		label2.setLocation(60, 120);
 		panel2.add(label2);
-		JLabel label3 = new JLabel(new ImageIcon(mobobMain));
+		JLabel label3 = new JLabel(new ImageIcon(img.getMobobMain()));
 		label3.setSize(260, 260);
 		label3.setLocation(70, 250);
 		panel2.add(label3);
