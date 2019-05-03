@@ -47,18 +47,18 @@ public class MainPage extends JPanel {
 
 		//상단패널
 		JPanel panel1 = new JPanel();
-		panel1.setSize(400, 150);
+		panel1.setSize(400, 140);
 		panel1.setLocation(0, 0);
 
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
-		back.setLocation(0,10);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
-		home.setLocation(80,10);
+		home.setLocation(80,5);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -73,7 +73,7 @@ public class MainPage extends JPanel {
 		
 		JButton infor = new JButton(new ImageIcon(userinfoImg));
 		infor.setSize(80,50);
-		infor.setLocation(320,10);
+		infor.setLocation(320,5);
 		infor.setBorderPainted(false);
 		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
@@ -92,7 +92,7 @@ public class MainPage extends JPanel {
 		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
-		sik.setLocation(0,65);
+		sik.setLocation(0,55);
 		sik.setBorderPainted(false);
 		sik.setContentAreaFilled(false);
 		
@@ -110,7 +110,7 @@ public class MainPage extends JPanel {
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
 		fav.setSize(100,100);
-		fav.setLocation(100,65);
+		fav.setLocation(100,55);
 		
 		fav.addActionListener(new ActionListener() {
 			
@@ -124,7 +124,7 @@ public class MainPage extends JPanel {
 		
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
-		hist.setLocation(200,65);
+		hist.setLocation(200,55);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
 		hist.addActionListener(new ActionListener() {
@@ -138,7 +138,7 @@ public class MainPage extends JPanel {
 		
 		JButton charge = new JButton(new ImageIcon(chargeImg));
 		charge.setSize(100,100);
-		charge.setLocation(300,65);
+		charge.setLocation(300,55);
 		charge.setBorderPainted(false);
 		charge.setContentAreaFilled(false);
     charge.addActionListener(new ActionListener() {
@@ -160,8 +160,8 @@ public class MainPage extends JPanel {
 
 		//하단패널
 		JPanel panel2 = new JPanel();
-		panel2.setSize(400, 550);
-		panel2.setLocation(0, 150);
+		panel2.setSize(400, 560);
+		panel2.setLocation(0, 140);
 		panel2.setBackground(backgcolor);
 		
 

@@ -43,7 +43,7 @@ public class FindPwdPage extends JPanel{
 
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
-		back.setLocation(0,0);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
