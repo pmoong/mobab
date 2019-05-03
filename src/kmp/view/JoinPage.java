@@ -16,12 +16,14 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 import kmp.view.PopUp;
+import kmp.model.vo.Images;
 
 import kmp.controller.Controller;
 
 public class JoinPage extends JPanel{
 	private MainFrame mf;
 	private JPanel joinpage;
+	Images img = new Images();
 	
 
 	public JoinPage(MainFrame mf) {
@@ -33,32 +35,19 @@ public class JoinPage extends JPanel{
 
 
 		this.setSize(400,700);
-		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image joinImg = new ImageIcon("images/join.png").getImage().getScaledInstance(400, 90, 0);
-		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
-
-		Image academyImg = new ImageIcon("images/academy.png").getImage().getScaledInstance(60, 30, 0);
-		Image classroomImg = new ImageIcon("images/classroom.png").getImage().getScaledInstance(20, 30, 0);
-		Image emailImg = new ImageIcon("images/email.png").getImage().getScaledInstance(60, 30, 0);
-		Image genderImg = new ImageIcon("images/gender.png").getImage().getScaledInstance(60, 30, 0);
-		Image idImg = new ImageIcon("images/id.png").getImage().getScaledInstance(60, 30, 0);
-		Image nameImg = new ImageIcon("images/name.png").getImage().getScaledInstance(60, 30, 0);
-		Image phoneNumImg = new ImageIcon("images/phoneNum.png").getImage().getScaledInstance(60, 30, 0);
-		Image pwdImg = new ImageIcon("images/pwd.png").getImage().getScaledInstance(60, 30, 0);
-
-
+		
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setBackground(color1);
 		panel1.setLocation(0, 0);
 
-		JButton back = new JButton(new ImageIcon(backImg));
+		JButton back = new JButton(new ImageIcon(img.getBackImg()));
 		back.setSize(80,50);
 		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
-		JButton home = new JButton(new ImageIcon(homeImg));
+		JButton home = new JButton(new ImageIcon(img.getHomeImg()));
 		home.setSize(240,50);
 		home.setLocation(80,5);
 		home.setBorderPainted(false);
@@ -76,7 +65,7 @@ public class JoinPage extends JPanel{
 		panel1.add(home);
 		panel1.setBackground(new Color(37,212,177));
 		
-		JButton join = new JButton(new ImageIcon(joinImg));
+		JButton join = new JButton(new ImageIcon(img.getJoinImg()));
 		join.setSize(400,100);
 		join.setLocation(0,55);
 		join.setBorderPainted(false);
@@ -95,7 +84,7 @@ public class JoinPage extends JPanel{
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
 
-		JLabel label1 = new JLabel(new ImageIcon(idImg));
+		JLabel label1 = new JLabel(new ImageIcon(img.getIdImg()));
 		JButton button3 = new JButton("중복확인");
 		JTextField tf1 = new JTextField();
 		
@@ -134,27 +123,27 @@ public class JoinPage extends JPanel{
 		tf1.setLocation(90, 40);
 		button3.setLocation(268, 40);
 
-		JLabel label2 = new JLabel(new ImageIcon(pwdImg));
+		JLabel label2 = new JLabel(new ImageIcon(img.getPwdImg()));
 		password.setSize(270,30);
 		label2.setSize(60,30);
 		label2.setLocation(30, 80);
 		password.setLocation(90, 80);
 
-		JLabel label3 = new JLabel(new ImageIcon(nameImg));
+		JLabel label3 = new JLabel(new ImageIcon(img.getNameImg()));
 		label3.setSize(60,30);
 		label3.setLocation(30, 120);
 		JTextField tf2 = new JTextField();
 		tf2.setSize(270,30);
 		tf2.setLocation(90, 120);
 
-		JLabel label4 = new JLabel(new ImageIcon(emailImg));
+		JLabel label4 = new JLabel(new ImageIcon(img.getEmailImg()));
 		label4.setSize(60,30);
 		label4.setLocation(30, 160);
 		JTextField tf3 = new JTextField();
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
  
-		JLabel label5 = new JLabel(new ImageIcon(phoneNumImg));
+		JLabel label5 = new JLabel(new ImageIcon(img.getPhoneNumImg()));
 		JTextField tf4 = new JTextField();
 		JButton button4 = new JButton("중복확인");
 		button4.addActionListener(new ActionListener() {
@@ -189,14 +178,14 @@ public class JoinPage extends JPanel{
 		tf4.setLocation(90, 200);
 		button4.setLocation(268, 200);
 
-		JLabel label6 = new JLabel(new ImageIcon(academyImg));
+		JLabel label6 = new JLabel(new ImageIcon(img.getAcademyImg()));
 		JTextField tf5 = new JTextField();
 		label6.setSize(60,30);
 		tf5.setSize(120,30);
 		label6.setLocation(30, 240);
 		tf5.setLocation(90, 240);
 
-		JLabel label7 = new JLabel(new ImageIcon(classroomImg));
+		JLabel label7 = new JLabel(new ImageIcon(img.getClassroomImg()));
 		JTextField tf6 = new JTextField();
 		label7.setSize(20,30);
 		tf6.setSize(120,30);
@@ -218,7 +207,7 @@ public class JoinPage extends JPanel{
 		label8.setLocation(30, 280);
 		ageBox.setLocation(90, 280);
 
-		JLabel gendlabel = new JLabel(new ImageIcon(genderImg));
+		JLabel gendlabel = new JLabel(new ImageIcon(img.getGenderImg()));
 		String[] genders = {"남","여"};
 		JComboBox gender1 = new JComboBox(genders);
 		gender1.setSelectedIndex(0);

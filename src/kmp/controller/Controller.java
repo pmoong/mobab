@@ -190,8 +190,7 @@ public class Controller extends Member {
 		try {
 			idList = new BufferedWriter(new FileWriter(id + ".txt"));
 
-			idList.write(id + ", " + pwd + ", " + name + ", " 
-
+			idList.write(id + ", "  + name + ", " 
 					+ favoriteBeer + ", " + favoriteGram + ", " + favoriteNoodles + ", " + favoriteSandwich
 					+ "\nbeerStore, 0"
 					+ "\n7gram, 0"
