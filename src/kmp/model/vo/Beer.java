@@ -7,8 +7,8 @@ import javax.swing.ImageIcon;
 
 public class Beer {
    private String[] menu = new String[] {"뷔페","qnldp"};
-   private String number = "010-000-0000";
-   private String location = "강남구 동";
+   private String number = "02-565-5674";
+   private String location = "서울특별시 강남구 역삼동";
    private Image map = new ImageIcon("images/mapbeer.png").getImage().getScaledInstance(60, 60, 0);
    private String name = "맥주창고";
    private int price = 5000;

@@ -1,20 +1,117 @@
 package kmp.model.vo;
 
 import java.awt.Image;
+import java.io.Serializable;
+import java.util.Arrays;
 
-import javax.swing.ImageIcon;
 
-public class Noodle extends Store{
+public class Noodle implements Serializable{
+   private String[][] menu  = new String[][] {{"짜장면","5000"} ,{"짬뽕","5000"} ,{"볶음밥","5000"}, {"탕수육","5000"}};
+   private String number = "02-539-4004";
+   private String location = "강남구 역삼동 736-22";
+   private Image map;
+   private String name = "중리";
+   private int[] price = new int[4];
+   private int sum = 0;
+   
+   public Noodle() {
+	   for(int i=0;i<this.menu.length;i++) {
+	    	  for(int j=0;j<this.menu[i].length;j++) {
+	    		  if(j==1) {
+	    			  price[i]=Integer.parseInt(this.menu[i][j]);
+	    		  }
+	    	  }
+	      }    
+   }
+   
 
-	public Noodle() {}
-	
-	public Noodle(String[] menu, String number, String location, Image map, String name) {
-//		super(menu, number, location, map, name);
-		this.setMenu(menu);
-		this.setNumber("010-0000-0000");
-		this.setLocation("강남구 역삼동");
-		this.setMap(new ImageIcon("images/mapNoodle.png").getImage().getScaledInstance(60, 60, 0));
-		this.setName("중리");
-		
-	}
+//   public Noodle(String[][] menu, String number, String location, Image mf3ap, String name, int[] price) {
+//      super();
+//      this.menu = menu;
+//      this.number = number;
+//      this.location = location;
+//      this.map = map;
+//      this.name = name;
+//      for(int i=0;i<this.menu.length;i++) {
+//    	  for(int j=0;j<this.menu[i].length;j++) {
+//    		  if(j==1) {
+//    			  price[i]=Integer.parseInt(this.menu[i][j]);
+//    		  }
+//    	  }
+//      }      
+//   
+//   
+//   }
+
+
+  
+
+
+public int[] getPrice() {
+	return price;
+}
+
+
+public void setPrice(int[] price) {
+	this.price = price;
+}
+
+
+public int getSum() {
+	return sum;
+}
+
+
+public void setSum(int sum) {
+	this.sum = sum;
+}
+
+
+public String[][] getMenu() {
+      
+      return menu;
+   }
+
+   public String getNumber() {
+      
+      return number;
+   }
+
+   public String getLocation() {
+      return location;
+   }
+
+   public Image getMap() {
+      return map;
+   }
+
+   public String getName() {
+      return name;
+   }
+
+   public void setMenu(String[][] menu) {
+      this.menu = menu;
+   }
+
+   public void setNumber(String number) {
+      this.number = number;
+   }
+
+   public void setLocation(String location) {
+      this.location = location;
+   }
+
+   public void setMap(Image map) {
+      this.map = map;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
+
+
+
+   
+   
+   
 }
