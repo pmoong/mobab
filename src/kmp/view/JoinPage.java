@@ -103,7 +103,10 @@ public class JoinPage extends JPanel{
 				}else if(ct.isDuplicatedId(id)) {
 					PopUp pu = new PopUp();
 					pu.IdCheckF();
-				}else{
+				}else if(ct.isIdTypeErr(id)){
+					PopUp pu = new PopUp();
+					pu.joinErr(1);
+				}else {					
 					PopUp pu = new PopUp();
 					pu.IdCheckT();		
 				}
@@ -274,8 +277,6 @@ public class JoinPage extends JPanel{
 
 				}
 
-
-			}
 		});
 
 

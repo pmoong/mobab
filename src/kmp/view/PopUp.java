@@ -703,9 +703,9 @@ public class PopUp extends JFrame{
 			
 			JLabel message = null;
 			if(i == 1) {
-				message = new JLabel("잘못된 ID가 입력되었습니다.");
+				message = new JLabel("ID는 영문자 및 숫자만 입력가능");
 			}else if(i == 2) {
-				message = new JLabel("잘못된 비밀번호가 입력되었습니다.");
+				message = new JLabel("PWD는 영문자 및 숫자만 입력가능");
 			}else if(i == 3) {
 				message = new JLabel("이름을 한글로만 입력해 주십시오.");
 			}else if(i == 4) {

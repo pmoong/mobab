@@ -154,11 +154,16 @@ public class Controller extends Member {
  
 		if (member.isFile()) {
 			return true;
-		} else if(infoErr1(id)){
-			return true;
-		}else {
+		} else {
 			return false;
 		}
+	}
+	
+	public boolean isIdTypeErr(String id) {
+		if(infoErr1(id)){
+			return true;
+		}
+		return false;
 	}
 
 	public void join(String id, String pwd, String name, String email, String phone, int age, String academy,
@@ -601,7 +606,7 @@ public class Controller extends Member {
 	
 	public boolean infoErr1(String id) {
 		for(int i = 0; i < id.length();i++) {
-			if(!((id.charAt(i)>='0'&&id.charAt(i)<='9')||(id.charAt(i)>='a'&&id.charAt(i)<='z'))) {
+			if(!((id.charAt(i)>='0'&&id.charAt(i)<='9')||(id.charAt(i)>='a'&&id.charAt(i)<='z')||(id.charAt(i)>='A'&&id.charAt(i)<='Z'))) {
 				return true;
 			}
 		}
@@ -610,12 +615,12 @@ public class Controller extends Member {
 	
 	public int infoErr(String id, String pwd, String name, String phone) {
 		for(int i = 0; i < id.length();i++) {
-			if(!((id.charAt(i)>='0'&&id.charAt(i)<='9')||(id.charAt(i)>='a'&&id.charAt(i)<='z'))) {
+			if(!((id.charAt(i)>='0'&&id.charAt(i)<='9')||(id.charAt(i)>='a'&&id.charAt(i)<='z')||(id.charAt(i)>='A'&&id.charAt(i)<='Z'))) {
 				return 1;
 			}
 		}
 		for(int i = 0; i < pwd.length();i++) {
-			if(!((pwd.charAt(i)>='0'&&pwd.charAt(i)<='9')||(pwd.charAt(i)>='a'&&pwd.charAt(i)<='z'))) {
+			if(!((pwd.charAt(i)>='0'&&pwd.charAt(i)<='9')||(pwd.charAt(i)>='a'&&pwd.charAt(i)<='z')||(id.charAt(i)>='A'&&id.charAt(i)<='Z'))) {
 				return 2;
 			}
 		}
