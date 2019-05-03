@@ -194,7 +194,7 @@ public class GramPage extends JPanel{
 
 
 		//----------------------
-		Image gramname = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 25, 0);
+		Image gramname = new ImageIcon("images/gramName.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
 		panel3.setLocation(20, 20);
@@ -313,12 +313,13 @@ public class GramPage extends JPanel{
 		panel4.setLocation(20, 85);
 		panel4.setBackground(Color.WHITE);
 
-		JTextField menu1 = new JTextField("�޴�1");
+		JTextField menu1 = new JTextField("메뉴1");
 		menu1.setSize(100, 20);
 		menu1.setLocation(25, 25);
 		menu1.setEditable(false);
 
-		JTextField menu1p = new JTextField("����");
+		
+		JTextField menu1p = new JTextField("가격");
 		menu1p.setSize(70, 20);
 		menu1p.setLocation(160, 25);
 		menu1p.setEditable(false);
@@ -333,12 +334,12 @@ public class GramPage extends JPanel{
 
 
 
-		JTextField menu2 = new JTextField("�޴�2");
+		JTextField menu2 = new JTextField("메뉴2");
 		menu2.setSize(100, 20);
 		menu2.setLocation(25, 70);
 		menu2.setEditable(false);
 
-		JTextField menu2p = new JTextField("����");
+		JTextField menu2p = new JTextField("가격");
 		menu2p.setSize(70, 20);
 		menu2p.setLocation(160, 70);
 		menu2p.setEditable(false);
@@ -353,12 +354,12 @@ public class GramPage extends JPanel{
 
 
 
-		JTextField menu3 = new JTextField("�޴�3");
+		JTextField menu3 = new JTextField("메뉴3");
 		menu3.setSize(100, 20);
 		menu3.setLocation(25, 110);
 		menu3.setEditable(false);
 
-		JTextField menu3p = new JTextField("����");
+		JTextField menu3p = new JTextField("가격");
 		menu3p.setSize(70, 20);
 		menu3p.setLocation(160, 110);
 		menu3p.setEditable(false);
@@ -371,12 +372,12 @@ public class GramPage extends JPanel{
 		listmenu3.setSize(30,18);
 		listmenu1.setVisible(true);
 
-		JTextField menu4 = new JTextField("�޴�4");
+		JTextField menu4 = new JTextField("메뉴4");
 		menu4.setSize(100, 20);
 		menu4.setLocation(25, 150);
 		menu4.setEditable(false);
 
-		JTextField menu4p = new JTextField("����");
+		JTextField menu4p = new JTextField("가격");
 		menu4p.setSize(70, 20);
 		menu4p.setLocation(160, 150);
 		menu4p.setEditable(false);
@@ -389,7 +390,7 @@ public class GramPage extends JPanel{
 		listmenu4.setSize(30,18);
 		listmenu1.setVisible(true);
 
-		JTextField total = new JTextField("�հ�");
+		JTextField total = new JTextField("합계");
 		total.setSize(100, 20);
 		total.setLocation(110,210);
 
@@ -428,7 +429,7 @@ public class GramPage extends JPanel{
 		panel5.setLocation(20, 335);
 		panel5.setBackground(Color.GRAY);
 
-		JButton map = new JButton("��ġ����");
+		JButton map = new JButton("위치보기");
 		map.setSize(100 ,30 );
 		map.setLocation(35,50);
 		panel5.add(map);
