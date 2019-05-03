@@ -23,6 +23,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import kmp.controller.Controller;
+import kmp.model.vo.Images;
 import kmp.model.vo.Noodle;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
@@ -45,6 +46,7 @@ public class NoodlesPage extends JPanel {
 	private int sum2;
 	private int sum3;
 	private int sum4;
+	Images img = new Images();
 
 	public NoodlesPage(MainFrame mf) {
 		this.mf = mf;
@@ -53,39 +55,22 @@ public class NoodlesPage extends JPanel {
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
-		
-
-
-
-		//사용할 이미지 선언
-		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 70, 0);
-		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 70, 0);
-		Image chartImg = new ImageIcon("images/mChart.png").getImage().getScaledInstance(100, 70, 0);
-		Image chargeImg = new ImageIcon("images/mCharge.png").getImage().getScaledInstance(100, 70, 0);
-		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
-		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
-		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
-		Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
-		Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
 		Image imv;
-
-
 
 		//상단패널
 		JPanel panel1 = new JPanel();
-		panel1.setSize(400, 150);
+		panel1.setSize(400, 140);
 		panel1.setLocation(0, 0);
 
-		JButton back = new JButton(new ImageIcon(backImg));
+		JButton back = new JButton(new ImageIcon(img.getBackImg()));
 		back.setSize(80,50);
-		back.setLocation(0,10);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
-		JButton home = new JButton(new ImageIcon(homeImg));
+		JButton home = new JButton(new ImageIcon(img.getHomeImg()));
 		home.setSize(240,50);
-		home.setLocation(80,10);
+		home.setLocation(80,5);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -98,9 +83,9 @@ public class NoodlesPage extends JPanel {
 
 		});
 
-		JButton infor = new JButton(new ImageIcon(userinfoImg));
+		JButton infor = new JButton(new ImageIcon(img.getUserinfoImg()));
 		infor.setSize(80,50);
-		infor.setLocation(320,10);
+		infor.setLocation(320,5);
 		infor.setBorderPainted(false);
 		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
@@ -117,9 +102,9 @@ public class NoodlesPage extends JPanel {
 		panel1.add(infor);
 		panel1.setBackground(color);
 
-		JButton sik = new JButton(new ImageIcon(sikImg));
+		JButton sik = new JButton(new ImageIcon(img.getSikImg()));
 		sik.setSize(100,100);
-		sik.setLocation(0,65);
+		sik.setLocation(0,55);
 		sik.setBorderPainted(false);
 		sik.setContentAreaFilled(false);
 		sik.addActionListener(new ActionListener() {
@@ -132,9 +117,9 @@ public class NoodlesPage extends JPanel {
 
 		});
 
-		JButton fav = new JButton(new ImageIcon(favoriteImg));
+		JButton fav = new JButton(new ImageIcon(img.getFavoriteImg()));
 		fav.setSize(100,100);
-		fav.setLocation(100,65);
+		fav.setLocation(100,55);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
 		fav.addActionListener(new ActionListener() {
@@ -146,9 +131,9 @@ public class NoodlesPage extends JPanel {
 			}
 
 		});
-		JButton hist = new JButton(new ImageIcon(chartImg));
+		JButton hist = new JButton(new ImageIcon(img.getChartImg()));
 		hist.setSize(100,100);
-		hist.setLocation(200,65);
+		hist.setLocation(200,55);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
 		hist.addActionListener(new ActionListener() {
@@ -161,9 +146,9 @@ public class NoodlesPage extends JPanel {
 
 		});
 
-		JButton charg = new JButton(new ImageIcon(chargeImg));
+		JButton charg = new JButton(new ImageIcon(img.getChargeImg()));
 		charg.setSize(100,100);
-		charg.setLocation(300,65);
+		charg.setLocation(300,55);
 		charg.setBorderPainted(false);
 		charg.setContentAreaFilled(false);
 		charg.addActionListener(new ActionListener() {
@@ -184,8 +169,8 @@ public class NoodlesPage extends JPanel {
 		mf.add(this);
 
 		JPanel panel2 = new JPanel();
-		panel2.setSize(400, 550);
-		panel2.setLocation(0, 150);
+		panel2.setSize(400, 560);
+		panel2.setLocation(0, 140);
 		panel2.setBackground(backgcolor);
 
 
@@ -212,15 +197,15 @@ public class NoodlesPage extends JPanel {
 		BufferedReader br = null;
 		String fileName = (lp.getId()+".txt");
 		File member = new File(fileName);
-		imv=starImg;
+		imv=img.getStarImg();
 		try {
 			br = new BufferedReader(new FileReader(member));
 			String line = br.readLine();
 			String[] info = line.split(", ");
 			if(info[5].equals("false")) {
-				imv=starImg;
+				imv=img.getStarImg();
 			}else {
-				imv=star1Img;
+				imv=img.getStar1Img();
 			}
 		}catch (IOException e1) {
 			e1.printStackTrace();
@@ -241,9 +226,7 @@ public class NoodlesPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				Controller ctr = new Controller();
-
-
+				BufferedWriter wr = null;
 				BufferedReader br = null;
 				String fileName = (lp.getId()+".txt");
 				File member = new File(fileName);
@@ -253,49 +236,58 @@ public class NoodlesPage extends JPanel {
 
 				try {
 					br = new BufferedReader(new FileReader(member));
-					String line = br.readLine();
-					String[] info = line.split(", ");
-					if(info[2].equals("false")) {
-						Bs=false;
-					}else {
-						Bs=true;
-					}
-					if(info[3].equals("false")) {
-						Gr=false;
-					}else {
-						Gr=true;
-					}
-					if(info[4].equals("false")) {
-						Js=false;
-					}else {
-						Js=true;
-					}
-					if(info[5].equals("false")) {
-						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = true;
+					String save ="";
+					String line ="";
+					while((line = br.readLine()) !=null){
+						String[] info = line.split(", ");
+						if(info[0].equals(lp.getId())) {
+							if(info[2].equals("false")) {
+								Bs=false;
+							}else {
+								Bs=true;
+							}
+							if(info[3].equals("false")) {
+								Gr=false;
+							}else {
+								Gr=true;
+							}
+							if(info[4].equals("false")) {
+								Js=false;
+							}else {
+								Js=true;
+							}
+					
+							if(info[5].equals("false")) {
+								boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = true;
+										
+								save += lp.getId() +  ", " + info[1] + ", " 
+										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
+								star.setIcon(new ImageIcon(img.getStar1Img()));
+							}else {
+								boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = false;
+								
+								save += lp.getId() +  ", " + info[1] + ", " 
+										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
+								star.setIcon(new ImageIcon(img.getStarImg()));
+
+							}
+						}else {
+							if(line.equals("0")) {
+								break;
+							}
+							if(!info[0].equals("sandwich")) {
+							save += info[0] + ", " + info[1] +"\n"; 
+							}else {
+								save += info[0] + ", " + info[1];	
+							}
+						}
+						
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-
-						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
+						wr.write(save);
 						wr.flush();
-
-						star.setIcon(new ImageIcon(star1Img));
-
-					}else {
-						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = false;
-						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-
-						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
-						wr.flush();
-
-						star.setIcon(new ImageIcon(starImg));
-
 					}
-
-				} catch (IOException e1) {
-
+				} catch (Exception e1) {
+					
 					e1.printStackTrace();
 				}
 			}
@@ -346,7 +338,7 @@ public class NoodlesPage extends JPanel {
 		listmenu1.setLocation(270,20);
 		listmenu1.setSize(50,35);
 
-		listmenu1.setVisible(true);
+//		listmenu1.setVisible(true);
 
 
 
@@ -379,7 +371,7 @@ public class NoodlesPage extends JPanel {
 		listmenu2.setLocation(270,60);
 		listmenu2.setSize(50,35);
 
-		listmenu2.setVisible(true);
+//		listmenu2.setVisible(true);
 
 
 		JTextField menu3 = new JTextField("메뉴3");
@@ -410,7 +402,7 @@ public class NoodlesPage extends JPanel {
 		listmenu3.setLocation(270,100);
 		listmenu3.setSize(50,35);
 
-		listmenu3.setVisible(true);
+//		listmenu3.setVisible(true);
 
 		JTextField menu4 = new JTextField("메뉴4");
 		menu4.setText(n.getMenu()[3][0]);
@@ -442,7 +434,7 @@ public class NoodlesPage extends JPanel {
 		listmenu4.setLocation(270,140);
 		listmenu4.setSize(50,35);
 
-		listmenu4.setVisible(true);
+//		listmenu4.setVisible(true);
 
 
 		JTextField total = new JTextField("합계");

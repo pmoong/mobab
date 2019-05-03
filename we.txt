@@ -1,0 +1,5 @@
+we, we, true, true, false, false
+beerStore, 0
+7gram, 0
+noodles, 0
+sandwich, 0

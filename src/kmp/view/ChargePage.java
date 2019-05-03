@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import kmp.controller.Controller;
+import kmp.model.vo.Images;
 
 public class ChargePage extends JPanel {
 	private MainFrame mf;
@@ -23,6 +24,7 @@ public class ChargePage extends JPanel {
 	private int money;
 	private int charge;
 	private int sum;
+	Images img = new Images();
 	LoginPage lp = new LoginPage();
 	BufferedReader br = null;
 	Controller ctr = new Controller();
@@ -37,38 +39,21 @@ public class ChargePage extends JPanel {
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
 
-		//사용할 이미지 할당
-		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 70, 0);
-		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 70, 0);
-		Image chartImg = new ImageIcon("images/mChart.png").getImage().getScaledInstance(100, 70, 0);
-		Image chargeImg = new ImageIcon("images/mCharge_c.png").getImage().getScaledInstance(100, 70, 0);
-		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
-		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
-		Image cashImg = new ImageIcon("images/cash.png").getImage().getScaledInstance(60, 60, 0);
-		Image chargeMoneyImg = new ImageIcon("images/chargeMoney.png").getImage().getScaledInstance(60, 60, 0);
-		Image allMoneyImg = new ImageIcon("images/allMoney.png").getImage().getScaledInstance(60, 60, 0);
-		Image money1Img = new ImageIcon("images/money_50000.png").getImage().getScaledInstance(75, 20, 0);
-		Image money2Img = new ImageIcon("images/money_30000.png").getImage().getScaledInstance(75, 20, 0);
-		Image money3Img = new ImageIcon("images/money_10000.png").getImage().getScaledInstance(75, 20, 0);
-		Image money4Img = new ImageIcon("images/money_5000.png").getImage().getScaledInstance(75, 20, 0);
-		
-		
 		
 		JPanel panel1 = new JPanel();
-		panel1.setSize(400, 150);
+		panel1.setSize(400, 140);
 		panel1.setLocation(0, 0);
 		
 
-		JButton back = new JButton(new ImageIcon(backImg));
+		JButton back = new JButton(new ImageIcon(img.getBackImg()));
 		back.setSize(80,50);
-		back.setLocation(0,10);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
-		JButton home = new JButton(new ImageIcon(homeImg));
+		JButton home = new JButton(new ImageIcon(img.getHomeImg()));
 		home.setSize(240,50);
-		home.setLocation(80,10);
+		home.setLocation(80,5);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -81,9 +66,9 @@ public class ChargePage extends JPanel {
 			
 		});
 		
-		JButton infor = new JButton(new ImageIcon(userinfoImg));
+		JButton infor = new JButton(new ImageIcon(img.getUserinfoImg()));
 		infor.setSize(80,50);
-		infor.setLocation(320,10);
+		infor.setLocation(320,5);
 		infor.setBorderPainted(false);
 		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
@@ -100,9 +85,9 @@ public class ChargePage extends JPanel {
 		panel1.add(infor);
 		panel1.setBackground(color);
 		
-		JButton sik = new JButton(new ImageIcon(sikImg));
+		JButton sik = new JButton(new ImageIcon(img.getSikImg()));
 		sik.setSize(100,100);
-		sik.setLocation(0,65);
+		sik.setLocation(0,55);
 		sik.setBorderPainted(false);
 		sik.setContentAreaFilled(false);
 
@@ -116,9 +101,9 @@ public class ChargePage extends JPanel {
 			
 		});
 		
-		JButton fav = new JButton(new ImageIcon(favoriteImg));
+		JButton fav = new JButton(new ImageIcon(img.getFavoriteImg()));
 		fav.setSize(100,100);
-		fav.setLocation(100,65);
+		fav.setLocation(100,55);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
 		fav.addActionListener(new ActionListener() {
@@ -132,9 +117,9 @@ public class ChargePage extends JPanel {
 
 
 		
-		JButton hist = new JButton(new ImageIcon(chartImg));
+		JButton hist = new JButton(new ImageIcon(img.getChartImg()));
 		hist.setSize(100,100);
-		hist.setLocation(200,65);
+		hist.setLocation(200,55);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
 		hist.addActionListener(new ActionListener() {
@@ -147,9 +132,9 @@ public class ChargePage extends JPanel {
 		});
 
 		
-		JButton charge = new JButton(new ImageIcon(chargeImg));
+		JButton charge = new JButton(new ImageIcon(img.getChargeImg()));
 		charge.setSize(100,100);
-		charge.setLocation(300,65);
+		charge.setLocation(300,55);
 		charge.setBorderPainted(false);
 		charge.setContentAreaFilled(false);
 
@@ -175,8 +160,8 @@ public class ChargePage extends JPanel {
 //		BufferedWriter bw = new BufferedWriter(new FileWriter(userId() + ".txt"));
 
 		JPanel panel2 = new JPanel();
-		panel2.setSize(400, 550);
-		panel2.setLocation(0, 150);
+		panel2.setSize(400, 560);
+		panel2.setLocation(0, 140);
 		panel2.setBackground(backgcolor);
 		
 		try {
@@ -204,7 +189,7 @@ public class ChargePage extends JPanel {
 		
 		setSum(getMoney() + getCharge());
 			
-		JLabel cash = new JLabel(new ImageIcon(cashImg));
+		JLabel cash = new JLabel(new ImageIcon(img.getCashImg()));
 		cash.setSize(60, 60);
 		cash.setLocation(40, 20);
 		
@@ -216,7 +201,7 @@ public class ChargePage extends JPanel {
 		cashInt.setSize(260, 60);
 		cashInt.setLocation(100, 20);
 		
-		JLabel chargeMoney = new JLabel(new ImageIcon(chargeMoneyImg));
+		JLabel chargeMoney = new JLabel(new ImageIcon(img.getChargeMoneyImg()));
 		chargeMoney.setSize(60, 60);
 		chargeMoney.setLocation(40, 120);
 		
@@ -226,7 +211,7 @@ public class ChargePage extends JPanel {
 		chargeMoneyInt.setLocation(100, 120);
 		chargeMoneyInt.setText(getCharge()+"원");
 		
-		JLabel allMoney = new JLabel(new ImageIcon(allMoneyImg));
+		JLabel allMoney = new JLabel(new ImageIcon(img.getAllMoneyImg()));
 		allMoney.setSize(60, 60);
 		allMoney.setLocation(40, 230);
 
@@ -236,10 +221,10 @@ public class ChargePage extends JPanel {
 		allMoneyInt.setSize(260, 60);
 		allMoneyInt.setLocation(100, 230);
 		
-		JButton button1 = new JButton(new ImageIcon(money1Img));	//5만
-		JButton button2 = new JButton(new ImageIcon(money2Img));	//3만
-		JButton button3 = new JButton(new ImageIcon(money3Img));	//1만
-		JButton button4 = new JButton(new ImageIcon(money4Img));	//5천
+		JButton button1 = new JButton(new ImageIcon(img.getMoney1Img()));	//5만
+		JButton button2 = new JButton(new ImageIcon(img.getMoney2Img()));	//3만
+		JButton button3 = new JButton(new ImageIcon(img.getMoney3Img()));	//1만
+		JButton button4 = new JButton(new ImageIcon(img.getMoney4Img()));	//5천
 		button1.setSize(75, 20);
 		button1.setLocation(30, 200);
 		button2.setSize(75, 20);
