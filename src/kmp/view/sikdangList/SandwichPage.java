@@ -5,9 +5,12 @@ import java.awt.Image;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -15,11 +18,17 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import kmp.controller.Controller;
+
+import kmp.model.vo.Gram;
+import kmp.model.vo.Sandwich;
+import kmp.model.vo.Images;
+
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -28,6 +37,7 @@ import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
 import kmp.view.MemberInfoPage;
+import kmp.view.PopUp;
 import kmp.view.SikdangPage;
 import kmp.view.UsingHistoryPage;
 
@@ -35,6 +45,12 @@ public class SandwichPage extends JPanel {
 	private MainFrame mf;
 	private JPanel sandwichPage;
 	LoginPage lp = new LoginPage();
+	private int sum;
+	private int sum1;
+	private int sum2;
+	private int sum3;
+	private int sum4;
+	Images img = new Images();
 
 	public SandwichPage(MainFrame mf) {
 		this.mf = mf;
@@ -43,40 +59,22 @@ public class SandwichPage extends JPanel {
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
-
-
-
-		//사용할 이미지 선언
-
-		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 70, 0);
-		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 70, 0);
-		Image chartImg = new ImageIcon("images/mChart.png").getImage().getScaledInstance(100, 70, 0);
-		Image chargeImg = new ImageIcon("images/mCharge.png").getImage().getScaledInstance(100, 70, 0);
-		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
-		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
-		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
-		Image starImg = new ImageIcon("images/star.png").getImage().getScaledInstance(35, 35, 0);
-	    Image star1Img = new ImageIcon("images/star1.png").getImage().getScaledInstance(35, 35, 0);
-	    Image imv;
-
-
-
+		Image imv;
 
 		//상단패널
 		JPanel panel1 = new JPanel();
-		panel1.setSize(400, 150);
+		panel1.setSize(400, 140);
 		panel1.setLocation(0, 0);
 
-		JButton back = new JButton(new ImageIcon(backImg));
+		JButton back = new JButton(new ImageIcon(img.getBackImg()));
 		back.setSize(80,50);
-		back.setLocation(0,10);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
-		JButton home = new JButton(new ImageIcon(homeImg));
+		JButton home = new JButton(new ImageIcon(img.getHomeImg()));
 		home.setSize(240,50);
-		home.setLocation(80,10);
+		home.setLocation(80,5);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -89,9 +87,9 @@ public class SandwichPage extends JPanel {
 
 		});
 
-		JButton infor = new JButton(new ImageIcon(userinfoImg));
+		JButton infor = new JButton(new ImageIcon(img.getUserinfoImg()));
 		infor.setSize(80,50);
-		infor.setLocation(320,10);
+		infor.setLocation(320,5);
 		infor.setBorderPainted(false);
 		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
@@ -108,9 +106,9 @@ public class SandwichPage extends JPanel {
 		panel1.add(infor);
 		panel1.setBackground(color);
 		
-		JButton sik = new JButton(new ImageIcon(sikImg));
+		JButton sik = new JButton(new ImageIcon(img.getSikImg()));
 		sik.setSize(100,100);
-		sik.setLocation(0,65);
+		sik.setLocation(0,55);
 		sik.setBorderPainted(false);
 		sik.setContentAreaFilled(false);
 		sik.addActionListener(new ActionListener() {
@@ -123,9 +121,9 @@ public class SandwichPage extends JPanel {
 
 		});
 
-		JButton fav = new JButton(new ImageIcon(favoriteImg));
+		JButton fav = new JButton(new ImageIcon(img.getFavoriteImg()));
 		fav.setSize(100,100);
-		fav.setLocation(100,65);
+		fav.setLocation(100,55);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
 		fav.addActionListener(new ActionListener() {
@@ -137,9 +135,9 @@ public class SandwichPage extends JPanel {
 			}
 
 		});
-		JButton hist = new JButton(new ImageIcon(chartImg));
+		JButton hist = new JButton(new ImageIcon(img.getChartImg()));
 		hist.setSize(100,100);
-		hist.setLocation(200,65);
+		hist.setLocation(200,55);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
 		hist.addActionListener(new ActionListener() {
@@ -152,9 +150,9 @@ public class SandwichPage extends JPanel {
 
 		});
 
-		JButton charg = new JButton(new ImageIcon(chargeImg));
+		JButton charg = new JButton(new ImageIcon(img.getChargeImg()));
 		charg.setSize(100,100);
-		charg.setLocation(300,65);
+		charg.setLocation(300,55);
 		charg.setBorderPainted(false);
 		charg.setContentAreaFilled(false);
 		charg.addActionListener(new ActionListener() {
@@ -175,12 +173,13 @@ public class SandwichPage extends JPanel {
 		mf.add(this);
 
 		JPanel panel2 = new JPanel();
-		panel2.setSize(400, 550);
-		panel2.setLocation(0, 150);
+		panel2.setSize(400, 560);
+		panel2.setLocation(0, 140);
 		panel2.setBackground(backgcolor);
 
 
 		//----------------------
+		Sandwich s = new Sandwich();
 		Image sandwichname = new ImageIcon("images/sandwichName.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
@@ -190,16 +189,34 @@ public class SandwichPage extends JPanel {
 		sandwichLabel.setSize(100, 20);
 		sandwichLabel.setLocation(120, 0);
 		sandwichLabel.setBackground(color);
-		JTextArea num = new JTextArea("000-000-0000");
-		num.setSize(100, 20);
-		num.setLocation(15, 35);
 
-		JTextArea address = new JTextArea("강남구 역삼동");
+		JButton num = new JButton(s.getNumber());
+		num.setSize(120, 20);
+		num.setLocation(30, 40);
+		num.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String[] buttons= {"확인"};
+				JOptionPane a = new JOptionPane();
+				int result=a.showOptionDialog(null,"전화 연결하시겠습니까?", "전화연결",a.YES_NO_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+				if(result==a.YES_OPTION) {
+					PopUp pu = new PopUp();
+					pu.callPopUp();
+
+				}
+
+			}
+
+		});
+
+//-----------------------------
+
+		JTextArea address = new JTextArea(s.getNumber());
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
     
-		imv=starImg;
-
+		imv=img.getStarImg();
 		BufferedReader br = null;
 		String fileName = (lp.getId()+".txt");
 		File member = new File(fileName);
@@ -208,18 +225,18 @@ public class SandwichPage extends JPanel {
 			String line = br.readLine();
 			String[] info = line.split(", ");
 			if(info[4].equals("false")) {
-				imv=starImg;
+				imv=img.getStarImg();
 			}else {
-				imv=star1Img;
+				imv=img.getStar1Img();
 			}
 		}catch (IOException e1) {
 			e1.printStackTrace();
 		}
-
+//-----------------------
 		JButton star = new JButton(new ImageIcon(imv));
 		
-		star.setSize(35, 35);
-		star.setLocation(146, 27);
+		star.setSize(25, 25);
+		star.setLocation(5, 5);
 		star.setBorderPainted(false);
 		star.setContentAreaFilled(false);
 
@@ -265,13 +282,13 @@ public class SandwichPage extends JPanel {
 										
 								save += lp.getId() +  ", " + info[1] + ", " 
 										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
-								star.setIcon(new ImageIcon(star1Img));
+								star.setIcon(new ImageIcon(img.getStar1Img()));
 							}else {
 								boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = false, favoriteNoodles = Nd;
 								
 								save += lp.getId() +  ", " + info[1] + ", " 
 										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
-								star.setIcon(new ImageIcon(starImg));
+								star.setIcon(new ImageIcon(img.getStarImg()));
 
 							}
 						}else {
@@ -317,93 +334,193 @@ public class SandwichPage extends JPanel {
 
 
 		JTextField menu1 = new JTextField("메뉴1");
+		menu1.setText(s.getMenu()[0][0]);
 		menu1.setSize(100, 20);
-		menu1.setLocation(25, 25);
+		menu1.setLocation(25, 30);
 		menu1.setEditable(false);
 
 
 		JTextField menu1p = new JTextField("가격");
+		menu1p.setText(s.getPrice()[0]+"");
 		menu1p.setSize(70, 20);
-		menu1p.setLocation(160, 25);
+		menu1p.setLocation(160, 30);
 		menu1p.setEditable(false);
 
 		List listmenu1 = new List(3, false);
+
+		listmenu1.add("0");
 		listmenu1.add("1");
 		listmenu1.add("2");
 		listmenu1.add("3");
-		listmenu1.setLocation(270,25);
-		listmenu1.setSize(30,18);
+		listmenu1.add("4");
+		listmenu1.add("5");
+		listmenu1.add("6");
+		listmenu1.add("7");
+		listmenu1.add("8");
+		listmenu1.add("9");
+		listmenu1.add("10");
+		listmenu1.setLocation(270,20);
+		listmenu1.setSize(50,35);
+
 		listmenu1.setVisible(true);
 
 
 
-
 		JTextField menu2 = new JTextField("메뉴2");
+		menu2.setText(s.getMenu()[1][0]);
 		menu2.setSize(100, 20);
 		menu2.setLocation(25, 70);
 		menu2.setEditable(false);
 
 
 		JTextField menu2p = new JTextField("가격");
+		menu2p.setText(s.getPrice()[1]+"");
 		menu2p.setSize(70, 20);
 		menu2p.setLocation(160, 70);
 		menu2p.setEditable(false);
 
+		
 		List listmenu2 = new List(3, false);
+
+		listmenu2.add("0");
 		listmenu2.add("1");
 		listmenu2.add("2");
 		listmenu2.add("3");
-		listmenu2.setLocation(270,70);
-		listmenu2.setSize(30,18);
-		listmenu1.setVisible(true);
+		listmenu2.add("4");
+		listmenu2.add("5");
+		listmenu2.add("6");
+		listmenu2.add("7");
+		listmenu2.add("8");
+		listmenu2.add("9");
+		listmenu2.add("10");
+		listmenu2.setLocation(270,60);
+		listmenu2.setSize(50,35);
+
+		listmenu2.setVisible(true);
 
 
 
 
 		JTextField menu3 = new JTextField("메뉴3");
+		menu3.setText(s.getMenu()[2][0]);
 		menu3.setSize(100, 20);
 		menu3.setLocation(25, 110);
 		menu3.setEditable(false);
 
 
 		JTextField menu3p = new JTextField("가격");
+		menu3p.setText(s.getPrice()[2]+"");
 		menu3p.setSize(70, 20);
 		menu3p.setLocation(160, 110);
 		menu3p.setEditable(false);
 
+
 		List listmenu3 = new List(3, false);
+		listmenu3.add("0");
 		listmenu3.add("1");
 		listmenu3.add("2");
 		listmenu3.add("3");
-		listmenu3.setLocation(270,110);
-		listmenu3.setSize(30,18);
-		listmenu1.setVisible(true);
+		listmenu3.add("4");
+		listmenu3.add("5");
+		listmenu3.add("6");
+		listmenu3.add("7");
+		listmenu3.add("8");
+		listmenu3.add("9");
+		listmenu3.add("10");
+		listmenu3.setLocation(270,100);
+		listmenu3.setSize(50,35);
 
+		listmenu3.setVisible(true);
 
 		JTextField menu4 = new JTextField("메뉴4");
+		menu4.setText(s.getMenu()[3][0]);
 		menu4.setSize(100, 20);
 		menu4.setLocation(25, 150);
 		menu4.setEditable(false);
 
 
 		JTextField menu4p = new JTextField("가격");
+		menu4p.setText(s.getPrice()[3]+"");
 		menu4p.setSize(70, 20);
 		menu4p.setLocation(160, 150);
 		menu4p.setEditable(false);
 
 		List listmenu4 = new List(3, false);
+
+		listmenu4.add("0");
 		listmenu4.add("1");
 		listmenu4.add("2");
 		listmenu4.add("3");
-		listmenu4.setLocation(270,150);
-		listmenu4.setSize(30,18);
-		listmenu1.setVisible(true);
+		listmenu4.add("4");
+		listmenu4.add("5");
+		listmenu4.add("6");
+		listmenu4.add("7");
+		listmenu4.add("8");
+		listmenu4.add("9");
+		listmenu4.add("10");
+		listmenu4.setLocation(270,140);
+		listmenu4.setSize(50,35);
 
-
+		listmenu4.setVisible(true);
+		
 		JTextField total = new JTextField("합계");
 		total.setSize(100, 20);
-		total.setLocation(110,210);
+		total.setLocation(25,210);
 
+
+		JTextField price = new JTextField();
+		price.setSize(130, 20);
+		price.setLocation(160,210);
+		price.setText("0");
+		Controller ctr = new Controller();
+		listmenu1.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea1 = listmenu1.getSelectedIndex();
+				sum1 = ctr.totalPrice(s.getPrice()[0], ea1);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+
+			}
+		});
+		listmenu2.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea2 = listmenu2.getSelectedIndex();
+				sum2 = ctr.totalPrice(s.getPrice()[1], ea2);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+
+			}
+		});
+		listmenu3.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea3 = listmenu3.getSelectedIndex();
+				sum3 = ctr.totalPrice(s.getPrice()[2], ea3);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+				
+
+			}
+		});
+		listmenu4.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea4 = listmenu4.getSelectedIndex();
+				sum4 = ctr.totalPrice(s.getPrice()[3], ea4);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+			}
+		});
 
 
 		panel4.add(menu1);
@@ -425,7 +542,7 @@ public class SandwichPage extends JPanel {
 
 
 		panel4.add(total);      
-
+		panel4.add(price);
 		//---------------------------------------
 
 		/*JTextArea ta = new JTextArea("000-000-0000");
@@ -454,6 +571,44 @@ public class SandwichPage extends JPanel {
 			}
 		});
 
+
+
+		JButton pay = new JButton("결제");
+		pay.setSize(100 ,30 );
+		pay.setLocation(215,50);
+		panel5.add(pay);
+
+		pay.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LoginPage lp = new LoginPage();
+				try {
+					File memberList = new File("MemberList.txt");
+					BufferedReader br = new BufferedReader(new FileReader(memberList));
+					String line = "";
+					PopUp pu = new PopUp();
+					while ((line = br.readLine()) != null) {
+						String[] info = line.split(", ");
+						if (lp.getId().equals(info[0])) {
+							if (Integer.parseInt(info[10]) - sum >= 0) {
+								
+								pu.CheckPay(price.getText(),mf,sandwichPage,"sandwich");
+							} else {
+								
+								pu.lackOfMoney(mf,sandwichPage);
+							}
+						}
+					}
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+
+			}
+
+		});
 
 
 

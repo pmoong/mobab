@@ -6,13 +6,18 @@ import java.util.Arrays;
 
 
 public class Noodle implements Serializable{
-   private String[][] menu  = new String[][] {{"짜장면","5000"} ,{"짬뽕","5000"} ,{"볶음밥","5000"}, {"탕수육","5000"}};
+   private String[][] menu  = new String[][] {{"짜장면","5000"} ,{"짬뽕","5500"} ,{"볶음밥","6000"}, {"탕수육","8000"}};
    private String number = "02-539-4004";
    private String location = "강남구 역삼동 736-22";
    private Image map;
    private String name = "중리";
    private int[] price = new int[4];
    private int sum = 0;
+   
+   
+   
+   
+   
    
    public Noodle() {
 	   for(int i=0;i<this.menu.length;i++) {
