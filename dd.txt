@@ -1,0 +1,5 @@
+dd, d, false, true, true, true
+beerStore, 5000
+7gram, 10000
+noodles, 35000
+sandwich, 44100
