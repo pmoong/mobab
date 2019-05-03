@@ -39,10 +39,10 @@ public class ChargePage extends JPanel {
 
 		//사용할 이미지 할당
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 100, 0);
-		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 100, 0);
-		Image chartImg = new ImageIcon("images/mChart.png").getImage().getScaledInstance(100, 100, 0);
-		Image chargeImg = new ImageIcon("images/mCharge_c.png").getImage().getScaledInstance(100, 100, 0);
+		Image sikImg = new ImageIcon("images/mRestaurant.png").getImage().getScaledInstance(100, 70, 0);
+		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 70, 0);
+		Image chartImg = new ImageIcon("images/mChart.png").getImage().getScaledInstance(100, 70, 0);
+		Image chargeImg = new ImageIcon("images/mCharge_c.png").getImage().getScaledInstance(100, 70, 0);
 		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		Image cashImg = new ImageIcon("images/cash.png").getImage().getScaledInstance(60, 60, 0);
@@ -62,13 +62,13 @@ public class ChargePage extends JPanel {
 
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
-		back.setLocation(0,0);
+		back.setLocation(0,10);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
-		home.setLocation(80,0);
+		home.setLocation(80,10);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -83,7 +83,7 @@ public class ChargePage extends JPanel {
 		
 		JButton infor = new JButton(new ImageIcon(userinfoImg));
 		infor.setSize(80,50);
-		infor.setLocation(320,0);
+		infor.setLocation(320,10);
 		infor.setBorderPainted(false);
 		infor.setContentAreaFilled(false);
 		infor.addActionListener(new ActionListener() {
@@ -102,7 +102,7 @@ public class ChargePage extends JPanel {
 		
 		JButton sik = new JButton(new ImageIcon(sikImg));
 		sik.setSize(100,100);
-		sik.setLocation(0,50);
+		sik.setLocation(0,65);
 		sik.setBorderPainted(false);
 		sik.setContentAreaFilled(false);
 
@@ -118,7 +118,7 @@ public class ChargePage extends JPanel {
 		
 		JButton fav = new JButton(new ImageIcon(favoriteImg));
 		fav.setSize(100,100);
-		fav.setLocation(100,50);
+		fav.setLocation(100,65);
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
 		fav.addActionListener(new ActionListener() {
@@ -134,7 +134,7 @@ public class ChargePage extends JPanel {
 		
 		JButton hist = new JButton(new ImageIcon(chartImg));
 		hist.setSize(100,100);
-		hist.setLocation(200,50);
+		hist.setLocation(200,65);
 		hist.setBorderPainted(false);
 		hist.setContentAreaFilled(false);
 		hist.addActionListener(new ActionListener() {
@@ -149,7 +149,7 @@ public class ChargePage extends JPanel {
 		
 		JButton charge = new JButton(new ImageIcon(chargeImg));
 		charge.setSize(100,100);
-		charge.setLocation(300,50);
+		charge.setLocation(300,65);
 		charge.setBorderPainted(false);
 		charge.setContentAreaFilled(false);
 

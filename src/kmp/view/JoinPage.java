@@ -34,7 +34,7 @@ public class JoinPage extends JPanel{
 
 		this.setSize(400,700);
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image joinImg = new ImageIcon("images/join.png").getImage().getScaledInstance(400, 100, 0);
+		Image joinImg = new ImageIcon("images/join.png").getImage().getScaledInstance(400, 90, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 
 		Image academyImg = new ImageIcon("images/academy.png").getImage().getScaledInstance(60, 30, 0);
@@ -54,13 +54,13 @@ public class JoinPage extends JPanel{
 
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
-		back.setLocation(0,0);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
-		home.setLocation(80,0);
+		home.setLocation(80,5);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -78,7 +78,7 @@ public class JoinPage extends JPanel{
 		
 		JButton join = new JButton(new ImageIcon(joinImg));
 		join.setSize(400,100);
-		join.setLocation(0,50);
+		join.setLocation(0,55);
 		join.setBorderPainted(false);
 		join.setContentAreaFilled(false);
 

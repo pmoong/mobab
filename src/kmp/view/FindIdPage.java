@@ -32,8 +32,8 @@ public class FindIdPage extends JPanel{
 		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
 		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
 		Image mobobMain = new ImageIcon("images/mobobMain.png").getImage().getScaledInstance(260, 260, 0);
-		Image fidImg = new ImageIcon("images/fID_c.png").getImage().getScaledInstance(200, 100, 0);
-		Image fpwImg = new ImageIcon("images/fPwd.png").getImage().getScaledInstance(200, 100, 0);
+		Image fidImg = new ImageIcon("images/fID_c.png").getImage().getScaledInstance(200, 90, 0);
+		Image fpwImg = new ImageIcon("images/fPwd.png").getImage().getScaledInstance(200, 90, 0);
 		
 		//상단 패널
 		JPanel panel1 = new JPanel();
@@ -43,13 +43,13 @@ public class FindIdPage extends JPanel{
 
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
-		back.setLocation(0,0);
+		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
 
 		JButton home = new JButton(new ImageIcon(homeImg));
 		home.setSize(240,50);
-		home.setLocation(80,0);
+		home.setLocation(80,5);
 		home.setBorderPainted(false);
 		home.setContentAreaFilled(false);
 		home.addActionListener(new ActionListener() {
@@ -64,13 +64,13 @@ public class FindIdPage extends JPanel{
 		fid.setBorderPainted(false);
 		fid.setContentAreaFilled(false);
 		fid.setSize(200,100);
-		fid.setLocation(0,50);
+		fid.setLocation(0,55);
 		
 		JButton fpw = new JButton(new ImageIcon(fpwImg));
 		fpw.setBorderPainted(false);
 		fpw.setContentAreaFilled(false);
 		fpw.setSize(200,100);
-		fpw.setLocation(200, 50);
+		fpw.setLocation(200, 55);
 		fpw.addActionListener(new ActionListener() {
 			
 			@Override

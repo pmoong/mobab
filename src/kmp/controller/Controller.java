@@ -272,7 +272,6 @@ public class Controller extends Member {
 	public void changePwd(String id, String pwd) {
 		String save = "";
 		String line = "";
-
 		try {
 			File memberList = new File("MemberList.txt");
 			BufferedReader br = new BufferedReader(new FileReader(memberList));
@@ -314,8 +313,8 @@ public class Controller extends Member {
 
 	}
 
-	
-	
+
+
 
 	// [호석] 맴버인포 페이지에 로그인한 멤버의 이름 정보 출력하기 메소드 
 	public String outputNameInfo(String id) {
@@ -462,7 +461,7 @@ public class Controller extends Member {
 	public String outputstore(String sikdang) {
 		String totalMoney = "";
 		BufferedReader br = null;
-		
+
 		try {
 			LoginPage lp = new LoginPage();
 			lp.getId();
@@ -479,7 +478,7 @@ public class Controller extends Member {
 				}
 			}
 			System.out.println(totalMoney +"가나다");
-			
+
 			br.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -488,7 +487,7 @@ public class Controller extends Member {
 		}
 		return totalMoney;
 	}
-	
+
 	public void payHistory(String sikdang, String price) {
 		lp.getId();
 		String filename=lp.getId()+".txt";
@@ -497,6 +496,7 @@ public class Controller extends Member {
 
 		try {
 			br = new BufferedReader(new FileReader(lp.getId() + ".txt"));
+
 			String line = "";
 			String save = "";
 			while((line = br.readLine()) != null) {
@@ -509,6 +509,8 @@ public class Controller extends Member {
 				}
 			}
 
+			//			mList.write(name + "," + Integer.parseInt(price.getText()));
+
 			mList = new BufferedWriter(new FileWriter(lp.getId()+".txt"));
 			mList.write(save);
 			mList.flush();
@@ -517,6 +519,7 @@ public class Controller extends Member {
 			e1.printStackTrace();
 		}
 	}
+
 
 	public void minusPay(String price) {
 		BufferedWriter mList = null;
@@ -545,9 +548,10 @@ public class Controller extends Member {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
+
 	}
-	
-	
+
+
 
 	public Component map(int i) {
 
@@ -583,7 +587,7 @@ public class Controller extends Member {
 
 		return mapImg;
 	}
-	
+
 
 	//charge 충전버튼
 	public void charged(int charged) {
@@ -627,8 +631,8 @@ public class Controller extends Member {
 		}
 	}
 
-	
-	
-	
+
+
+
 
 }
