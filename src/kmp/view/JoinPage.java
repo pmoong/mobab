@@ -8,13 +8,12 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
+
 import kmp.view.PopUp;
 import kmp.model.vo.Images;
 
@@ -24,7 +23,6 @@ public class JoinPage extends JPanel{
 	private MainFrame mf;
 	private JPanel joinpage;
 	Images img = new Images();
-	
 
 	public JoinPage(MainFrame mf) {
 		this.mf = mf;
@@ -61,10 +59,9 @@ public class JoinPage extends JPanel{
 		});
 
 
-//		panel1.add(back);
+		//		panel1.add(back);
 		panel1.add(home);
 		panel1.setBackground(new Color(37,212,177));
-		
 		JButton join = new JButton(new ImageIcon(img.getJoinImg()));
 		join.setSize(400,100);
 		join.setLocation(0,55);
@@ -79,7 +76,7 @@ public class JoinPage extends JPanel{
 			}
 
 		});
-		
+
 		JPanel panel2 = new JPanel();
 		panel2.setSize(400, 550);
 		panel2.setLocation(0, 150);
@@ -87,7 +84,7 @@ public class JoinPage extends JPanel{
 		JLabel label1 = new JLabel(new ImageIcon(img.getIdImg()));
 		JButton button3 = new JButton("중복확인");
 		JTextField tf1 = new JTextField();
-		
+
 
 		button3.addActionListener(new ActionListener() {
 
@@ -98,7 +95,7 @@ public class JoinPage extends JPanel{
 				//
 				id = new String(tf1.getText());
 				System.out.println(id);
-		
+
 				Controller ct = new Controller();
 				if(id.isEmpty()) {
 					PopUp pu = new PopUp();
@@ -142,7 +139,7 @@ public class JoinPage extends JPanel{
 		JTextField tf3 = new JTextField();
 		tf3.setSize(270,30);
 		tf3.setLocation(90, 160);
- 
+
 		JLabel label5 = new JLabel(new ImageIcon(img.getPhoneNumImg()));
 		JTextField tf4 = new JTextField();
 		JButton button4 = new JButton("중복확인");
@@ -154,20 +151,23 @@ public class JoinPage extends JPanel{
 			public void actionPerformed(ActionEvent e) {
 				//JTextField
 				phone = new String(tf4.getText());
-		
+
 				Controller ct = new Controller();
 
-				if(phone.isEmpty()) {
-					PopUp pu = new PopUp();
-					pu.PhoneCheckNull();
-				}else if(ct.isDuplicatedPhone(phone)) {
-					PopUp pu = new PopUp();
-					pu.PhoneCheckF();
-				}else {
-					PopUp pu = new PopUp();
-					pu.PhoneCheckT();
 
+				if(ct.phoneOverlap(phone)) {
+					if(phone.isEmpty()) {
+						PopUp pu = new PopUp();
+						pu.PhoneCheckNull();
+					}else if(ct.isDuplicatedPhone(phone)) {
+						PopUp pu = new PopUp();
+						pu.PhoneCheckF();
+					}else {
+						PopUp pu = new PopUp();
+						pu.PhoneCheckT();
+					}
 				}
+
 
 			}
 		});
@@ -223,12 +223,12 @@ public class JoinPage extends JPanel{
 		gender1.setSize(80,30);
 		gendlabel.setLocation(220, 280);
 		gender1.setLocation(280, 280);
-		
+
 		JButton button5 = new JButton("회원가입");
-	
-		
-		
-		
+
+
+
+
 		button5.addActionListener(new ActionListener() {
 			String phone;
 			@Override
@@ -246,19 +246,18 @@ public class JoinPage extends JPanel{
 				char gender = gen.charAt(0);
 
 
-				if(ctr.isDuplicatedPhone(phone) || ctr.isDuplicatedId(id)){
-					PopUp pu = new PopUp();
-					pu.joinCheckFail();
-
-				
-				}else if(id.isEmpty() || pwd.isEmpty() || name.isEmpty() || email.isEmpty() || phone.isEmpty() || age == 0 ||
+				if(id.isEmpty() || pwd.isEmpty() || name.isEmpty() || email.isEmpty() || phone.isEmpty() || age == 0 ||
 						academy.isEmpty() || tf6.getText().isEmpty() || gen.isEmpty()) {
 
 					PopUp pu = new PopUp();
 					pu.joinFail();
 
+				}else if(0<ctr.infoErr(id, pwd, name, phone)){
+					PopUp pu = new PopUp();
+					pu.joinErr(ctr.infoErr(id, pwd, name, phone));
+					
+				}else {
 
-				}else{
 					char classroom = cla.charAt(0);
 					ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
 					String[] buttons= {"확인"};
@@ -273,8 +272,12 @@ public class JoinPage extends JPanel{
 				}
 
 
+				}
+
+
 			}
-			});
+		});
+
 
 
 		button5.setSize(300,80);
@@ -285,7 +288,7 @@ public class JoinPage extends JPanel{
 		panel2.add(button5);
 		panel2.add(gendlabel);
 		panel2.add(gender1);
-		
+
 		panel2.add(label8);
 		panel2.add(ageBox);
 

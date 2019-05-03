@@ -659,6 +659,82 @@ public class PopUp extends JFrame{
 			
 			this.add(panel);
 		}
+		
+		public void phoneErr() {
+			this.setTitle("전화번호 중복 오류");
+			this.setLayout(null);
+			
+			JPanel panel = new JPanel();
+			panel.setSize(300, 150);
+			panel.setLayout(null);
+			
+			JLabel message = new JLabel("잘못된 전화번호가 입력되었습니다.");
+			message.setSize(300, 30);
+			message.setLocation(30, 20);
+			
+			JButton okButton = new JButton("확인");
+			okButton.setSize(90, 30);
+			okButton.setLocation(100, 60);
+			message.setLayout(null);
+			
+			okButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					closePage();
+					
+				}
+			});
+			
+					
+			panel.add(message);
+			panel.add(okButton);
+			
+			this.add(panel);
+		}
+		
+		public void joinErr(int i) {
+			this.setTitle("입력 오류");
+			this.setLayout(null);
+			
+			JPanel panel = new JPanel();
+			panel.setSize(300, 150);
+			panel.setLayout(null);
+			
+			JLabel message = null;
+			if(i == 1) {
+				message = new JLabel("잘못된 ID가 입력되었습니다.");
+			}else if(i == 2) {
+				message = new JLabel("잘못된 비밀번호가 입력되었습니다.");
+			}else if(i == 3) {
+				message = new JLabel("이름을 한글로만 입력해 주십시오.");
+			}else if(i == 4) {
+				message = new JLabel("잘못된 전화번호가 입력되었습니다.");
+			}
+			
+			message.setSize(300, 30);
+			message.setLocation(30, 20);
+			
+			JButton okButton = new JButton("확인");
+			okButton.setSize(90, 30);
+			okButton.setLocation(100, 60);
+			message.setLayout(null);
+			
+			okButton.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent arg0) {
+					closePage();
+					
+				}
+			});
+			
+					
+			panel.add(message);
+			panel.add(okButton);
+			
+			this.add(panel);
+		}
 
 		public void changeInfo() {
 			this.setTitle("회원정보 수정");
