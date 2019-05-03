@@ -488,7 +488,6 @@ public class Controller extends Member {
 		return totalMoney;
 	}
 
-
 	public void payHistory(String sikdang, String price) {
 		lp.getId();
 		String filename=lp.getId()+".txt";
@@ -511,18 +510,44 @@ public class Controller extends Member {
 			}
 
 			//			mList.write(name + "," + Integer.parseInt(price.getText()));
+
 			mList = new BufferedWriter(new FileWriter(lp.getId()+".txt"));
 			mList.write(save);
 			mList.flush();
 
-
 		} catch (IOException e1) {
-			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+	}
 
 
+	public void minusPay(String price) {
+		BufferedWriter mList = null;
+		BufferedReader br = null;
 
+		try {
+			br = new BufferedReader(new FileReader("MemberList.txt"));
+			String line = "";
+			String save = "";
+			while((line = br.readLine()) != null) {
+				String info[] = line.split(", ");
+				if(info[0].equals(lp.getId())) {
+					for(int i= 0; i < info.length-1; i++) {
+					save += info[i] + ", ";
+					}		
+					save+= (Integer.parseInt(info[10]) - Integer.parseInt(price)) +"\n";
+				}else {
+					save += line +"\n";
+				}
+			}
+
+			mList = new BufferedWriter(new FileWriter("MemberList.txt"));
+			mList.write(save);
+			mList.flush();
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
 
 	}
 
