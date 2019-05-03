@@ -217,8 +217,8 @@ public class SandwichPage extends JPanel {
 //-----------------------
 		JButton star = new JButton(new ImageIcon(imv));
 		
-		star.setSize(35, 35);
-		star.setLocation(146, 27);
+		star.setSize(25, 25);
+		star.setLocation(5, 5);
 		star.setBorderPainted(false);
 		star.setContentAreaFilled(false);
 

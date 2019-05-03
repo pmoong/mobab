@@ -132,7 +132,7 @@ public class ChargePage extends JPanel {
 		});
 
 		
-		JButton charge = new JButton(new ImageIcon(img.getChargeImg()));
+		JButton charge = new JButton(new ImageIcon(img.getCharge_cImg()));
 		charge.setSize(100,100);
 		charge.setLocation(300,55);
 		charge.setBorderPainted(false);

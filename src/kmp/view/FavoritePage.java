@@ -98,7 +98,7 @@ public class FavoritePage extends JPanel{
 
 		});
 
-		JButton fav = new JButton(new ImageIcon(img.getFavoriteImg()));
+		JButton fav = new JButton(new ImageIcon(img.getFavorite_cImg()));
 		fav.setBorderPainted(false);
 		fav.setContentAreaFilled(false);
 		fav.setSize(100,100);
@@ -155,8 +155,8 @@ public class FavoritePage extends JPanel{
 			String[] info = line.split(", ");
 			if(info[2].equals("true")) {
 				JButton beerStore = new JButton();
-				beerStore.setSize(300, 125);
-				beerStore.setLocation(50, 5);
+				beerStore.setSize(300, 100);
+				beerStore.setLocation(50, 30);
 				beerStore.addActionListener(new ActionListener() {
 
 					@Override
@@ -165,11 +165,11 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel beerLabel = new JLabel(new ImageIcon(img.getBeerStoreImg()));
-				beerLabel.setSize(125, 125);
+				beerLabel.setSize(100, 100);
 				beerLabel.setLocation(0, 0);
-				JTextArea beerTextArea = new JTextArea("고기잡내 지려주는 맥주창고~\n낮에는 지나가고\n밤에 술마시러 오세요.");
-				beerTextArea.setSize(175, 125);
-				beerTextArea.setLocation(125, 0);
+				JTextArea beerTextArea = new JTextArea("매일 다른 메뉴~\n맛있으니까 오세요");
+				beerTextArea.setSize(200, 100);
+				beerTextArea.setLocation(100, 0);
 
 				beerStore.add(beerLabel);
 				beerStore.add(beerTextArea);
@@ -185,8 +185,8 @@ public class FavoritePage extends JPanel{
 			String[] info = line.split(", ");
 			if(info[3].equals("true")&&info[2].equals("true")) {
 				JButton gram = new JButton();
-				gram.setSize(300, 125);
-				gram.setLocation(50, 135);
+				gram.setSize(300, 100);
+				gram.setLocation(50, 150);
 				gram.addActionListener(new ActionListener() {
 
 					@Override
@@ -196,19 +196,19 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel gramLabel = new JLabel(new ImageIcon(img.getGramImg()));
-				gramLabel.setSize(125, 125);
+				gramLabel.setSize(100, 100);
 				gramLabel.setLocation(0, 0);
 				JTextArea gramTextArea = new JTextArea("아메리카노~\n쬬아~쬬아~쬬아~");
-				gramTextArea.setSize(175, 125);
-				gramTextArea.setLocation(125, 0);
+				gramTextArea.setSize(200, 100);
+				gramTextArea.setLocation(100, 0);
 
 				gram.add(gramLabel);
 				gram.add(gramTextArea);
 				panel2.add(gram);
 			}else if(info[3].equals("true")) {
 				JButton gram = new JButton();
-				gram.setSize(300, 125);
-				gram.setLocation(50, 5);
+				gram.setSize(300, 100);
+				gram.setLocation(50, 30);
 				gram.addActionListener(new ActionListener() {
 
 					@Override
@@ -218,11 +218,11 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel gramLabel = new JLabel(new ImageIcon(img.getGramImg()));
-				gramLabel.setSize(125, 125);
+				gramLabel.setSize(100, 100);
 				gramLabel.setLocation(0, 0);
 				JTextArea gramTextArea = new JTextArea("아메리카노~\n쬬아~쬬아~쬬아~");
-				gramTextArea.setSize(175, 125);
-				gramTextArea.setLocation(125, 0);
+				gramTextArea.setSize(200, 100);
+				gramTextArea.setLocation(100, 0);
 
 				gram.add(gramLabel);
 				gram.add(gramTextArea);
@@ -238,8 +238,8 @@ public class FavoritePage extends JPanel{
 			String[] info = line.split(", ");
 			if(info[3].equals("true")&&info[2].equals("true")&&info[4].equals("true")) {
 				JButton sandwich = new JButton();
-				sandwich.setSize(300, 125);
-				sandwich.setLocation(50, 265);
+				sandwich.setSize(300, 100);
+				sandwich.setLocation(50, 270);
 				sandwich.addActionListener(new ActionListener() {
 
 					@Override
@@ -249,19 +249,19 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel sandwichLabel = new JLabel(new ImageIcon(img.getSandwichImg()));
-				sandwichLabel.setSize(125, 125);
+				sandwichLabel.setSize(100, 100);
 				sandwichLabel.setLocation(0, 0);
 				JTextArea sandwichTextArea = new JTextArea("샌드위치\n빵을 포개서 만든\n샌드위치");
-				sandwichTextArea.setSize(175, 125);
-				sandwichTextArea.setLocation(125, 0);
+				sandwichTextArea.setSize(200, 100);
+				sandwichTextArea.setLocation(100, 0);
 
 				sandwich.add(sandwichLabel);
 				sandwich.add(sandwichTextArea);
 				panel2.add(sandwich);
 			}else if((info[3].equals("true")&&info[4].equals("true"))||(info[2].equals("true")&&info[4].equals("true"))) {
 				JButton sandwich = new JButton();
-				sandwich.setSize(300, 125);
-				sandwich.setLocation(50, 135);
+				sandwich.setSize(300, 100);
+				sandwich.setLocation(50, 150);
 				sandwich.addActionListener(new ActionListener() {
 
 					@Override
@@ -271,19 +271,19 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel sandwichLabel = new JLabel(new ImageIcon(img.getSandwichImg()));
-				sandwichLabel.setSize(125, 125);
+				sandwichLabel.setSize(100, 100);
 				sandwichLabel.setLocation(0, 0);
 				JTextArea sandwichTextArea = new JTextArea("샌드위치\n빵을 포개서 만든\n샌드위치");
-				sandwichTextArea.setSize(175, 125);
-				sandwichTextArea.setLocation(125, 0);
+				sandwichTextArea.setSize(200, 100);
+				sandwichTextArea.setLocation(100, 0);
 
 				sandwich.add(sandwichLabel);
 				sandwich.add(sandwichTextArea);
 				panel2.add(sandwich);
 			}else if(info[4].equals("true")) {
 				JButton sandwich = new JButton();
-				sandwich.setSize(300, 125);
-				sandwich.setLocation(50, 5);
+				sandwich.setSize(300, 100);
+				sandwich.setLocation(50, 30);
 				sandwich.addActionListener(new ActionListener() {
 
 					@Override
@@ -293,11 +293,11 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel sandwichLabel = new JLabel(new ImageIcon(img.getSandwichImg()));
-				sandwichLabel.setSize(125, 125);
+				sandwichLabel.setSize(100, 100);
 				sandwichLabel.setLocation(0, 0);
 				JTextArea sandwichTextArea = new JTextArea("샌드위치\n빵을 포개서 만든\n샌드위치");
-				sandwichTextArea.setSize(175, 125);
-				sandwichTextArea.setLocation(125, 0);
+				sandwichTextArea.setSize(200, 100);
+				sandwichTextArea.setLocation(100, 0);
 
 				sandwich.add(sandwichLabel);
 				sandwich.add(sandwichTextArea);
@@ -314,8 +314,8 @@ public class FavoritePage extends JPanel{
 			String[] info = line.split(", ");
 			if(info[2].equals("true")&&info[3].equals("true")&&info[4].equals("true")&&info[5].equals("true")) {
 				JButton noodles = new JButton();
-				noodles.setSize(300, 125);
-				noodles.setLocation(50, 395);
+				noodles.setSize(300, 100);
+				noodles.setLocation(50, 390);
 				noodles.addActionListener(new ActionListener() {
 
 					@Override
@@ -325,11 +325,11 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel  noodlesLabel = new JLabel(new ImageIcon(img.getNoodlesImg()));
-				noodlesLabel.setSize(125, 125);
+				noodlesLabel.setSize(100, 100);
 				noodlesLabel.setLocation(0, 0);
 				JTextArea noodlesTextArea = new JTextArea("짜장면\n길고 검은\n자장면");
-				noodlesTextArea.setSize(175, 125);
-				noodlesTextArea.setLocation(125, 0);
+				noodlesTextArea.setSize(200, 100);
+				noodlesTextArea.setLocation(100, 0);
 
 				noodles.add(noodlesLabel);
 				noodles.add(noodlesTextArea);
@@ -338,8 +338,8 @@ public class FavoritePage extends JPanel{
 					||(info[2].equals("true")&&info[4].equals("true")&&info[5].equals("true"))
 					||(info[3].equals("true")&&info[4].equals("true")&&info[5].equals("true"))){
 				JButton noodles = new JButton();
-				noodles.setSize(300, 125);
-				noodles.setLocation(50, 265);
+				noodles.setSize(300, 100);
+				noodles.setLocation(50, 270);
 				noodles.addActionListener(new ActionListener() {
 
 					@Override
@@ -349,11 +349,11 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel  noodlesLabel = new JLabel(new ImageIcon(img.getNoodlesImg()));
-				noodlesLabel.setSize(125, 125);
+				noodlesLabel.setSize(100, 100);
 				noodlesLabel.setLocation(0, 0);
 				JTextArea noodlesTextArea = new JTextArea("짜장면\n길고 검은\n자장면");
-				noodlesTextArea.setSize(175, 125);
-				noodlesTextArea.setLocation(125, 0);
+				noodlesTextArea.setSize(200, 100);
+				noodlesTextArea.setLocation(100, 0);
 
 				noodles.add(noodlesLabel);
 				noodles.add(noodlesTextArea);
@@ -362,8 +362,8 @@ public class FavoritePage extends JPanel{
 					||(info[3].equals("true")&&info[5].equals("true"))
 					||(info[4].equals("true")&&info[5].equals("true"))){
 				JButton noodles = new JButton();
-				noodles.setSize(300, 125);
-				noodles.setLocation(50, 135);
+				noodles.setSize(300, 100);
+				noodles.setLocation(50, 150);
 				noodles.addActionListener(new ActionListener() {
 
 					@Override
@@ -373,19 +373,19 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel  noodlesLabel = new JLabel(new ImageIcon(img.getNoodlesImg()));
-				noodlesLabel.setSize(125, 125);
+				noodlesLabel.setSize(100, 100);
 				noodlesLabel.setLocation(0, 0);
 				JTextArea noodlesTextArea = new JTextArea("짜장면\n길고 검은\n자장면");
-				noodlesTextArea.setSize(175, 125);
-				noodlesTextArea.setLocation(125, 0);
+				noodlesTextArea.setSize(200, 100);
+				noodlesTextArea.setLocation(100, 0);
 
 				noodles.add(noodlesLabel);
 				noodles.add(noodlesTextArea);
 				panel2.add(noodles);
 			}else if(info[5].equals("true")) {
 				JButton noodles = new JButton();
-				noodles.setSize(300, 125);
-				noodles.setLocation(50, 5);
+				noodles.setSize(300, 100);
+				noodles.setLocation(50, 30);
 				noodles.addActionListener(new ActionListener() {
 
 					@Override
@@ -395,11 +395,11 @@ public class FavoritePage extends JPanel{
 					}
 				});
 				JLabel  noodlesLabel = new JLabel(new ImageIcon(img.getNoodlesImg()));
-				noodlesLabel.setSize(125, 125);
+				noodlesLabel.setSize(100, 100);
 				noodlesLabel.setLocation(0, 0);
 				JTextArea noodlesTextArea = new JTextArea("짜장면\n길고 검은\n자장면");
-				noodlesTextArea.setSize(175, 125);
-				noodlesTextArea.setLocation(125, 0);
+				noodlesTextArea.setSize(200, 100);
+				noodlesTextArea.setLocation(100, 0);
 
 				noodles.add(noodlesLabel);
 				noodles.add(noodlesTextArea);

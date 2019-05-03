@@ -24,10 +24,10 @@ public class Images {
 	Image money3Img = new ImageIcon("images/money_10000.png").getImage().getScaledInstance(75, 20, 0);
 	Image money4Img = new ImageIcon("images/money_5000.png").getImage().getScaledInstance(75, 20, 0);
 	Image logoutImg = new ImageIcon("images/logout.png").getImage().getScaledInstance(50, 50, 0);
-	Image beerStoreImg = new ImageIcon("images/beerStoreF.png").getImage().getScaledInstance(125, 125, 0);
-	Image gramImg = new ImageIcon("images/gramF.png").getImage().getScaledInstance(125, 125, 0);
-	Image sandwichImg = new ImageIcon("images/sandwichF.png").getImage().getScaledInstance(125, 125, 0);
-	Image noodlesImg = new ImageIcon("images/noodlesF.png").getImage().getScaledInstance(125, 125, 0);
+	Image beerStoreImg = new ImageIcon("images/beerStoreF.png").getImage().getScaledInstance(100, 100, 0);
+	Image gramImg = new ImageIcon("images/gramF.png").getImage().getScaledInstance(100, 100, 0);
+	Image sandwichImg = new ImageIcon("images/sandwichF.png").getImage().getScaledInstance(100, 100, 0);
+	Image noodlesImg = new ImageIcon("images/noodlesF.png").getImage().getScaledInstance(100, 100, 0);
 	Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
 	Image todayMenuImg = new ImageIcon("images/todayMenu.png").getImage().getScaledInstance(300, 180, 0);
 	Image mapNameImg = new ImageIcon("images/map.png").getImage().getScaledInstance(350, 65, 0);
@@ -293,6 +293,30 @@ public class Images {
 	}
 	public void setUserInfo(java.awt.Image userInfo) {
 		this.userInfo = userInfo;
+	}
+	public Image getSik_cImg() {
+		return sik_cImg;
+	}
+	public void setSik_cImg(Image sik_cImg) {
+		this.sik_cImg = sik_cImg;
+	}
+	public Image getFavorite_cImg() {
+		return favorite_cImg;
+	}
+	public void setFavorite_cImg(Image favorite_cImg) {
+		this.favorite_cImg = favorite_cImg;
+	}
+	public Image getChart_cImg() {
+		return chart_cImg;
+	}
+	public void setChart_cImg(Image chart_cImg) {
+		this.chart_cImg = chart_cImg;
+	}
+	public Image getCharge_cImg() {
+		return charge_cImg;
+	}
+	public void setCharge_cImg(Image charge_cImg) {
+		this.charge_cImg = charge_cImg;
 	}
 
 

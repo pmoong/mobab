@@ -103,7 +103,7 @@ public class UsingHistoryPage extends JPanel{
 			}
 		});
 
-		JButton hist = new JButton(new ImageIcon(img.getChartImg()));
+		JButton hist = new JButton(new ImageIcon(img.getChart_cImg()));
 		hist.setSize(100,100);
 		hist.setLocation(200,55);
 
@@ -141,18 +141,30 @@ public class UsingHistoryPage extends JPanel{
 		String info [] = {"식당","결제금액"};
 		String data[][];
 
-		data = new String[4][2];
+		data = new String[8][2];
 		data[0][0]="맥주창고";
 		data[0][1]=c.outputstore("beerStore");
 
 		data[1][0]="7gram";
 		data[1][1]=c.outputstore("7gram");
 
-		data[2][0]="중리";
-		data[2][1]=c.outputstore("noodles");
+		data[2][0]="Joe's sandwich";
+		data[2][1]=c.outputstore("sandwich");
 
-		data[3][0]="Joe's sandwich";
-		data[3][1]=c.outputstore("sandwich");
+		data[3][0]="중리";
+		data[3][1]=c.outputstore("noodles");
+		
+		data[4][0]="";
+		data[4][1]="";
+		
+		data[5][0]="";
+		data[5][1]="";
+		
+		data[6][0]="";
+		data[6][1]="";
+		
+		data[7][0]="누적금액";
+		data[7][1]=Integer.parseInt(data[0][1])+Integer.parseInt(data[1][1])+Integer.parseInt(data[2][1])+Integer.parseInt(data[3][1])+"";
 
 
 		DefaultTableModel model = new DefaultTableModel(data, info);

@@ -70,7 +70,7 @@ public class SikdangPage extends JPanel {
 		panel1.add(infor);
 		panel1.setBackground(color);
 		
-		JButton sik = new JButton(new ImageIcon(img.getSikImg()));
+		JButton sik = new JButton(new ImageIcon(img.getSik_cImg()));
 		sik.setSize(100,100);
 		sik.setLocation(0,55);
 		sik.setBorderPainted(false);
@@ -151,14 +151,14 @@ public class SikdangPage extends JPanel {
 		});
 
 		JLabel beerLabel = new JLabel(new ImageIcon(img.getBeerStoreImg()));
-		beerLabel.setSize(125, 125);
+		beerLabel.setSize(100, 100);
 		beerLabel.setLocation(0, 0);
 		JTextArea beerTextArea = new JTextArea("매일 다른 메뉴~\n맛있으니까 오세요\n");
-		font = new Font("궁서", Font.PLAIN, 15);
+//		font = new Font("궁서", Font.PLAIN, 15);
 //		beerTextArea.setLayout();
 		beerTextArea.setSize(200, 125);
 		beerTextArea.setLocation(100, 0);
-		beerTextArea.setFont(font);
+//		beerTextArea.setFont(font);
 		
 		beerStore.add(beerLabel);
 		beerStore.add(beerTextArea);
@@ -176,7 +176,7 @@ public class SikdangPage extends JPanel {
 		});
 
 		JLabel gramLabel = new JLabel(new ImageIcon(img.getGramImg()));
-		gramLabel.setSize(125, 125);
+		gramLabel.setSize(100, 100);
 		gramLabel.setLocation(0, 0);
 		JTextArea gramTextArea = new JTextArea("아메리카노~\n쬬아~쬬아~쬬아~");
 		gramTextArea.setSize(200, 100);
@@ -197,7 +197,7 @@ public class SikdangPage extends JPanel {
 		});
 
 		JLabel sandwichLabel = new JLabel(new ImageIcon(img.getSandwichImg()));
-		sandwichLabel.setSize(125, 125);
+		sandwichLabel.setSize(100, 100);
 		sandwichLabel.setLocation(0, 0);
 		JTextArea sandwichTextArea = new JTextArea("샌드위치\n빵을 포개서 만든\n샌드위치");
 		sandwichTextArea.setSize(200, 100);
@@ -218,7 +218,7 @@ public class SikdangPage extends JPanel {
 		});
 
 		JLabel noodlesLabel = new JLabel(new ImageIcon(img.getNoodlesImg()));
-		noodlesLabel.setSize(125, 125);
+		noodlesLabel.setSize(100, 100);
 		noodlesLabel.setLocation(0, 0);
 		JTextArea noodlesTextArea = new JTextArea("짜장면\n길고 검은\n자장면");
 		noodlesTextArea.setSize(200, 100);
