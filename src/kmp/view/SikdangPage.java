@@ -2,7 +2,6 @@ package kmp.view;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -12,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import kmp.model.vo.Images;
 import kmp.view.sikdangList.BeerStorePage;
 import kmp.view.sikdangList.GramPage;
 import kmp.view.sikdangList.NoodlesPage;
@@ -21,6 +21,7 @@ public class SikdangPage extends JPanel {
 	private MainFrame mf;
 	private JPanel sikdangPage;
 	private Font font;
+	Images img = new Images();
 	
 	public SikdangPage(MainFrame mf) {
 		this.mf = mf;
@@ -29,32 +30,18 @@ public class SikdangPage extends JPanel {
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
-		
-		//사용할 이미지 할당
-		Image homeImg = new ImageIcon("images/home.png").getImage().getScaledInstance(240, 50, 0);
-		Image sikImg = new ImageIcon("images/mRestaurant_c.png").getImage().getScaledInstance(100, 70, 0);
-		Image favoriteImg = new ImageIcon("images/mFavorites.png").getImage().getScaledInstance(100, 70, 0);
-		Image chartImg = new ImageIcon("images/mChart.png").getImage().getScaledInstance(100, 70, 0);
-		Image chargeImg = new ImageIcon("images/mCharge.png").getImage().getScaledInstance(100, 70, 0);
-		Image userinfoImg = new ImageIcon("images/user.png").getImage().getScaledInstance(80, 50, 0);
-		Image backImg = new ImageIcon("images/back.png").getImage().getScaledInstance(80, 50, 0);
-		Image bannerImg = new ImageIcon("images/banner.png").getImage().getScaledInstance(300, 180, 0);
-		Image beerStoreImg = new ImageIcon("images/beerStoreF.png").getImage().getScaledInstance(100, 100, 0);
-		Image gramImg = new ImageIcon("images/gramF.png").getImage().getScaledInstance(100, 100, 0);
-		Image sandwichImg = new ImageIcon("images/sandwichF.png").getImage().getScaledInstance(100, 100, 0);
-		Image noodlesImg = new ImageIcon("images/noodlesF.png").getImage().getScaledInstance(100, 100, 0);
-		
+
 		//상단 패널
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 140);
 		panel1.setLocation(0, 0);
 
-		JButton back = new JButton(new ImageIcon(backImg));
+		JButton back = new JButton(new ImageIcon(img.getBackImg()));
 		back.setSize(80,50);
 		back.setLocation(0,5);
 		back.setBorderPainted(false);
 		back.setContentAreaFilled(false);
-		JButton home = new JButton(new ImageIcon(homeImg));
+		JButton home = new JButton(new ImageIcon(img.getHomeImg()));
 		home.setSize(240,50);
 		home.setLocation(80,5);
 		home.setBorderPainted(false);
@@ -66,7 +53,7 @@ public class SikdangPage extends JPanel {
 			}
 		});
 		
-		JButton infor = new JButton(new ImageIcon(userinfoImg));
+		JButton infor = new JButton(new ImageIcon(img.getUserinfoImg()));
 		infor.setSize(80,50);
 		infor.setLocation(320,5);
 		infor.setBorderPainted(false);
@@ -83,7 +70,7 @@ public class SikdangPage extends JPanel {
 		panel1.add(infor);
 		panel1.setBackground(color);
 		
-		JButton sik = new JButton(new ImageIcon(sikImg));
+		JButton sik = new JButton(new ImageIcon(img.getSikImg()));
 		sik.setSize(100,100);
 		sik.setLocation(0,55);
 		sik.setBorderPainted(false);
@@ -98,7 +85,7 @@ public class SikdangPage extends JPanel {
 			
 		});
 		
-		JButton fav = new JButton(new ImageIcon(favoriteImg));
+		JButton fav = new JButton(new ImageIcon(img.getFavoriteImg()));
 		fav.setSize(100,100);
 		fav.setLocation(100,55);
 		fav.setBorderPainted(false);
@@ -112,7 +99,7 @@ public class SikdangPage extends JPanel {
 			}
 		});
 		
-		JButton hist = new JButton(new ImageIcon(chartImg));
+		JButton hist = new JButton(new ImageIcon(img.getChartImg()));
 		hist.setSize(100,100);
 		hist.setLocation(200,55);
 		hist.setBorderPainted(false);
@@ -126,7 +113,7 @@ public class SikdangPage extends JPanel {
 			}
 		});
 		
-		JButton charg = new JButton(new ImageIcon(chargeImg));
+		JButton charg = new JButton(new ImageIcon(img.getChargeImg()));
 		charg.setSize(100,100);
 		charg.setLocation(300,55);
 		charg.setBorderPainted(false);
@@ -162,8 +149,9 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
-		JLabel beerLabel = new JLabel(new ImageIcon(beerStoreImg));
-		beerLabel.setSize(100, 100);
+
+		JLabel beerLabel = new JLabel(new ImageIcon(img.getBeerStoreImg()));
+		beerLabel.setSize(125, 125);
 		beerLabel.setLocation(0, 0);
 		JTextArea beerTextArea = new JTextArea("매일 다른 메뉴~\n맛있으니까 오세요\n");
 		font = new Font("궁서", Font.PLAIN, 15);
@@ -186,8 +174,9 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
-		JLabel gramLabel = new JLabel(new ImageIcon(gramImg));
-		gramLabel.setSize(100, 100);
+
+		JLabel gramLabel = new JLabel(new ImageIcon(img.getGramImg()));
+		gramLabel.setSize(125, 125);
 		gramLabel.setLocation(0, 0);
 		JTextArea gramTextArea = new JTextArea("아메리카노~\n쬬아~쬬아~쬬아~");
 		gramTextArea.setSize(200, 100);
@@ -206,8 +195,9 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
-		JLabel sandwichLabel = new JLabel(new ImageIcon(sandwichImg));
-		sandwichLabel.setSize(100, 100);
+
+		JLabel sandwichLabel = new JLabel(new ImageIcon(img.getSandwichImg()));
+		sandwichLabel.setSize(125, 125);
 		sandwichLabel.setLocation(0, 0);
 		JTextArea sandwichTextArea = new JTextArea("샌드위치\n빵을 포개서 만든\n샌드위치");
 		sandwichTextArea.setSize(200, 100);
@@ -226,8 +216,9 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
-		JLabel noodlesLabel = new JLabel(new ImageIcon(noodlesImg));
-		noodlesLabel.setSize(100, 100);
+
+		JLabel noodlesLabel = new JLabel(new ImageIcon(img.getNoodlesImg()));
+		noodlesLabel.setSize(125, 125);
 		noodlesLabel.setLocation(0, 0);
 		JTextArea noodlesTextArea = new JTextArea("짜장면\n길고 검은\n자장면");
 		noodlesTextArea.setSize(200, 100);

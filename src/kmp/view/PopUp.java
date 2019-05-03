@@ -485,7 +485,7 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 
-	public void CheckPay(String price,MainFrame mf, JPanel beerStorePage) {
+	public void CheckPay(String price,MainFrame mf, JPanel beerStorePage, String sikdang) {
 		this.setTitle("결제확인");
 		this.setLayout(null);
 		
@@ -514,7 +514,7 @@ public class PopUp extends JFrame{
 				closePage();
 
 				Controller ctr = new Controller();
-				ctr.payHistory("beerStore", price);
+				ctr.payHistory(sikdang, price);
 				ctr.minusPay(price);
 				ChangePanel.changePanel(mf, beerStorePage, new UsingHistoryPage(mf));
 
