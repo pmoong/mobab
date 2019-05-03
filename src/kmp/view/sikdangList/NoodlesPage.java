@@ -241,9 +241,7 @@ public class NoodlesPage extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				Controller ctr = new Controller();
-
-
+				BufferedWriter wr = null;
 				BufferedReader br = null;
 				String fileName = (lp.getId()+".txt");
 				File member = new File(fileName);
@@ -253,49 +251,58 @@ public class NoodlesPage extends JPanel {
 
 				try {
 					br = new BufferedReader(new FileReader(member));
-					String line = br.readLine();
-					String[] info = line.split(", ");
-					if(info[2].equals("false")) {
-						Bs=false;
-					}else {
-						Bs=true;
-					}
-					if(info[3].equals("false")) {
-						Gr=false;
-					}else {
-						Gr=true;
-					}
-					if(info[4].equals("false")) {
-						Js=false;
-					}else {
-						Js=true;
-					}
-					if(info[5].equals("false")) {
-						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = true;
+					String save ="";
+					String line ="";
+					while((line = br.readLine()) !=null){
+						String[] info = line.split(", ");
+						if(info[0].equals(lp.getId())) {
+							if(info[2].equals("false")) {
+								Bs=false;
+							}else {
+								Bs=true;
+							}
+							if(info[3].equals("false")) {
+								Gr=false;
+							}else {
+								Gr=true;
+							}
+							if(info[4].equals("false")) {
+								Js=false;
+							}else {
+								Js=true;
+							}
+					
+							if(info[5].equals("false")) {
+								boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = true;
+										
+								save += lp.getId() +  ", " + info[1] + ", " 
+										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
+								star.setIcon(new ImageIcon(star1Img));
+							}else {
+								boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = false;
+								
+								save += lp.getId() +  ", " + info[1] + ", " 
+										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
+								star.setIcon(new ImageIcon(starImg));
+
+							}
+						}else {
+							if(line.equals("0")) {
+								break;
+							}
+							if(!info[0].equals("sandwich")) {
+							save += info[0] + ", " + info[1] +"\n"; 
+							}else {
+								save += info[0] + ", " + info[1];	
+							}
+						}
+						
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-
-						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
+						wr.write(save);
 						wr.flush();
-
-						star.setIcon(new ImageIcon(star1Img));
-
-					}else {
-						BufferedWriter wr = null;
-						boolean favoriteBeer = Bs, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = false;
-						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-
-						wr.write(lp.getId() +  ", " + null + ", " 
-								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles);
-						wr.flush();
-
-						star.setIcon(new ImageIcon(starImg));
-
 					}
-
-				} catch (IOException e1) {
-
+				} catch (Exception e1) {
+					
 					e1.printStackTrace();
 				}
 			}
