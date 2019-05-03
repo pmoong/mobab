@@ -20,6 +20,7 @@ import kmp.model.vo.Member;
 import kmp.view.ChargePage;
 import kmp.view.LoginPage;
 import kmp.view.MainFrame;
+import kmp.view.PopUp;
 
 
 
@@ -150,10 +151,12 @@ public class Controller extends Member {
 	public boolean isDuplicatedId(String id) {
 		String fileName = id + ".txt";
 		File member = new File(fileName);
-
+ 
 		if (member.isFile()) {
 			return true;
-		} else {
+		} else if(infoErr1(id)){
+			return true;
+		}else {
 			return false;
 		}
 	}
@@ -631,8 +634,50 @@ public class Controller extends Member {
 		}
 	}
 
-
-
+	public boolean phoneOverlap(String phone) {
+		for(int i = 0; i < phone.length(); i++) {
+			if(phone.charAt(i)>='a'&&phone.charAt(i)<='z'||phone.charAt(i)=='-') {
+				PopUp pu = new PopUp();
+				pu.phoneErr();
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	
+	public boolean infoErr1(String id) {
+		for(int i = 0; i < id.length();i++) {
+			if(!((id.charAt(i)>='0'&&id.charAt(i)<='9')||(id.charAt(i)>='a'&&id.charAt(i)<='z'))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
+	public int infoErr(String id, String pwd, String name, String phone) {
+		for(int i = 0; i < id.length();i++) {
+			if(!((id.charAt(i)>='0'&&id.charAt(i)<='9')||(id.charAt(i)>='a'&&id.charAt(i)<='z'))) {
+				return 1;
+			}
+		}
+		for(int i = 0; i < pwd.length();i++) {
+			if(!((pwd.charAt(i)>='0'&&pwd.charAt(i)<='9')||(pwd.charAt(i)>='a'&&pwd.charAt(i)<='z'))) {
+				return 2;
+			}
+		}
+		for(int i = 0; i < name.length(); i ++) {
+			if(!(name.charAt(i)>='가'&&name.charAt(i)<='힣')) {
+				return 3;
+			}
+		}
+		for(int i = 0; i < phone.length();i++) {
+			if(!(phone.charAt(i)>='0'&&phone.charAt(i)<='9')) {
+				return 4;
+			}
+		}
+		return 0;
+	}
 
 
 }
