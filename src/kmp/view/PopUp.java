@@ -133,6 +133,38 @@ public class PopUp extends JFrame{
 		this.add(panel);
 	}
 	
+	public void joinCheckFail() {
+		this.setTitle("가입 실패");
+		this.setLayout(null);
+
+		JPanel panel = new JPanel();
+		panel.setSize(300, 150);
+		panel.setLayout(null);
+
+		JLabel message = new JLabel("중복되는 정보가 있습니다.");
+		message.setSize(300, 30);
+		message.setLocation(30, 20);
+
+		JButton okButton = new JButton("확인");
+		okButton.setSize(100, 30);
+		okButton.setLocation(100, 80);
+		message.setLayout(null);
+
+		okButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				closePage();
+			}
+		});
+
+		panel.add(message);
+		panel.add(okButton);
+
+		this.add(panel);
+	}
+	
+	
 	
 //	public void findIdSucPopup() {
 //		this.setTitle("아이디찾기 성공");

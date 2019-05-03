@@ -30,7 +30,7 @@ public class SikdangPage extends JPanel {
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
-	
+
 		//상단 패널
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 140);
@@ -139,8 +139,8 @@ public class SikdangPage extends JPanel {
 		panel2.setBackground(backgcolor);
 		
 		JButton beerStore = new JButton();
-		beerStore.setSize(300, 125);
-		beerStore.setLocation(50, 5);
+		beerStore.setSize(300, 100);
+		beerStore.setLocation(50, 30);
 		beerStore.addActionListener(new ActionListener() {
 
 			@Override
@@ -149,20 +149,23 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
+
 		JLabel beerLabel = new JLabel(new ImageIcon(img.getBeerStoreImg()));
 		beerLabel.setSize(125, 125);
 		beerLabel.setLocation(0, 0);
 		JTextArea beerTextArea = new JTextArea("매일 다른 메뉴~\n맛있으니까 오세요\n");
 		font = new Font("궁서", Font.PLAIN, 15);
-		beerTextArea.setSize(175, 125);
-		beerTextArea.setLocation(125, 0);
+//		beerTextArea.setLayout();
+		beerTextArea.setSize(200, 125);
+		beerTextArea.setLocation(100, 0);
 		beerTextArea.setFont(font);
+		
 		beerStore.add(beerLabel);
 		beerStore.add(beerTextArea);
 		
 		JButton gram = new JButton();
-		gram.setSize(300, 125);
-		gram.setLocation(50, 135);
+		gram.setSize(300, 100);
+		gram.setLocation(50, 150);
 		gram.addActionListener(new ActionListener() {
 
 			@Override
@@ -171,18 +174,19 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
+
 		JLabel gramLabel = new JLabel(new ImageIcon(img.getGramImg()));
 		gramLabel.setSize(125, 125);
 		gramLabel.setLocation(0, 0);
 		JTextArea gramTextArea = new JTextArea("아메리카노~\n쬬아~쬬아~쬬아~");
-		gramTextArea.setSize(175, 125);
-		gramTextArea.setLocation(125, 0);
+		gramTextArea.setSize(200, 100);
+		gramTextArea.setLocation(100, 0);
 		gram.add(gramLabel);
 		gram.add(gramTextArea);
 		
 		JButton sandwich = new JButton();
-		sandwich.setSize(300, 125);
-		sandwich.setLocation(50, 265);
+		sandwich.setSize(300, 100);
+		sandwich.setLocation(50, 270);
 		sandwich.addActionListener(new ActionListener() {
 
 			@Override
@@ -191,18 +195,19 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
+
 		JLabel sandwichLabel = new JLabel(new ImageIcon(img.getSandwichImg()));
 		sandwichLabel.setSize(125, 125);
 		sandwichLabel.setLocation(0, 0);
 		JTextArea sandwichTextArea = new JTextArea("샌드위치\n빵을 포개서 만든\n샌드위치");
-		sandwichTextArea.setSize(175, 125);
-		sandwichTextArea.setLocation(125, 0);
+		sandwichTextArea.setSize(200, 100);
+		sandwichTextArea.setLocation(100, 0);
 		sandwich.add(sandwichLabel);
 		sandwich.add(sandwichTextArea);
 		
 		JButton noodles = new JButton();
-		noodles.setSize(300, 125);
-		noodles.setLocation(50, 395);
+		noodles.setSize(300, 100);
+		noodles.setLocation(50, 390);
 		noodles.addActionListener(new ActionListener() {
 
 			@Override
@@ -211,12 +216,13 @@ public class SikdangPage extends JPanel {
 			}
 			
 		});
+
 		JLabel noodlesLabel = new JLabel(new ImageIcon(img.getNoodlesImg()));
 		noodlesLabel.setSize(125, 125);
 		noodlesLabel.setLocation(0, 0);
 		JTextArea noodlesTextArea = new JTextArea("짜장면\n길고 검은\n자장면");
-		noodlesTextArea.setSize(175, 125);
-		noodlesTextArea.setLocation(125, 0);
+		noodlesTextArea.setSize(200, 100);
+		noodlesTextArea.setLocation(100, 0);
 		noodles.add(noodlesLabel);
 		noodles.add(noodlesTextArea);
 		
