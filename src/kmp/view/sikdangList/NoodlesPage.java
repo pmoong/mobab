@@ -178,7 +178,7 @@ public class NoodlesPage extends JPanel {
 
 
 		//----------------------
-		Image noodlesname = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 25, 0);
+		Image noodlesname = new ImageIcon("images/noodlesName.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
 		panel3.setLocation(20, 20);

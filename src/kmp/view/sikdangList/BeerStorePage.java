@@ -175,7 +175,7 @@ public class BeerStorePage extends JPanel{
 		panel2.setBackground(backgcolor);
 
 		Beer b = new Beer();
-		Image beername = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 25, 0);
+		Image beername = new ImageIcon("images/beerName.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
 		panel3.setLocation(20, 20);

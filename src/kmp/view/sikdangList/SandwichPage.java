@@ -181,7 +181,7 @@ public class SandwichPage extends JPanel {
 
 
 		//----------------------
-		Image sandwichname = new ImageIcon("images/beername.png").getImage().getScaledInstance(100, 25, 0);
+		Image sandwichname = new ImageIcon("images/sandwichName.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
 		panel3.setLocation(20, 20);
