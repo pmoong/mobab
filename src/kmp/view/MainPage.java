@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -49,7 +51,7 @@ public class MainPage extends JPanel {
 		JPanel panel1 = new JPanel();
 		panel1.setSize(400, 150);
 		panel1.setLocation(0, 0);
-
+		
 		JButton back = new JButton(new ImageIcon(backImg));
 		back.setSize(80,50);
 		back.setLocation(0,10);

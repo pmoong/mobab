@@ -238,7 +238,6 @@ public class BeerStorePage extends JPanel{
 					String save ="";
 					String line ="";
 					while((line = br.readLine()) !=null){
-						System.out.println("line : " + line);
 						String[] info = line.split(", ");
 						if(info[0].equals(lp.getId())) {
 							if(info[3].equals("false")) {
@@ -272,6 +271,10 @@ public class BeerStorePage extends JPanel{
 
 							}
 						}else {
+							if(line.equals("0")) {
+								break;
+							}
+							
 							if(!info[0].equals("sandwich")) {
 							save += info[0] + ", " + info[1] +"\n"; 
 							}else {
@@ -290,60 +293,6 @@ public class BeerStorePage extends JPanel{
 			}
 		});
 							
-						
-//							wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-//							
-//							wr.write(lp.getId() +  ", " + null + ", " 
-//									+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles
-//									+ "\nbeerStore, 0"
-//									+ "\n7gram, 0"
-//									+ "\nnoodles, 0"
-//									+ "\nsandwich, 0");
-//							wr.flush();
-//					if(info[3].equals("false")) {
-//						Gr=false;
-//					}else {
-//						Gr=true;
-//					}
-//					if(info[4].equals("false")) {
-//						Js=false;
-//					}else {
-//						Js=true;
-//					}
-//					if(info[5].equals("false")) {
-//						Nd=false;
-//					}else {
-//						Nd=true;
-//					}
-//					if(info[2].equals("false")) {
-//						BufferedWriter wr = null;
-//						boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
-//						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-//
-//						wr.write(lp.getId() +  ", " + null + ", " 
-//								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles
-//								+ "\nbeerStore, 0"
-//								+ "\n7gram, 0"
-//								+ "\nnoodles, 0"
-//								+ "\nsandwich, 0");
-//						wr.flush();
-//						star.setIcon(new ImageIcon(star1Img));
-//					}else {
-//						BufferedWriter wr = null;
-//						boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
-//						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
-//
-//						wr.write(lp.getId() +  ", " + null + ", " 
-//								+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles
-//								+ "\nbeerStore, 0"
-//								+ "\n7gram, 0"
-//								+ "\nnoodles, 0"
-//								+ "\nsandwich, 0");
-//						wr.flush();
-//						star.setIcon(new ImageIcon(starImg));
-//
-//
-//					}
 
 
 		panel3.add(beerLabel);
