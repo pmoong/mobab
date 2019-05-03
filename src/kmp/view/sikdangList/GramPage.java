@@ -27,6 +27,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 import kmp.controller.Controller;
+import kmp.model.vo.Gram;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -194,6 +195,8 @@ public class GramPage extends JPanel{
 
 
 		//----------------------
+		
+		Gram g = new Gram();
 		Image gramname = new ImageIcon("images/gramName.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
