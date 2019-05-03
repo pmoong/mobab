@@ -6,6 +6,7 @@ import java.awt.Image;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
@@ -35,6 +36,7 @@ import java.io.IOException;
 import kmp.controller.Controller;
 import kmp.model.vo.Gram;
 import kmp.model.vo.Images;
+
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -203,9 +205,26 @@ public class GramPage extends JPanel{
 		gramLabel.setSize(100, 20);
 		gramLabel.setLocation(120, 0);
 		gramLabel.setBackground(color);
-		JTextArea num = new JTextArea(g.getNumber());
-		num.setSize(100, 20);
-		num.setLocation(15, 35);
+
+		JButton num = new JButton(g.getNumber());
+		num.setSize(120, 20);
+		num.setLocation(30, 40);
+		num.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String[] buttons= {"확인"};
+				JOptionPane a = new JOptionPane();
+				int result=a.showOptionDialog(null,"전화 연결하시겠습니까?", "전화연결",a.YES_NO_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+				if(result==a.YES_OPTION) {
+					PopUp pu = new PopUp();
+					pu.callPopUp();
+
+				}
+
+			}
+
+		});
 
 		JTextArea address = new JTextArea(g.getLocation());
 		address.setSize(120, 20);

@@ -18,6 +18,7 @@ import java.io.IOException;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -177,9 +178,18 @@ public class BeerStorePage extends JPanel{
 		num.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				PopUp pu = new PopUp();
-				pu.callPopUp();
+				String[] buttons= {"확인"};
+				JOptionPane a = new JOptionPane();
+				int result=a.showOptionDialog(null,"전화 연결하시겠습니까?", "전화연결",a.YES_NO_OPTION,a.PLAIN_MESSAGE,null,buttons,"OK");
+
+				if(result==a.YES_OPTION) {
+					PopUp pu = new PopUp();
+					pu.callPopUp();
+
+				}
+
 			}
+
 		});
 
 		JTextArea address = new JTextArea(b.getLocation());
@@ -199,10 +209,10 @@ public class BeerStorePage extends JPanel{
 			}else {
 				imv=img.getStar1Img();
 			}
-			}catch (IOException e1) {
-				e1.printStackTrace();
-			}
-		
+		}catch (IOException e1) {
+			e1.printStackTrace();
+		}
+
 		//------------------------------------------------------------
 		JButton star = new JButton(new ImageIcon(imv));
 		star.setSize(25, 25);
@@ -242,16 +252,16 @@ public class BeerStorePage extends JPanel{
 							}else {
 								Nd=true;
 							}
-					
+
 							if(info[2].equals("false")) {
 								boolean favoriteBeer = true, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
-										
+
 								save += lp.getId() +  ", " + info[1] + ", " 
 										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
 								star.setIcon(new ImageIcon(img.getStar1Img()));
 							}else {
 								boolean favoriteBeer = false, favoriteGram = Gr, favoriteSandwich = Js, favoriteNoodles = Nd;
-								
+
 								save += lp.getId() +  ", " + info[1] + ", " 
 										+ favoriteBeer + ", " + favoriteGram + ", " + favoriteSandwich + ", " + favoriteNoodles + "\n";
 								star.setIcon(new ImageIcon(img.getStarImg()));
@@ -263,24 +273,22 @@ public class BeerStorePage extends JPanel{
 							}
 							
 							if(!info[0].equals("sandwich")) {
-							save += info[0] + ", " + info[1] +"\n"; 
+								save += info[0] + ", " + info[1] +"\n"; 
 							}else {
 								save += info[0] + ", " + info[1];	
 							}
 						}
-						
+
 						wr = new BufferedWriter(new FileWriter(lp.getId() + ".txt"));
 						wr.write(save);
 						wr.flush();
 					}
 				} catch (Exception e1) {
-					
+
 					e1.printStackTrace();
 				}
 			}
 		});
-							
-
 
 		panel3.add(beerLabel);
 		panel3.add(num);
@@ -394,11 +402,12 @@ public class BeerStorePage extends JPanel{
 						String[] info = line.split(", ");
 						if (lp.getId().equals(info[0])) {
 							if (Integer.parseInt(info[10]) - ctr.totalPrice(b.getPrice(),
-								listmenu1.getSelectedIndex()) >= 0) {
-								
+
+								listmenu1.getSelectedIndex()) >= 0) {								
 								pu.CheckPay(price.getText(),mf,beerStorePage,"beerStore");
+
 							} else {
-								
+
 								pu.lackOfMoney(mf,beerStorePage);
 							}
 						}
