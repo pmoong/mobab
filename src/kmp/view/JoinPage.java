@@ -241,6 +241,7 @@ public class JoinPage extends JPanel{
 		
 		
 		button5.addActionListener(new ActionListener() {
+			String phone;
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				Controller ctr = new Controller();
@@ -255,14 +256,20 @@ public class JoinPage extends JPanel{
 				String gen = (String)gender1.getSelectedItem();
 				char gender = gen.charAt(0);
 
+
+				if(ctr.isDuplicatedPhone(phone) || ctr.isDuplicatedId(id)){
+					PopUp pu = new PopUp();
+					pu.joinCheckFail();
+
 				
-				if(id.isEmpty() || pwd.isEmpty() || name.isEmpty() || email.isEmpty() || phone.isEmpty() || age == 0 ||
+				}else if(id.isEmpty() || pwd.isEmpty() || name.isEmpty() || email.isEmpty() || phone.isEmpty() || age == 0 ||
 						academy.isEmpty() || tf6.getText().isEmpty() || gen.isEmpty()) {
-					
+
 					PopUp pu = new PopUp();
 					pu.joinFail();
-					
-				}else {
+
+
+				}else{
 					char classroom = cla.charAt(0);
 					ctr.join(id, pwd, name, email, phone, age, academy, classroom, gender);
 					String[] buttons= {"확인"};
@@ -272,17 +279,14 @@ public class JoinPage extends JPanel{
 					if(result==a.OK_OPTION) {
 						ChangePanel.changePanel(mf,joinpage, new LoginPage(mf));
 					}
-					
-					
+
+
 				}
 
 
-
-
 			}
-			
-		});
-		
+			});
+
 
 		button5.setSize(300,80);
 		button5.setLocation(50, 360);
