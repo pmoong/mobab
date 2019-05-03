@@ -5,9 +5,12 @@ import java.awt.Image;
 import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -20,6 +23,7 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import kmp.controller.Controller;
+import kmp.model.vo.Noodle;
 import kmp.view.ChangePanel;
 import kmp.view.ChargePage;
 import kmp.view.FavoritePage;
@@ -28,6 +32,7 @@ import kmp.view.MainFrame;
 import kmp.view.MainPage;
 import kmp.view.MapPage;
 import kmp.view.MemberInfoPage;
+import kmp.view.PopUp;
 import kmp.view.SikdangPage;
 import kmp.view.UsingHistoryPage;
 
@@ -35,6 +40,11 @@ public class NoodlesPage extends JPanel {
 	private MainFrame mf;
 	private JPanel noodlesPage;
 	LoginPage lp = new LoginPage();
+	private int sum;
+	private int sum1;
+	private int sum2;
+	private int sum3;
+	private int sum4;
 
 	public NoodlesPage(MainFrame mf) {
 		this.mf = mf;
@@ -43,6 +53,8 @@ public class NoodlesPage extends JPanel {
 		this.setLayout(null);
 		Color color = new Color(35,212,177);
 		Color backgcolor = new Color(234,255,236);
+		
+
 
 
 		//사용할 이미지 선언
@@ -100,7 +112,7 @@ public class NoodlesPage extends JPanel {
 
 		});
 
-		//		panel1.add(back);
+		//panel1.add(back);
 		panel1.add(home);
 		panel1.add(infor);
 		panel1.setBackground(color);
@@ -178,6 +190,7 @@ public class NoodlesPage extends JPanel {
 
 
 		//----------------------
+		Noodle n = new Noodle();
 		Image noodlesname = new ImageIcon("images/noodlesName.png").getImage().getScaledInstance(100, 25, 0);
 		JPanel panel3 = new JPanel();
 		panel3.setSize(350, 65);
@@ -187,19 +200,19 @@ public class NoodlesPage extends JPanel {
 		noodlesLabel.setSize(100, 20);
 		noodlesLabel.setLocation(120, 0);
 		noodlesLabel.setBackground(color);
-		JTextArea num = new JTextArea("000-000-0000");
+		JTextArea num = new JTextArea(n.getNumber());
 		num.setSize(100, 20);
 		num.setLocation(15, 35);
 
-		JTextArea address = new JTextArea("강남구 역삼동");
+		JTextArea address = new JTextArea(n.getLocation());
 		address.setSize(120, 20);
 		address.setLocation(215, 35);
 
-		imv=starImg;
-
+//--------------------------
 		BufferedReader br = null;
 		String fileName = (lp.getId()+".txt");
 		File member = new File(fileName);
+		imv=starImg;
 		try {
 			br = new BufferedReader(new FileReader(member));
 			String line = br.readLine();
@@ -213,6 +226,8 @@ public class NoodlesPage extends JPanel {
 			e1.printStackTrace();
 		}
 
+		
+//--------------------------
 		JButton star = new JButton(new ImageIcon(imv));
 
 
@@ -302,93 +317,192 @@ public class NoodlesPage extends JPanel {
 		panel4.setBackground(Color.WHITE);
 
 
-		JTextField menu1 = new JTextField("메뉴1");
+		JTextField menu1 = new JTextField();
+		menu1.setText(n.getMenu()[0][0]);
 		menu1.setSize(100, 20);
-		menu1.setLocation(25, 25);
+		menu1.setLocation(25, 30);
 		menu1.setEditable(false);
 
 
 		JTextField menu1p = new JTextField("가격");
+		menu1p.setText(n.getPrice()[0]+"");
 		menu1p.setSize(70, 20);
-		menu1p.setLocation(160, 25);
+		menu1p.setLocation(160, 30);
 		menu1p.setEditable(false);
 
 		List listmenu1 = new List(3, false);
+
+		listmenu1.add("0");
 		listmenu1.add("1");
 		listmenu1.add("2");
 		listmenu1.add("3");
-		listmenu1.setLocation(270,25);
-		listmenu1.setSize(30,18);
+		listmenu1.add("4");
+		listmenu1.add("5");
+		listmenu1.add("6");
+		listmenu1.add("7");
+		listmenu1.add("8");
+		listmenu1.add("9");
+		listmenu1.add("10");
+		listmenu1.setLocation(270,20);
+		listmenu1.setSize(50,35);
+
 		listmenu1.setVisible(true);
 
 
 
-
 		JTextField menu2 = new JTextField("메뉴2");
+		menu2.setText(n.getMenu()[1][0]);
 		menu2.setSize(100, 20);
 		menu2.setLocation(25, 70);
 		menu2.setEditable(false);
 
 
 		JTextField menu2p = new JTextField("가격");
+		menu2p.setText(n.getPrice()[1]+"");
 		menu2p.setSize(70, 20);
 		menu2p.setLocation(160, 70);
 		menu2p.setEditable(false);
 
 		List listmenu2 = new List(3, false);
+
+		listmenu2.add("0");
 		listmenu2.add("1");
 		listmenu2.add("2");
 		listmenu2.add("3");
-		listmenu2.setLocation(270,70);
-		listmenu2.setSize(30,18);
-		listmenu1.setVisible(true);
+		listmenu2.add("4");
+		listmenu2.add("5");
+		listmenu2.add("6");
+		listmenu2.add("7");
+		listmenu2.add("8");
+		listmenu2.add("9");
+		listmenu2.add("10");
+		listmenu2.setLocation(270,60);
+		listmenu2.setSize(50,35);
 
+		listmenu2.setVisible(true);
 
 
 		JTextField menu3 = new JTextField("메뉴3");
+		menu3.setText(n.getMenu()[2][0]);
 		menu3.setSize(100, 20);
 		menu3.setLocation(25, 110);
 		menu3.setEditable(false);
 
 
 		JTextField menu3p = new JTextField("가격");
+		menu3p.setText(n.getPrice()[2]+"");
 		menu3p.setSize(70, 20);
 		menu3p.setLocation(160, 110);
 		menu3p.setEditable(false);
 
 		List listmenu3 = new List(3, false);
+		listmenu3.add("0");
 		listmenu3.add("1");
 		listmenu3.add("2");
 		listmenu3.add("3");
-		listmenu3.setLocation(270,110);
-		listmenu3.setSize(30,18);
-		listmenu1.setVisible(true);
+		listmenu3.add("4");
+		listmenu3.add("5");
+		listmenu3.add("6");
+		listmenu3.add("7");
+		listmenu3.add("8");
+		listmenu3.add("9");
+		listmenu3.add("10");
+		listmenu3.setLocation(270,100);
+		listmenu3.setSize(50,35);
+
+		listmenu3.setVisible(true);
 
 		JTextField menu4 = new JTextField("메뉴4");
+		menu4.setText(n.getMenu()[3][0]);
 		menu4.setSize(100, 20);
 		menu4.setLocation(25, 150);
 		menu4.setEditable(false);
 
 
 		JTextField menu4p = new JTextField("가격");
+		menu4p.setText(n.getPrice()[3]+"");
 		menu4p.setSize(70, 20);
 		menu4p.setLocation(160, 150);
 		menu4p.setEditable(false);
 
+
 		List listmenu4 = new List(3, false);
+
+		listmenu4.add("0");
 		listmenu4.add("1");
 		listmenu4.add("2");
 		listmenu4.add("3");
-		listmenu4.setLocation(270,150);
-		listmenu4.setSize(30,18);
-		listmenu1.setVisible(true);
+		listmenu4.add("4");
+		listmenu4.add("5");
+		listmenu4.add("6");
+		listmenu4.add("7");
+		listmenu4.add("8");
+		listmenu4.add("9");
+		listmenu4.add("10");
+		listmenu4.setLocation(270,140);
+		listmenu4.setSize(50,35);
+
+		listmenu4.setVisible(true);
 
 
 		JTextField total = new JTextField("합계");
-		total.setSize(100, 20);
-		total.setLocation(110,210);
+		total.setSize(110, 20);
+		total.setLocation(25,210);
 
 
+		JTextField price = new JTextField();
+		price.setSize(130, 20);
+		price.setLocation(160,210);
+		price.setText("0");
+		Controller ctr = new Controller();
+		listmenu1.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea1 = listmenu1.getSelectedIndex();
+				sum1 = ctr.totalPrice(n.getPrice()[0], ea1);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+
+			}
+		});
+		listmenu2.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea2 = listmenu2.getSelectedIndex();
+				sum2 = ctr.totalPrice(n.getPrice()[1], ea2);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+
+			}
+		});
+		listmenu3.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea3 = listmenu3.getSelectedIndex();
+				sum3 = ctr.totalPrice(n.getPrice()[0], ea3);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+				
+
+			}
+		});
+		listmenu4.addItemListener(new ItemListener() {
+
+			@Override
+			public void itemStateChanged(ItemEvent arg0) {
+				// TODO Auto-generated method stub
+				int ea4 = listmenu4.getSelectedIndex();
+				sum4 = ctr.totalPrice(n.getPrice()[0], ea4);
+				sum=sum1+sum2+sum3+sum4;
+				price.setText(sum+"");
+			}
+		});
 
 		panel4.add(menu1);
 		panel4.add(menu1p);
@@ -408,7 +522,8 @@ public class NoodlesPage extends JPanel {
 		panel4.add(listmenu4);
 
 
-		panel4.add(total);      
+		panel4.add(total);  
+		panel4.add(price);
 
 		//---------------------------------------
 
@@ -440,6 +555,42 @@ public class NoodlesPage extends JPanel {
 		});
 
 
+		JButton pay = new JButton("결제");
+		pay.setSize(100 ,30 );
+		pay.setLocation(215,50);
+		panel5.add(pay);
+
+		pay.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				LoginPage lp = new LoginPage();
+				try {
+					File memberList = new File("MemberList.txt");
+					BufferedReader br = new BufferedReader(new FileReader(memberList));
+					String line = "";
+					PopUp pu = new PopUp();
+					while ((line = br.readLine()) != null) {
+						String[] info = line.split(", ");
+						if (lp.getId().equals(info[0])) {
+							if (Integer.parseInt(info[10]) - sum >= 0) {
+								
+								pu.CheckPay(price.getText(),mf,noodlesPage);
+							} else {
+								
+								pu.lackOfMoney(mf,noodlesPage);
+							}
+						}
+					}
+				} catch (FileNotFoundException e1) {
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
+
+			}
+
+		});
 
 
 
